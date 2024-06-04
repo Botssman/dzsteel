@@ -14,7 +14,11 @@ fields:
         label: Код в URL (slug)
         span: auto
         preset: name
-
+    parent:
+        label: Родительская категория
+        type: relation
+        emptyOption: '- Выберите категорию -'
+        span: auto
 tabs:
     fields:
         products:

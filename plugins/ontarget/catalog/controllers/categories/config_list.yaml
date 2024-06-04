@@ -46,6 +46,10 @@ toolbar:
     search:
         prompt: backend::lang.list.search_prompt
 
+structure:
+    showTree: true
+    showReorder: true
+
 filter:
     scopes:
         is_active:
