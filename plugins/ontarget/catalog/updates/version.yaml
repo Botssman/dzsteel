@@ -1,0 +1,4 @@
+v1.0.1:
+    - Categories and products
+    - create_categories_table.php
+    - create_products_table.php

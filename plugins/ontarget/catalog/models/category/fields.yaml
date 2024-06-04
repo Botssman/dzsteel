@@ -1,0 +1,56 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    is_active:
+        type: switch
+        label: Активная категория
+        default: true
+    name:
+        label: Название
+        span: auto
+    slug:
+        label: Код в URL (slug)
+        span: auto
+        preset: name
+
+tabs:
+    fields:
+        products:
+            label: Товары
+            type: relation
+            controller:
+                label: Товары
+                list: $/ontarget/catalog/models/product/columns.yaml
+                form: $/ontarget/catalog/models/product/fields.yaml
+                view:
+                    toolbarButtons: create|delete
+                customMessages:
+                    buttonCreate: Создать товар
+                    buttonDelete: Удалить
+            tab: Товары
+        description:
+            type: richeditor
+            span: full
+            label: Описание
+            tab: Текст
+        image:
+            label: Основное изображение
+            type: fileupload
+            mode: image
+            fileTypes: [.png, .jpg, .jpeg, .webp]
+            tab: Медиа
+        images:
+            label: Дополнительные изображения
+            type: fileupload
+            mode: image
+            fileTypes: [ .png, .jpg, .jpeg, .webp ]
+            tab: Медиа
+            maxFiles: 25
+        icon:
+            label: Иконка категории
+            type: fileupload
+            mode: image
+            fileTypes: [ .png, .svg, .webp ]
+            tab: Медиа

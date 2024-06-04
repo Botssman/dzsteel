@@ -1,0 +1,31 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    image:
+        label: Изображение
+        type: image
+        width: '60px'
+        height: 60
+        options:
+            quality: 65
+            extension: webp
+    id:
+        label: ID
+        searchable: true
+        cssClass: align-middle
+    name:
+        label: Название
+        searchable: true
+        cssClass: align-middle
+    products_count:
+        label: Кол-во товаров
+        type: number
+        relation: products
+        relationCount: true
+        cssClass: align-middle
+    is_active:
+        label: Активно
+        type: switch
+        cssClass: align-middle

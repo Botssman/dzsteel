@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Категория
+
+# Model Form Field configuration
+form: $/ontarget/catalog/models/category/fields.yaml
+
+# Model Class name
+modelClass: OnTarget\Catalog\Models\Category
+
+# Default redirect location
+defaultRedirect: ontarget/catalog/categories
+
+# Create page
+create:
+    title: Создать категорию
+    redirect: ontarget/catalog/categories/update/:id
+    redirectClose: ontarget/catalog/categories
+
+# Update page
+update:
+    title: Редактирование категории
+    redirect: ontarget/catalog/categories
+    redirectClose: ontarget/catalog/categories
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

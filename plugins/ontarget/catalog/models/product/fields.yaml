@@ -1,0 +1,78 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    is_active:
+        type: switch
+        label: Активный товар
+        default: true
+    name:
+        label: Название
+        span: auto
+    slug:
+        label: Код в URL (slug)
+        span: auto
+        preset: name
+    category:
+        label: Категория
+        type: relation
+        span: auto
+        emptyOption: '- Выберите категорию товара -'
+    vendor_code:
+        label: Артикул
+        span: auto
+    price:
+        type: number
+        label: Цена
+        span: auto
+        min: 0
+    old_price:
+        type: number
+        label: Старая цена
+        span: auto
+        min: 0
+
+tabs:
+    fields:
+        weight:
+            label: Вес, г.
+            type: number
+            tab: Габариты
+        height:
+            label: Высота, мм.
+            type: number
+            tab: Габариты
+        length:
+            label: Длина, мм.
+            type: number
+            tab: Габариты
+        width:
+            label: Ширина, мм.
+            type: number
+            tab: Габариты
+        description:
+            type: richeditor
+            span: full
+            label: Описание
+            tab: Текст
+        image:
+            label: Основное изображение
+            type: fileupload
+            mode: image
+            fileTypes: [ .png, .jpg, .jpeg, .webp ]
+            tab: Медиа
+        images:
+            label: Дополнительные изображения
+            type: fileupload
+            mode: image
+            fileTypes: [ .png, .jpg, .jpeg, .webp ]
+            tab: Медиа
+            maxFiles: 25
+        documents:
+            label: Документы
+            type: fileupload
+            mode: file
+            fileTypes: [.pdf, .docx, .doc, .xlsx, .xls, .txt ]
+            tab: Документы
+            maxFiles: 25

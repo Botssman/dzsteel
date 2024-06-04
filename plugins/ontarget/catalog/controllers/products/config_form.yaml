@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/ontarget/catalog/models/product/fields.yaml
+
+# Model Class name
+modelClass: OnTarget\Catalog\Models\Product
+
+# Default redirect location
+defaultRedirect: ontarget/catalog/products
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: ontarget/catalog/products/update/:id
+    redirectClose: ontarget/catalog/products
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: ontarget/catalog/products
+    redirectClose: ontarget/catalog/products
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
