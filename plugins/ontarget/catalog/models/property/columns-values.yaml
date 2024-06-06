@@ -7,7 +7,7 @@ columns:
         label: ID
         searchable: true
     name:
-        label: Название
+        label: Значение
         searchable: true
     slug:
         label: Slug

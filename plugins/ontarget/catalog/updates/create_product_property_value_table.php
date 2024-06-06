@@ -5,7 +5,7 @@ use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreatePropertiesTable Migration
+ * ontarget_catalog_category_property Migration
  *
  * @link https://docs.octobercms.com/3.x/extend/database/structure.html
  */
@@ -16,15 +16,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ontarget_catalog_properties', function(Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->boolean('is_active')->default(1);
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description')->nullable();
-
-            $table->index('slug');
+        Schema::create('ontarget_catalog_product_property_value', function(Blueprint $table) {
+            $table->integer('product_id');
+            $table->integer('property_value_id');
+            $table->primary(['product_id', 'property_value_id']);
         });
     }
 
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ontarget_catalog_properties');
+        Schema::dropIfExists('ontarget_catalog_product_property_value');
     }
 };

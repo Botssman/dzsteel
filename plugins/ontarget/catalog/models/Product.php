@@ -50,6 +50,13 @@ class Product extends Model
         'category' => Category::class
     ];
 
+    public $belongsToMany = [
+        'property_values' => [
+            PropertyValue::class,
+            'table' => 'ontarget_catalog_product_property_value'
+        ]
+    ];
+
     public $attachOne = [
         'image' => File::class,
     ];
@@ -58,4 +65,13 @@ class Product extends Model
         'images' => File::class,
         'documents' => File::class,
     ];
+
+    public function handlePropertyValueUpdates()
+    {
+        $formData = array_wrap(post('PropertyValues', []));
+
+        $this->property_values()->sync(array_values($formData));
+
+
+    }
 }

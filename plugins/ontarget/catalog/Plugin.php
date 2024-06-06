@@ -1,6 +1,7 @@
 <?php namespace OnTarget\Catalog;
 
 use Backend;
+use OnTarget\Catalog\FormWidgets\Properties;
 use System\Classes\PluginBase;
 
 /**
@@ -63,6 +64,10 @@ class Plugin extends PluginBase
                 'tab' => 'Каталог',
                 'label' => 'Управление категориями'
             ],
+            'ontarget.catalog.properties' => [
+                'tab' => 'Каталог',
+                'label' => 'Управление свойствами'
+            ],
         ];
     }
 
@@ -92,9 +97,23 @@ class Plugin extends PluginBase
                         'icon' => 'ph ph-barcode',
                         'permissions' => ['ontarget.catalog.products'],
                         'order' => 500,
+                    ],
+                    'properties' => [
+                        'label' => 'Характеристики',
+                        'url' => Backend::url('ontarget/catalog/properties'),
+                        'icon' => 'ph ph-check',
+                        'permissions' => ['ontarget.catalog.properties'],
+                        'order' => 500,
                     ]
                 ]
             ],
+        ];
+    }
+
+    public function registerFormWidgets()
+    {
+        return [
+            Properties::class => 'properties'
         ];
     }
 }

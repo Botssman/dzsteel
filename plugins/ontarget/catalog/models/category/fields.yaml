@@ -58,3 +58,17 @@ tabs:
             mode: image
             fileTypes: [ .png, .svg, .webp ]
             tab: Медиа
+        properties:
+            label: Характеристики
+            type: relation
+            controller:
+                label: Характеристики
+                list: $/ontarget/catalog/models/property/columns.yaml
+                form: $/ontarget/catalog/models/property/fields.yaml
+                view:
+                    toolbarButtons: create|link|unlink
+                customMessages:
+                    buttonCreate: Создать
+                    buttonLink: Привязать
+                    buttonUnlink: Отвязать
+            tab: Характеристики

@@ -3,6 +3,37 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    is_active:
+        type: switch
+        label: Активное свойство
+        default: true
+    name:
+        label: Название
+        span: auto
+    slug:
+        label: Код (slug)
+        span: auto
+        preset: name
+tabs:
+    fields:
+        values:
+            label: Значения
+            type: relation
+            tab: Значения
+            controller:
+                label: Значения
+                list: $/ontarget/catalog/models/property/columns-values.yaml
+                form: $/ontarget/catalog/models/property/fields-values.yaml
+                view:
+                    toolbarButtons: create|delete
+                customMessages:
+                    buttonCreate: Создать значение
+                    buttonDelete: Удалить
+        categories:
+            label: Категории
+            type: relation
+            tab: Категории
+        description:
+            label: Описание
+            type: richeditor
+            tab: Описание

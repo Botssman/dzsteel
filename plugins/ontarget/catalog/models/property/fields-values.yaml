@@ -1,0 +1,17 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    is_active:
+        type: switch
+        label: Активное значение
+        default: true
+    name:
+        label: Название
+        span: auto
+    slug:
+        label: Код (slug)
+        span: auto
+        preset: name
+

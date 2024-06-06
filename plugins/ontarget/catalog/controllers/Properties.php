@@ -2,14 +2,13 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use OnTarget\Catalog\Models\Product;
 
 /**
- * Products Backend Controller
+ * Properties Backend Controller
  *
  * @link https://docs.octobercms.com/3.x/extend/system/controllers.html
  */
-class Products extends Controller
+class Properties extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,
@@ -29,7 +28,7 @@ class Products extends Controller
     /**
      * @var array required permissions
      */
-    public $requiredPermissions = ['ontarget.catalog.products'];
+    public $requiredPermissions = ['ontarget.catalog.properties'];
 
     /**
      * __construct the controller
@@ -38,11 +37,6 @@ class Products extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('OnTarget.Catalog', 'catalog', 'products');
-    }
-
-    public function formAfterUpdate(Product $model)
-    {
-        $model->handlePropertyValueUpdates();
+        BackendMenu::setContext('OnTarget.Catalog', 'catalog', 'properties');
     }
 }

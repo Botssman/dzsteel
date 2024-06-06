@@ -47,6 +47,13 @@ class Category extends Model
         'slug' => ['required'],
     ];
 
+    public $belongsToMany = [
+        'properties' => [
+            Property::class,
+            'table' => 'ontarget_catalog_category_property'
+        ]
+    ];
+
     public $hasMany = [
         'products' => Product::class
     ];

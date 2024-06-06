@@ -51,6 +51,9 @@ tabs:
             label: Ширина, мм.
             type: number
             tab: Габариты
+        properties@update:
+            type: properties
+            tab: Харакеристики
         description:
             type: richeditor
             span: full

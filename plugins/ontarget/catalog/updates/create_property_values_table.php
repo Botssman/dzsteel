@@ -19,6 +19,14 @@ return new class extends Migration
         Schema::create('ontarget_catalog_property_values', function(Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('property_id');
+            $table->boolean('is_active')->default(1);
+            $table->integer('sort_order')->default(1);
+            $table->string('name');
+            $table->string('slug');
+
+            $table->index('property_id');
+            $table->index('slug');
         });
     }
 
