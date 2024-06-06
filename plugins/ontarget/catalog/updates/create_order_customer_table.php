@@ -5,7 +5,7 @@ use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * ontarget_catalog_category_property Migration
+ * ontarget_catalog_order_customer Migration
  *
  * @link https://docs.octobercms.com/3.x/extend/database/structure.html
  */
@@ -16,10 +16,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ontarget_catalog_category_property', function(Blueprint $table) {
-            $table->unsignedBigInteger('property_id');
-            $table->unsignedBigInteger('category_id');
-            $table->primary(['category_id', 'property_id']);
+        Schema::create('ontarget_catalog_order_customer', function(Blueprint $table) {
+            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('customer_id');
+            $table->primary(['order_id', 'customer_id']);
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ontarget_catalog_category_property');
+        Schema::dropIfExists('ontarget_catalog_order_customer');
     }
 };

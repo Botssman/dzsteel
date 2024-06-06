@@ -8,3 +8,8 @@ v1.0.2:
     - create_property_values_table.php
     - create_category_property_table.php
     - create_product_property_value_table.php
+v1.0.3:
+    - Customers and orders tables
+    - create_customers_table.php
+    - create_orders_table.php
+    - create_order_customer_table.php

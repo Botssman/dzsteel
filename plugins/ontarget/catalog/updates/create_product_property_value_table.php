@@ -17,8 +17,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ontarget_catalog_product_property_value', function(Blueprint $table) {
-            $table->integer('product_id');
-            $table->integer('property_value_id');
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('property_value_id');
             $table->primary(['product_id', 'property_value_id']);
         });
     }

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Order
+
+# Model Form Field configuration
+form: $/ontarget/catalog/models/order/fields.yaml
+
+# Model Class name
+modelClass: OnTarget\Catalog\Models\Order
+
+# Default redirect location
+defaultRedirect: ontarget/catalog/orders
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: ontarget/catalog/orders/update/:id
+    redirectClose: ontarget/catalog/orders
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: ontarget/catalog/orders
+    redirectClose: ontarget/catalog/orders
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
