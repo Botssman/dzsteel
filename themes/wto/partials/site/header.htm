@@ -1,0 +1,67 @@
+<header class="header">
+	<div o_group="Хэдер" data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="b-menu w-nav">
+		<div class="container container_align_h_flex w-container">
+			<a href="/" class="b-menu__logo-link w-nav-brand">
+				<img src="{{ 'assets/images/logo_stal.svg'|theme }}" loading="lazy" alt="" class="b-menu__logo">
+			</a>
+			<div class="b-menu__button w-nav-button">
+				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_menu_burger">
+			</div>
+			<div class="b-button-box">
+				<a href="/shop" class="b-button v-2 w-button">
+					Каталог
+				</a>
+				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cat_button">
+			</div>
+			<form action="/search" wp_search="product" class="search w-form">
+				<input class="search-input w-input" maxlength="256" name="query" placeholder="Поиск …" type="search" id="search" required="">
+				<input type="submit" class="search-button w-button" value="Search">
+				<img src="{{ 'assets/images/search_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_search">
+			</form>
+			<nav role="navigation" class="b-menu__nav w-nav-menu">
+				<a href="#" class="b-menu-close w-inline-block">
+					<img src="{{ 'assets/images/white_menu_close.svg'|theme }}" loading="lazy" o_image="Иконка закрыть меню" alt="" class="b-image b-image_menu_close">
+				</a>
+				<a href="/" class="b-burger-logo-link w-inline-block">
+					<img src="{{ 'assets/images/logo_stal.svg'|theme }}" loading="lazy" o_image="Лого моб меню" alt="" class="b-menu__logo mob_show">
+				</a>
+				<div wp_menu="Главное меню" class="b-menu-links">
+					<a href="#" class="b-menu__link w-nav-link">
+						Услуги
+					</a>
+				</div>
+			</nav>
+			<div class="b-menu-box mob_hide">
+				<div class="h-wrap h-wrap_min_w_200">
+					<div class="h-wrap h-wrap_align_h_left">
+						<img src="{{ 'assets/images/svaz_icon.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_svaz">
+						<div class="b-text b_text_light_grey b-text_size_14 mob_hide">
+							НА СВЯЗИ  24 ЧАСА
+						</div>
+					</div>
+					<div class="h-wrap">
+						<a href="#" class="b-maillink b-maillink_header">
+							qwet-mail.ru
+						</a>
+					</div>
+				</div>
+				<div class="h-wrap h-wrap_align_v_right">
+					<a href="#" class="b-phonelink b-phonelink_no_wrap">
+						8-900-232-22-23
+					</a>
+					<div class="b-phone-text">
+						<a href="#" class="b-link b-link_white">
+							заказать звонок
+						</a>
+					</div>
+				</div>
+			</div>
+			<a href="/checkout/" class="b-cart-button w-inline-block">
+				<img src="{{ 'assets/images/cart_dark.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cart">
+				<div wp="cart_count" class="b-cart-count">
+					1
+				</div>
+			</a>
+		</div>
+	</div>
+</header>
