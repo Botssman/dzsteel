@@ -68,6 +68,10 @@ class Plugin extends PluginBase
                 'tab' => 'Каталог',
                 'label' => 'Управление свойствами'
             ],
+            'ontarget.catalog.orders' => [
+                'tab' => 'Каталог',
+                'label' => 'Управление заказами'
+            ],
         ];
     }
 
@@ -103,6 +107,13 @@ class Plugin extends PluginBase
                         'url' => Backend::url('ontarget/catalog/properties'),
                         'icon' => 'ph ph-check',
                         'permissions' => ['ontarget.catalog.properties'],
+                        'order' => 500,
+                    ],
+                    'orders' => [
+                        'label' => 'Заказы',
+                        'url' => Backend::url('ontarget/catalog/orders'),
+                        'icon' => 'ph ph-shopping-cart',
+                        'permissions' => ['ontarget.catalog.orders'],
                         'order' => 500,
                     ]
                 ]

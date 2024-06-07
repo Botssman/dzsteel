@@ -6,3 +6,12 @@ columns:
     id:
         label: ID
         searchable: true
+    name:
+        label: Имя
+        searchable: true
+    phone_number:
+        label: Телефон
+        searchable: true
+    email:
+        label: E-mail
+        searchable: true

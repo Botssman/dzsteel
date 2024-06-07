@@ -21,4 +21,8 @@ class Order extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+    public $belongsTo = [
+        'customer' => Customer::class
+    ];
 }

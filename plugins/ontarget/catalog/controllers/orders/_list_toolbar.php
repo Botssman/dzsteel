@@ -3,7 +3,7 @@
         href="<?= Backend::url('ontarget/catalog/orders/create') ?>"
         class="btn btn-primary">
         <i class="icon-plus"></i>
-        <?= __("New :name", ['name' => 'Order']) ?>
+        <?= __("Создать :name", ['name' => 'заказ']) ?>
     </a>
 
     <div class="toolbar-divider"></div>

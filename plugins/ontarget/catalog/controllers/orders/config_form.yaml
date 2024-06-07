@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Order
+name: Заказ
 
 # Model Form Field configuration
 form: $/ontarget/catalog/models/order/fields.yaml

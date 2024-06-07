@@ -1,6 +1,7 @@
 <?php namespace OnTarget\Catalog\Models;
 
 use Model;
+use October\Rain\Database\Traits\Validation;
 
 /**
  * Customer Model
@@ -9,7 +10,7 @@ use Model;
  */
 class Customer extends Model
 {
-    use \October\Rain\Database\Traits\Validation;
+    use Validation;
 
     /**
      * @var string table name
@@ -20,4 +21,8 @@ class Customer extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+    public $hasMany = [
+        'orders' => Order::class
+    ];
 }

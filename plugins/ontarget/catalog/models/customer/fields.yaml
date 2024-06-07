@@ -3,6 +3,18 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    name:
+        label: Имя
+    phone_number:
+        label: Телефон
+        span: auto
+    email:
+        label: E-mail
+        span: auto
+    city:
+        label: Город
+        span: auto
+    address:
+        label: Адрес
+        type: textarea
+        span: auto

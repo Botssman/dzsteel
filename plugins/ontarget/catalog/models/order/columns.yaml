@@ -6,3 +6,15 @@ columns:
     id:
         label: ID
         searchable: true
+    created_at:
+        label: Дата создания
+        type: datetime
+        format: 'd.m.Y H:i:s'
+    customer_name:
+        label: Имя клиента
+        relation: customer
+        select: name
+    products_count:
+        label: Кол-во товаров
+        relation: products
+        relationCount: true

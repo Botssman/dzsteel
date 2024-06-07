@@ -9,7 +9,7 @@ list: $/ontarget/catalog/models/order/columns.yaml
 modelClass: OnTarget\Catalog\Models\Order
 
 # List Title
-title: Manage Orders
+title: Заказы
 
 # Link URL for each record
 recordUrl: ontarget/catalog/orders/update/:id
