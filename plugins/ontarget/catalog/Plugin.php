@@ -1,6 +1,9 @@
 <?php namespace OnTarget\Catalog;
 
 use Backend;
+use OnTarget\Catalog\Components\Cart;
+use OnTarget\Catalog\Components\Catalog;
+use OnTarget\Catalog\Components\Product;
 use OnTarget\Catalog\FormWidgets\Properties;
 use System\Classes\PluginBase;
 
@@ -46,7 +49,9 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-
+            Catalog::class => 'Catalog',
+            Product::class => 'Product',
+            Cart::class => 'Cart',
         ];
     }
 
@@ -126,5 +131,38 @@ class Plugin extends PluginBase
         return [
             Properties::class => 'properties'
         ];
+    }
+
+    public function registerMarkupTags(): array
+    {
+        return [
+            'filters' => [
+                'price' => [$this, 'formatPrice'],
+                'plural'  => [$this, 'getPlural'],
+            ]
+        ];
+    }
+
+    /**
+     * @param float|null $price
+     * @return string
+     */
+    public function formatPrice(?float $price): string
+    {
+        if (empty($price)) return '';
+        return number_format($price, 0, '', ' ');
+    }
+
+    /**
+     * @param int|null $number
+     * @param array $params
+     * @return string
+     */
+    public function getPlural(?int $number, array $params) : string
+    {
+        if (empty($number)) return '';
+
+        $cases = [2, 0, 1, 1, 1, 2];
+        return $number . ' ' . $params[($number % 100 > 4 && $number % 100 < 20) ? 2 : $cases[min($number % 10, 5)]];
     }
 }

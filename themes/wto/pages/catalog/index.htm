@@ -1,16 +1,13 @@
 url="/catalog/:category?"
 title="Каталог"
 layout="default"
+
+[Catalog]
 ==
 <div class="main">
     <section class="s-section s-section_catalog">
         <div class="container">
-            <div class="b-breadcrumbs">
-                <div wp_php="if (function_exists ('yoast_breadcrumb')) {    yoast_breadcrumb ('<ul id="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">', ''); }" class="b-breadcrumbs-2 w-richtext">
-                <ul role="list">
-                    <li>крош<a href="#">ки</a></li>
-                </ul>
-            </div>
+            {% partial 'catalog/breadcrumbs' target=currentCategory %}
         </div>
         <div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_70 h-wrap_archive">
             <div class="b-title-4">КАТАЛОГ</div>
@@ -19,110 +16,52 @@ layout="default"
             <div class="b-catalog b-catalog_cat">
                 <div class="left-content left-content_cat">
                     <div class="h-wrap pc_hide"><a data-w-id="82b340cb-56a5-3046-b9bc-e93390e116b4" href="#" class="b-button v-12 w-button">ВЫБРАТЬ КАТЕГОРИЮ</a></div>
-                    <div wp_menu="Меню каталога" class="b-sidebar">
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e722a" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>МЕТАЛЛОПРОКАТ</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e7239" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Металлургическое сырье</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e7248" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Полимеры</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e7257" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Абразивные материалы</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e7266" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Метизы</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e7275" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Оборудование</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e7284" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Полимеры</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e7293" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Абразивные материалы</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e72a2" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Металлургическое сырье</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e72b1" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Оборудование</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e72c0" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Абразивные материалы</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
-                        <div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e72cf" class="b-dropdown b-dropdown_side w-dropdown">
-                            <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
-                                <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
-                                <div>Металлургическое сырье</div><img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow"><img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt class="b-image b-image_side_arrow_down"></div>
-                            <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
-                                <div class="b-dropdown__content b-dropdown__content_side"><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a><a href="#" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">Арматура A3</a></div>
-                            </nav>
-                        </div>
+                    <div class="b-sidebar">
+                        {% set sidebarCategories = categories is not empty ? categories : currentCategory.parent.children %}
+                        {% for category in sidebarCategories %}
+                            <div class="b-dropdown b-dropdown_side w-dropdown">
+                                <div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
+                                    <div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
+                                    <div>{{ category.name | upper }}</div>
+                                    <img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt
+                                         class="b-image b-image_side_arrow"><img
+                                        src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt
+                                        class="b-image b-image_side_arrow_down">
+                                </div>
+                                {% if category.children is not empty %}
+                                    <nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
+                                        <div class="b-dropdown__content b-dropdown__content_side">
+                                            {% for child in category.children  %}
+                                                <a href="{{ 'catalog/index' | page({category: child.slug}) }}" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">
+                                                    {{ child.name }}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </nav>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="right-content right-content_cat">
                     <div>
                         <div class="b-category-grid">
-                            <div id="w-node-_5c7ddbc7-fb77-0a55-7626-dad43a50e31a-3a50e31a" class="b-category-box"><a href="#" class="b-linkblock b-linkblock_cat w-inline-block"><div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_40"><img src="{{ 'assets/images/cat_icon_3.svg'|theme }}" loading="lazy" alt class="b-image b-image_cat_icon"></div><div class="h-wrap"><div class="b-text b-text_open_sans b-text_size_18 b-text_center">МЕТАЛЛУРГИЧЕСКОЕ СЫРЬЕ</div></div></a></div>
-                            <div id="w-node-_5c7ddbc7-fb77-0a55-7626-dad43a50e31a-3a50e31a" class="b-category-box"><a href="#" class="b-linkblock b-linkblock_cat w-inline-block"><div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_40"><img src="{{ 'assets/images/cat_icon_3.svg'|theme }}" loading="lazy" alt class="b-image b-image_cat_icon"></div><div class="h-wrap"><div class="b-text b-text_open_sans b-text_size_18 b-text_center">МЕТАЛЛУРГИЧЕСКОЕ СЫРЬЕ</div></div></a></div>
+
+                            {% for category in categories %}
+                                <div class="b-category-box">
+                                    <a href="{{ 'catalog/index' | page({category: category.slug}) }}" class="b-linkblock b-linkblock_cat w-inline-block">
+                                        <div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_40">
+                                            {% set image = category.image ?? category.images.first %}
+                                            <img src="{{ image ? image.getThumb(100, 100, {extension: 'webp', 'quality':75}) : ('assets/images/cat_icon_3.svg'|theme) }}" loading="lazy" alt="{{ image.title | default(category.name) }}"
+                                                class="b-image b-image_cat_icon">
+                                        </div>
+                                        <div class="h-wrap">
+                                            <div class="b-text b-text_open_sans b-text_size_18 b-text_center">
+                                                {{ category.name }}
+                                            </div>
+                                        </div>
+                                    </a></div>
+                            {% endfor %}
                         </div>
                     </div>
                     <div>
@@ -177,105 +116,13 @@ layout="default"
                         </div>
                         <div>
                             <div class="b-catalog-grid">
-                                <div class="b-product-card"><a wp="post_link" href="#" class="b-product-link w-inline-block"><img src="{{ 'assets/images/armatyra20220(1).jpg'|theme }}" loading="lazy" alt class="b-image b-image_cat_image"><div class="b-product-content"><div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_25 h-wrap_mob_mg-bt_10"><div class="h-wrap h-wrap_mob_mg-bt_10"><div class="h-wrap"><div class="h-wrap h-wrap_align_h_left_down"><div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down"><div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">47 ₽</div></div></div></div></div><div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left"></div></div><div class="h-wrap h-wrap_mg-bt_15"><div class="b-text b-text_dark">Арматура АЗ рифленая (А400) D 12 11700мм ГОСТ 5781-82dawdawddwddawdw<br>adawd<br>dwadawdwa<br>dwadawdawd<br>wadwa<br>wdad<br>‍</div></div><div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div></div></a>
-                                    <div class="b-form-2 w-form">
-                                        <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-product-form_box" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="f8138cbe-72ea-1ab4-75ca-bfe34ba3b10e">
-                                            <div class="h-wrap h-wrap_align_h_flex">
-                                                <div class="h-wrap h-wrap_pd_r_20 h-wrap_mob_mg-bt_10"><input type="submit" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик"></div>
-                                                <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-6 w-button" value="В корзину"></div>
-                                            </div>
-                                        </form>
-                                        <div class="success-message-2 w-form-done">
-                                            <div class="b-text b-text_grey b-text_size_14">Товар успешно добавлен в корзину!</div>
-                                        </div>
-                                        <div class="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="b-product-card"><a wp="post_link" href="#" class="b-product-link w-inline-block"><img src="{{ 'assets/images/armatyra20220(1).jpg'|theme }}" loading="lazy" alt class="b-image b-image_cat_image"><div class="b-product-content"><div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_25 h-wrap_mob_mg-bt_10"><div class="h-wrap h-wrap_mob_mg-bt_10"><div class="h-wrap"><div class="h-wrap h-wrap_align_h_left_down"><div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down"><div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">47 ₽</div></div></div></div></div><div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left"></div></div><div class="h-wrap h-wrap_mg-bt_15"><div class="b-text b-text_dark">Арматура АЗ рифленая (А400) D 12 11700мм ГОСТ 5781-82dawdawddwddawdw<br>adawd<br>dwadawdwa<br>dwadawdawd<br>wadwa<br>wdad<br>‍</div></div><div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div></div></a>
-                                    <div class="b-form-2 w-form">
-                                        <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-product-form_box" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="f8138cbe-72ea-1ab4-75ca-bfe34ba3b10e">
-                                            <div class="h-wrap h-wrap_align_h_flex">
-                                                <div class="h-wrap h-wrap_pd_r_20 h-wrap_mob_mg-bt_10"><input type="submit" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик"></div>
-                                                <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-6 w-button" value="В корзину"></div>
-                                            </div>
-                                        </form>
-                                        <div class="success-message-2 w-form-done">
-                                            <div class="b-text b-text_grey b-text_size_14">Товар успешно добавлен в корзину!</div>
-                                        </div>
-                                        <div class="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="b-product-card"><a wp="post_link" href="#" class="b-product-link w-inline-block"><img src="{{ 'assets/images/armatyra20220(1).jpg'|theme }}" loading="lazy" alt class="b-image b-image_cat_image"><div class="b-product-content"><div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_25 h-wrap_mob_mg-bt_10"><div class="h-wrap h-wrap_mob_mg-bt_10"><div class="h-wrap"><div class="h-wrap h-wrap_align_h_left_down"><div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down"><div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">47 ₽</div></div></div></div></div><div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left"></div></div><div class="h-wrap h-wrap_mg-bt_15"><div class="b-text b-text_dark">Арматура АЗ рифленая (А400) D 12 11700мм ГОСТ 5781-82dawdawddwddawdw<br>adawd<br>dwadawdwa<br>dwadawdawd<br>wadwa<br>wdad<br>‍</div></div><div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div></div></a>
-                                    <div class="b-form-2 w-form">
-                                        <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-product-form_box" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="f8138cbe-72ea-1ab4-75ca-bfe34ba3b10e">
-                                            <div class="h-wrap h-wrap_align_h_flex">
-                                                <div class="h-wrap h-wrap_pd_r_20 h-wrap_mob_mg-bt_10"><input type="submit" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик"></div>
-                                                <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-6 w-button" value="В корзину"></div>
-                                            </div>
-                                        </form>
-                                        <div class="success-message-2 w-form-done">
-                                            <div class="b-text b-text_grey b-text_size_14">Товар успешно добавлен в корзину!</div>
-                                        </div>
-                                        <div class="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="b-product-card"><a wp="post_link" href="#" class="b-product-link w-inline-block"><img src="{{ 'assets/images/armatyra20220(1).jpg'|theme }}" loading="lazy" alt class="b-image b-image_cat_image"><div class="b-product-content"><div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_25 h-wrap_mob_mg-bt_10"><div class="h-wrap h-wrap_mob_mg-bt_10"><div class="h-wrap"><div class="h-wrap h-wrap_align_h_left_down"><div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down"><div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">47 ₽</div></div></div></div></div><div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left"></div></div><div class="h-wrap h-wrap_mg-bt_15"><div class="b-text b-text_dark">Арматура АЗ рифленая (А400) D 12 11700мм ГОСТ 5781-82dawdawddwddawdw<br>adawd<br>dwadawdwa<br>dwadawdawd<br>wadwa<br>wdad<br>‍</div></div><div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div></div></a>
-                                    <div class="b-form-2 w-form">
-                                        <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-product-form_box" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="f8138cbe-72ea-1ab4-75ca-bfe34ba3b10e">
-                                            <div class="h-wrap h-wrap_align_h_flex">
-                                                <div class="h-wrap h-wrap_pd_r_20 h-wrap_mob_mg-bt_10"><input type="submit" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик"></div>
-                                                <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-6 w-button" value="В корзину"></div>
-                                            </div>
-                                        </form>
-                                        <div class="success-message-2 w-form-done">
-                                            <div class="b-text b-text_grey b-text_size_14">Товар успешно добавлен в корзину!</div>
-                                        </div>
-                                        <div class="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="b-product-card"><a wp="post_link" href="#" class="b-product-link w-inline-block"><img src="{{ 'assets/images/armatyra20220(1).jpg'|theme }}" loading="lazy" alt class="b-image b-image_cat_image"><div class="b-product-content"><div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_25 h-wrap_mob_mg-bt_10"><div class="h-wrap h-wrap_mob_mg-bt_10"><div class="h-wrap"><div class="h-wrap h-wrap_align_h_left_down"><div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down"><div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">47 ₽</div></div></div></div></div><div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left"></div></div><div class="h-wrap h-wrap_mg-bt_15"><div class="b-text b-text_dark">Арматура АЗ рифленая (А400) D 12 11700мм ГОСТ 5781-82dawdawddwddawdw<br>adawd<br>dwadawdwa<br>dwadawdawd<br>wadwa<br>wdad<br>‍</div></div><div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div></div></a>
-                                    <div class="b-form-2 w-form">
-                                        <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-product-form_box" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="f8138cbe-72ea-1ab4-75ca-bfe34ba3b10e">
-                                            <div class="h-wrap h-wrap_align_h_flex">
-                                                <div class="h-wrap h-wrap_pd_r_20 h-wrap_mob_mg-bt_10"><input type="submit" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик"></div>
-                                                <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-6 w-button" value="В корзину"></div>
-                                            </div>
-                                        </form>
-                                        <div class="success-message-2 w-form-done">
-                                            <div class="b-text b-text_grey b-text_size_14">Товар успешно добавлен в корзину!</div>
-                                        </div>
-                                        <div class="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="b-product-card"><a wp="post_link" href="#" class="b-product-link w-inline-block"><img src="{{ 'assets/images/armatyra20220(1).jpg'|theme }}" loading="lazy" alt class="b-image b-image_cat_image"><div class="b-product-content"><div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_25 h-wrap_mob_mg-bt_10"><div class="h-wrap h-wrap_mob_mg-bt_10"><div class="h-wrap"><div class="h-wrap h-wrap_align_h_left_down"><div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down"><div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">47 ₽</div></div></div></div></div><div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left"></div></div><div class="h-wrap h-wrap_mg-bt_15"><div class="b-text b-text_dark">Арматура АЗ рифленая (А400) D 12 11700мм ГОСТ 5781-82dawdawddwddawdw<br>adawd<br>dwadawdwa<br>dwadawdawd<br>wadwa<br>wdad<br>‍</div></div><div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div></div></a>
-                                    <div class="b-form-2 w-form">
-                                        <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-product-form_box" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="f8138cbe-72ea-1ab4-75ca-bfe34ba3b10e">
-                                            <div class="h-wrap h-wrap_align_h_flex">
-                                                <div class="h-wrap h-wrap_pd_r_20 h-wrap_mob_mg-bt_10"><input type="submit" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик"></div>
-                                                <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-6 w-button" value="В корзину"></div>
-                                            </div>
-                                        </form>
-                                        <div class="success-message-2 w-form-done">
-                                            <div class="b-text b-text_grey b-text_size_14">Товар успешно добавлен в корзину!</div>
-                                        </div>
-                                        <div class="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% for product in products %}
+                                    {% partial 'elements/product' product=product %}
+                                {% endfor %}
                             </div>
+                            <div class="no-results">Найдено {{ products.count | plural(["предложение", "предложения", "предложений"]) }} </div>
+
                             <div class="h-wrap h-wrap_align_h_center"><a href="#" class="b-button w-button">ПОКАЗАТЬ ЕЩЕ</a></div>
-                            <div class="no-results">Ничего не найдено</div>
                         </div>
                     </div>
                 </div>

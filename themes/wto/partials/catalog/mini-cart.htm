@@ -1,0 +1,6 @@
+<a href="{{ 'catalog/checkout' | page }}" class="b-cart-button w-inline-block">
+    <img src="{{ 'assets/images/cart_dark.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cart">
+    <div class="b-cart-count">
+        {{ cart.total | default(0) }}
+    </div>
+</a>
