@@ -3,11 +3,16 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    {% set title = this.page.meta_title ?: placeholder('pageTitle') %}
     <meta charset="utf-8">
-    <title>{{ title }}</title>
-    <meta content="{{ title }}" property="og:title">
-    <meta content="{{ title }}" property="twitter:title">
+    {% placeholder seo default %}
+        {% set title = this.page.meta_title ?: placeholder('pageTitle') %}
+        <title>{{ title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+
+        <meta content="{{ title }}" property="og:title">
+        <meta content="{{ title }}" property="twitter:title">
+    {% endplaceholder %}
+
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -23,7 +28,6 @@
     <link href="https://cdn.prod.website-files.com/65a92c918d3b135fed88be6b/65a92c938d3b135fed88c927_webclip.png"
           rel="apple-touch-icon">
     <!-- HEAD CODE -->
-    <meta name="description" content="{{ this.page.meta_description }}">
 
     {% placeholder head %}
 
