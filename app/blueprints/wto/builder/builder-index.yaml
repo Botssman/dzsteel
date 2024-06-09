@@ -1,0 +1,46 @@
+uuid: builder-index
+handle: BuilderIndex
+type: mixin
+name: Builder Index
+
+fields:
+    sections:
+        label: Секции
+        type: repeater
+        displayMode: builder
+        span: adaptive
+        tab: Секции
+        groups:
+          hero_section:
+              name: Главная секция
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\HeroSection
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false
+          section_product_and_services:
+              name: Секция продукция и услуги
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\SectionProductAndServices
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false
+          section_special_offer:
+              name: Секция спецпредложение
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\SectionSpecialOffer
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false                        

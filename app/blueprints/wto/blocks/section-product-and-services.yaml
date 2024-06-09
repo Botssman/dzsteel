@@ -1,0 +1,9 @@
+uuid: section-product-and-services
+name: Section product and services
+type: mixin
+handle: Blocks\SectionProductAndServices
+
+fields:
+    title:
+        label: Заголовок
+        type: text  

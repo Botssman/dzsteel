@@ -7,18 +7,10 @@
         blueprint_uuid: page_index
         update_existing: true
 -
-    name: archive-product
+    name: page-checkout
     class: Tailor\Models\RecordImport
-    file: seeds/data/pages/archive-product.json
+    file: seeds/data/pages/page-checkout.json
     attributes:
         file_format: json
-        blueprint_uuid: page_archive-product
-        update_existing: true
--
-    name: single-product
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/single-product.json
-    attributes:
-        file_format: json
-        blueprint_uuid: page_single-product
+        blueprint_uuid: page_page-checkout
         update_existing: true

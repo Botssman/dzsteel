@@ -7,5 +7,4 @@ navigation:
     label: 'Категории товаров'
     parent: page_index
     icon: icon-file-text
-    order: '10'
 fields: {  }
