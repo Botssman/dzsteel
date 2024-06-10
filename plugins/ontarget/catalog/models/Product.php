@@ -5,6 +5,7 @@ use October\Rain\Database\Builder;
 use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
+use OnTarget\Catalog\Classes\QueryBuilders\ProductQueryBuilder;
 use System\Models\File;
 
 /**
@@ -15,7 +16,7 @@ use System\Models\File;
  * @mixin \Illuminate\Database\Eloquent\Builder
  * @mixin Builder
  *
- * @method static \Illuminate\Database\Eloquent\Builder|static query()
+ * @method static ProductQueryBuilder|static query()
  */
 class Product extends Model
 {
@@ -72,6 +73,14 @@ class Product extends Model
 
         $this->property_values()->sync(array_values($formData));
 
+    }
 
+    /**
+     * @param $query
+     * @return ProductQueryBuilder
+     */
+    public function newEloquentBuilder($query): ProductQueryBuilder
+    {
+        return new ProductQueryBuilder($query);
     }
 }

@@ -1,0 +1,37 @@
+<div class="b-product-card">
+    <a href="{{ 'catalog/product' | page({category: product.category.slug, product: product.slug}) }}" class="b-product-link w-inline-block">
+        {% set image = product.image | default(product.images.first) %}
+        <div style="background-color:#ccc; height:273px;">
+            <img src="{{ image.getThumb(311, 273, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" alt="{{ image.title }}"
+                 class="b-image b-image_cat_image">
+        </div>
+        <div class="b-product-content">
+            <div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_25 h-wrap_mob_mg-bt_10">
+                <div class="h-wrap h-wrap_mob_mg-bt_10">
+                    <div class="h-wrap">
+                        <div class="h-wrap h-wrap_align_h_left_down">
+                            <div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down">
+                                <div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">
+                                    {{ product.price | price }} ₽
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left"></div>
+            </div>
+            <div class="h-wrap h-wrap_mg-bt_15">
+                <div class="b-text b-text_dark">
+                    {{ product.name }}
+                </div>
+            </div>
+            <div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div>
+            <div style="display: flex; align-items:center;gap:30px; padding: 0 0 30px 0;">
+                <button type="button" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик">
+                    Купить в 1 клик
+                </button>
+                <button class="b-button v-6 w-button">В корзину</button>
+            </div>
+        </div>
+    </a>
+</div>

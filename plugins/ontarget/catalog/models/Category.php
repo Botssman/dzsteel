@@ -18,6 +18,7 @@ use System\Models\File;
  *
  * @method static \Illuminate\Database\Eloquent\Builder|static query()
  *
+ * @method Builder|static active()
  */
 class Category extends Model
 {
@@ -66,4 +67,5 @@ class Category extends Model
     public $attachMany = [
         'images' => File::class
     ];
+
 }
