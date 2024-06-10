@@ -1,0 +1,7 @@
+<button type="submit" class="b-button v-6 w-button" {% if count == 0 %}disabled{% endif%} style="width:100%;">
+    {% if count %}
+        Показать ({{ count }})
+    {% else %}
+        Нет предложений
+    {% endif %}
+</button>

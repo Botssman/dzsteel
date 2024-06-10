@@ -2,6 +2,7 @@
 
 namespace OnTarget\Catalog\Classes\Filters\Handlers;
 
+use Cms\Classes\Controller;
 use October\Rain\Database\Builder;
 use OnTarget\Catalog\Models\Category;
 use Route;
@@ -17,18 +18,21 @@ class CategoriesFilterHandler implements FilterHandler
     {
         $categoryIdentifier = request(
             'category',
-            Route::current()
-                ->parameter('slug')
+            Controller::getController()->getRouter()->getParameter('category')
         );
 
         if (empty($categoryIdentifier)) return $next($query);
 
-        $ids = Category::query()
+        $category = Category::query()
             ->select('id', 'slug')
             ->where('id', $categoryIdentifier)
             ->orWhere('slug', $categoryIdentifier)
-            ->getAllChildrenAndSelf()
-            ->pluck('id');
+            ->first();
+
+        $ids = array_merge(
+            [$category->id],
+            $category->children->pluck('id')->toArray()
+        );
 
         return $next($query->whereIn('category_id', $ids));
     }

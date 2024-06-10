@@ -5,6 +5,7 @@ use OnTarget\Catalog\Components\Cart;
 use OnTarget\Catalog\Components\Catalog;
 use OnTarget\Catalog\Components\Product;
 use OnTarget\Catalog\FormWidgets\Properties;
+use OnTarget\Catalog\Models\CatalogSettings;
 use System\Classes\PluginBase;
 
 /**
@@ -139,6 +140,19 @@ class Plugin extends PluginBase
             'filters' => [
                 'price' => [$this, 'formatPrice'],
                 'plural'  => [$this, 'getPlural'],
+            ]
+        ];
+    }
+
+    public function registerSettings()
+    {
+        return [
+            'catalog-settings' => [
+                'label' => 'Настройки каталога',
+                'description' => 'Управление настройками каталога и магазина',
+                'category' => 'Каталог',
+                'icon' => 'icon-shopping-cart',
+                'class' => CatalogSettings::class
             ]
         ];
     }

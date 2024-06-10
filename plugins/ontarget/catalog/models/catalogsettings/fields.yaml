@@ -1,0 +1,9 @@
+tabs:
+    fields:
+        products_per_page:
+            label: Кол-во товаров на страницу по умолчанию
+            type: number
+            min: 1
+            max: 1000
+            tab: Листинг
+            default: 12

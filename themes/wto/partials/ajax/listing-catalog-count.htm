@@ -1,0 +1,21 @@
+{#{% set count = products.total %}#}
+{#{% if count > 0 %}#}
+{#    Найдено {{ count | plural(["предложение", "предложения", "предложений"]) }}#}
+{#{% else %}#}
+{#    Предложений не найдено#}
+{#{% endif %}#}
+
+{% if products.hasMorePages %}
+    <div class="h-wrap h-wrap_align_h_center">
+        <a href="#"
+           id="load-more-btn"
+            data-next-cursor="{{ products.nextCursor.encode }}"
+            data-attach-loading
+            class="b-button w-button">
+            ПОКАЗАТЬ ЕЩЕ
+        </a>
+    </div>
+
+
+{% endif %}
+
