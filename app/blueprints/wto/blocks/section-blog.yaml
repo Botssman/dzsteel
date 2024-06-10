@@ -1,11 +1,10 @@
-uuid: section-special-offer
-name: Section special offer
+uuid: section-blog
+name: Section blog
 type: mixin
-handle: Blocks\SectionSpecialOffer
-
+handle: Blocks\SectionBlog
 fields:
     hint:
         type: hint
         mode: tip
-        label: Секция специальное предложение
+        label: Секция блог
         comment: Редактируется в Настройках сайта (сквозные секции).

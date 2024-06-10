@@ -2,12 +2,12 @@
 	<div class="container">
 		<div class="h-wrap h-wrap_mg-bt_20">
 			<div class="b-title-2">
-				{{ block.zagolovok }}
+				{{ block.title }}
 			</div>
 		</div>
 		<div class="h-wrap h-wrap_mg-bt_130">
 			<div class="b-text b-text_grey b-text_size_18">
-				{{ block.podzagolovok }}
+				{{ block.subtitle }}
 			</div>
 		</div>
 		<div class="h-wrap">
@@ -15,7 +15,7 @@
 				<div class="b-tabs__menu w-tab-menu">
 					<a data-w-tab="Tab 1" class="b-tabs__link w-inline-block w-tab-link w--current">
 						<div class="b-tab-text">
-							ПРОДУКЦИЯ
+							{{ block.title_production }}
 						</div>
 					</a>
 					<a data-w-tab="Tab 2" class="b-tabs__link w-inline-block w-tab-link">
@@ -27,80 +27,35 @@
 				<div class="b-tabs__content w-tab-content">
 					<div data-w-tab="Tab 1" class="b-tabs__pane w-tab-pane w--tab-active">
 						<div data-duration-in="300" data-duration-out="100" data-current="Tab 1" data-easing="ease" class="b-tabs b-tabs_inside w-tabs">
-							{% for item in block.dobavit_kategoriyu %}
 							<div class="b-tabs__menu b-tabs__menu_inside w-tab-menu">
-								<a data-w-tab="Tab 1" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link w--current" href="{{ item.ssylka_na_kategoriyu }}">
+								{% for item in block.add_category_prod %}
+								<a data-w-tab="{{ loop_index }}" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link w--current">
 									<div class="text-block">
-										{{ item.naimenovanie_kategorii }}
+										{{ item.name_category }}
 									</div>
 								</a>
-								<a data-w-tab="Tab 2" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										ЦВЕТНЫЕ МЕТАЛЛЫ
-									</div>
-								</a>
-								<a data-w-tab="Tab 3" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										НЕРЖАВЕЮЩАЯ СТАЛЬ
-									</div>
-								</a>
-								<a data-w-tab="Tab 4" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										ИЗНОСОСТОЙКАЯ СТАЛЬ
-									</div>
-								</a>
-								<a data-w-tab="Tab 5" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										КАЧЕСТВЕННЫЕ СТАЛИ
-									</div>
-								</a>
-								<a data-w-tab="Tab 6" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										ЛИСТОВОЙ ПРОКАТ
-									</div>
-								</a>
-								<a data-w-tab="Tab 7" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										ДУПЛЕКСНАЯ СТАЛЬ
-									</div>
-								</a>
-								<a data-w-tab="Tab 8" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										МОСТОВАЯ СТАЛЬ
-									</div>
-								</a>
-								<a data-w-tab="Tab 9" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										СОРТОВОЙ ПРОКАТ
-									</div>
-								</a>
-								<a data-w-tab="Tab 10" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link">
-									<div>
-										ЛИСТОВОЙ ПРОКАТ
-									</div>
-								</a>
+								{% endfor %}
 							</div>
-							{% endfor %}{% for item in block.dobavit_kategoriyu %}
 							<div class="b-tabs__content b-tabs__content_inside_hero w-tab-content">
-								<div data-w-tab="Tab 1" class="b-tabs__pane b-tabs__pane_inside w-tab-pane w--tab-active">
-									<img alt="" src="{{ 'assets/images/metiz_bg20(1).jpg'|theme }}" loading="lazy" class="b-image b-image_tab_bg">
+								{% for item in block.add_category_prod %}
+								<div data-w-tab="{{ loop_index }}" class="b-tabs__pane b-tabs__pane_inside w-tab-pane w--tab-active">
+									<img class="b-image b-image_tab_bg" src="{{ item.category_image|media }}" alt="" loading="lazy">
 									<div class="b-tab-info">
 										<div class="h-wrap h-wrap_mg-bt_45">
-											<div class="b-text b-text_open_sans b-text_size_22">
-												{{ item.naimenovanie_kategorii }}
-											</div>
+											<a href="{{ item.category_link }}" class="w-inline-block">
+												<div class="b-text b-text_open_sans b-text_size_22">
+													{{ item.name_category }}
+												</div>
+											</a>
 										</div>
-										<div f_loop="Добавить состав продукции">
+										<div>
+											{% for item in item.add_sub_category %}
 											<div class="h-wrap h-wrap_mg-bt_20">
-												<a href="#" class="b-text b-text_size_14">
-													ШУРУПЫ И САМОРЕЗЫ
+												<a href="{{ item.sub_category_link }}" class="b-text b-text_size_14">
+													{{ item.name_sub_category }}
 												</a>
 											</div>
-											<div class="h-wrap h-wrap_mg-bt_20">
-												<div class="b-text b-text_size_14">
-													ШУРУПЫ И САМОРЕЗЫ
-												</div>
-											</div>
+											{% endfor %}
 										</div>
 									</div>
 									<div class="b-tab-manager">
@@ -119,17 +74,8 @@
 										<img loading="lazy" src="{{ 'assets/images/director20(1).jpg'|theme }}" alt="" class="b-image b-image_tab_manager">
 									</div>
 								</div>
-								<div data-w-tab="Tab 2" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 3" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 4" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 5" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 6" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 7" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 8" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 9" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
-								<div data-w-tab="Tab 10" class="b-tabs__pane b-tabs__pane_inside w-tab-pane"></div>
+								{% endfor %}
 							</div>
-							{% endfor %}
 						</div>
 					</div>
 					<div data-w-tab="Tab 2" class="b-tabs__pane w-tab-pane"></div>

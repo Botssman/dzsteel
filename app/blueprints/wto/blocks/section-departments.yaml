@@ -1,0 +1,11 @@
+uuid: section-departments
+name: Section departments
+type: mixin
+handle: Blocks\SectionDepartments
+
+fields:
+    hint:
+        type: hint
+        mode: tip
+        label: Секция департаменты
+        comment: Редактируется в настройках сайта (сквозные секции).

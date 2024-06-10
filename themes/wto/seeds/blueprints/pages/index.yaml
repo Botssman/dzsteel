@@ -77,23 +77,42 @@ fields:
             section_product_and_services:
                 name: 'Section product and services'
                 fields:
-                    zagolovok:
-                        label: Заголовок
+                    title:
+                        label: Название
                         type: text
-                    podzagolovok:
+                    subtitle:
                         label: Подзаголовок
                         type: text
-                    dobavit_kategoriyu:
-                        label: 'Добавить категорию'
+                    title_production:
+                        label: title_production
+                        type: text
+                    add_category_prod:
+                        label: Add_category_prod
                         type: repeater
                         form:
                             fields:
-                                ssylka_na_kategoriyu:
-                                    label: 'Ссылка на категорию'
+                                name_category:
+                                    label: name_category
                                     type: text
-                                naimenovanie_kategorii:
-                                    label: 'Наименование категории'
+                                category_image:
+                                    label: category_image
+                                    type: mediafinder
+                                    mode: image
+                                    maxItems: '1'
+                                category_link:
+                                    label: category_link
                                     type: text
+                                add_sub_category:
+                                    label: add_sub_category
+                                    type: repeater
+                                    form:
+                                        fields:
+                                            name_sub_category:
+                                                label: name_sub_category
+                                                type: text
+                                            sub_category_link:
+                                                label: sub_category_link
+                                                type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
@@ -101,11 +120,14 @@ fields:
             section_special_offer:
                 name: 'Section special offer'
                 fields:
-                    zagolovok:
-                        label: Заголовок
+                    section_special_offer_title:
+                        label: Section_special_offer_title
                         type: text
-                    podzagolovok:
-                        label: Подзаголовок
+                    section_special_offer_subtitle:
+                        label: Section_special_offer_subtitle
+                        type: text
+                    section_special_offer_text_form:
+                        label: Section_special_offer_text_form
                         type: text
                     hide_content:
                         label: 'Скрыть блок'
@@ -114,6 +136,44 @@ fields:
             section_quality:
                 name: 'Section quality'
                 fields:
+                    section_quality_title:
+                        label: Section_quality_Title
+                        type: text
+                    section_quality_subtitle:
+                        label: Section_quality_subTitle
+                        type: text
+                    section_quality_add_advantages:
+                        label: section_quality_add_advantages
+                        type: repeater
+                        form:
+                            fields:
+                                icon:
+                                    label: icon
+                                    type: mediafinder
+                                    mode: image
+                                    maxItems: '1'
+                                title_advantages:
+                                    label: title_advantages
+                                    type: text
+                                text_advantages:
+                                    label: text_advantages
+                                    type: text
+                    icon_bonus:
+                        label: icon_bonus
+                        type: mediafinder
+                        mode: image
+                        maxItems: '1'
+                    text_bonus:
+                        label: text_bonus
+                        type: text
+                    icon_partners:
+                        label: icon_partners
+                        type: mediafinder
+                        mode: image
+                        maxItems: '1'
+                    text_partners:
+                        label: text_partners
+                        type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
@@ -121,6 +181,39 @@ fields:
             section_general_director:
                 name: 'Section general director'
                 fields:
+                    section_general_director_image:
+                        label: section_general_director_image
+                        type: mediafinder
+                        mode: image
+                        maxItems: '1'
+                    section_general_director_title:
+                        label: section_general_director_title
+                        type: text
+                    section_general_director_name:
+                        label: section_general_director_name
+                        type: text
+                    section_general_director_desc:
+                        label: section_general_director_desc
+                        type: text
+                    section_general_director_text_desc_btn:
+                        label: section_general_director_text_desc_btn
+                        type: text
+                    section_general_director_slider:
+                        label: section_general_director_slider
+                        type: repeater
+                        form:
+                            fields:
+                                image:
+                                    label: Image
+                                    type: mediafinder
+                                    mode: image
+                                    maxItems: '1'
+                                title:
+                                    label: Название
+                                    type: text
+                                text:
+                                    label: Текст
+                                    type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
@@ -128,6 +221,28 @@ fields:
             section_departments:
                 name: 'Section departments'
                 fields:
+                    section_departments_title:
+                        label: section_departments_title
+                        type: text
+                    section_departments_subtitle:
+                        label: section_departments_subtitle
+                        type: text
+                    section_departments_slider:
+                        label: section_departments_slider
+                        type: repeater
+                        form:
+                            fields:
+                                image:
+                                    label: Изображение
+                                    type: mediafinder
+                                    mode: image
+                                    maxItems: '1'
+                                title:
+                                    label: Название
+                                    type: text
+                                text:
+                                    label: Текст
+                                    type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch

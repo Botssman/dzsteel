@@ -3883,6 +3883,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .b-image.b-image_grid_icon {
+  max-width: 85px;
   margin-right: 25px;
 }
 
@@ -3998,6 +3999,7 @@ textarea.w-input, textarea.w-select {
   font-family: Open Sans Condenced, sans-serif;
   font-size: 4.375em;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .b-photo-block {

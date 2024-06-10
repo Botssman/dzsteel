@@ -44,3 +44,58 @@ fields:
                         label: 'Скрыть блок'
                         type: switch
                         default: false                        
+          section_quality:
+              name: Секция качество (сквозная)
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\SectionQuality
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false          
+          section_general_director:
+              name: Секция о компании
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\SectionGeneralDirector
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false                  
+          section_departments:
+              name: Секция департаменты
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\SectionDepartments
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false
+          section_specialists:
+              name: Секция специалисты
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\SectionSpecialists
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false
+          section_blog:
+              name: Секция блог
+              icon: octo-icon-picture              
+              fields:
+                  _mixin:
+                      type: mixin
+                      source: Blocks\SectionBlog
+                  hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false

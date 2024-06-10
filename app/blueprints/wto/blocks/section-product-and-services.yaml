@@ -6,4 +6,31 @@ handle: Blocks\SectionProductAndServices
 fields:
     title:
         label: Заголовок
-        type: text  
+        type: text
+    subtitle:
+        label: Подзаголовок
+        type: text
+    title_production:
+        label: Заголовок продукция
+        type: text
+    add_category_prod:
+        label: Добавить категорию
+        type: repeater
+        form:
+            fields:
+                name_category:
+                    label: Название категории
+                    type: text
+                category_link:
+                    label: Ссылка на категорию
+                    type: text
+                add_sub_category:
+                    type: repeater
+                    form:
+                        fields:
+                            name_sub_category:
+                                label: Название подкатегории
+                                type: text
+                            sub_category_link:
+                                label: Ссылка подкатегории
+                                type: text
