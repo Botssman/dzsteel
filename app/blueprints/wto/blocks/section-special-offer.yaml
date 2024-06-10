@@ -1,0 +1,9 @@
+uuid: section special offer
+name: Section special offer
+type: mixin
+handle: Blocks\SectionSpecialOffer
+
+fields:
+    title:
+        label: Заголовок
+        type: text  

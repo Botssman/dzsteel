@@ -1,0 +1,59 @@
+uuid: hero-section
+name: Hero section
+type: mixin
+handle: Blocks\HeroSection
+
+fields:
+    title:
+        label: Заголовок
+        type: text
+    add_advantages:
+        label: Добавить преимущество
+        type: repeater
+        form:
+            fields:
+                icon_advantages:
+                    label: Иконка преимущества
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+                text_advantages:
+                    label: Текст преимущества
+                    type: text
+    photo_directors:
+        label: 'Фото директора'
+        type: mediafinder
+        mode: image
+        maxItems: '1'
+    director_title:
+        label: Гендиректор заголовок
+        type: text
+    director_desc:
+        label: Описание директора
+        type: text
+    link_video:
+        label: Ссылка на видео
+        type: text
+    add_advantages_form:
+        label: Добавить преимущество в форме
+        type: repeater
+        form:
+            fields:
+                icon:
+                    label: Иконка
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+                title_advantages:
+                    label: Заголовок преимущества
+                    type: text
+                text_advantages:
+                    label: Текст преимущества
+                    type: text
+    text_form:
+        label: Текст формы
+        type: text
+    hide_content:
+        label: Скрыть блок
+        type: switch
+        default: false

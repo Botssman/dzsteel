@@ -1,0 +1,11 @@
+uuid: page_page-checkout
+handle: page_page-checkout
+type: single
+name: 'Оформление товара'
+drafts: false
+navigation:
+    label: 'Оформление товара'
+    parent: page_index
+    icon: icon-file-text
+    order: '10'
+fields: {  }

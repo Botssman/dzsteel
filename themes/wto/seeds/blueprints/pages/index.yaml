@@ -13,111 +13,134 @@ navigation:
     icon: icon-file-text
     order: '10'
 fields:
-    sekcii:
-        label: Секции
+    sections:
+        label: Sections
         type: repeater
         displayMode: builder
         groups:
-            glavnaya_sekciya:
-                name: 'Главная секция'
+            hero_section:
+                name: 'Hero section'
                 fields:
-                    zagolovok|raw:
-                        label: Заголовок|raw
+                    title|raw:
+                        label: Title|raw
                         type: text
-                    dobavit_preimuschestvo:
-                        label: 'Добавить преимущество'
+                    add_advantages:
+                        label: Add_advantages
                         type: repeater
                         form:
                             fields:
-                                ikonka_preimuschestva:
-                                    label: 'Иконка преимущества'
+                                icon_advantages:
+                                    label: Icon_advantages
                                     type: mediafinder
                                     mode: image
                                     maxItems: '1'
-                                tekst_preimuschestva:
-                                    label: 'Текст преимущества'
+                                text_advantages:
+                                    label: Text_advantages
                                     type: text
-                    foto_direktora:
-                        label: 'Фото директора'
+                    photo_directors:
+                        label: Photo_directors
                         type: mediafinder
                         mode: image
                         maxItems: '1'
-                    gendirektor_zagolovok:
-                        label: 'Гендиректор заголовок'
+                    director_title:
+                        label: Director_title
                         type: text
-                    imya:
-                        label: Имя
+                    director_desc:
+                        label: Director_desc
                         type: text
-                    ssylka_na_video:
-                        label: 'Ссылка на видео'
+                    link_video:
+                        label: link_video
                         type: text
-                    dobavit_preimuschestvo_v_forme:
-                        label: 'Добавить преимущество в форме'
+                    add_advantages_form:
+                        label: Add_advantages_form
                         type: repeater
                         form:
                             fields:
-                                ikonka:
-                                    label: Иконка
+                                icon:
+                                    label: Icon
                                     type: mediafinder
                                     mode: image
                                     maxItems: '1'
-                                zagolovok_preimuschestva:
-                                    label: 'Заголовок преимущества'
+                                title_advantages:
+                                    label: Title_advantages
                                     type: text
-                                tekst_preimuschestva:
-                                    label: 'Текст преимущества'
+                                text_advantages:
+                                    label: Text_advantages
                                     type: text
-                    tekst_formy:
-                        label: 'Текст формы'
+                    text_form:
+                        label: Text_form
                         type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
                         default: false
-            sekciya_produkciya_i_uslugi:
-                name: 'Секция продукция и услуги'
+            section_product_and_services:
+                name: 'Section product and services'
+                fields:
+                    zagolovok:
+                        label: Заголовок
+                        type: text
+                    podzagolovok:
+                        label: Подзаголовок
+                        type: text
+                    dobavit_kategoriyu:
+                        label: 'Добавить категорию'
+                        type: repeater
+                        form:
+                            fields:
+                                ssylka_na_kategoriyu:
+                                    label: 'Ссылка на категорию'
+                                    type: text
+                                naimenovanie_kategorii:
+                                    label: 'Наименование категории'
+                                    type: text
+                    hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false
+            section_special_offer:
+                name: 'Section special offer'
+                fields:
+                    zagolovok:
+                        label: Заголовок
+                        type: text
+                    podzagolovok:
+                        label: Подзаголовок
+                        type: text
+                    hide_content:
+                        label: 'Скрыть блок'
+                        type: switch
+                        default: false
+            section_quality:
+                name: 'Section quality'
                 fields:
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
                         default: false
-            sekciya_specpredlozhenie:
-                name: 'Секция спецпредложение'
+            section_general_director:
+                name: 'Section general director'
                 fields:
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
                         default: false
-            sekciya_kachestvo:
-                name: 'Секция качество'
+            section_departments:
+                name: 'Section departments'
                 fields:
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
                         default: false
-            sekciya_gen_direktor:
-                name: 'Секция ген директор'
+            section_specialists:
+                name: 'Section specialists'
                 fields:
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
                         default: false
-            sekciya_departamenty:
-                name: 'Секция департаменты'
-                fields:
-                    hide_content:
-                        label: 'Скрыть блок'
-                        type: switch
-                        default: false
-            sekciya_specialisty:
-                name: 'Секция специалисты'
-                fields:
-                    hide_content:
-                        label: 'Скрыть блок'
-                        type: switch
-                        default: false
-            sekciya_blog:
-                name: 'Секция блог'
+            section_blog:
+                name: 'Section blog'
                 fields:
                     hide_content:
                         label: 'Скрыть блок'
