@@ -22,7 +22,7 @@ fields:
         preset: name
 tabs:
     fields:
-        values:
+        values@update:
             label: Значения
             type: relation
             tab: Значения
