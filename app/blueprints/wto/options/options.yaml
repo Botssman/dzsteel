@@ -73,11 +73,16 @@ fields:
     section_general_director_name:
         label: Имя
         tab: Секция о компании
+    section_general_director_desc:
+        label: Краткое сообщение
+        type: richeditor
+        tab: Секция о компании
     section_general_director_text_desc_btn:
-        label: Имя
+        label: Текст у кнопки
         tab: Секция о компании
     section_general_director_slider:
         type: repeater
+        label: Слайдер
         titleFrom: Добавить преимущество
         tab: Секция о компании
         form:
@@ -92,4 +97,58 @@ fields:
                     type: text
                 text:
                     label: Описание
+                    type: richeditor
+    section_departments_title:
+        label: Заголовок
+        tab: Секция департаменты
+    section_departments_subtitle:
+        label: Подзаголовок
+        tab: Секция департаменты
+    section_departments_slider:
+        type: repeater
+        label: Слайдер
+        titleFrom: Добавить департамент
+        tab: Секция департаменты
+        form:
+            fields:
+                image:
+                    label: Изображение
+                    type: mediafinder
+                    mode: image
+                    maxItems: 1
+                title:
+                    label: Заголовок департамента
                     type: text
+                text:
+                    label: Описание департамента
+                    type: richeditor
+    section_specialists_title:
+        label: Заголовок
+        tab: Секция специалисты
+    section_specialists_subtitle:
+        label: Подзаголовок
+        tab: Секция специалисты
+    section_specialists_slider:
+        type: repeater
+        label: Слайдер
+        titleFrom: Добавить сотрудника
+        tab: Секция специалисты
+        form:
+            fields:
+                image:
+                    label: Изображение специалиста
+                    type: mediafinder
+                    mode: image
+                    maxItems: 1
+                name:
+                    label: Имя специалиста
+                    type: text
+                job:
+                    label: Должность специалиста
+                    type: richeditor
+    section_blog_title:
+        label: Заголовок
+        tab: Секция блог
+    section_blog_subtitle:
+        label: Подзаголовок
+        tab: Секция блог

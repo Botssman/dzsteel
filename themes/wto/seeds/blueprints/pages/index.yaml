@@ -189,11 +189,11 @@ fields:
                     section_general_director_title:
                         label: section_general_director_title
                         type: text
-                    section_general_director_name:
-                        label: section_general_director_name
+                    section_general_director_name|raw:
+                        label: section_general_director_name|raw
                         type: text
-                    section_general_director_desc:
-                        label: section_general_director_desc
+                    section_general_director_desc|raw:
+                        label: section_general_director_desc|raw
                         type: text
                     section_general_director_text_desc_btn:
                         label: section_general_director_text_desc_btn
@@ -211,8 +211,8 @@ fields:
                                 title:
                                     label: Название
                                     type: text
-                                text:
-                                    label: Текст
+                                text|raw:
+                                    label: text|raw
                                     type: text
                     hide_content:
                         label: 'Скрыть блок'
@@ -224,8 +224,8 @@ fields:
                     section_departments_title:
                         label: section_departments_title
                         type: text
-                    section_departments_subtitle:
-                        label: section_departments_subtitle
+                    section_departments_subtitle|raw:
+                        label: section_departments_subtitle|raw
                         type: text
                     section_departments_slider:
                         label: section_departments_slider
@@ -240,8 +240,8 @@ fields:
                                 title:
                                     label: Название
                                     type: text
-                                text:
-                                    label: Текст
+                                text|raw:
+                                    label: text|raw
                                     type: text
                     hide_content:
                         label: 'Скрыть блок'
@@ -250,6 +250,31 @@ fields:
             section_specialists:
                 name: 'Section specialists'
                 fields:
+                    section_specialists_title|raw:
+                        label: section_specialists_title|raw
+                        type: text
+                    section_specialists_24/7:
+                        label: section_specialists_24/7
+                        type: text
+                    section_specialists_subtitle:
+                        label: section_specialists_subtitle
+                        type: text
+                    section_specialists_slider:
+                        label: section_specialists_slider
+                        type: repeater
+                        form:
+                            fields:
+                                image:
+                                    label: Изображение
+                                    type: mediafinder
+                                    mode: image
+                                    maxItems: '1'
+                                name:
+                                    label: name
+                                    type: text
+                                job:
+                                    label: job
+                                    type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
@@ -257,6 +282,12 @@ fields:
             section_blog:
                 name: 'Section blog'
                 fields:
+                    section_blog_title:
+                        label: section_blog_title
+                        type: text
+                    section_blog_subtitle:
+                        label: section_blog_subtitle
+                        type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch

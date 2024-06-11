@@ -2162,12 +2162,15 @@ textarea.w-input, textarea.w-select {
   box-shadow: 0 0 3px 1px #3898ec;
 }
 
+body {
+  line-height: 1.2;
+}
+
 .body {
   background-color: var(--dark);
   color: var(--dark);
   font-family: Nevermindcompact, sans-serif;
   font-size: 1em;
-  line-height: 1.2;
 }
 
 .h-wrap {

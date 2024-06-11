@@ -4,38 +4,35 @@
 			<div class="h-wrap h-wrap_align_h_flex h-wrap_mg-bt_50 h-wrap_mob_mg-bt_30">
 				<div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_mg-bt_0">
 					<div class="b-title-2">
-						НАШИ СПЕЦИАЛИСТЫ
-						<br>
-						ВСЕГДА НА СВЯЗИ
+						{{ options.section_specialists_title|raw }}
 					</div>
 				</div>
 				<div class="h-wrap h-wrap_align_h_left h-wrap_w_auto h-wrap_mob_align_v_left">
 					<div class="h-wrap h-wrap_w_auto h-wrap_mg_r_15">
 						<div class="b-text b-text_open_sans b-text_bronze b-text_size_95">
-							24/7
+							{{ options.section_specialists_24/7 }}
 						</div>
 					</div>
 					<div class="h-wrap">
 						<div class="b-text b-text_grey b-text_size_18">
-							МЫ ПРИНИМАЕМ
-							<br>
-							ВАШИ ОБРАЩЕНИЯ
+							{{ options.section_specialists_subtitle }}
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="h-wrap">
 				<div class="b-grid b-grid_spec">
+					{% for item in options.section_specialists_slider %}
 					<div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b71-34573b60" class="b-grid-box b-grid-box_spec">
-						<img src="{{ 'assets/images/spec201.jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_spec">
+						<img src="{{ item.image|media }}" loading="lazy" alt="" class="b-image b-image_spec">
 						<div class="h-wrap h-wrap_mg-bt_10">
 							<div class="b-text b-text_size_24">
-								Агния Кузнецова
+								{{ item.name }}
 							</div>
 						</div>
 						<div class="h-wrap h-wrap_mg-bt_20">
 							<div class="b-text b-text_size_15">
-								менеджер
+								{{ item.job }}
 							</div>
 						</div>
 						<div class="h-wrap">
@@ -44,60 +41,7 @@
 							</a>
 						</div>
 					</div>
-					<div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b7c-34573b60" class="b-grid-box b-grid-box_spec">
-						<img src="{{ 'assets/images/spec202.jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_spec">
-						<div class="h-wrap h-wrap_mg-bt_10">
-							<div class="b-text b-text_size_24">
-								Галактион Антонов
-							</div>
-						</div>
-						<div class="h-wrap h-wrap_mg-bt_20">
-							<div class="b-text b-text_size_15">
-								менеджер
-							</div>
-						</div>
-						<div class="h-wrap">
-							<a href="#" class="b-button v-3 w-button">
-								Связаться
-							</a>
-						</div>
-					</div>
-					<div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b87-34573b60" class="b-grid-box b-grid-box_spec">
-						<img src="{{ 'assets/images/spec201.jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_spec">
-						<div class="h-wrap h-wrap_mg-bt_10">
-							<div class="b-text b-text_size_24">
-								Нонна Ермолаева
-							</div>
-						</div>
-						<div class="h-wrap h-wrap_mg-bt_20">
-							<div class="b-text b-text_size_15">
-								менеджер
-							</div>
-						</div>
-						<div class="h-wrap">
-							<a href="#" class="b-button v-3 w-button">
-								Связаться
-							</a>
-						</div>
-					</div>
-					<div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b92-34573b60" class="b-grid-box b-grid-box_spec">
-						<img src="{{ 'assets/images/spec202.jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_spec">
-						<div class="h-wrap h-wrap_mg-bt_10">
-							<div class="b-text b-text_size_24">
-								Емельян Швеллер
-							</div>
-						</div>
-						<div class="h-wrap h-wrap_mg-bt_20">
-							<div class="b-text b-text_size_15">
-								менеджер
-							</div>
-						</div>
-						<div class="h-wrap">
-							<a href="#" class="b-button v-3 w-button">
-								Связаться
-							</a>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>

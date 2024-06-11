@@ -34,7 +34,7 @@ fields:
                         type: switch
                         default: false
           section_special_offer:
-              name: Секция спецпредложение
+              name: Секция спецпредложение (сквозная)
               icon: octo-icon-picture              
               fields:
                   _mixin:
@@ -56,7 +56,7 @@ fields:
                         type: switch
                         default: false          
           section_general_director:
-              name: Секция о компании
+              name: Секция о компании (сквозная)
               icon: octo-icon-picture              
               fields:
                   _mixin:
@@ -67,7 +67,7 @@ fields:
                         type: switch
                         default: false                  
           section_departments:
-              name: Секция департаменты
+              name: Секция департаменты (сквозная)
               icon: octo-icon-picture              
               fields:
                   _mixin:
@@ -78,7 +78,7 @@ fields:
                         type: switch
                         default: false
           section_specialists:
-              name: Секция специалисты
+              name: Секция специалисты (сквозная)
               icon: octo-icon-picture              
               fields:
                   _mixin:
@@ -89,7 +89,7 @@ fields:
                         type: switch
                         default: false
           section_blog:
-              name: Секция блог
+              name: Секция блог (сквозная)
               icon: octo-icon-picture              
               fields:
                   _mixin:
