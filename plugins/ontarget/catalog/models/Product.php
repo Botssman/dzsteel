@@ -44,7 +44,8 @@ class Product extends Model
         'name' => ['required'],
         'slug' => ['required'],
         'vendor_code' => ['required'],
-        'category_id' => ['integer','required'],
+        'category_id' => ['required', 'integer'],
+        'price' => ['required', 'integer'],
     ];
 
     public $belongsTo = [

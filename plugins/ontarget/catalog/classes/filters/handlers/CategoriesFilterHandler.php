@@ -24,9 +24,8 @@ class CategoriesFilterHandler implements FilterHandler
         if (empty($categoryIdentifier)) return $next($query);
 
         $category = Category::query()
-            ->select('id', 'slug')
-            ->where('id', $categoryIdentifier)
-            ->orWhere('slug', $categoryIdentifier)
+            ->select('id','slug')
+            ->where('slug', $categoryIdentifier)
             ->first();
 
         $ids = array_merge(
