@@ -1,11 +1,13 @@
 <?php namespace OnTarget\Catalog;
 
 use Backend;
+use Event;
+use OnTarget\Catalog\Classes\Search\CatalogSearchProvider;
 use OnTarget\Catalog\Components\Cart;
 use OnTarget\Catalog\Components\Catalog;
-use OnTarget\Catalog\Components\Product;
 use OnTarget\Catalog\FormWidgets\Properties;
 use OnTarget\Catalog\Models\CatalogSettings;
+use OnTarget\Catalog\Models\Product;
 use System\Classes\PluginBase;
 
 /**
@@ -41,7 +43,9 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        //
+        Event::listen('offline.sitesearch.extend', function () {
+            return new CatalogSearchProvider;
+        });
     }
 
     /**

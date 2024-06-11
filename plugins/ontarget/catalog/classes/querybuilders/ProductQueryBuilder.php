@@ -23,4 +23,9 @@ class ProductQueryBuilder extends Builder
     {
         return static::orderBy(...Sort::from(input('sort', 'new'))->data());
     }
+
+    public function search()
+    {
+
+    }
 }

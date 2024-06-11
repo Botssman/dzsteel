@@ -13,9 +13,9 @@
 				</a>
 				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cat_button">
 			</div>
-			<form action="/search" wp_search="product" class="search w-form">
-				<input class="search-input w-input" maxlength="256" name="query" placeholder="Поиск …" type="search" id="search" required="">
-				<input type="submit" class="search-button w-button" value="Search">
+			<form action="{{ 'search' | page }}" wp_search="product" class="search w-form">
+				<input class="search-input w-input" maxlength="256" name="q" placeholder="Поиск …" type="search" id="search" required="">
+				<input type="submit" class="search-button w-button"  value="Search">
 				<img src="{{ 'assets/images/search_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_search">
 			</form>
 			<nav role="navigation" class="b-menu__nav w-nav-menu">
