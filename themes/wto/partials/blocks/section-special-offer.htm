@@ -1,15 +1,15 @@
 <section class="s-section s-section_light">
 	<div>
 		<img src="{{ 'assets/images/grey_decor.svg'|theme }}" loading="lazy" alt="" class="b-section-decor">
-		<div id="specpredlojenie" o_group="Блок спецпредложение" display="block" class="container container_clip_content">
+		<div id="specpredlojenie" class="container container_clip_content">
 			<div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_70">
 				<div class="b-title-5">
-					{{ option.zagolovok }}
+					{{ options.section_special_offer_title }}
 				</div>
 			</div>
 			<div class="h-wrap h-wrap_mg-bt_90 h-wrap_mob_70">
 				<div class="b-text b-text_grey b-text_size_18">
-					{{ option.podzagolovok }}
+					{{ options.section_special_offer_subtitle }}
 				</div>
 			</div>
 			<div class="h-wrap h-wrap_mg-bt_60">
@@ -289,11 +289,7 @@
 							<div class="b-columns__col b-columns__col_25 b-columns__col_pd_r_40 b-columns__col_mob_mg-bt_30">
 								<div class="h-wrap">
 									<div class="b-text b-text_open_sans b-text_size_22">
-										НЕ УПУСТИТЕ ВЫГОДУ!
-										<br>
-										ПОДПИШИТЕСЬ НА НАШУ
-										<br>
-										РАССЫЛКУ
+										{{ options.section_special_offer_text_form }}
 									</div>
 								</div>
 							</div>

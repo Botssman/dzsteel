@@ -1,0 +1,11 @@
+uuid: section-general-director
+name: Section general director
+type: mixin
+handle: Blocks\SectionGeneralDirector
+
+fields:
+    hint:
+        type: hint
+        mode: tip
+        label: Секция о компании
+        comment: Редактируется в настройках сайта (сквозные секции).

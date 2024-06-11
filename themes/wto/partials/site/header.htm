@@ -56,9 +56,12 @@
 					</div>
 				</div>
 			</div>
-			<div id="mini-cart">
-                {% partial 'catalog/mini-cart' %}
-            </div>
+			<a href="/checkout/" class="b-cart-button w-inline-block">
+				<img src="{{ 'assets/images/cart_dark.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cart">
+				<div wp="cart_count" class="b-cart-count">
+					1
+				</div>
+			</a>
 		</div>
 	</div>
 </header>

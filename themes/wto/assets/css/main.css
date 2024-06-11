@@ -2162,12 +2162,15 @@ textarea.w-input, textarea.w-select {
   box-shadow: 0 0 3px 1px #3898ec;
 }
 
+body {
+  line-height: 1.2;
+}
+
 .body {
   background-color: var(--dark);
   color: var(--dark);
   font-family: Nevermindcompact, sans-serif;
   font-size: 1em;
-  line-height: 1.2;
 }
 
 .h-wrap {
@@ -3883,6 +3886,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .b-image.b-image_grid_icon {
+  max-width: 85px;
   margin-right: 25px;
 }
 
@@ -3998,6 +4002,7 @@ textarea.w-input, textarea.w-select {
   font-family: Open Sans Condenced, sans-serif;
   font-size: 4.375em;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .b-photo-block {

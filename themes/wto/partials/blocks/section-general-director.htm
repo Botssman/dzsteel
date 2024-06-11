@@ -1,27 +1,23 @@
 <section class="s-section s-section_dark_2">
 	<div>
-		<div display="block" o_group="Блок О нас" class="container">
+		<div class="container">
 			<div class="h-wrap">
 				<div class="b-columns">
 					<div class="b-columns__col b-columns__col_40 b-columns__col_pd_r_40 b-columns__col_pos_rel_up_120">
 						<div class="h-wrap h-wrap_align_h_down h-wrap_mg-bt_40">
 							<div class="h-wrap h-wrap_mob_align_h_center">
-								<img src="{{ 'assets/images/gen_photo.jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_gen_photo">
+								<img src="{{ options.section_general_director_image|media }}" loading="lazy" alt="" class="b-image b-image_gen_photo">
 							</div>
 							<div class="h-wrap h-wrap_w_auto h-wrap_mob_100">
 								<div class="b-gen-box">
 									<div class="h-wrap h-wrap_mg-bt_10">
 										<div class="b-text b-text_open_sans b-text_grey b-text_size_18">
-											ГЕНЕРАЛЬНЫЙ
-											<br>
-											ДИРЕКТОР
+											{{ options.section_general_director_title }}
 										</div>
 									</div>
 									<div class="h-wrap">
 										<div class="b-text b-text_size_18">
-											Аркадий
-											<br>
-											Аверченко
+											{{ options.section_general_director_name|raw }}
 										</div>
 									</div>
 								</div>
@@ -29,7 +25,7 @@
 						</div>
 						<div class="h-wrap h-wrap_mg-bt_40">
 							<div class="b-text b-text_size_15">
-								Но высокотехнологичная концепция общественного уклада требует от нас анализа новых принципов формирования материально-технической и кадровой базы. Не следует, однако, забывать, что перспективное планирование позволяет оценить значение вывода текущих активов. Для современного мира существующая теория не даёт нам иного выбора, кроме определения своевременного выполнения сверхзадачи.
+								{{ options.section_general_director_desc|raw }}
 							</div>
 						</div>
 						<div class="h-wrap h-wrap_align_h_center h-wrap_mob_align_v_left">
@@ -40,7 +36,7 @@
 							</div>
 							<div class="h-wrap">
 								<div class="b-text b-text_grey b-text_size_15">
-									В случае возникновения вопросов, которые вы захотите обсудить со мной лично
+									{{ options.section_general_director_text_desc_btn }}
 								</div>
 							</div>
 						</div>
@@ -48,10 +44,11 @@
 					<div class="b-columns__col b-columns__col_60 b-columns__col_pos_rel_up_35">
 						<div class="h-wrap">
 							<div data-delay="4000" data-animation="slide" class="b-slider b-slider_video w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
-								<div o_loop="Добавить видео" class="b-slider__mask b-slider__mask_video w-slider-mask">
+								<div class="b-slider__mask b-slider__mask_video w-slider-mask">
+									{% for item in options.section_general_director_slider %}
 									<div class="b-slider__slide b-slider__slide_video w-slide">
 										<div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_30">
-											<img src="{{ 'assets/images/video_bg20(1).jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_video_bg">
+											<img class="b-image b-image_video_bg" src="{{ item.image|media }}" alt="" loading="lazy">
 											<a o_link="Ссылка на видео" href="#" class="b-play-box b-play-box_video w-inline-block">
 												<img src="{{ 'assets/images/play20button.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_play">
 											</a>
@@ -59,16 +56,17 @@
 										<div class="h-wrap h-wrap_align_h_center_up h-wrap_mob_align_v_left">
 											<div class="h-wrap h-wrap_mob_mg-bt_10">
 												<div class="b-text b-text_open_sans b-text_size_20">
-													НАШЕ ПРОИЗВОДСТВО
+													{{ item.title }}
 												</div>
 											</div>
 											<div class="h-wrap">
 												<div class="b-text b-text_size_15">
-													Здесь располагается множество фото и видео предприятия. Выразительные кадры из цехов, складов,  офисов, а также фактурные портреты сотрудников
+													{{ item.text|raw }}
 												</div>
 											</div>
 										</div>
 									</div>
+									{% endfor %}
 								</div>
 								<div class="b-slider__arrow-left b-slider__arrow-left_video w-slider-arrow-left">
 									<img src="{{ 'assets/images/arrow_left.svg'|theme }}" loading="lazy" alt="" class="b-slider__icone b-slider__icone_video_left">

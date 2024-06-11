@@ -1,0 +1,11 @@
+uuid: section-quality
+name: Section quality
+type: mixin
+handle: Blocks\SectionQuality
+
+fields:
+    hint:
+        type: hint
+        mode: tip
+        label: Секция качество
+        comment: Редактируется в настройках сайта (сквозные секции).
