@@ -1,35 +1,35 @@
 url="/catalog/:category/:product"
 title="Товар"
 layout="default"
+
+[Product]
 ==
 <div class="main">
     <section class="s-section s-section_catalog">
         <div class="container">
-            <div class="b-breadcrumbs">
-                <div wp_php="if (function_exists ('yoast_breadcrumb')) {    yoast_breadcrumb ('<ul id="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">', ''); }" class="b-breadcrumbs-2 w-richtext">
-                <ul role="list">
-                    <li>крош<a href="#">ки</a></li>
-                </ul>
-            </div>
+            {% partial 'catalog/breadcrumbs' target=product.category %}
         </div>
         <div wp="product" class="h-wrap h-wrap_mg-bt_130">
             <div wp_if="simple_product" class="b-product">
-                <div class="image_box"><img src="{{ 'assets/images/armatyra20320(1).jpg'|theme }}" loading="lazy" wp="post_image" alt class="b-image b-image_product"></div>
+                {% set image = product.image ?? product.images.first %}
+                <div class="image_box"><img src="{{ image.getThumb(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" wp="post_image" alt="{{ image.title }}" class="b-image b-image_product"></div>
                 <div class="content-wrap">
                     <div class="info_box">
                         <div class="h-wrap h-wrap_mg-bt_35">
-                            <div class="b-text b-text_dark b-text_open_sans b-text_size_30">Арматура АЗ рифленая (А400) D12 11700мм</div>
+                            <div class="b-text b-text_dark b-text_open_sans b-text_size_30">{{ product.name }}</div>
                         </div>
                         <div class="h-wrap h-wrap_mg-bt_20">
                             <div class="b-grid b-grid_col_2">
+                                {% for property in product.property_values %}
                                 <div class="h-wrap h-wrap_align_h_left">
                                     <div class="h-wrap">
-                                        <div class="b-text b-text_grey">Производитель:</div>
+                                        <div class="b-text b-text_grey">{{ property.property.name }}:</div>
                                     </div>
                                     <div class="h-wrap">
-                                        <div wp_post_term="pa_madeby" class="b-text b-text_dark">Северсталь</div>
+                                        <div wp_post_term="pa_madeby" class="b-text b-text_dark">{{ property.name }}</div>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="b-grid b-grid_col_2 g-hide">
@@ -48,23 +48,16 @@ layout="default"
                             <div class="h-wrap">
                                 <div class="h-wrap h-wrap_mg-bt_20">
                                     <div class="h-wrap">
-                                        <div wp="product_price" class="b-text b-text_bronze b-text_open_sans b-text_size_50 regular">от <span>47</span> ₽/<span>кг</span></div>
+                                        <div wp="product_price" class="b-text b-text_bronze b-text_open_sans b-text_size_50 regular">от <span>{{ product.price | price }}</span> ₽/<span>{{ product.measure_unit ? product.measure_unit.name : product.category.measure_unit.name }}</span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="h-wrap">
                             <div class="b-form b-form_product w-form">
-                                <form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form" data-wf-page-id="665610e4d965136f27263834" data-wf-element-id="7e4c58e8-85fe-0462-2b03-15192ee746b7">
-                                    <div class="b-quantity b-quantity_style">
-                                        <div class="h-wrap h-wrap_mg-bt_15">
-                                            <div class="b-text b-text_grey">Количество</div>
-                                        </div>
-                                        <div class="h-wrap h-wrap_align_h_left"><a wp="product_qty_minus" href="#" class="b-quantity__minus w-button">-</a><input class="b-quantity__field w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="1" wp="product_qty" type="number" id="name-2"><a wp="product_qty_plus" href="#" class="b-quantity__pluse w-button">+</a></div>
-                                    </div>
-                                    <div class="h-wrap h-wrap_mg-bt_15"><input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ДОБАВИТЬ В КОРЗИНУ"></div>
-                                    <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-8 w-button" value="КУПИТЬ В 1 КЛИК"></div>
-                                </form>
+                                <div id="product-cart">
+                                    {% partial 'ajax/product-cart' %}
+                                </div>
                                 <div class="b-form__success-mes w-form-done">
                                     <div>Товар успешно добавлен<br>в корзину! <br></div>
                                 </div>
@@ -83,22 +76,24 @@ layout="default"
                 <div class="b-tabs__content-2 w-tab-content">
                     <div data-w-tab="Tab 1" class="b-tabs__pane w-tab-pane w--tab-active">
                         <div class="h-wrap h-wrap_mg-bt_60">
-                            <div class="b-text b-text_dark">Вот вам яркий пример современных тенденций — разбавленное изрядной долей эмпатии, рациональное мышление позволяет выполнить важные задания по разработке экспериментов, поражающих по своей масштабности и грандиозности. Приятно, граждане, наблюдать, как сделанные на базе интернет-аналитики выводы, инициированные исключительно синтетически, ассоциативно распределены по отраслям. А ещё активно развивающиеся страны третьего мира и по сей день остаются уделом либералов, которые жаждут быть обнародованы.</div>
+                            <div class="b-text b-text_dark">
+                                {{ product.description | raw }}
+                            </div>
                         </div>
                     </div>
                     <div data-w-tab="Tab 2" class="b-tabs__pane w-tab-pane">
                         <div>
                             <div class="h-wrap h-wrap_mg-bt_30">
-                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Вес: <span wp="product_weight" class="del_span">2 тонны</span></div>
+                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Вес: <span wp="product_weight" class="del_span">{{ product.weight }}</span></div>
                             </div>
                             <div class="h-wrap h-wrap_mg-bt_30">
-                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Длина: <span wp="product_length" class="del_span">2 тонны</span></div>
+                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Длина: <span wp="product_length" class="del_span">{{ product.length }}</span></div>
                             </div>
                             <div class="h-wrap h-wrap_mg-bt_30">
-                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Ширина: <span wp="product_width" class="del_span">2 тонны</span></div>
+                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Ширина: <span wp="product_width" class="del_span">{{ product.width }}</span></div>
                             </div>
                             <div class="h-wrap h-wrap_mg-bt_30">
-                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Высота: <span wp="product_height" class="del_span">2 тонны</span></div>
+                                <div class="b-text b-text_dark b-text_open_sans b-text_size_18">Высота: <span wp="product_height" class="del_span">{{ product.height }}</span></div>
                             </div>
                             <div class="h-wrap h-wrap_mg-bt_80"></div>
                         </div>
