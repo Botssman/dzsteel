@@ -20,6 +20,9 @@ fields:
         label: Код (slug)
         span: auto
         preset: name
+    unit:
+        label: Единица измерения
+        span: auto
 tabs:
     fields:
         values@update:

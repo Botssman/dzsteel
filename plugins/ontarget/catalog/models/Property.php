@@ -32,6 +32,8 @@ class Property extends Model
         'slug' => 'name'
     ];
 
+    public $jsonable = ['extra'];
+
     /**
      * @var string table name
      */

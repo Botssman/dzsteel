@@ -24,3 +24,6 @@ v1.0.5:
 v1.0.6:
     - Order products table
     - create_order_product_table.php
+v1.0.7:
+    - Adding unit to properties
+    - add_unit_to_properties_table.php
