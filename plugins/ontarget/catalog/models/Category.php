@@ -55,6 +55,10 @@ class Category extends Model
         ]
     ];
 
+    public $belongsTo = [
+        'measure_unit' => MeasureUnit::class
+    ];
+
     public $hasMany = [
         'products' => Product::class
     ];

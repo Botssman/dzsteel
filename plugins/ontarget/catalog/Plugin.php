@@ -115,6 +115,13 @@ class Plugin extends PluginBase
                         'permissions' => ['ontarget.catalog.properties'],
                         'order' => 500,
                     ],
+                    'measureunits' => [
+                        'label' => 'Единицы измерения',
+                        'url' => Backend::url('ontarget/catalog/measureunits'),
+                        'icon' => 'ph ph-scales',
+                        'permissions' => ['ontarget.catalog.measureunits'],
+                        'order' => 500,
+                    ],
                     'orders' => [
                         'label' => 'Заказы',
                         'url' => Backend::url('ontarget/catalog/orders'),

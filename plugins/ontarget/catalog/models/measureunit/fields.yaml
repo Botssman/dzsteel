@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Название
+        span: auto
+    slug:
+        label: Код в URL (slug)
+        span: auto
+        preset: name

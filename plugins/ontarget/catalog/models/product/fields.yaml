@@ -32,7 +32,12 @@ fields:
         label: Старая цена
         span: auto
         min: 0
-
+    measure_unit:
+        type: relation
+        label: Единица измерения товара
+        span: auto
+        comment: Переопределит значение из категории
+        emptyOption: '- Выберите единицу измерения -'
 tabs:
     fields:
         weight:

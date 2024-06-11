@@ -7,6 +7,12 @@ fields:
         type: switch
         label: Активное свойство
         default: true
+        span: auto
+    show_in_filters:
+        type: switch
+        label: Отображать в фильтрах
+        default: false
+        span: auto
     name:
         label: Название
         span: auto

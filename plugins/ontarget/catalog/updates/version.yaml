@@ -13,3 +13,11 @@ v1.0.3:
     - create_customers_table.php
     - create_orders_table.php
     - create_order_customer_table.php
+v1.0.4:
+    - Adding 'show_in_filter' column to properties table
+    - add_show_in_filter_to_properties_table.php
+v1.0.5:
+    - Measure units
+    - create_measure_units_table.php
+    - add_measure_unit_id_to_products_table.php
+    - add_measure_unit_id_to_categories_table.php

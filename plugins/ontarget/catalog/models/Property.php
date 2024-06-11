@@ -1,14 +1,23 @@
 <?php namespace OnTarget\Catalog\Models;
 
 use Model;
+use October\Rain\Database\Builder;
 use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Validation;
+use OnTarget\Catalog\Classes\QueryBuilders\ProductQueryBuilder;
 use System\Models\File;
 
 /**
  * Property Model
  *
  * @link https://docs.octobercms.com/3.x/extend/system/models.html
+ *
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin Builder
+ *
+ * @method static ProductQueryBuilder|static query()
+ *
+ * @method static ProductQueryBuilder|static forFilters()
  */
 class Property extends Model
 {
@@ -50,4 +59,13 @@ class Property extends Model
     public $attachOne = [
         'icon' => File::class
     ];
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeForFilters(Builder $query): Builder
+    {
+        return $query->where('show_in_filters', true);
+    }
 }

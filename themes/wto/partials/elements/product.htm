@@ -12,7 +12,11 @@
                         <div class="h-wrap h-wrap_align_h_left_down">
                             <div class="h-wrap h-wrap_w_auto h-wrap_align_h_left_down">
                                 <div class="b-text b-text_bronze b-text_open_sans b-text_size_30 regular">
+                                    {% set unit = product.measure_unit | default(product.category.measure_unit) %}
                                     {{ product.price | price }} ₽
+                                    {% if unit is not empty %}
+                                     / {{ unit.name }}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

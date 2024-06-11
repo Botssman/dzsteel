@@ -48,14 +48,15 @@ class Product extends Model
     ];
 
     public $belongsTo = [
-        'category' => Category::class
+        'category' => Category::class,
+        'measure_unit' => MeasureUnit::class
     ];
 
     public $belongsToMany = [
         'property_values' => [
             PropertyValue::class,
             'table' => 'ontarget_catalog_product_property_value'
-        ]
+        ],
     ];
 
     public $attachOne = [

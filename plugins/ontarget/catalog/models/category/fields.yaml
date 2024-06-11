@@ -19,6 +19,11 @@ fields:
         type: relation
         emptyOption: '- Выберите категорию -'
         span: auto
+    measure_unit:
+        type: relation
+        label: Единица измерения товаров в категории
+        span: auto
+        emptyOption: '- Выберите единицу измерения -'
 tabs:
     fields:
         products:

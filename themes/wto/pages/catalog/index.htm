@@ -52,7 +52,7 @@ layout="default"
                         {% if currentCategory %}
                             <div class="filters" style="display:flex;flex-direction:column; gap:30px; margin-top:30px;">
                                 <div>Уточните поиск при помощи фильтров</div>
-                                {% for property in currentCategory.properties %}
+                                {% for property in currentCategory.properties().forFilters().get() %}
                                     <div class="filters-block" style="background:#fff; padding: 10px; border-radius:10px;">
                                         <div class="filters-block__title" style="font-weight: bold;">{{ property.name }}</div>
                                         <div class="filters-block__body" style="margin-top:20px;">
