@@ -17,10 +17,17 @@ class Customer extends Model
      */
     public $table = 'ontarget_catalog_customers';
 
+    public $fillable = [
+        'name', 'phone_number'
+    ];
+
     /**
      * @var array rules for validation
      */
-    public $rules = [];
+    public $rules = [
+        'name' => 'required',
+        'phone_number' => 'required'
+    ];
 
     public $hasMany = [
         'orders' => Order::class

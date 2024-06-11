@@ -3,3 +3,22 @@
 # ===================================
 
 fields:
+    customer:
+        label: Клиент
+        type: relation
+        controller:
+            label: Клиент
+            list: $/ontarget/catalog/models/customer/columns.yaml
+            form: $/ontarget/catalog/models/customer/fields.yaml
+    products:
+        label: Товары
+        type: relation
+        controller:
+            label: Товары
+            list: $/ontarget/catalog/models/product/columns.yaml
+            form: $/ontarget/catalog/models/product/fields.yaml
+            view:
+                toolbarButtons: create|delete
+            customMessages:
+                buttonCreate: Создать товар
+                buttonDelete: Удалить

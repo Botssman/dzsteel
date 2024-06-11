@@ -25,4 +25,11 @@ class Order extends Model
     public $belongsTo = [
         'customer' => Customer::class
     ];
+
+    public $belongsToMany = [
+      'products' => [
+          Product::class,
+          'table' => 'ontarget_catalog_order_product'
+      ]
+    ];
 }

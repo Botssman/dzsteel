@@ -1,0 +1,105 @@
+{% set items = Cart.getProducts() | default(0) %}
+{% if items.count > 0 %}
+<div wp="cart_order" class="content s-order__content v-2">
+    <div class="content__right">
+        <div>
+            <div class="cart-box">
+                <div wp_cart="items" class="cart-items">
+                    {% for product in items %}
+                        <div class="b-card-shop b-card-shop_check">
+                            <div class="b-card-shop__link-block b-card-shop__link-block_check">
+                                <img
+                                    src="{{ product.image.getThumb(230,202,{mode: 'crop', extension: 'webp', quality: 65}) }}" loading="lazy"
+                                    alt="{{ product.image.title }}"
+                                    class="b-card-shop__image b-card-shop__image_check">
+                            </div>
+                            <div class="b-card-shop__wrap b-card-shop__wrap_check">
+                                <a href="#" class="b-product-card__remove w-inline-block"
+                                   data-request='onRemove'
+                                   data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/checkout': '#checkout'}"
+                                   data-request-data='product_id: {{ product.id }}'
+                                ></a>
+                                <a href="#" target="_blank" class="b-card-shop__check-link w-inline-block">
+                                    <div class="text-block-2">{{ product.name }}</div>
+                                </a>
+                                <div class="b-product-form w-form">
+                                    <form id="wf-form-cart" name="wf-form-cart" data-name="cart"
+                                          method="get"
+                                          class="b-product-form__card"
+                                          >
+                                        <div class="b-product-card__pri-e mob_mg">
+                                            {% if product.old_price %}
+                                                <div
+                                                    class="b-product-card__price-text b-product-card__price-text_sale">
+                                                    {{ product.price | price }} ₽
+                                                </div>
+                                                <div
+                                                    class="b-product-card__price-text b-product-card__price-text_regular">
+                                                    {{ product.old_price | price }} ₽
+                                                </div>
+                                            {% else %}
+                                                <div class="b-product-card__price-text">{{ product.price  | price}} ₽</div>
+                                            {% endif %}
+
+                                        </div>
+                                        <div class="h-wrap-2 h-wrap_flex-horizontal mob_rel">
+                                            <a href="#" class="add-count add-count_minus w-button"
+                                               data-request='onDecrement'
+                                               data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/checkout': '#checkout'}"
+                                               data-request-data='product_id: {{ product.id }}'
+                                            ></a>
+                                            <input
+                                                class="b-quantity__field-2 w-input" maxlength="256"
+                                                type="number"
+                                                value="{{ Cart.getCart.items[product.id] }}"
+                                                id="name-2">
+                                            <a href="#" class="add-count add-count_plus w-button"
+                                               data-request='onAdd'
+                                               data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/checkout': '#checkout'}"
+                                               data-request-data='product_id: {{ product.id }}'
+                                            ></a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content__left v-4">
+        <div id="subscribe" class="b-cta b-subscription b-subscription_v2 v-1">
+            <div class="text text_heading-h3 text_margin_bottom">Итог</div>
+            <div wp_cart="items">
+                <div class="h-wrap-2 h-wrap_check">
+                    <div class="b-columns-2 b-columns_space-between">
+                        <div class="b-columns__col b-columns__col_65">
+                            <div class="text">Доставка</div>
+                        </div>
+                        <div class="b-columns__col b-columns__col_30 b-columns__col_align-right">
+                            <div class="text">Итог</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="b-line"></div>
+            <div class="h-wrap-2 h-wrap_mg-bt_20">
+                <div class="b-columns-2 b-columns_space-between">
+                    <div class="b-columns__col b-columns__col_65">
+                        <div class="text text__big">Итого:</div>
+                    </div>
+                    <div class="b-columns__col b-columns__col_30 b-columns__col_align-right">
+                        <div class="text text__big">{{ Cart.getTotalSum | price }} ₽</div>
+                    </div>
+                </div>
+            </div>
+            <div><strong class="bold-text">Минимальный заказ на сувенирную продукцию и мерч 5000 рублей.
+                    <br>Срок поставки от 48 часов.<br></strong></div>
+        </div>
+    </div>
+</div>
+{% else %}
+    <div class="cart-empty">Ваша корзина пуста.<br>Перейти в <a href="/shop" class="b-link">каталог</a>.</div>
+
+{% endif %}

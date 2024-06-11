@@ -21,3 +21,6 @@ v1.0.5:
     - create_measure_units_table.php
     - add_measure_unit_id_to_products_table.php
     - add_measure_unit_id_to_categories_table.php
+v1.0.6:
+    - Order products table
+    - create_order_product_table.php

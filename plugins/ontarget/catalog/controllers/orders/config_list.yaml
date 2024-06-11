@@ -31,8 +31,8 @@ showSorting: true
 
 # Default sorting column
 defaultSort:
-    column: id
-    direction: asc
+    column: created_at
+    direction: desc
 
 # Display checkboxes next to each record
 showCheckboxes: true

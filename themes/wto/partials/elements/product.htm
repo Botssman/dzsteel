@@ -34,7 +34,14 @@
                 <button type="button" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик">
                     Купить в 1 клик
                 </button>
-                <button class="b-button v-6 w-button">В корзину</button>
+                <button class="b-button v-6 w-button"
+                        data-request="Cart::onAdd"
+                        data-request-data="product_id: {{ product.id }}"
+                        data-request-update="'catalog/mini-cart': '#mini-cart'"
+                        data-request-flash
+                >
+                    В корзину
+                </button>
             </div>
         </div>
     </a>

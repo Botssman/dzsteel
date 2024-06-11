@@ -1,0 +1,45 @@
+url="/checkout"
+layout="default"
+title="Оформление заказа"
+==
+{% set items = Cart.getProducts() | default(0) %}
+<div class="main">
+    <section class="s-section s-section_checkout">
+        <div class="container">
+            <div id="checkout">
+                {% partial 'ajax/checkout' %}
+            </div>
+        </div>
+
+        <div wp="checkout_full" class="container">
+            <div class="w-form" id="checkout-form">
+                <form id="email-form" name="email-form" method="post"
+                    data-request="Cart::onCheckout"
+                    data-request-success="document.getElementById('checkout').style.display='none';document.getElementById('checkout-form').style.display='none';document.getElementById('thanks').style.display='block'"
+                >
+                    <div class="text text_heading-h2 text_red text_margin text_not-caps">Оформление заказа</div>
+                    <div class="content s-order__content v-2">
+                        <div class="content__right content__right_mob-mg-bt_20">
+                            <div class="b-columns-2 b-columns_space-between">
+                                <div class="b-columns__col b-columns__col_48 mob_100"><input
+                                        class="b-input b-input_hero b-input_checkout w-input" maxlength="256"
+                                        name="name" placeholder="Введите Ваше имя" type="text"
+                                        id="field"></div>
+                                <div class="b-columns__col b-columns__col_48 mob_100"><input
+                                        class="b-input b-input_hero w-input" maxlength="256" name="phone_number"
+                                        placeholder="Введите номер телефона" type="tel" id="phone-5"
+                                        required></div>
+                            </div>
+                        </div>
+                        <div class="content__left v-4">
+                            <input type="submit" data-attach-loading class="b-button v-5 w-button" value="Оформить заказ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div wp="cart_empty" style="display:none" class="cart-empty" id="thanks"><span>Ваш заказ успешно оформлен!</span> <br>Cпасибо за созданный заказ, мы
+                свяжемся с вами в ближайшее время.
+            </div>
+        </div>
+    </section>
+</div>
