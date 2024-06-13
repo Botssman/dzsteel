@@ -15,7 +15,7 @@
 					</div>
 					<div class="h-wrap">
 						<div class="b-text b-text_grey b-text_size_18">
-							{{ options.section_specialists_subtitle }}
+							{{ options.section_specialists_subtitle|raw }}
 						</div>
 					</div>
 				</div>
@@ -27,12 +27,12 @@
 						<img src="{{ item.image|media }}" loading="lazy" alt="" class="b-image b-image_spec">
 						<div class="h-wrap h-wrap_mg-bt_10">
 							<div class="b-text b-text_size_24">
-								{{ item.name }}
+								{{ item.name|raw }}
 							</div>
 						</div>
 						<div class="h-wrap h-wrap_mg-bt_20">
 							<div class="b-text b-text_size_15">
-								{{ item.job }}
+								{{ item.job|raw }}
 							</div>
 						</div>
 						<div class="h-wrap">

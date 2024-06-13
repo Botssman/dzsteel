@@ -13,6 +13,7 @@ layout="default"
         <div class="container">
             {% partial 'catalog/breadcrumbs' target=currentCategory %}
         </div>
+        <div class="container">
         <div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_70 h-wrap_archive">
             <div class="b-title-4">КАТАЛОГ</div>
         </div>
@@ -82,11 +83,11 @@ layout="default"
                                 {% for category in categories %}
                                     <div class="b-category-box">
                                         <a href="{{ 'catalog/index' | page({category: category.slug}) }}" class="b-linkblock b-linkblock_cat w-inline-block">
-                                            <div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_40">
+                                            {# <div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_40">
                                                 {% set image = category.image ?? category.images.first %}
                                                 <img src="{{ image ? image.getThumb(100, 100, {extension: 'webp', 'quality':75}) : ('assets/images/cat_icon_3.svg'|theme) }}" loading="lazy" alt="{{ image.title | default(category.name) }}"
                                                      class="b-image b-image_cat_icon">
-                                            </div>
+                                            </div> #}
                                             <div class="h-wrap">
                                                 <div class="b-text b-text_open_sans b-text_size_18 b-text_center">
                                                     {{ category.name }}
@@ -98,7 +99,7 @@ layout="default"
                         </div>
                         <div>
                             <div class="b-sort mob_hide">
-                                <div class="b-form w-form">
+                                <div class="b-form__form b-form__form_cat_sort">
                                     <form data-name="Форма" id="email-form" name="email-form" method="get" wp_filter_form="product" class="b-form__form b-form__form_cat_sort" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="aba434b8-d655-c427-8c7c-8d003fc2c5a8">
                                         <div class="h-wrap h-wrap_align_h_left h-wrap_w_auto mob_hide">
                                             <div>Сортировать по:</div>
@@ -129,230 +130,17 @@ layout="default"
                 </form>
             </div>
         </div>
+    </div>
 </div>
 </section>
 
-{% partial 'sections/special' %}
-
-<section class="s-section s-section_dark_spec">
-    <div>
-        <div id="specialist" o_group="Блок специалисты" display="block" class="container">
-            <div class="h-wrap h-wrap_align_h_flex h-wrap_mg-bt_50 h-wrap_mob_mg-bt_30">
-                <div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_mg-bt_0">
-                    <div class="b-title-2">НАШИ СПЕЦИАЛИСТЫ<br>ВСЕГДА НА СВЯЗИ</div>
-                </div>
-                <div class="h-wrap h-wrap_align_h_left h-wrap_w_auto h-wrap_mob_align_v_left">
-                    <div class="h-wrap h-wrap_w_auto h-wrap_mg_r_15">
-                        <div class="b-text b-text_open_sans b-text_bronze b-text_size_95">24/7</div>
-                    </div>
-                    <div class="h-wrap">
-                        <div class="b-text b-text_grey b-text_size_18">МЫ ПРИНИМАЕМ <br>ВАШИ ОБРАЩЕНИЯ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="h-wrap">
-                <div class="b-grid b-grid_spec">
-                    <div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b71-34573b60" class="b-grid-box b-grid-box_spec"><img src="{{ 'assets/images/spec201.jpg'|theme }}" loading="lazy" alt class="b-image b-image_spec">
-                        <div class="h-wrap h-wrap_mg-bt_10">
-                            <div class="b-text b-text_size_24">Агния Кузнецова</div>
-                        </div>
-                        <div class="h-wrap h-wrap_mg-bt_20">
-                            <div class="b-text b-text_size_15">менеджер</div>
-                        </div>
-                        <div class="h-wrap"><a href="#" class="b-button v-3 w-button">Связаться</a></div>
-                    </div>
-                    <div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b7c-34573b60" class="b-grid-box b-grid-box_spec"><img src="{{ 'assets/images/spec202.jpg'|theme }}" loading="lazy" alt class="b-image b-image_spec">
-                        <div class="h-wrap h-wrap_mg-bt_10">
-                            <div class="b-text b-text_size_24">Галактион Антонов</div>
-                        </div>
-                        <div class="h-wrap h-wrap_mg-bt_20">
-                            <div class="b-text b-text_size_15">менеджер</div>
-                        </div>
-                        <div class="h-wrap"><a href="#" class="b-button v-3 w-button">Связаться</a></div>
-                    </div>
-                    <div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b87-34573b60" class="b-grid-box b-grid-box_spec"><img src="{{ 'assets/images/spec201.jpg'|theme }}" loading="lazy" alt class="b-image b-image_spec">
-                        <div class="h-wrap h-wrap_mg-bt_10">
-                            <div class="b-text b-text_size_24">Нонна Ермолаева</div>
-                        </div>
-                        <div class="h-wrap h-wrap_mg-bt_20">
-                            <div class="b-text b-text_size_15">менеджер</div>
-                        </div>
-                        <div class="h-wrap"><a href="#" class="b-button v-3 w-button">Связаться</a></div>
-                    </div>
-                    <div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b92-34573b60" class="b-grid-box b-grid-box_spec"><img src="{{ 'assets/images/spec202.jpg'|theme }}" loading="lazy" alt class="b-image b-image_spec">
-                        <div class="h-wrap h-wrap_mg-bt_10">
-                            <div class="b-text b-text_size_24">Емельян Швеллер</div>
-                        </div>
-                        <div class="h-wrap h-wrap_mg-bt_20">
-                            <div class="b-text b-text_size_15">менеджер</div>
-                        </div>
-                        <div class="h-wrap"><a href="#" class="b-button v-3 w-button">Связаться</a></div>
-                    </div>
-                </div>
-            </div>
-        </div><img src="{{ 'assets/images/grey_decor202.svg'|theme }}" loading="lazy" alt class="b-section-decor b-section-decor_second"></div>
-</section>
-<section f_layout="Секция Оранжевая полоса" class="s-section">
+{% partial 'blocks/section-special-offer' %}
+{% partial 'blocks/section-specialists' %}
+<section class="s-section">
     <div display="block" o_group="Блок Полоса">
         <div o_bg_color="Цвет полосы" class="b-orange-box"></div>
     </div>
 </section>
-<section class="s-section s-section_dark_2">
-    <div>
-        <div display="block" o_group="Блок О нас" class="container">
-            <div class="h-wrap">
-                <div class="b-columns">
-                    <div class="b-columns__col b-columns__col_40 b-columns__col_pd_r_40 b-columns__col_pos_rel_up_120">
-                        <div class="h-wrap h-wrap_align_h_down h-wrap_mg-bt_40">
-                            <div class="h-wrap h-wrap_mob_align_h_center"><img src="{{ 'assets/images/gen_photo.jpg'|theme }}" loading="lazy" alt class="b-image b-image_gen_photo"></div>
-                            <div class="h-wrap h-wrap_w_auto h-wrap_mob_100">
-                                <div class="b-gen-box">
-                                    <div class="h-wrap h-wrap_mg-bt_10">
-                                        <div class="b-text b-text_open_sans b-text_grey b-text_size_18">ГЕНЕРАЛЬНЫЙ<br>ДИРЕКТОР</div>
-                                    </div>
-                                    <div class="h-wrap">
-                                        <div class="b-text b-text_size_18">Аркадий <br>Аверченко</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="h-wrap h-wrap_mg-bt_40">
-                            <div class="b-text b-text_size_15">Но высокотехнологичная концепция общественного уклада требует от нас анализа новых принципов формирования материально-технической и кадровой базы. Не следует, однако, забывать, что перспективное планирование позволяет оценить значение вывода текущих активов. Для современного мира существующая теория не даёт нам иного выбора, кроме определения своевременного выполнения сверхзадачи.</div>
-                        </div>
-                        <div class="h-wrap h-wrap_align_h_center h-wrap_mob_align_v_left">
-                            <div class="h-wrap h-wrap_mg-r_25 h-wrap_mob_mg-bt_20"><a href="#" class="b-button v-4 w-button">НАПИСАТЬ</a></div>
-                            <div class="h-wrap">
-                                <div class="b-text b-text_grey b-text_size_15">В случае возникновения вопросов, которые вы захотите обсудить со мной лично</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="b-columns__col b-columns__col_60 b-columns__col_pos_rel_up_35">
-                        <div class="h-wrap">
-                            <div data-delay="4000" data-animation="slide" class="b-slider b-slider_video w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
-                                <div o_loop="Добавить видео" class="b-slider__mask b-slider__mask_video w-slider-mask">
-                                    <div class="b-slider__slide b-slider__slide_video w-slide">
-                                        <div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_30"><img src="{{ 'assets/images/video_bg20(1).jpg'|theme }}" loading="lazy" alt class="b-image b-image_video_bg"><a o_link="Ссылка на видео" href="#" class="b-play-box b-play-box_video w-inline-block"><img src="{{ 'assets/images/play20button.svg'|theme }}" loading="lazy" alt class="b-image b-image_play"></a></div>
-                                        <div class="h-wrap h-wrap_align_h_center_up h-wrap_mob_align_v_left">
-                                            <div class="h-wrap h-wrap_mob_mg-bt_10">
-                                                <div class="b-text b-text_open_sans b-text_size_20">НАШЕ ПРОИЗВОДСТВО</div>
-                                            </div>
-                                            <div class="h-wrap">
-                                                <div class="b-text b-text_size_15">Здесь располагается множество фото и видео предприятия. Выразительные кадры из цехов, складов,  офисов, а также фактурные портреты сотрудников</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="b-slider__arrow-left b-slider__arrow-left_video w-slider-arrow-left"><img src="{{ 'assets/images/arrow_left.svg'|theme }}" loading="lazy" alt class="b-slider__icone b-slider__icone_video_left"></div>
-                                <div class="b-slider__arrow-right b-slider__arrow-right_video w-slider-arrow-right"><img src="{{ 'assets/images/arrow_right.svg'|theme }}" loading="lazy" alt class="b-slider__icone b-slider__icone_video_right"></div>
-                                <div class="b-slider__nav w-slider-nav w-round"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="s-section s-section_dark_3">
-    <div>
-        <div display="block" o_group="Блок Департаменты" class="container container_pd"><img src="{{ 'assets/images/slider_decor.svg'|theme }}" loading="lazy" alt class="b-slider-decor">
-            <div class="h-wrap h-wrap_pos_z_10 h-wrap_mg-bt_50">
-                <div class="b-columns b-columns_clip_content"><a href="#" class="b-slider-but-left w-button"></a><a href="#" class="b-slider-but-right w-button"></a>
-                    <div class="b-columns__col b-columns__col_30 b-columns__col_dark_bg">
-                        <div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_70">
-                            <div class="b-title-2">МЕЖДУ ОФИСОМ И ЦЕХОМ</div>
-                        </div>
-                        <div class="h-wrap h-wrap_mob_70">
-                            <div class="b-text b-text_grey b-text_size_18">ДЕПАРТАМЕНТЫ НАШЕЙ КОМПАНИИ</div>
-                        </div>
-                        <div class="h-wrap mob_hide h-wrap_mg_up_auto"><a href="#" class="b-button v-5 hide w-button">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a></div>
-                    </div>
-                    <div class="b-columns__col b-columns__col_70">
-                        <div class="h-wrap">
-                            <div data-delay="4000" data-animation="slide" class="b-slider b-slider_ofice w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
-                                <div class="b-slider__mask b-slider__mask_ofice w-slider-mask">
-                                    <div class="b-slider__slide b-slider__slide_ofice w-slide">
-                                        <div class="b-ofice-slide">
-                                            <div class="h-wrap h-wrap_mg-bt_25"><img src="{{ 'assets/images/slide_ofice201.jpg'|theme }}" loading="lazy" alt class="b-image b-image_ofice"></div>
-                                            <div class="h-wrap h-wrap_mg-bt_10">
-                                                <div class="b-text b-text_open_sans b-text_size_18">ПРОИЗВОДСТВЕННЫЙ ЦЕХ</div>
-                                            </div>
-                                            <div class="h-wrap h-wrap_mg-bt_25">
-                                                <div class="b-text b-text_size_13">Описание видео или статьи</div>
-                                            </div>
-                                            <div class="h-wrap"><a href="#" class="b-button v-3 w-button">Связаться</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="b-slider__slide b-slider__slide_ofice w-slide">
-                                        <div class="b-ofice-slide">
-                                            <div class="h-wrap h-wrap_mg-bt_25"><img src="{{ 'assets/images/slide_ofice201.jpg'|theme }}" loading="lazy" alt class="b-image b-image_ofice"></div>
-                                            <div class="h-wrap h-wrap_mg-bt_10">
-                                                <div class="b-text b-text_open_sans b-text_size_18">ПРОИЗВОДСТВЕННЫЙ ЦЕХ</div>
-                                            </div>
-                                            <div class="h-wrap h-wrap_mg-bt_25">
-                                                <div class="b-text b-text_size_13">Описание видео или статьи</div>
-                                            </div>
-                                            <div class="h-wrap"><a href="#" class="b-linkblock w-inline-block"><div class="b-text b-text_grey b-text_size_14">Связаться  ></div></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="b-slider__slide b-slider__slide_ofice w-slide">
-                                        <div class="b-ofice-slide">
-                                            <div class="h-wrap h-wrap_mg-bt_25"><img src="{{ 'assets/images/slide_ofice201.jpg'|theme }}" loading="lazy" alt class="b-image b-image_ofice"></div>
-                                            <div class="h-wrap h-wrap_mg-bt_10">
-                                                <div class="b-text b-text_open_sans b-text_size_18">ПРОИЗВОДСТВЕННЫЙ ЦЕХ</div>
-                                            </div>
-                                            <div class="h-wrap h-wrap_mg-bt_25">
-                                                <div class="b-text b-text_size_13">Описание видео или статьи</div>
-                                            </div>
-                                            <div class="h-wrap"><a href="#" class="b-linkblock w-inline-block"><div class="b-text b-text_grey b-text_size_14">Связаться  ></div></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="b-slider__slide b-slider__slide_ofice w-slide">
-                                        <div class="b-ofice-slide">
-                                            <div class="h-wrap h-wrap_mg-bt_25"><img src="{{ 'assets/images/slide_ofice201.jpg'|theme }}" loading="lazy" alt class="b-image b-image_ofice"></div>
-                                            <div class="h-wrap h-wrap_mg-bt_10">
-                                                <div class="b-text b-text_open_sans b-text_size_18">ПРОИЗВОДСТВЕННЫЙ ЦЕХ</div>
-                                            </div>
-                                            <div class="h-wrap h-wrap_mg-bt_25">
-                                                <div class="b-text b-text_size_13">Описание видео или статьи</div>
-                                            </div>
-                                            <div class="h-wrap"><a href="#" class="b-linkblock w-inline-block"><div class="b-text b-text_grey b-text_size_14">Связаться  ></div></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="b-slider__slide b-slider__slide_ofice w-slide">
-                                        <div class="b-ofice-slide">
-                                            <div class="h-wrap h-wrap_mg-bt_25"><img src="{{ 'assets/images/slide_ofice201.jpg'|theme }}" loading="lazy" f_image="Изображение департамента" alt class="b-image b-image_ofice"></div>
-                                            <div class="h-wrap h-wrap_mg-bt_10">
-                                                <div f_text="Заголовок департамента" class="b-text b-text_open_sans b-text_size_18">ПРОИЗВОДСТВЕННЫЙ ЦЕХ</div>
-                                            </div>
-                                            <div class="h-wrap h-wrap_mg-bt_25">
-                                                <div f_area="Описание департамента" class="b-text b-text_size_13">Описание видео или статьи</div>
-                                            </div>
-                                            <div class="h-wrap"><a f_link="Ссылка для связи" href="#" class="b-linkblock w-inline-block"><div class="b-text b-text_grey b-text_size_14">Связаться  ></div></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="b-slider__slide b-slider__slide_ofice w-slide">
-                                        <div class="b-ofice-slide">
-                                            <div class="h-wrap h-wrap_mg-bt_25"><img src="{{ 'assets/images/slide_ofice201.jpg'|theme }}" loading="lazy" f_image="Изображение департамента" alt class="b-image b-image_ofice"></div>
-                                            <div class="h-wrap h-wrap_mg-bt_10">
-                                                <div f_text="Заголовок департамента" class="b-text b-text_open_sans b-text_size_18">ПРОИЗВОДСТВЕННЫЙ ЦЕХ</div>
-                                            </div>
-                                            <div class="h-wrap h-wrap_mg-bt_25">
-                                                <div f_area="Описание департамента" class="b-text b-text_size_13">Описание видео или статьи</div>
-                                            </div>
-                                            <div class="h-wrap"><a f_link="Ссылка для связи" href="#" class="b-linkblock w-inline-block"><div class="b-text b-text_grey b-text_size_14">Связаться  ></div></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="b-slider__arrow-left b-slider__arrow-left_ofice w-slider-arrow-left"><img src="{{ 'assets/images/arrow.svg'|theme }}" loading="lazy" alt class="b-slider__icone b-slider__icone_ofice"></div>
-                                <div class="b-slider__arrow-right b-slider__arrow-right_ofice w-slider-arrow-right"><img src="{{ 'assets/images/arrow20(1).svg'|theme }}" loading="lazy" alt class="b-slider__icone b-slider__icone_ofice"></div>
-                                <div class="b-slider__nav w-slider-nav w-round"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{% partial 'blocks/section-general-director' %}
+{% partial 'blocks/section-departments' %}
 </div>
