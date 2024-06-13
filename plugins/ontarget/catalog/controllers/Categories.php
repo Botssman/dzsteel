@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use OnTarget\Catalog\Models\Product;
 
 /**
  * Categories Backend Controller
@@ -38,5 +39,12 @@ class Categories extends Controller
         parent::__construct();
 
         BackendMenu::setContext('OnTarget.Catalog', 'catalog', 'categories');
+    }
+
+    public function relationAfterUpdate($relationName, $model)
+    {
+        if ($model instanceof Product) {
+            $model->handlePropertyValueUpdates();
+        }
     }
 }
