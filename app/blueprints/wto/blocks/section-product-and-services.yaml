@@ -10,12 +10,17 @@ fields:
     subtitle:
         label: Подзаголовок
         type: text
+    tab_production:
+        label: Добавить категорию
+        type: section
     title_production:
         label: Заголовок продукция
         type: text
+        tab: Вкладка категорий продукции
     add_category_prod:
         label: Добавить категорию
         type: repeater
+        tab: Вкладка категорий продукции
         form:
             fields:
                 name_category:
@@ -24,6 +29,46 @@ fields:
                 category_link:
                     label: Ссылка на категорию
                     type: text
+                category_image:
+                    label: Изображение категории
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+                add_sub_category:
+                    type: repeater
+                    form:
+                        fields:
+                            name_sub_category:
+                                label: Название подкатегории
+                                type: text
+                            sub_category_link:
+                                label: Ссылка подкатегории
+                                type: text
+    tab_productions:
+        label: Добавить категорию
+        type: section
+        tab: Вкладка категорий производство
+    title_productions:
+        label: Заголовок продукция
+        type: text
+        tab: Вкладка категорий производство
+    add_category_productions:
+        label: Добавить категорию
+        type: repeater
+        tab: Вкладка категорий производство
+        form:
+            fields:
+                name_category:
+                    label: Название категории
+                    type: text
+                category_link:
+                    label: Ссылка на категорию
+                    type: text
+                category_image:
+                    label: Изображение категории
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
                 add_sub_category:
                     type: repeater
                     form:

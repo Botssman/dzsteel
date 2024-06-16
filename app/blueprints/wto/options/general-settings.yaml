@@ -1,0 +1,34 @@
+uuid: general-settings
+name: Общие настройки
+type: global
+handle: Options\GeneralSettings
+multisite: true
+
+primaryNavigation:
+    label: Настройки сайта
+    icon: icon-spinner
+    order: 499
+
+navigation:
+    label: Общие настройки
+    parent: Options\Options
+    icon: icon-magic
+    order: 200
+
+fields:
+    logo:
+      label: Логотип
+      type: mediafinder
+      mode: image
+      maxItems: 1
+    name_manager:
+      label: Имя менеджера
+      type: text
+    text_manager:
+      label: Текст кнопки
+      type: text
+    photo_manager:
+      label: Изображение менеджера
+      type: mediafinder
+      mode: image
+      maxItems: 1

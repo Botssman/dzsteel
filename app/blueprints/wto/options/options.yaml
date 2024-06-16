@@ -9,6 +9,12 @@ primaryNavigation:
     icon: icon-spinner
     order: 499
 
+navigation:
+    label: Сквозные секции
+    parent: Options\Options
+    icon: icon-magic
+    order: 200
+
 fields:
     section_special_offer_title:
         label: Заголовок
