@@ -264,8 +264,8 @@ fields:
                     section_specialists_title|raw:
                         label: section_specialists_title|raw
                         type: text
-                    section_specialists_24/7:
-                        label: section_specialists_24/7
+                    section_specialists_24:
+                        label: section_specialists_24
                         type: text
                     section_specialists_subtitle|raw:
                         label: section_specialists_subtitle|raw
