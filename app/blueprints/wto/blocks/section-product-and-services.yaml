@@ -11,7 +11,7 @@ fields:
         label: Подзаголовок
         type: text
     tab_production:
-        label: Добавить категорию
+        label: Продукция
         type: section
     title_production:
         label: Заголовок продукция
@@ -45,7 +45,7 @@ fields:
                                 label: Ссылка подкатегории
                                 type: text
     tab_productions:
-        label: Добавить категорию
+        label: Производство
         type: section
         tab: Вкладка категорий производство
     title_productions:
@@ -58,24 +58,24 @@ fields:
         tab: Вкладка категорий производство
         form:
             fields:
-                name_category:
+                name_category_productions:
                     label: Название категории
                     type: text
-                category_link:
+                category_link_productions:
                     label: Ссылка на категорию
                     type: text
-                category_image:
+                category_image_productions:
                     label: Изображение категории
                     type: mediafinder
                     mode: image
                     maxItems: '1'
-                add_sub_category:
+                add_sub_category_productions:
                     type: repeater
                     form:
                         fields:
-                            name_sub_category:
+                            name_sub_category_productions:
                                 label: Название подкатегории
                                 type: text
-                            sub_category_link:
+                            sub_category_link_productions:
                                 label: Ссылка подкатегории
                                 type: text
