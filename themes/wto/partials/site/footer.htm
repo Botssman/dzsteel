@@ -1,7 +1,7 @@
 <footer id="footer" class="footer">
 	<div o_group="Настройки футер" class="container">
 		<div class="h-wrap h-wrap_mg-bt_45">
-			<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-image b-image_footer_logo">
+			<img src="{{ siteSettings.logo|media }}" loading="lazy" alt="" class="b-image b-image_footer_logo">
 		</div>
 		<div class="b-columns b-columns_grid">
 			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16b2-29fd16ad" class="b-column-grid-box">
@@ -11,9 +11,9 @@
 					</div>
 				</div>
 				<div class="social_wrap">
-					{% for item in sitesettings.add_social %}
-					<a _link="siteSettings.social_link" href="#" target="_blank" class="b-social-link w-inline-block">
-						<img src="{{ siteSettings.social_icon }}" loading="lazy" alt="" class="b-image b-image_social">
+					{% for item in siteSettings.add_social %}
+					<a href="{{ item.social_link }}" target="_blank" class="b-social-link w-inline-block">
+						<img src="{{ item.social_icon|media }}" loading="lazy" alt="" class="b-image b-image_social">
 					</a>
 					{% endfor %}
 				</div>
@@ -25,31 +25,13 @@
 					</div>
 				</div>
 				<div class="footer_nav">
-					<a href="#" class="b-footer-nav-link w-inline-block">
+					{% for item in mainMenu.add_menu_footer %}
+					<a href="{{ item.link_menu_footer }}" class="b-footer-nav-link w-inline-block">
 						<div class="b-text b-text_size_14">
-							Каталог
+							{{ item.name_menu_footer }}
 						</div>
 					</a>
-					<a href="#" class="b-footer-nav-link w-inline-block">
-						<div class="b-text b-text_size_14">
-							Услуги
-						</div>
-					</a>
-					<a href="#" class="b-footer-nav-link w-inline-block">
-						<div class="b-text b-text_size_14">
-							Спецпредложение
-						</div>
-					</a>
-					<a href="#" class="b-footer-nav-link w-inline-block">
-						<div class="b-text b-text_size_14">
-							Наши работы
-						</div>
-					</a>
-					<a href="#" class="b-footer-nav-link w-inline-block">
-						<div class="b-text b-text_size_14">
-							Главная
-						</div>
-					</a>
+					{% endfor %}
 				</div>
 			</div>
 			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16d5-29fd16ad" class="b-column-grid-box b-column-grid-box_pd_l_60">
@@ -102,7 +84,7 @@
 			</div>
 		</div>
 	</div>
-	<div o_group="Настройки футер" class="footer_downline">
+	<div class="footer_downline">
 		<div class="container">
 			<div class="b-text b-text_size_12">
 				{{ siteSettings.copirate }}

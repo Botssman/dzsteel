@@ -303,3 +303,19 @@ fields:
                         label: 'Скрыть блок'
                         type: switch
                         default: false
+    add_social:
+        label: add_social
+        type: repeater
+        form:
+            fields:
+                social_link:
+                    label: social_link
+                    type: text
+    add_menu_footer:
+        label: add_menu_footer
+        type: repeater
+        form:
+            fields:
+                link_menu_footer:
+                    label: link_menu_footer
+                    type: text

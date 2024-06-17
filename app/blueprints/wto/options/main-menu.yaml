@@ -24,3 +24,16 @@ fields:
                 link_menu:
                     label: Ссылка пункта меню
                     type: text
+    add_menu_footer:
+        label: Добавить главное меню
+        type: repeater
+        titleFrom: Добавить главное меню
+        tab: Меню подвал
+        form:
+            fields:
+                name_menu_footer:
+                    label: Название пункта меню
+                    type: text
+                link_menu_footer:
+                    label: Ссылка пункта меню
+                    type: text
