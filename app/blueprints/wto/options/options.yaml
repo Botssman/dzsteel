@@ -137,6 +137,7 @@ fields:
     section_specialists_24:
         label: 24/7
         type: text
+        tab: Секция специалисты
     section_specialists_slider:
         type: repeater
         label: Слайдер
