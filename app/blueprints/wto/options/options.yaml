@@ -134,6 +134,9 @@ fields:
     section_specialists_subtitle:
         label: Подзаголовок
         tab: Секция специалисты
+    section_specialists_24/7:
+        label: 24/7
+        type: text
     section_specialists_slider:
         type: repeater
         label: Слайдер
