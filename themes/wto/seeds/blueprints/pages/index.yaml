@@ -13,6 +13,17 @@ navigation:
     icon: icon-file-text
     order: '10'
 fields:
+    add_menu:
+        label: add_menu
+        type: repeater
+        form:
+            fields:
+                name_menu:
+                    label: name_menu
+                    type: text
+                link_menu:
+                    label: link_menu
+                    type: text
     sections:
         label: Sections
         type: repeater

@@ -1,7 +1,7 @@
 <footer id="footer" class="footer">
 	<div o_group="Настройки футер" class="container">
 		<div class="h-wrap h-wrap_mg-bt_45">
-			<img src="{{ 'assets/images/logo_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_footer_logo">
+			<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-image b-image_footer_logo">
 		</div>
 		<div class="b-columns b-columns_grid">
 			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16b2-29fd16ad" class="b-column-grid-box">
@@ -11,21 +11,11 @@
 					</div>
 				</div>
 				<div class="social_wrap">
-					<a href="#" target="_blank" class="b-social-link w-inline-block">
-						<img src="{{ 'assets/images/vk_social.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_social">
+					{% for item in sitesettings.add_social %}
+					<a _link="siteSettings.social_link" href="#" target="_blank" class="b-social-link w-inline-block">
+						<img src="{{ siteSettings.social_icon }}" loading="lazy" alt="" class="b-image b-image_social">
 					</a>
-					<a href="#" class="b-social-link w-inline-block">
-						<img src="{{ 'assets/images/tg_social.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_social">
-					</a>
-					<a href="#" class="b-social-link w-inline-block">
-						<img src="{{ 'assets/images/whatsapp_social.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_social">
-					</a>
-					<a href="#" class="b-social-link w-inline-block">
-						<img src="{{ 'assets/images/Instagram.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_social">
-					</a>
-					<a href="#" class="b-social-link b-social-link_pd_0 w-inline-block">
-						<img src="{{ 'assets/images/Youtube.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_social">
-					</a>
+					{% endfor %}
 				</div>
 			</div>
 			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16c1-29fd16ad" class="b-column-grid-box b-column-grid-box_pd_l_100">
@@ -70,7 +60,7 @@
 				</div>
 				<div class="h-wrap">
 					<div class="b-text b-text_size_14">
-						Реквизиты компании
+						{{ siteSettings.requisites }}
 					</div>
 				</div>
 			</div>
@@ -82,13 +72,13 @@
 				</div>
 				<div class="h-wrap">
 					<div class="b-text b-text_size_14">
-						г. Город,  Улица, дом 1, кв. 1
+						{{ siteSettings.adress }}
 					</div>
 				</div>
 			</div>
 			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16e3-29fd16ad" class="b-column-grid-box">
 				<div class="b-form b-form_footer w-form">
-					<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form" data-wf-page-id="665610e4d965136f2726384b" data-wf-element-id="1f8e5440-2759-e1e3-dda1-e6db29fd16e5">
+					<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form" data-wf-page-id="665610e4d965136f272637f9" data-wf-element-id="1f8e5440-2759-e1e3-dda1-e6db29fd16e5">
 						<div class="h-wrap h-wrap_mg-bt_20">
 							<input class="b-input b-input_hero w-input" maxlength="256" name="e-mail-3" data-name="E Mail 3" placeholder="Ваш e-mail" type="email" id="e-mail-3" required="">
 						</div>
@@ -115,7 +105,7 @@
 	<div o_group="Настройки футер" class="footer_downline">
 		<div class="container">
 			<div class="b-text b-text_size_12">
-				On Target @ 2024. All rights reserved.
+				{{ siteSettings.copirate }}
 			</div>
 		</div>
 	</div>

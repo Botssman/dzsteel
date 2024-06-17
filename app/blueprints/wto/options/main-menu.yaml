@@ -1,0 +1,26 @@
+uuid: main-menu
+name: Меню сайта
+type: global
+handle: Options\MainMenu
+multisite: true
+
+navigation:
+    label: Меню сайта
+    parent: Options\Options
+    icon: icon-magic
+    order: 200
+
+fields:
+    add_menu:
+        label: Добавить главное меню
+        type: repeater
+        titleFrom: Добавить главное меню
+        tab: Главное меню
+        form:
+            fields:
+                name_menu:
+                    label: Название пункта меню
+                    type: text
+                link_menu:
+                    label: Ссылка пункта меню
+                    type: text

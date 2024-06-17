@@ -4,11 +4,6 @@ type: global
 handle: Options\GeneralSettings
 multisite: true
 
-primaryNavigation:
-    label: Настройки сайта
-    icon: icon-spinner
-    order: 499
-
 navigation:
     label: Общие настройки
     parent: Options\Options
@@ -21,14 +16,51 @@ fields:
       type: mediafinder
       mode: image
       maxItems: 1
+      tab: Общие настройки
     name_manager:
       label: Имя менеджера
       type: text
+      tab: Общие настройки
     text_manager:
       label: Текст кнопки
       type: text
+      tab: Общие настройки
+    phone:
+      label: Телефон
+      type: text
+      tab: Общие настройки
+    email:
+      label: Почта
+      type: text
+      tab: Общие настройки
+    adress:
+      label: Адрес
+      type: text
+      tab: Общие настройки
+    copirate:
+      label: Копирайт
+      type: text
+      tab: Общие настройки
     photo_manager:
       label: Изображение менеджера
       type: mediafinder
       mode: image
       maxItems: 1
+      tab: Общие настройки
+    add_social:
+        label: Добавить соц сеть
+        type: repeater
+        titleFrom: Добавить соц сеть
+        tab: Соц сети
+        form:
+            fields:
+                social_link:
+                    label: Ссылка на соц сеть
+                    type: text
+                    span: right
+                social_icon:
+                    label: Изображение соц сети
+                    type: mediafinder
+                    mode: image
+                    maxItems: 1
+                    span: left

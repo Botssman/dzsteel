@@ -6,11 +6,3 @@
         file_format: json
         blueprint_uuid: page_index
         update_existing: true
--
-    name: page-checkout
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/page-checkout.json
-    attributes:
-        file_format: json
-        blueprint_uuid: page_page-checkout
-        update_existing: true
