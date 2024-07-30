@@ -1,7 +1,8 @@
 <div class="b-breadcrumbs">
+<div class="b-breadcrumbs-2">
     <ul role="list">
         <li><a href="{{ 'home' | page }}">Главная</a></li>
-        <li><a href="{{ 'catalog/index' | page({category: null}) }}">Каталог</a></li>
+        <li class="b-breadcrumbs__li"><a href="{{ 'catalog/index' | page({category: null}) }}">Каталог</a></li>
         {% for category in target.getParentsAndSelf %}
             {% if loop.last %}
                 <li>{{ category.name }}</li>
@@ -14,4 +15,5 @@
             {% endif %}
         {% endfor %}
     </ul>
+</div>
 </div>

@@ -1,6 +1,15 @@
 [forms]
 
 [Cart]
+
+[global options]
+handle = "Options\Options"
+
+[global siteSettings]
+handle = "Options\GeneralSettings"
+
+[global mainMenu]
+handle = "Options\MainMenu"
 ==
 <!doctype html>
 <html lang="ru">
@@ -36,6 +45,7 @@
     {% component "forms" %}
 
     <link href="{{ 'assets/css/main.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets/css/custom.css'|theme }}" rel="stylesheet">
 
     {% styles %}
 </head>

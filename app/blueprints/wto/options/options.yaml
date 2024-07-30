@@ -9,6 +9,12 @@ primaryNavigation:
     icon: icon-spinner
     order: 499
 
+navigation:
+    label: Сквозные секции
+    parent: Options\Options
+    icon: icon-magic
+    order: 200
+
 fields:
     section_special_offer_title:
         label: Заголовок
@@ -127,6 +133,10 @@ fields:
         tab: Секция специалисты
     section_specialists_subtitle:
         label: Подзаголовок
+        tab: Секция специалисты
+    section_specialists_24:
+        label: 24/7
+        type: text
         tab: Секция специалисты
     section_specialists_slider:
         type: repeater

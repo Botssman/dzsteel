@@ -13,6 +13,17 @@ navigation:
     icon: icon-file-text
     order: '10'
 fields:
+    add_menu:
+        label: add_menu
+        type: repeater
+        form:
+            fields:
+                name_menu:
+                    label: name_menu
+                    type: text
+                link_menu:
+                    label: link_menu
+                    type: text
     sections:
         label: Sections
         type: repeater
@@ -221,8 +232,8 @@ fields:
             section_departments:
                 name: 'Section departments'
                 fields:
-                    section_departments_title:
-                        label: section_departments_title
+                    section_departments_title|raw:
+                        label: section_departments_title|raw
                         type: text
                     section_departments_subtitle|raw:
                         label: section_departments_subtitle|raw
@@ -253,11 +264,11 @@ fields:
                     section_specialists_title|raw:
                         label: section_specialists_title|raw
                         type: text
-                    section_specialists_24/7:
-                        label: section_specialists_24/7
+                    section_specialists_24:
+                        label: section_specialists_24
                         type: text
-                    section_specialists_subtitle:
-                        label: section_specialists_subtitle
+                    section_specialists_subtitle|raw:
+                        label: section_specialists_subtitle|raw
                         type: text
                     section_specialists_slider:
                         label: section_specialists_slider
@@ -269,11 +280,11 @@ fields:
                                     type: mediafinder
                                     mode: image
                                     maxItems: '1'
-                                name:
-                                    label: name
+                                name|raw:
+                                    label: name|raw
                                     type: text
-                                job:
-                                    label: job
+                                job|raw:
+                                    label: job|raw
                                     type: text
                     hide_content:
                         label: 'Скрыть блок'
@@ -282,13 +293,29 @@ fields:
             section_blog:
                 name: 'Section blog'
                 fields:
-                    section_blog_title:
-                        label: section_blog_title
+                    section_blog_title|raw:
+                        label: section_blog_title|raw
                         type: text
-                    section_blog_subtitle:
-                        label: section_blog_subtitle
+                    section_blog_subtitle|raw:
+                        label: section_blog_subtitle|raw
                         type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch
                         default: false
+    add_social:
+        label: add_social
+        type: repeater
+        form:
+            fields:
+                social_link:
+                    label: social_link
+                    type: text
+    add_menu_footer:
+        label: add_menu_footer
+        type: repeater
+        form:
+            fields:
+                link_menu_footer:
+                    label: link_menu_footer
+                    type: text

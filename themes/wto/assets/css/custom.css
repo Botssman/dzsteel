@@ -1,0 +1,14 @@
+.b-breadcrumbs-2 ul li:last-child {
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #cd7a48;
+    border: 1px solid #cd7a48;
+}
+
+.b-breadcrumbs__li {
+    padding: 0px !important;
+    border: transparent !important;
+    color: var(--grey-text) !important;
+    background-color: transparent !important;
+}
