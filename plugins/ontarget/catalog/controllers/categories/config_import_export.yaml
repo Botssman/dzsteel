@@ -1,0 +1,9 @@
+import:
+    title: Импорт категорий
+    modelClass: OnTarget\Catalog\Models\CategoryImport
+    list: $/ontarget/catalog/models/category/import_export.yaml
+
+export:
+    title: Экспорт категорий
+    modelClass: OnTarget\Catalog\Models\CategoryExport
+    list: $/ontarget/catalog/models/category/import_export.yaml

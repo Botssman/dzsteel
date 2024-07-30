@@ -1,5 +1,8 @@
 <?php namespace OnTarget\Catalog\Controllers;
 
+use Backend\Behaviors\FormController;
+use Backend\Behaviors\ImportExportController;
+use Backend\Behaviors\ListController;
 use BackendMenu;
 use Backend\Classes\Controller;
 use OnTarget\Catalog\Models\Product;
@@ -12,8 +15,9 @@ use OnTarget\Catalog\Models\Product;
 class Categories extends Controller
 {
     public $implement = [
-        \Backend\Behaviors\FormController::class,
-        \Backend\Behaviors\ListController::class,
+        FormController::class,
+        ListController::class,
+        ImportExportController::class
     ];
 
     /**
@@ -25,6 +29,8 @@ class Categories extends Controller
      * @var string listConfig file
      */
     public $listConfig = 'config_list.yaml';
+
+    public $importExportConfig = 'config_import_export.yaml';
 
     /**
      * @var array required permissions

@@ -1,0 +1,17 @@
+columns:
+    id:
+        label: ID
+    slug:
+        label: Slug
+    parent_path:
+        label: Родитель
+    name:
+        label: Название
+    measure_unit_name:
+        label: Единица измерения
+    description:
+        label: Описание
+    is_active:
+        label: Активно
+    sort_order:
+        label: Сортировка
