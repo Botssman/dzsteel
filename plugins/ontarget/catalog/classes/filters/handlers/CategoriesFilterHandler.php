@@ -24,14 +24,10 @@ class CategoriesFilterHandler implements FilterHandler
         if (empty($categoryIdentifier)) return $next($query);
 
         $category = Category::query()
-            ->select('id','slug')
             ->where('slug', $categoryIdentifier)
             ->first();
 
-        $ids = array_merge(
-            [$category->id],
-            $category->getAllChildrenAndSelf()->pluck('id')->toArray()
-        );
+        $ids = $category->getAllChildrenAndSelf()->pluck('id')->toArray();
 
         return $next($query->whereIn('category_id', $ids));
     }
