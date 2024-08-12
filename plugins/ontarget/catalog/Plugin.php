@@ -2,6 +2,7 @@
 
 use Backend;
 use Event;
+use OnTarget\Catalog\Classes\Events\ImportExportHandler;
 use OnTarget\Catalog\Classes\Search\CatalogSearchProvider;
 use OnTarget\Catalog\Components\Cart;
 use OnTarget\Catalog\Components\Catalog;
@@ -46,6 +47,8 @@ class Plugin extends PluginBase
         Event::listen('offline.sitesearch.extend', function () {
             return new CatalogSearchProvider;
         });
+
+        \Event::subscribe(new ImportExportHandler);
     }
 
     /**

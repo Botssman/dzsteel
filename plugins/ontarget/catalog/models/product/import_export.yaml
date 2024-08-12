@@ -1,0 +1,27 @@
+columns:
+    id:
+        label: ID
+    vendor_code:
+        label: Артикул
+    name:
+        label: Название
+    is_active:
+        label: Активно
+    price:
+        label: Цена
+    old_price:
+        label: Старая цена
+    weight:
+        label: Вес
+    height:
+        label: Высота
+    length:
+        label: Длина
+    width:
+        label: Ширина
+    image:
+        label: Изображение
+    images:
+        label: Галерея
+    description:
+        label: Описание
