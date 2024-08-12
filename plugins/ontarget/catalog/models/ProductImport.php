@@ -6,6 +6,7 @@ use Backend\Models\ImportModel;
 use Exception;
 use OnTarget\Catalog\Classes\Scopes\ActiveScope;
 use OnTarget\Catalog\Classes\Traits\ExcelProcessor;
+use System\Models\File;
 
 class ProductImport extends ImportModel
 {
@@ -49,9 +50,10 @@ class ProductImport extends ImportModel
     {
         $this->productData = $data;
 
-        $this->product = !empty($data['id']) ?
-            Product::findOrNew($data['id']) :
-            new Product();
+        $this->product = Product::query()
+            ->where('vendor_code', $data['vendor_code'])
+            ->orWhere('id', $data['id'])
+            ->firstOrNew();
 
         $isExisting = $this->product->exists;
 
@@ -61,6 +63,34 @@ class ProductImport extends ImportModel
         $this->product->price = $data['price'];
         $this->product->vendor_code = $data['vendor_code'] ?? str_random(7);
         $this->product->save();
+
+        if (!empty($data['images'])) {
+            $images = explode('|', $data['images']);
+
+            foreach ($images as $image) {
+                $file = new File();
+
+                if (filter_var($image, FILTER_VALIDATE_URL)) {
+                    $file->fromUrl($image);
+                } else {
+                    $file->fromFile(storage_path("app/media/import/{$image}"));
+                }
+
+                $this->product->images()->add($file);
+            }
+        }
+
+        if (!empty($data['image'])) {
+            $file = new File();
+
+            if (filter_var($data['image'], FILTER_VALIDATE_URL)) {
+                $file->fromUrl($data['image']);
+            } else {
+                $file->fromFile(storage_path("app/media/import/{$data['image']}"));
+            }
+
+            $this->product->image()->add($file);
+        }
 
         if ($isExisting) {
             $this->logUpdated();

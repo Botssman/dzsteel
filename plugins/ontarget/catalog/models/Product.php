@@ -17,6 +17,8 @@ use System\Models\File;
  * @mixin Builder
  *
  * @method static ProductQueryBuilder|static query()
+ *
+ * @property File $preview
  */
 class Product extends Model
 {
@@ -84,5 +86,13 @@ class Product extends Model
     public function newEloquentBuilder($query): ProductQueryBuilder
     {
         return new ProductQueryBuilder($query);
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getPreviewAttribute()
+    {
+        return $this->image ?? $this->images()->first();
     }
 }

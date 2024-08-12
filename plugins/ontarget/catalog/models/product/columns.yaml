@@ -6,6 +6,9 @@ columns:
     id:
         label: ID
         searchable: true
+    image:
+        label: Изображение
+        type: image
     name:
         label: Наименование
         searchable: true
