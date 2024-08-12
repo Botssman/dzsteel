@@ -21,6 +21,10 @@ class PropertyValue extends Model
      */
     public $table = 'ontarget_catalog_property_values';
 
+    public $fillable = [
+        'slug', 'name', 'property_id'
+    ];
+
     /**
      * Slugs for Sluggable trait
      * @var array|string[]

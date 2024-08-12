@@ -54,7 +54,13 @@ class Catalog extends ComponentBase
                 return $this->notFound();
             }
 
-            $this->setVars('categories', $this->currentCategory->children);
+            $this->setVars(
+                'categories',
+                $this->currentCategory
+                    ->children()
+                    ->whereHas('products')
+                    ->get()
+            );
         }
 
         if (empty($this->categories)) {
@@ -84,6 +90,7 @@ class Catalog extends ComponentBase
     {
         return Category::query()
             ->tap(fn() => new ActiveScope)
+            ->whereHas('products')
             ->getAllRoot();
     }
 

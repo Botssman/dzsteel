@@ -32,6 +32,10 @@ class Property extends Model
         'slug' => 'name'
     ];
 
+    public $fillable = [
+        'slug', 'name'
+    ];
+
     public $jsonable = ['extra'];
 
     /**

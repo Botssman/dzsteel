@@ -3,7 +3,11 @@
 namespace OnTarget\Catalog\Models;
 
 use Backend\Models\ImportModel;
+use DOMDocument;
+use DOMXPath;
 use Exception;
+use October\Rain\Database\Builder;
+use OnTarget\Catalog\Classes\QueryBuilders\ProductQueryBuilder;
 use OnTarget\Catalog\Classes\Scopes\ActiveScope;
 use OnTarget\Catalog\Classes\Traits\ExcelProcessor;
 use System\Models\File;
@@ -64,6 +68,10 @@ class ProductImport extends ImportModel
         $this->product->vendor_code = $data['vendor_code'] ?? str_random(7);
         $this->product->save();
 
+        if (!empty($data['properties'])) {
+            $this->setProperties($this->extractProperties($data['properties']));
+        }
+
         if (!empty($data['images'])) {
             $images = explode('|', $data['images']);
 
@@ -100,6 +108,83 @@ class ProductImport extends ImportModel
 
         return $this->product;
     }
+
+    /**
+     * @param array $properties
+     * @return void
+     */
+    protected function setProperties(array $properties): void
+    {
+        foreach ($properties as $key => $value) {
+            $property = Property::query()
+                ->firstOrCreate(
+                    ['slug' => str_slug($key)],
+                    [
+                        'slug' => str_slug($key),
+                        'name' => $key
+                    ],
+                );
+
+            if (empty($property)) {
+                $property = new Property();
+
+                $property->name = $key;
+                $property->slug = str_slug($key);
+                $property->save();
+
+                $this->category->properties()->add($property);
+            }
+
+            $propertyValue = PropertyValue::query()
+                ->firstOrCreate(
+                    [
+                        'slug' => str_slug($value),
+                        'property_id' => $property->id
+                    ],
+                    [
+                        'slug' => str_slug($value),
+                        'name' => $value,
+                        'property_id' => $property->id
+                    ]
+                );
+
+
+            $this->product->property_values()->syncWithoutDetaching($propertyValue->id);
+
+        }
+    }
+
+    /**
+     * @param $htmlString
+     * @return array
+     */
+    public function extractProperties($htmlString): array
+    {
+        $dom = new DOMDocument('1.0', 'UTF-8');
+
+        libxml_use_internal_errors(true);
+
+        $dom->loadHTML('<?xml encoding="UTF-8">' . $htmlString, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+        libxml_clear_errors();
+
+        $xpath = new DOMXPath($dom);
+
+        $nodes = $xpath->query("//ul/li");
+
+        $properties = [];
+
+        foreach ($nodes as $node) {
+            $textContent = $node->textContent;
+
+            list($key, $value) = explode(': ', $textContent);
+
+            $properties[trim($key)] = trim($value);
+        }
+
+        return $properties;
+    }
+
 
     public function getCategoryIdOptions()
     {
