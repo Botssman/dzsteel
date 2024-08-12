@@ -30,7 +30,7 @@ class CategoriesFilterHandler implements FilterHandler
 
         $ids = array_merge(
             [$category->id],
-            $category->children->pluck('id')->toArray()
+            $category->getAllChildrenAndSelf()->pluck('id')->toArray()
         );
 
         return $next($query->whereIn('category_id', $ids));
