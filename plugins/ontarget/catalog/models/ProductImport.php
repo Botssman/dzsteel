@@ -117,13 +117,8 @@ class ProductImport extends ImportModel
     {
         foreach ($properties as $key => $value) {
             $property = Property::query()
-                ->firstOrCreate(
-                    ['slug' => str_slug($key)],
-                    [
-                        'slug' => str_slug($key),
-                        'name' => $key
-                    ],
-                );
+                ->where(['slug' => str_slug($key)])
+                ->first();
 
             if (empty($property)) {
                 $property = new Property();
