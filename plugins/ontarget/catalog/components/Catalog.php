@@ -58,7 +58,6 @@ class Catalog extends ComponentBase
                 'categories',
                 $this->currentCategory
                     ->children()
-                    ->whereHas('products')
                     ->get()
             );
         }
@@ -90,7 +89,6 @@ class Catalog extends ComponentBase
     {
         return Category::query()
             ->tap(fn() => new ActiveScope)
-            ->whereHas('products')
             ->getAllRoot();
     }
 
