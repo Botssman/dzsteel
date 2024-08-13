@@ -10,6 +10,7 @@ use October\Rain\Database\Builder;
 use OnTarget\Catalog\Classes\QueryBuilders\ProductQueryBuilder;
 use OnTarget\Catalog\Classes\Scopes\ActiveScope;
 use OnTarget\Catalog\Classes\Traits\ExcelProcessor;
+use Str;
 use System\Models\File;
 
 class ProductImport extends ImportModel
@@ -116,36 +117,34 @@ class ProductImport extends ImportModel
     protected function setProperties(array $properties): void
     {
         foreach ($properties as $key => $value) {
+            $propertySlug = Str::slug($key);
             $property = Property::query()
-                ->where('slug', str_slug($key))
+                ->where('slug', $propertySlug)
                 ->first();
 
             if (empty($property)) {
                 $property = new Property();
-
                 $property->name = $key;
-                $property->slug = str_slug($key);
+                $property->slug = $propertySlug;
                 $property->save();
 
-                $this->category->properties()->add($property);
+                $this->category->properties()->attach($property->id);
             }
 
+            $propertyValueSlug = Str::slug($value);
             $propertyValue = PropertyValue::query()
                 ->firstOrCreate(
                     [
-                        'slug' => str_slug($value),
+                        'slug' => $propertyValueSlug,
                         'property_id' => $property->id
                     ],
                     [
-                        'slug' => str_slug($value),
+                        'slug' => $propertyValueSlug,
                         'name' => $value,
                         'property_id' => $property->id
                     ]
                 );
-
-
-            $this->product->property_values()->syncWithoutDetaching($propertyValue->id);
-
+            $this->product->property_values()->attach($propertyValue);
         }
     }
 
