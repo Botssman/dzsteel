@@ -116,6 +116,8 @@ class ProductImport extends ImportModel
      */
     protected function setProperties(array $properties): void
     {
+        $propertyValuesIds = [];
+
         foreach ($properties as $key => $value) {
             $propertySlug = Str::slug($key);
             $property = Property::query()
@@ -144,8 +146,12 @@ class ProductImport extends ImportModel
                         'property_id' => $property->id
                     ]
                 );
-            $this->product->property_values()->attach($propertyValue);
+
+            $propertyValuesIds[] = $propertyValue->id;
+
         }
+
+        $this->product->property_values()->sync($propertyValuesIds);
     }
 
     /**
