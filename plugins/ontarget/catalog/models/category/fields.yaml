@@ -77,3 +77,9 @@ tabs:
                     buttonLink: Привязать
                     buttonUnlink: Отвязать
             tab: Характеристики
+        import_url:
+            label: Ссылка на файл импорта
+            tab: Импорт
+        import@update:
+            type: partial
+            tab: Импорт

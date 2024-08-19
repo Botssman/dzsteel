@@ -5,6 +5,7 @@ use Backend\Behaviors\ImportExportController;
 use Backend\Behaviors\ListController;
 use BackendMenu;
 use Backend\Classes\Controller;
+use OnTarget\Catalog\Classes\Jobs\ImportProductsJob;
 use OnTarget\Catalog\Models\Product;
 
 /**
@@ -52,5 +53,23 @@ class Categories extends Controller
         if ($model instanceof Product) {
             $model->handlePropertyValueUpdates();
         }
+    }
+
+    public function onProcessImport()
+    {
+        $category = $this->widget->form->model;
+        if (empty($category)) throw new \AjaxException('Model not found!');
+        if (empty($category->import_url)) throw new \AjaxException('Необходимо указать ссылку на файл');
+
+        $csv = file_get_contents($category->import_url);
+        $importFileName = "import_" . now()->timestamp . '.csv';
+        \Storage::disk('import')->put($importFileName, $csv);
+
+        \Queue::push(ImportProductsJob::class, [
+           'file_path' => temp_path('import/' . $importFileName),
+            'category_id' => $category->id
+        ]);
+
+        \Flash::info('Импорт добавлен в очередь');
     }
 }

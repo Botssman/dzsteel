@@ -20,3 +20,12 @@ columns:
     is_active:
         label: Активно
         type: switch
+    created_at:
+        label: Создан
+        type: datetime
+        format: d.m.Y H:i:s
+
+    updated_at:
+        label: Обновлён
+        type: datetime
+        format: d.m.Y H:i:s

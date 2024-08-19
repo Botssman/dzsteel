@@ -85,6 +85,10 @@ class Plugin extends PluginBase
                 'tab' => 'Каталог',
                 'label' => 'Управление заказами'
             ],
+            'ontarget.catalog.import_logs' => [
+                'tab' => 'Каталог',
+                'label' => 'Просмотр журнала импорта'
+            ],
         ];
     }
 
@@ -134,6 +138,13 @@ class Plugin extends PluginBase
                         'url' => Backend::url('ontarget/catalog/orders'),
                         'icon' => 'ph ph-shopping-cart',
                         'permissions' => ['ontarget.catalog.orders'],
+                        'order' => 500,
+                    ],
+                    'importlogs' => [
+                        'label' => 'Журнал импорта',
+                        'url' => Backend::url('ontarget/catalog/importlogs'),
+                        'icon' => 'ph ph-recycle',
+                        'permissions' => ['ontarget.catalog.import_logs'],
                         'order' => 500,
                     ]
                 ]

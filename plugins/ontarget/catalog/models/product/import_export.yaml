@@ -23,7 +23,5 @@ columns:
         label: Изображение
     images:
         label: Галерея
-    description:
-        label: Описание
     properties:
-        label: Характеристики
+        label: Описание

@@ -27,3 +27,9 @@ v1.0.6:
 v1.0.7:
     - Adding unit to properties
     - add_unit_to_properties_table.php
+v1.0.8:
+    - Adding import settings
+    - add_import_settings_to_categories.php
+v1.0.9:
+    - Creating import logs table
+    - create_import_logs_table.php

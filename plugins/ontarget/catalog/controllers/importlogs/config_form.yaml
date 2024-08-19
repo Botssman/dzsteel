@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Import Log
+
+# Model Form Field configuration
+form: $/ontarget/catalog/models/importlog/fields.yaml
+
+# Model Class name
+modelClass: OnTarget\Catalog\Models\ImportLog
+
+# Default redirect location
+defaultRedirect: ontarget/catalog/importlogs
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: ontarget/catalog/importlogs/update/:id
+    redirectClose: ontarget/catalog/importlogs
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: ontarget/catalog/importlogs
+    redirectClose: ontarget/catalog/importlogs
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

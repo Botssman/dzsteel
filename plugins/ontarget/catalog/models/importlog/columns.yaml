@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    created_at:
+        label: Создано
+        type: datetime
+        format: d.m.Y H:i:s
+
+    finished_at:
+        label: Завершено
+        type: datetime
+        format: d.m.Y H:i:s
+
