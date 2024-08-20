@@ -1,5 +1,6 @@
 <?php namespace OnTarget\Catalog\Classes\Import;
 
+use Database\Tester\Models\Category;
 use Exception;
 use October\Rain\Database\Builder;
 use OnTarget\Catalog\Models\Product;
@@ -15,11 +16,14 @@ class ProductImportContainer
      */
     protected Product $product;
 
+    protected Category $category
+
     public string $mode = 'created';
 
     public function __construct(public array $data, public int $category_id)
     {
         $this->product = $this->makeProduct();
+        $this->category = Category::find($this->category_id);
     }
 
     /**
