@@ -33,10 +33,10 @@ class ImportLog extends Model
 
     public function beforeSave()
     {
-        if (count($this->results ?? []) == count($this->product_data ?? [])) {
-            $this->finished_at = now()->format('Y-m-d H:i:s');
-            $this->status = 'finished';
-        }
+//        if (count($this->results ?? []) == count($this->product_data ?? [])) {
+//            $this->finished_at = now()->format('Y-m-d H:i:s');
+//            $this->status = 'finished';
+//        }
     }
 
     public function getTotalCountAttribute()
