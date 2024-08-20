@@ -1,6 +1,7 @@
 <?php namespace OnTarget\Catalog\Components;
 
 use Cms\Classes\ComponentBase;
+use OnTarget\Catalog\Classes\Scopes\ActiveScope;
 use OnTarget\Catalog\Models\Customer;
 use OnTarget\Catalog\Models\Order;
 
@@ -30,6 +31,18 @@ class Cart extends ComponentBase
     {
         $this->items = \Session::get('cart', []);
         $this->page['cart'] = $this->getCart();
+
+        trace_log($this->page->id);
+
+        if ($this->page->id == 'catalog-product') {
+            $this->page['product'] = \OnTarget\Catalog\Models\Product::query()
+                ->tap(fn() => new ActiveScope)
+                ->whereHas('category', function ($q){
+                    return $q->where('slug', $this->param('category'));
+                })
+                ->where('slug', $this->param('product'))
+                ->firstOrFail();
+        }
     }
 
     /**
@@ -153,6 +166,26 @@ class Cart extends ComponentBase
         $order->products()->sync($this->getCart()['ids']);
 
         \Session::forget('cart');
+    }
+
+    public function setQuantity(array $data)
+    {
+        $this->removeFromCart($data['product_id']);
+
+        $ids = \Session::get('cart');
+
+        for ($i = 0; $i < $data['quantity']; $i++) {
+            $ids[] = $data['product_id'];
+        }
+
+        \Session::put('cart', $ids);
+
+        $this->setVars();
+    }
+
+    public function onSetQuantity()
+    {
+        $this->setQuantity(post());
     }
 
 }
