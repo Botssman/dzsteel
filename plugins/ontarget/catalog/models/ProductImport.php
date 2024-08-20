@@ -86,4 +86,27 @@ class ProductImport extends ImportModel
             ->tap(fn() => new ActiveScope)
             ->pluck( 'name', 'id');
     }
+
+    public function matchColumns($csvFilePath, $columnMapping): array
+    {
+        if (($handle = fopen($csvFilePath, 'r')) !== false) {
+            $headerRaw= fgetcsv($handle);
+
+            $header = explode(';', $headerRaw[0]);
+
+            $result = [];
+
+            foreach ($header as $index => $label) {
+                if (isset($columnMapping[$label])) {
+                    $result[$index] = $columnMapping[$label];
+                }
+            }
+
+            fclose($handle);
+
+            return $result;
+        } else {
+            throw new Exception("Unable to open the CSV file.");
+        }
+    }
 }

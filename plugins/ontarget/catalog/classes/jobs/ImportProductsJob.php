@@ -20,16 +20,21 @@ class ImportProductsJob
 
             $importModel->category = Category::find($data['category_id']);
 
+            $mappings = [
+                'Название' => 'name',
+                'Изображения' => 'images',
+                'Изображение' => 'image',
+                'Цена' => 'price',
+                'Описание' => 'properties',
+                'Категория' => 'category',
+            ];
+
+            $matches = $importModel->matchColumns($data['file_path'], $mappings);
+
             $importModel->importFile(
                 $data['file_path'],
                 [
-                    'matches' => [
-                        0 => 'image',
-                        1 => 'name',
-                        2 => 'vendor_code',
-                        3 => 'price',
-                        8 => 'properties',
-                    ],
+                    'matches' => $matches,
                     'delimiter' => ';'
                 ]
             );
