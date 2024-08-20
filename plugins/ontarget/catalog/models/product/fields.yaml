@@ -84,3 +84,6 @@ tabs:
             fileTypes: [.pdf, .docx, .doc, .xlsx, .xls, .txt ]
             tab: Документы
             maxFiles: 25
+        external_link:
+            label: Ссылка импорта
+            tab: Импорт

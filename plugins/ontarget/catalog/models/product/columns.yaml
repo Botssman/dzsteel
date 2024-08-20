@@ -12,9 +12,6 @@ columns:
     name:
         label: Наименование
         searchable: true
-    vendor_code:
-        label: Наименование
-        searchable: true
     price:
         label: Цена, руб.
     is_active:
