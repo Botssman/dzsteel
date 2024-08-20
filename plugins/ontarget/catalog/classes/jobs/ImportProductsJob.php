@@ -27,6 +27,7 @@ class ImportProductsJob
                 'Цена' => 'price',
                 'Описание' => 'properties',
                 'Категория' => 'category',
+                'URL' => 'external_link',
             ];
 
             $matches = $importModel->matchColumns($data['file_path'], $mappings);

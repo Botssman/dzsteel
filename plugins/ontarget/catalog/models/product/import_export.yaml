@@ -25,3 +25,5 @@ columns:
         label: Галерея
     properties:
         label: Описание
+    external_link:
+        label: Внешняя ссылка

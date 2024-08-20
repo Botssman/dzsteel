@@ -38,6 +38,7 @@ class ProductImportContainer
         $this->product->name = $this->data['name'];
         $this->product->slug = $this->data['slug'] ?? str_slug($this->data['name']);
         $this->product->price = $this->data['price'];
+        $this->product->external_link = $this->data['external_link'] ?? '';
         $this->product->vendor_code = $this->data['vendor_code'] ?? $this->makeVendorCode();
         $this->product->save();
 
@@ -69,8 +70,8 @@ class ProductImportContainer
     {
         return Product::query()
             ->when(
-                !empty($this->data['vendor_code']),
-                fn (Builder $q) => $q->where('vendor_code', $this->data['vendor_code'])
+                !empty($this->data['external_link']),
+                fn (Builder $q) => $q->where('external_link', $this->data['external_link'])
             )
             ->when(
                 !empty($this->data['id']),

@@ -17,6 +17,4 @@ columns:
         relation: category
         select: name
     total_count:
-        label: Всего позиций
-    processed_count:
-        label: Обработано
+        label: Обработано позиций

@@ -35,6 +35,7 @@ tabs:
                 form: $/ontarget/catalog/models/product/fields.yaml
                 view:
                     toolbarButtons: create|delete
+                    recordsPerPage: 20
                 customMessages:
                     buttonCreate: Создать товар
                     buttonDelete: Удалить

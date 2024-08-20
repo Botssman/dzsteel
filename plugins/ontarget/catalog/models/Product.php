@@ -2,6 +2,7 @@
 
 use Model;
 use October\Rain\Database\Builder;
+use October\Rain\Database\Traits\Nullable;
 use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
@@ -25,11 +26,14 @@ class Product extends Model
     use Validation;
     use Sortable;
     use Sluggable;
+    use Nullable;
 
     /**
      * @var string table name
      */
     public $table = 'ontarget_catalog_products';
+
+    public $nullable = ['external_link'];
 
     /**
      * Slugs for Sluggable trait

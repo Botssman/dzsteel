@@ -33,3 +33,6 @@ v1.0.8:
 v1.0.9:
     - Creating import logs table
     - create_import_logs_table.php
+v1.0.10:
+    - Adding external link column
+    - add_external_link_to_products_table.php
