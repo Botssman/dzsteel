@@ -1,8 +1,8 @@
 <?php namespace OnTarget\Catalog\Classes\Import;
 
-use Database\Tester\Models\Category;
 use Exception;
 use October\Rain\Database\Builder;
+use OnTarget\Catalog\Models\Category;
 use OnTarget\Catalog\Models\Product;
 use OnTarget\Catalog\Models\Property;
 use OnTarget\Catalog\Models\PropertyValue;
