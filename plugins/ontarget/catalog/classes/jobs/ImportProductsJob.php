@@ -22,8 +22,7 @@ class ImportProductsJob
 
             $mappings = [
                 'Название' => 'name',
-                'Изображения' => 'images',
-                'Изображение' => 'image',
+                'Изображения' => 'image',
                 'Цена' => 'price',
                 'Описание' => 'properties',
                 'Категория' => 'category',

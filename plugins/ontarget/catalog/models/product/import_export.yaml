@@ -20,7 +20,7 @@ columns:
     width:
         label: Ширина
     image:
-        label: Изображение
+        label: Изображения
     images:
         label: Галерея
     properties:
