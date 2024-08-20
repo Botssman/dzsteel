@@ -11,7 +11,10 @@ class ProcessProductJob
     {
 
         try {
-            $container = new ProductImportContainer($data['product_data']);
+            $container = new ProductImportContainer(
+                $data['product_data'],
+                $data['category_id']
+            );
             $importLogEntry = ImportLog::find($data['import_log_id']);
 
             $importLogResults = $importLogEntry->results;

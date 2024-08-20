@@ -17,7 +17,7 @@ class ProductImportContainer
 
     public string $mode = 'created';
 
-    public function __construct(public array $data)
+    public function __construct(public array $data, public int $category_id)
     {
         $this->product = $this->makeProduct();
     }
@@ -30,6 +30,7 @@ class ProductImportContainer
     {
         $this->mode = $this->product->exists ? 'updated' : 'created';
 
+        $this->product->category_id = $this->category_id;
         $this->product->name = $this->data['name'];
         $this->product->slug = $this->data['slug'] ?? str_slug($this->data['name']);
         $this->product->price = $this->data['price'];
