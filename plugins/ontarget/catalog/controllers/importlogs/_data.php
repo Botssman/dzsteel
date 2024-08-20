@@ -29,6 +29,3 @@
         </tbody>
     </table>
 </div>
-<pre>
-    <?php print_r($model->results); ?>
-</pre>
