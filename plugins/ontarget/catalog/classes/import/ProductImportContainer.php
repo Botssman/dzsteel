@@ -16,7 +16,7 @@ class ProductImportContainer
      */
     protected Product $product;
 
-    protected Category $category
+    protected Category $category;
 
     public string $mode = 'created';
 
