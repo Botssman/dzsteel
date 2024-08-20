@@ -12,7 +12,7 @@
         </thead>
         <tbody>
         <?php foreach($model->results as $row): ?>
-            <tr <?php if(!$row['success']): ?>class="negative"<?php endif; ?>
+            <tr <?php if(!$row['success']): ?>class="negative"<?php endif; ?> >
                 <td><?=$row['row']?></td>
                 <td>
                     <a href="/admin/ontarget/catalog/products/update/<?=$row['product']['id'] ?? ''?>">
