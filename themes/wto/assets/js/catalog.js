@@ -24,6 +24,12 @@ if ($loadMoreBtn) {
     $loadMoreBtn.addEventListener('click', onLoadMore);
 }
 
+document.addEventListener('click', function(event){
+    if (event.target.id === 'load-more-btn') {
+        onLoadMore(event);
+    }
+})
+
 function onFiltersChange() {
     let payload = getFormPayload(document.querySelector(selectors.form));
 
