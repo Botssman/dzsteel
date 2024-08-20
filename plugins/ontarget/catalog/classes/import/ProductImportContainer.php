@@ -5,6 +5,7 @@ use October\Rain\Database\Builder;
 use OnTarget\Catalog\Models\Product;
 use OnTarget\Catalog\Models\Property;
 use OnTarget\Catalog\Models\PropertyValue;
+use Str;
 use System\Models\File;
 
 class ProductImportContainer

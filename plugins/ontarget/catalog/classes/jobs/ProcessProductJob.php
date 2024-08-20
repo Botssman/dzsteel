@@ -9,34 +9,33 @@ class ProcessProductJob
 {
     public function fire($job, $data): void
     {
-        $container = new ProductImportContainer($data);
-        $importLogEntry = ImportLog::find($data['import_log_id']);
-
-        $importLogResults = $importLogEntry->results;
-
-        $importLogRow = [
-            'row' => $data['row'],
-            'product_data' => $data['product_data'],
-        ];
 
         try {
+            $container = new ProductImportContainer($data['product_data']);
+            $importLogEntry = ImportLog::find($data['import_log_id']);
+
+            $importLogResults = $importLogEntry->results;
+
+            $importLogRow = [
+                'row' => $data['row'],
+                'product_data' => $data['product_data'],
+            ];
+
+
             $product = $container->process();
 
             $importLogRow['success'] = true;
+            $importLogRow['product'] = $product->toArray();
             $importLogRow['mode'] = $container->mode;
-            $importLogRow['message'] = "Товар успешно " . $container->mode == 'created' ? 'создан' : 'обновлён';
+            $importLogRow['message'] = $container->mode == 'created' ? 'Создан' : 'Обновлён';
 
             $job->delete();
         } catch (\Exception $e) {
-            if ($job->attempts() < 3) {
-                $job->release();
-            } else {
-                $job->fail();
-                trace_log($e);
+            $job->fail();
+            trace_log($e);
 
-                $importLogRow['success'] = false;
-                $importLogRow['message'] = $e->getMessage() . PHP_EOL . "Подробности в журнале событий";
-            }
+            $importLogRow['success'] = false;
+            $importLogRow['message'] = $e->getMessage() . PHP_EOL . "Подробности в журнале событий";
 
         }
 

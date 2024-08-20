@@ -27,12 +27,21 @@ class ImportLog extends Model
         'results', 'product_data'
     ];
 
-//    public function afterSave()
-//    {
+    public $belongsTo = [
+        'category' => Category::class
+    ];
+
+    public function afterSave()
+    {
 //        if (count($this->results ?? []) == count($this->product_data ?? [])) {
-//            $this->finished_at = now();
+//            $this->finished_at = now()->format('Y-m-d H:i:s');
 //            $this->status = 'finished';
 //            $this->forceSave();
 //        }
-//    }
+    }
+
+    public function getTotalCountAttribute()
+    {
+        return count($this->results ?? []);
+    }
 }
