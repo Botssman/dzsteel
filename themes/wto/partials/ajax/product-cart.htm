@@ -1,56 +1,67 @@
-<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form" data-wf-page-id="665610e4d965136f27263834" data-wf-element-id="7e4c58e8-85fe-0462-2b03-15192ee746b7">
+<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form"
+      data-wf-page-id="665610e4d965136f27263834" data-wf-element-id="7e4c58e8-85fe-0462-2b03-15192ee746b7">
     {% set count = (cart.items[product.id] | default(0) ) %}
     <div class="b-quantity b-quantity_style">
         {% if count %}
-        <div class="h-wrap h-wrap_mg-bt_15">
-            <div class="b-text b-text_grey">Количество</div>
-        </div>
-        <div class="h-wrap h-wrap_align_h_left">
-            <a wp="product_qty_minus" href="#" class="b-quantity__minus w-button"
-               data-request='onDecrement'
-               data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'}"
-               data-request-data='product_id: {{ product.id }}'
-            >-</a>
-            <input style="width:150px;"
-                   class="b-quantity__field w-input"
-                   maxlength="256"
-                   name="quantity"
-                   placeholder="1"
-                   type="number"
-                   id="quantity"
-                   data-request='onSetQuantity'
+            <div class="h-wrap h-wrap_mg-bt_15">
+                <div class="b-text b-text_grey">Количество</div>
+            </div>
+            <div class="h-wrap h-wrap_align_h_left">
+                <a wp="product_qty_minus" href="#" class="b-quantity__minus w-button"
+                   data-request='onDecrement'
                    data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'}"
                    data-request-data='product_id: {{ product.id }}'
-                   value="{{ count }}"
-            >
-            <script>
-                document.addEventListener('change', (e) => {
-                    if (e.target.name === 'quantity') {
-                        let quantity = e.target.value ?? 0
-                        oc.ajax('onSetQuantity', {
-                            update: {'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'},
-                            data: {
-                                product_id: {{ product.id }},
-                                quantity: quantity
-                            }
-                        })
-                    }
+                >-</a>
+                <input style="width:150px;"
+                       class="b-quantity__field w-input"
+                       maxlength="256"
+                       name="quantity"
+                       placeholder="1"
+                       type="number"
+                       id="quantity"
+                       data-request='onSetQuantity'
+                       data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'}"
+                       data-request-data='product_id: {{ product.id }}'
+                       value="{{ count }}"
+                >
+                <script>
+                    document.addEventListener('change', (e) => {
+                        if (e.target.name === 'quantity') {
+                            let quantity = e.target.value ?? 0
+                            oc.ajax('onSetQuantity', {
+                                update: {'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'},
+                                data: {
+                                    product_id: {{ product.id }},
+                                    quantity: quantity
+                                }
+                            })
+                        }
 
-                });
-            </script>
-            <a wp="product_qty_plus" href="#" class="b-quantity__pluse w-button"
-               data-request='onAdd'
-               data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'}"
-               data-request-data='product_id: {{ product.id }}'
-            >+</a></div>
+                    });
+                </script>
+                <a wp="product_qty_plus" href="#" class="b-quantity__pluse w-button"
+                   data-request='onAdd'
+                   data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'}"
+                   data-request-data='product_id: {{ product.id }}'
+                >+</a></div>
         {% endif %}
     </div>
-    <div class="h-wrap h-wrap_mg-bt_15">
-        <input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ДОБАВИТЬ В КОРЗИНУ"
-               data-request='onAdd'
-               data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'}"
-               data-request-data='product_id: {{ product.id }}'
-        >
-    </div>
-    <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-8 w-button" value="КУПИТЬ В 1 КЛИК"></div>
+
+    {% if product.price is not empty and product.price > 0 %}
+        <div class="h-wrap h-wrap_mg-bt_15">
+            <input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ДОБАВИТЬ В КОРЗИНУ"
+                   data-request='onAdd'
+                   data-request-update="{'catalog/mini-cart': '#mini-cart', 'ajax/product-cart': '#product-cart'}"
+                   data-request-data='product_id: {{ product.id }}'
+            >
+        </div>
+        <div class="h-wrap"><input type="submit" data-wait="Please wait..." class="b-button v-8 w-button"
+                                   value="КУПИТЬ В 1 КЛИК"></div>
+
+    {% else %}
+        <div class="h-wrap">
+            <button class="b-button v-8 w-button" value="Заказать">Заказать</button>
+        </div>
+
+    {% endif %}
 </form>

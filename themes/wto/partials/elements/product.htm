@@ -38,6 +38,7 @@
             </div>
             <div class="h-wrap h-wrap_mg-bt_30 h-wrap_mob_mg-bt_10"></div>
             <div style="display: flex; align-items:center;gap:30px; padding: 0 0 30px 0;">
+                {% if product.price is not empty and product.price > 0 %}
                 <button type="button" data-wait="Please wait..." class="b-button v-7 w-button" value="Купить в 1 клик">
                     Купить в 1 клик
                 </button>
@@ -49,6 +50,11 @@
                 >
                     В корзину
                 </button>
+                {% else %}
+                    <button type="button"  class="b-button v-7 w-button" value="Заказать">
+                        Заказать
+                    </button>
+                {% endif %}
             </div>
         </div>
     </a>
