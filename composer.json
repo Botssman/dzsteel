@@ -12,7 +12,8 @@
         "rainlab/deploy-plugin": "^2.2",
         "phpoffice/phpspreadsheet": "^2.2",
         "ext-dom": "*",
-        "ext-libxml": "*"
+        "ext-libxml": "*",
+        "offline/oc-site-search-plugin": "^1.7"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5|^9.0"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "076ecc82cf3158e7d3e9872b72e8e20f",
+    "content-hash": "a8a5020f80f1648bdc17f6d5eca92494",
     "packages": [
         {
             "name": "brick/math",
@@ -4100,6 +4100,38 @@
                 "tailor"
             ],
             "time": "2024-05-30T11:03:42+00:00"
+        },
+        {
+            "name": "offline/oc-site-search-plugin",
+            "version": "v1.7.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OFFLINE-GmbH/oc-site-search-plugin.git",
+                "reference": "9fdad67953a01bd57ad1c84c8ec7e722b2543c7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OFFLINE-GmbH/oc-site-search-plugin/zipball/9fdad67953a01bd57ad1c84c8ec7e722b2543c7e",
+                "reference": "9fdad67953a01bd57ad1c84c8ec7e722b2543c7e",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "october-plugin",
+            "extra": {
+                "installer-name": "sitesearch"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "This plugin adds global search capabiliies to OctoberCMS.",
+            "support": {
+                "issues": "https://github.com/OFFLINE-GmbH/oc-site-search-plugin/issues",
+                "source": "https://github.com/OFFLINE-GmbH/oc-site-search-plugin/tree/v1.7.21"
+            },
+            "time": "2024-07-24T05:41:28+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -10033,7 +10065,9 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0.2"
+        "php": "^8.0.2",
+        "ext-dom": "*",
+        "ext-libxml": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
