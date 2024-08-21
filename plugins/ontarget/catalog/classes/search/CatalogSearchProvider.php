@@ -13,7 +13,6 @@ class CatalogSearchProvider extends ResultsProvider
             ->where('name', 'like', "%{$this->query}%")
             ->orWhere('slug', 'like', "%{$this->query}%")
             ->orWhere('description', 'like', "%{$this->query}%")
-            ->orWhere('id', $this->query)
             ->orWhere('vendor_code', $this->query)
             ->get();
 
