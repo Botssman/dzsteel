@@ -79,6 +79,8 @@ class Product extends Model
     {
         $formData = array_wrap(post('PropertyValues', []));
 
+        $formData = array_filter($formData, fn($i) => !empty($i));
+
         $this->property_values()->sync(array_values($formData));
 
     }

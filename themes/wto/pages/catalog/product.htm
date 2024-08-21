@@ -51,7 +51,20 @@ layout="default"
                             <div class="h-wrap">
                                 <div class="h-wrap h-wrap_mg-bt_20">
                                     <div class="h-wrap">
-                                        <div wp="product_price" class="b-text b-text_bronze b-text_open_sans b-text_size_50 regular">от <span>{{ product.price | price }}</span> ₽/<span>{{ product.measure_unit ? product.measure_unit.name : product.category.measure_unit.name }}</span></div>
+                                        <div wp="product_price" class="b-text b-text_bronze b-text_open_sans b-text_size_50 regular">
+                                            {% if product.price is not empty and product.price > 0 %}
+                                                от
+                                                {% set unit = product.measure_unit | default(product.category.measure_unit) %}
+                                                {{ product.price | price }} ₽
+                                                {% if unit is not empty %}
+                                                    / {{ unit.name }}
+                                                {% endif %}
+                                            {% else %}
+                                                <span class="price-request">
+                                                     Цена по запросу
+                                                </span>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
