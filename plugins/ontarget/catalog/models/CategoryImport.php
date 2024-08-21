@@ -24,7 +24,8 @@ class CategoryImport extends ImportModel
     {
         foreach ($results as $row => $data) {
             try {
-                $category = Category::query()->findOrNew($data['id'] ?? 0);
+
+                $category = !empty($data['id']) ? Category::findOrFail($data['id']) : new Category;
 
                 $exists = $category->exists;
 
