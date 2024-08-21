@@ -27,6 +27,8 @@ class MeasureUnit extends Model
         'slug' => 'name'
     ];
 
+    public $fillable = ['name'];
+
     /**
      * @var array rules for validation
      */

@@ -13,5 +13,3 @@ columns:
         label: Описание
     is_active:
         label: Активно
-    sort_order:
-        label: Сортировка

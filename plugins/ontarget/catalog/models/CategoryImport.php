@@ -23,7 +23,6 @@ class CategoryImport extends ImportModel
     public function importData($results, $sessionKey = null)
     {
         foreach ($results as $row => $data) {
-
             try {
                 $category = Category::query()->findOrNew($data['id']);
 
@@ -33,9 +32,9 @@ class CategoryImport extends ImportModel
                 $category->slug = $data['slug'] ?? str_slug($data['name']);
                 $category->description = $data['description'] ?? '';
                 $category->is_active = (bool)($data['is_active'] ?? 0);
-                $category->sort_order = $data['sort_order'] ?? null;
                 $category->parent_id = $this->getParentByPath($data['parent_path'])?->id;
-                $category->measure_unit_id = $this->getMeasureUnitId($data['measure_unit_name']);
+                $measureUnitName = !empty($data['measure_unit_name']) ? $data['measure_unit_name'] : 'шт.';
+                $category->measure_unit_id = $this->getMeasureUnitId($measureUnitName);
 
                 $category->save();
 
@@ -47,6 +46,7 @@ class CategoryImport extends ImportModel
 
             }
             catch (Exception $ex) {
+                trace_log($ex);
                 $this->logError($row, $ex->getMessage());
             }
 
@@ -85,8 +85,7 @@ class CategoryImport extends ImportModel
     public function getMeasureUnitId(string $measureUnitName) : ?int
     {
         return MeasureUnit::query()
-            ->where('name', $measureUnitName)
-            ->firstOrCreate()
+            ->firstOrCreate(['name' => $measureUnitName], ['name' => $measureUnitName])
             ?->id;
     }
 }
