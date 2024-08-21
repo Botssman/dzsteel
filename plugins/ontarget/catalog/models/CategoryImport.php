@@ -85,7 +85,13 @@ class CategoryImport extends ImportModel
     public function getMeasureUnitId(string $measureUnitName) : ?int
     {
         return MeasureUnit::query()
-            ->firstOrCreate(['name' => $measureUnitName], ['name' => $measureUnitName])
+            ->firstOrCreate(
+                ['name' => $measureUnitName],
+                [
+                    'name' => $measureUnitName,
+                    'slug' => str_slug($measureUnitName)
+                ]
+            )
             ?->id;
     }
 }
