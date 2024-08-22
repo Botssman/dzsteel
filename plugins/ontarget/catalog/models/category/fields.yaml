@@ -80,6 +80,7 @@ tabs:
             tab: Характеристики
         import_url:
             label: Ссылка на файл импорта
+            type: textarea
             tab: Импорт
         import@update:
             type: partial
