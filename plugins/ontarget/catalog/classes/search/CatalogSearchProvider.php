@@ -14,7 +14,9 @@ class CatalogSearchProvider extends ResultsProvider
             ->orWhere('slug', 'like', "%{$this->query}%")
             ->orWhere('description', 'like', "%{$this->query}%")
             ->orWhere('vendor_code', $this->query)
-            ->cursorPaginate();
+            ->take(200)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         foreach ($matching as $match) {
             $result            = $this->newResult();
