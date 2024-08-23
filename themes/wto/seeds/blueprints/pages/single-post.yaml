@@ -1,0 +1,156 @@
+uuid: page_single-post
+handle: page_single-post
+type: single
+name: Single
+drafts: false
+navigation:
+    label: Single
+    parent: page_index
+    icon: icon-file-text
+    order: '10'
+fields:
+    add_menu:
+        label: add_menu
+        type: repeater
+        form:
+            fields:
+                name_menu:
+                    label: name_menu
+                    type: text
+                link_menu:
+                    label: link_menu
+                    type: text
+    section_quality_title:
+        label: Section_quality_Title
+        type: text
+    section_quality_subtitle:
+        label: Section_quality_subTitle
+        type: text
+    section_quality_add_advantages:
+        label: section_quality_add_advantages
+        type: repeater
+        form:
+            fields:
+                icon:
+                    label: icon
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+                title_advantages:
+                    label: title_advantages
+                    type: text
+                text_advantages:
+                    label: text_advantages
+                    type: text
+    icon_bonus:
+        label: icon_bonus
+        type: mediafinder
+        mode: image
+        maxItems: '1'
+    text_bonus:
+        label: text_bonus
+        type: text
+    icon_partners:
+        label: icon_partners
+        type: mediafinder
+        mode: image
+        maxItems: '1'
+    text_partners:
+        label: text_partners
+        type: text
+    section_general_director_image:
+        label: section_general_director_image
+        type: mediafinder
+        mode: image
+        maxItems: '1'
+    section_general_director_title:
+        label: section_general_director_title
+        type: text
+    section_general_director_name|raw:
+        label: section_general_director_name|raw
+        type: text
+    section_general_director_desc|raw:
+        label: section_general_director_desc|raw
+        type: text
+    section_general_director_text_desc_btn:
+        label: section_general_director_text_desc_btn
+        type: text
+    section_general_director_slider:
+        label: section_general_director_slider
+        type: repeater
+        form:
+            fields:
+                image:
+                    label: Image
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+                title:
+                    label: Название
+                    type: text
+                text|raw:
+                    label: text|raw
+                    type: text
+    section_departments_title|raw:
+        label: section_departments_title|raw
+        type: text
+    section_departments_subtitle|raw:
+        label: section_departments_subtitle|raw
+        type: text
+    section_departments_slider:
+        label: section_departments_slider
+        type: repeater
+        form:
+            fields:
+                image:
+                    label: Изображение
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+                title:
+                    label: Название
+                    type: text
+                text|raw:
+                    label: text|raw
+                    type: text
+    section_specialists_title|raw:
+        label: section_specialists_title|raw
+        type: text
+    section_specialists_24:
+        label: section_specialists_24
+        type: text
+    section_specialists_subtitle|raw:
+        label: section_specialists_subtitle|raw
+        type: text
+    section_specialists_slider:
+        label: section_specialists_slider
+        type: repeater
+        form:
+            fields:
+                image:
+                    label: Изображение
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+                name|raw:
+                    label: name|raw
+                    type: text
+                job|raw:
+                    label: job|raw
+                    type: text
+    add_social:
+        label: add_social
+        type: repeater
+        form:
+            fields:
+                social_link:
+                    label: social_link
+                    type: text
+    add_menu_footer:
+        label: add_menu_footer
+        type: repeater
+        form:
+            fields:
+                link_menu_footer:
+                    label: link_menu_footer
+                    type: text

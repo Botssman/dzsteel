@@ -1,8 +1,8 @@
 <header class="header">
 	<div o_group="Хэдер" data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="b-menu w-nav">
 		<div class="container container_align_h_flex w-container">
-			<a href="/" aria-current="page" class="b-menu__logo-link w-nav-brand w--current">
-				<img src="{{ siteSettings.logo|media }}" loading="lazy" alt="" class="b-menu__logo">
+			<a href="/" aria-current="page" class="b-menu__logo-link w-nav-brand">
+				<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-menu__logo">
 			</a>
 			<div class="b-menu__button w-nav-button">
 				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_menu_burger">
@@ -13,17 +13,13 @@
 				</a>
 				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cat_button">
 			</div>
-			<form action="{{ 'search' | page }}" class="search w-form">
-				<input class="search-input w-input" maxlength="256" name="q" placeholder="Поиск …" type="search" id="search" required="">
-				<input type="submit" class="search-button w-button" value="Search">
-				<img src="{{ 'assets/images/search_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_search">
-			</form>
+			{% partial "search-form" %}
 			<nav role="navigation" class="b-menu__nav w-nav-menu">
 				<a href="#" class="b-menu-close w-inline-block">
 					<img src="{{ 'assets/images/white_menu_close.svg'|theme }}" loading="lazy" o_image="Иконка закрыть меню" alt="" class="b-image b-image_menu_close">
 				</a>
-				<a href="/" aria-current="page" class="b-burger-logo-link w-inline-block w--current">
-					<img src="{{ 'assets/images/logo_stal.svg'|theme }}" loading="lazy" o_image="Лого моб меню" alt="" class="b-menu__logo mob_show">
+				<a aria-current="page" href="/" class="b-burger-logo-link w-inline-block">
+					<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-menu__logo mob_show">
 				</a>
 				<div class="b-menu-links">
 					{% for item in mainMenu.add_menu %}
@@ -58,10 +54,9 @@
 					</div>
 				</div>
 			</div>
-
-            <div id="mini-cart">
-                {% partial 'catalog/mini-cart' %}
-            </div>
+			<div id="mini-cart">
+				{% partial "catalog/mini-cart" %}
+			</div>
 		</div>
 	</div>
 </header>

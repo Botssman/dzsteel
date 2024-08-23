@@ -48,20 +48,6 @@ fields:
                                 text_advantages:
                                     label: Text_advantages
                                     type: text
-                    photo_directors:
-                        label: Photo_directors
-                        type: mediafinder
-                        mode: image
-                        maxItems: '1'
-                    director_title:
-                        label: Director_title
-                        type: text
-                    director_desc:
-                        label: Director_desc
-                        type: text
-                    link_video:
-                        label: link_video
-                        type: text
                     add_advantages_form:
                         label: Add_advantages_form
                         type: repeater
@@ -78,9 +64,6 @@ fields:
                                 text_advantages:
                                     label: Text_advantages
                                     type: text
-                    text_form:
-                        label: Text_form
-                        type: text
                     hide_content:
                         label: 'Скрыть блок'
                         type: switch

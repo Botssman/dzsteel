@@ -6,3 +6,19 @@
         file_format: json
         blueprint_uuid: page_index
         update_existing: true
+-
+    name: archive-post
+    class: Tailor\Models\RecordImport
+    file: seeds/data/pages/archive-post.json
+    attributes:
+        file_format: json
+        blueprint_uuid: page_archive-post
+        update_existing: true
+-
+    name: single-post
+    class: Tailor\Models\RecordImport
+    file: seeds/data/pages/single-post.json
+    attributes:
+        file_format: json
+        blueprint_uuid: page_single-post
+        update_existing: true

@@ -1,0 +1,35 @@
+<div class="h-wrap h-wrap_mg-bt_130">
+	<div class="b-category-grid b-category_blog-grid_block">
+		{% for item in posts %}
+		<div class="b-blog-slide">
+			<div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_mg-bt_20">
+				<img src="{{ 'assets/images/blog_slide201.jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_blog">
+			</div>
+			<div class="b-blog-slide-content">
+				<div class="h-wrap h-wrap_mg-bt_15">
+					<div class="b-text b-text_dark b-text_open_sans b-text_size_22">
+						НАЗВАНИЕ СТАТЬИ
+					</div>
+				</div>
+				<div class="h-wrap h-wrap_mg-bt_70">
+					<div class="b-text b-text_dark">
+						Выразительные кадры из цехов, складов, офисов, а также фактурные портреты сотрудников
+					</div>
+				</div>
+				<div class="h-wrap">
+					<a href="#" class="b-linkblock w-inline-block">
+						<div class="b-text b-text_grey b-text_size_14">
+							Подробнее  >
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="b-blog-label">
+				<div wp_post_term="post_tag" class="b-text b-text_size_14">
+					технологии
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>

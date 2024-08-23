@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="h-wrap h-wrap_mg-bt_50">
 			<div class="b-columns">
-				<div class="b-columns__col b-columns__col_50 b-columns__col_mob_mg-bt_60_2">
+				<div class="b-columns__col b-columns__col_70 b-columns__col_mob_mg-bt_60_2">
 					<div class="h-wrap h-wrap_mg-bt_30 h-wrap_w_80">
 						<div class="b-title">
 							{{ block.title|raw }}
@@ -24,34 +24,15 @@
 						{% endfor %}
 					</div>
 				</div>
-				<div class="b-columns__col b-columns__col_50 b-columns__col_align_h_right">
-					<div class="b-photo-block">
-						<img src="{{ block.photo_directors|media }}" loading="lazy" alt="" class="b-image b-image_director">
-						<div class="h-wrap h-wrap_mg-bt_25"></div>
-						<div class="h-wrap h-wrap_mg-bt_10">
-							<div class="b-text b-text_grey b-text_bold b-text_size_20">
-								{{ block.director_title }}
-							</div>
-						</div>
-						<div class="h-wrap">
-							<div class="b-text b-text_size_15">
-								{{ block.director_desc }}
-							</div>
-						</div>
-						<a href="{{ block.link_video }}" class="b-play-box w-inline-block">
-							<img src="{{ 'assets/images/play.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_play">
-						</a>
-					</div>
-				</div>
 			</div>
 		</div>
 		<div class="h-wrap h-wrap_align_h_center">
 			<div class="b-form b-form_hero w-form">
 				<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form b-form__form_hero" data-wf-page-id="665610e4d965136f272637f9" data-wf-element-id="75ed5c24-6205-9857-20f0-1529428866af">
-					<div class="h-wrap h-wrap_mg-bt_25">
+					<div class="h-wrap">
 						<div class="b-columns b-columns_form_hero">
 							{% for item in block.add_advantages_form %}
-							<div class="b-columns__col b-columns__col_33 b-columns__col_pd_r_40 b-columns__col_mob_mg-bt_30">
+							<div class="b-columns__col b-columns__col_33 b-columns__col_pd_r_40">
 								<div class="h-wrap h-wrap_align_h_left h-wrap_mg-bt_40">
 									<img src="{{ item.icon|media }}" loading="lazy" alt="" class="b-image b-image_form_icon">
 									<div class="h-wrap">
@@ -86,11 +67,6 @@
 									<input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ОТПРАВИТЬ">
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="h-wrap h-wrap_align_h_center">
-						<div class="b-text b-text_open_sans b-text_size_22">
-							{{ block.text_form }}
 						</div>
 					</div>
 				</form>
