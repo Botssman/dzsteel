@@ -46,18 +46,19 @@ class ProductImportContainer
             $this->setProperties($this->extractProperties($this->data['properties']));
         }
 
-        if (!empty($this->data['images'])) {
-            $images = explode('|', $this->data['images']);
-
-            foreach ($images as $image) {
-                $imageModel = $this->makeImage($image);
-                $this->product->images()->add($imageModel);
-            }
-        }
 
         if (!empty($this->data['image'])) {
-            $imageModel = $this->makeImage($this->data['image']);
+            $imagesList = explode(';', $this->data['image']);
+            $imageModel = $this->makeImage($imagesList[0]);
             $this->product->image()->add($imageModel);
+
+            if (count($imagesList) > 1) {
+                array_shift($imagesList);
+                foreach ($imagesList as $image) {
+                    $imageModel = $this->makeImage($image);
+                    $this->product->images()->add($imageModel);
+                }
+            }
         }
 
         return $this->product;
