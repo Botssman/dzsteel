@@ -5,7 +5,7 @@
     {% partial __SELF__ ~ '::query-too-short.htm' %}
 
 {% else %}
-
+<div class="container">
     <div class="b-catalog-grid">
         {% for result in results %}
             {# Display all results #}
@@ -16,7 +16,7 @@
         {% endfor %}
 
     </div>
-
+</div>
     {% partial __SELF__ ~ '::pagination.htm' results=results %}
 
 {% endif %}
