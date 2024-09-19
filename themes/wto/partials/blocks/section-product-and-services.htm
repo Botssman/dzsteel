@@ -1,12 +1,12 @@
 <section class="s-section s-section_dark">
 	<div class="container">
-		<div class="h-wrap h-wrap_mg-bt_20">
-			<div class="b-title-2">
+		<div class="h-wrap g-mg-bot_10">
+			<div class="b-title">
 				{{ block.title }}
 			</div>
 		</div>
 		<div class="h-wrap h-wrap_mg-bt_130">
-			<div class="b-text b-text_grey b-text_size_18">
+			<div class="b-text g-size_18 g-gray">
 				{{ block.subtitle }}
 			</div>
 		</div>
@@ -20,7 +20,12 @@
 					</a>
 					<a data-w-tab="Tab 2" class="b-tabs__link w-inline-block w-tab-link">
 						<div class="b-tab-text">
-							{{ block.title_productions }}
+							МЕТАЛЛОПРОКАТ
+						</div>
+					</a>
+					<a data-w-tab="Tab 3" class="b-tabs__link w-inline-block w-tab-link">
+						<div class="b-tab-text">
+							Благоустройство
 						</div>
 					</a>
 				</div>
@@ -29,7 +34,7 @@
 						<div data-duration-in="300" data-duration-out="100" data-current="Tab 1" data-easing="ease" class="b-tabs b-tabs_inside w-tabs">
 							<div class="b-tabs__menu b-tabs__menu_inside w-tab-menu">
 								{% for item in block.add_category_prod %}
-								<a data-w-tab="Tab {{ loop.index }}" class="b-tabs__link{% if loop.index == 1 %}{% else %} _{{ loop.index }}{% endif %} b-tabs__link_inside w-inline-block w-tab-link w--current">
+								<a data-w-tab="Tab 1" data-test="" class="b-tabs__link b-tabs__link_inside w-inline-block w-tab-link w--current">
 									<div class="text-block">
 										{{ item.name_category }}
 									</div>
@@ -38,20 +43,20 @@
 							</div>
 							<div class="b-tabs__content b-tabs__content_inside_hero w-tab-content">
 								{% for item in block.add_category_prod %}
-								<div data-w-tab="Tab {{ loop.index }}" class="b-tabs__pane b-tabs__pane_inside w-tab-pane {% if loop.index == 1 %}w--tab-active{% endif %}">
+								<div data-w-tab="Tab 1" class="b-tabs__pane b-tabs__pane_inside w-tab-pane w--tab-active">
 									<img class="b-image b-image_tab_bg" src="{{ item.category_image|media }}" alt="" loading="lazy">
 									<div class="b-tab-info">
-										<div class="h-wrap h-wrap_mg-bt_45">
+										<div class="h-wrap g-mg-bot_40">
 											<a href="{{ item.category_link }}" class="b-link w-inline-block">
-												<div class="b-text b-text_open_sans b-text_size_22">
+												<div class="b-text g-size_22 g-opensans g-bold">
 													{{ item.name_category }}
 												</div>
 											</a>
 										</div>
 										<div>
 											{% for item in item.add_sub_category %}
-											<div class="h-wrap h-wrap_mg-bt_20">
-												<a href="{{ item.sub_category_link }}" class="b-text b-text_size_14">
+											<div class="h-wrap g-mg-bot_15">
+												<a href="{{ item.sub_category_link }}" class="b-text g-size_14 g-hover-link">
 													{{ item.name_sub_category }}
 												</a>
 											</div>
@@ -60,77 +65,26 @@
 									</div>
 									<div class="b-tab-manager">
 										<div class="h-wrap">
-											<div class="h-wrap h-wrap_mg-bt_30 _1200_mg_bt_15">
-												<div class="b-text b-text_open_sans b-text_size_22">
-													{{ siteSettings.name_manager }}
+											<div class="h-wrap g-mg-bot_30">
+												<div class="b-text g-size_22 g-opensans g-bold">
+													МЕНЕДЖЕР ВАЛЕРИЙ
 												</div>
 											</div>
 											<div class="h-wrap h-wrap_align_h_left">
-												<a href="#" class="b-button v-14 w-button">
-													{{ siteSettings.text_manager }}
+												<a data-w-id="625a6987-24bc-07d1-f17c-df1760ec8ba9" href="#" class="b-button v-14 w-button">
+													ПОМОЧЬ С ВЫБОРОМ
 												</a>
 											</div>
 										</div>
-										<img loading="lazy" src="{{ siteSettings.photo_manager|media }}" alt="" class="b-image b-image_tab_manager">
+										<img loading="lazy" src="{{ 'assets/images/director20(1).jpg'|theme }}" alt="" class="b-image b-image_tab_manager">
 									</div>
 								</div>
 								{% endfor %}
 							</div>
 						</div>
 					</div>
-					<div data-w-tab="Tab 2" class="b-tabs__pane w-tab-pane">
-						<div data-duration-in="300" data-duration-out="100" data-current="Tab 1" data-easing="ease" class="b-tabs b-tabs_inside w-tabs">
-							<div class="b-tabs__menu b-tabs__menu_inside w-tab-menu">
-								{% for item in block.add_category_productions %}
-								<a data-w-tab="Tab {{ loop.index }}" class="b-tabs__link{% if loop.index == 1 %}{% else %} _{{ loop.index }}{% endif %} b-tabs__link_inside w-inline-block w-tab-link w--current">
-									<div class="text-block">
-										{{ item.name_category_productions }}
-									</div>
-								</a>
-								{% endfor %}
-							</div>
-							<div class="b-tabs__content b-tabs__content_inside_hero w-tab-content">
-								{% for item in block.add_category_productions %}
-								<div data-w-tab="Tab {{ loop.index }}" class="b-tabs__pane b-tabs__pane_inside w-tab-pane {% if loop.index == 1 %}w--tab-active{% endif %}">
-									<img class="b-image b-image_tab_bg" src="{{ item.category_image_productions|media }}" alt="" loading="lazy">
-									<div class="b-tab-info">
-										<div class="h-wrap h-wrap_mg-bt_45">
-											<a href="{{ item.category_link_productions }}" class="b-link w-inline-block">
-												<div class="b-text b-text_open_sans b-text_size_22">
-													{{ item.name_category_productions }}
-												</div>
-											</a>
-										</div>
-										<div>
-											{% for item in item.add_sub_category_productions %}
-											<div class="h-wrap h-wrap_mg-bt_20">
-												<a href="{{ item.sub_category_link_productions }}" class="b-text b-text_size_14">
-													{{ item.name_sub_category_productions }}
-												</a>
-											</div>
-											{% endfor %}
-										</div>
-									</div>
-									<div class="b-tab-manager">
-										<div class="h-wrap">
-											<div class="h-wrap h-wrap_mg-bt_30 _1200_mg_bt_15">
-												<div class="b-text b-text_open_sans b-text_size_22">
-													{{ siteSettings.name_manager }}
-												</div>
-											</div>
-											<div class="h-wrap h-wrap_align_h_left">
-												<a href="#" class="b-button v-14 w-button">
-													{{ siteSettings.text_manager }}
-												</a>
-											</div>
-										</div>
-										<img loading="lazy" src="{{ siteSettings.photo_manager|media }}" alt="" class="b-image b-image_tab_manager">
-									</div>
-								</div>
-								{% endfor %}
-							</div>
-						</div>
-					</div>
+					<div data-w-tab="Tab 2" class="b-tabs__pane w-tab-pane"></div>
+					<div data-w-tab="Tab 3" class="b-tabs__pane w-tab-pane"></div>
 				</div>
 			</div>
 		</div>

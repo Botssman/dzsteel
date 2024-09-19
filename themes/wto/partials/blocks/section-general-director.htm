@@ -2,21 +2,21 @@
 	<div>
 		<div class="container">
 			<div class="h-wrap">
-				<div class="b-columns">
-					<div class="b-columns__col b-columns__col_40 b-columns__col_pd_r_40 b-columns__col_pos_rel_up_120">
-						<div class="h-wrap h-wrap_align_h_down h-wrap_mg-bt_40">
+				<div class="b-grid b-grid_2-col v-2">
+					<div class="b-grid__col">
+						<div class="h-wrap h-wrap_align_h_down g-mg-bot_40">
 							<div class="h-wrap h-wrap_mob_align_h_center">
 								<img src="{{ options.section_general_director_image|media }}" loading="lazy" alt="" class="b-image b-image_gen_photo">
 							</div>
 							<div class="h-wrap h-wrap_w_auto h-wrap_mob_100">
 								<div class="b-gen-box">
 									<div class="h-wrap h-wrap_mg-bt_10">
-										<div class="b-text b-text_open_sans b-text_grey b-text_size_18">
+										<div class="b-text g-size_18 g-gray g-bold">
 											{{ options.section_general_director_title }}
 										</div>
 									</div>
 									<div class="h-wrap">
-										<div class="b-text b-text_size_18">
+										<div class="b-text g-size_18">
 											{{ options.section_general_director_name|raw }}
 										</div>
 									</div>
@@ -24,7 +24,7 @@
 							</div>
 						</div>
 						<div class="h-wrap h-wrap_mg-bt_40">
-							<div class="b-text b-text_size_15">
+							<div class="b-text">
 								{{ options.section_general_director_desc|raw }}
 							</div>
 						</div>
@@ -35,19 +35,19 @@
 								</a>
 							</div>
 							<div class="h-wrap">
-								<div class="b-text b-text_grey b-text_size_15">
+								<div class="b-text g-gray">
 									{{ options.section_general_director_text_desc_btn }}
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="b-columns__col b-columns__col_60 b-columns__col_pos_rel_up_35">
+					<div class="b-grid__col">
 						<div class="h-wrap">
 							<div data-delay="4000" data-animation="slide" class="b-slider b-slider_video w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
 								<div class="b-slider__mask b-slider__mask_video w-slider-mask">
 									{% for item in options.section_general_director_slider %}
 									<div class="b-slider__slide b-slider__slide_video w-slide">
-										<div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_30">
+										<div class="h-wrap h-wrap_align_h_center g-mg-bot_30">
 											<img class="b-image b-image_video_bg" src="{{ item.image|media }}" alt="" loading="lazy">
 											<a o_link="Ссылка на видео" href="#" class="b-play-box b-play-box_video w-inline-block">
 												<img src="{{ 'assets/images/play20button.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_play">
@@ -55,11 +55,11 @@
 										</div>
 										<div class="h-wrap h-wrap_align_h_center_up h-wrap_mob_align_v_left">
 											<div class="h-wrap h-wrap_mob_mg-bt_10">
-												<div class="b-text b-text_open_sans b-text_size_20">
+												<div class="b-text g-size_20 g-opensans g-bold">
 													{{ item.title }}
 												</div>
 											</div>
-											<div class="h-wrap">
+											<div class="h-wrap g-hide">
 												<div class="b-text b-text_size_15">
 													{{ item.text|raw }}
 												</div>
@@ -69,7 +69,7 @@
 									{% endfor %}
 								</div>
 								<div class="b-slider__arrow-left b-slider__arrow-left_video w-slider-arrow-left">
-									<img src="{{ 'assets/images/arrow_left.svg'|theme }}" loading="lazy" alt="" class="b-slider__icone b-slider__icone_video_left">
+									<img src="{{ 'assets/images/arrow_left.svg'|theme }}" loading="lazy" alt="" class="b-slider__icone">
 								</div>
 								<div class="b-slider__arrow-right b-slider__arrow-right_video w-slider-arrow-right">
 									<img src="{{ 'assets/images/arrow_right.svg'|theme }}" loading="lazy" alt="" class="b-slider__icone b-slider__icone_video_right">

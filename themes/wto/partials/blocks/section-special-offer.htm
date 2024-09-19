@@ -2,12 +2,12 @@
 	<div>
 		<img src="{{ 'assets/images/grey_decor.svg'|theme }}" loading="lazy" alt="" class="b-section-decor">
 		<div id="specpredlojenie" class="container container_clip_content">
-			<div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_70">
-				<div class="b-title-5">
+			<div class="h-wrap g-mg-bot_15">
+				<div class="b-title g-dark">
 					{{ options.section_special_offer_title }}
 				</div>
 			</div>
-			<div class="h-wrap h-wrap_mg-bt_90 h-wrap_mob_70">
+			<div class="h-wrap g-mg-bot_90">
 				<div class="b-text b-text_grey b-text_size_18">
 					{{ options.section_special_offer_subtitle }}
 				</div>
@@ -20,13 +20,15 @@
 								<img src="{{ 'assets/images/armatyra20(1).jpg'|theme }}" loading="lazy" alt="" class="b-image b-image_slide_img">
 								<div class="b-slide-content">
 									<a wp="post_link" href="#" class="b-product-link w-inline-block">
-										<div class="h-wrap h-wrap_mg-bt_15">
-											<div class="b-text b-text_open_sans b-text_size_22 b-text_dark">
-												АРМАТУРА А3
+										<div class="h-wrap g-mg-bot_10">
+											<div class="b-text g-size_22 g-opensans g-dark">
+												<strong>
+													АРМАТУРА А3
+												</strong>
 											</div>
 										</div>
-										<div class="h-wrap h-wrap_mg-bt_45">
-											<div class="b-text b-text_grey b-text_size_14">
+										<div class="h-wrap g-mg-bot_40">
+											<div class="b-text g-size_14 g-gray">
 												длина 6 м, Ø 10м
 												<br>
 												dwadaw
@@ -41,12 +43,18 @@
 											<form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-form-box" data-wf-page-id="665610e4d965136f272637f9" data-wf-element-id="bbc5972e-7bc1-7599-9ce2-94bbb69d21f7">
 												<div class="h-wrap h-wrap_align_h_center h-wrap_mob_align_v_left">
 													<div class="h-wrap h-wrap_mob_mg-bt_10 h-wrap_align_h_left">
-														<div class="b-text b-text_open_sans b-text_size_18 b-text_dark no_wrap">
-															от
+														<div class="b-text g-size_18 g-dark">
+															<strong>
+																от
+															</strong>
 															<span class="price_span">
-																16 руб.
+																<strong>
+																	16 руб.
+																</strong>
 															</span>
-															/М.П.
+															<strong>
+																/М.П.
+															</strong>
 														</div>
 													</div>
 													<div class="h-wrap h-wrap_align_h_right h-wrap_mob_align_h_left">
@@ -285,29 +293,31 @@
 			<div class="h-wrap">
 				<div class="b-form b-form_second w-form">
 					<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form b-form__form_second" data-wf-page-id="665610e4d965136f272637f9" data-wf-element-id="e475c7e7-0eac-5ba3-5cd3-ad931e675a25">
-						<div class="b-columns">
-							<div class="b-columns__col b-columns__col_25 b-columns__col_pd_r_40 b-columns__col_mob_mg-bt_30">
+						<div class="b-grid b-grid_4-col">
+							<div class="b-grid__col">
 								<div class="h-wrap">
-									<div class="b-text b-text_open_sans b-text_size_22">
-										{{ options.section_special_offer_text_form }}
+									<div class="b-text g-size_22 g-opensans">
+										<strong>
+											{{ options.section_special_offer_text_form }}
+										</strong>
 									</div>
 								</div>
 							</div>
-							<div class="b-columns__col b-columns__col_25 b-columns__col_pd_r_40 b-columns__col_mob_mg-bt_15">
-								<input class="b-input b-input_hero w-input" maxlength="256" name="field-7" data-name="Field 7" placeholder="Имя" type="text" id="field-7" required="">
+							<div class="b-grid__col">
+								<input class="b-input w-input" maxlength="256" name="field-7" data-name="Field 7" placeholder="Имя" type="text" id="field-7" required="">
 							</div>
-							<div class="b-columns__col b-columns__col_25 b-columns__col_pd_r_40 b-columns__col_mob_mg-bt_15">
-								<input class="b-input b-input_hero w-input" maxlength="256" name="E-mail-4" data-name="E Mail 4" placeholder="E-mail" type="email" id="E-mail-4" required="">
+							<div class="b-grid__col">
+								<input class="b-input w-input" maxlength="256" name="E-mail-4" data-name="E Mail 4" placeholder="E-mail" type="email" id="E-mail-4" required="">
 							</div>
-							<div class="b-columns__col b-columns__col_25">
+							<div class="b-grid__col">
 								<div class="h-wrap h-wrap_mg-bt_10">
 									<input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ПОЛУЧИТЬ СПЕЦПРЕДЛОЖЕНИЕ">
 								</div>
 								<div class="h-wrap">
 									<label class="w-checkbox b-checkbox">
 										<div class="w-checkbox-input w-checkbox-input--inputType-custom b-checkbox__check w--redirected-checked"></div>
-										<input type="checkbox" id="checkbox-2" name="checkbox-2" data-name="Checkbox 2" style="opacity:0;position:absolute;z-index:-1" checked>
-										<span class="b-checkbox__label w-form-label" for="checkbox-2">
+										<input type="checkbox" name="" data-name="Политика" style="opacity:0;position:absolute;z-index:-1" checked>
+										<span class="b-checkbox__label w-form-label">
 											Согласен с
 											<a href="#" class="b-policy-link">
 												политикой конфиденциальности
