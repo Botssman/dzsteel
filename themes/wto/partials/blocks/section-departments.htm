@@ -8,12 +8,12 @@
 					<a href="#" class="b-slider-but-right w-button"></a>
 					<div class="b-columns__col b-columns__col_30 b-columns__col_dark_bg">
 						<div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_70">
-							<div class="b-title-2">
+							<div class="b-title">
 								{{ options.section_departments_title|raw }}
 							</div>
 						</div>
 						<div class="h-wrap h-wrap_mob_70">
-							<div class="b-text b-text_grey b-text_size_18">
+							<div class="b-text g-gray g-size_18">
 								{{ options.section_departments_subtitle|raw }}
 							</div>
 						</div>
@@ -30,16 +30,16 @@
 									{% for item in options.section_departments_slider %}
 									<div class="b-slider__slide b-slider__slide_ofice w-slide">
 										<div class="b-ofice-slide">
-											<div class="h-wrap h-wrap_mg-bt_25">
+											<div class="h-wrap g-mg-bot_20">
 												<img src="{{ item.image|media }}" loading="lazy" alt="" class="b-image b-image_ofice">
 											</div>
-											<div class="h-wrap h-wrap_mg-bt_10">
-												<div class="b-text b-text_open_sans b-text_size_18">
+											<div class="h-wrap g-mg-bot_10">
+												<div class="b-text g-size_18 g-opensans">
 													{{ item.title }}
 												</div>
 											</div>
-											<div class="h-wrap h-wrap_mg-bt_25">
-												<div class="b-text b-text_size_13">
+											<div class="h-wrap g-mg-bot_20">
+												<div class="b-text g-size_14">
 													{{ item.text|raw }}
 												</div>
 											</div>
