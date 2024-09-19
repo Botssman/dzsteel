@@ -1,17 +1,17 @@
 <footer id="footer" class="footer">
 	<div class="container">
-		<div class="h-wrap h-wrap_mg-bt_45">
-			<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-image b-image_footer_logo">
+		<div class="h-wrap g-mg-bot_40">
+			<img src="{{ siteSettings.logo|media }}" loading="lazy" alt="" class="b-image b-image_footer_logo">
 		</div>
 		<div class="b-columns b-columns_grid">
-			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16b2-29fd16ad" class="b-column-grid-box">
+			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16b2-29fd16ad" class="b-column-grid-box g-hide">
 				<div class="h-wrap h-wrap_mg-bt_20">
 					<div class="b-text b-text_open_sans b-text_size_18">
 						МЫ В СЕТИ
 					</div>
 				</div>
 				<div class="social_wrap">
-					{% for item in sitesettings.add_social %}
+					{% for item in siteSettings.add_social %}
 					<a href="{{ item.social_link }}" target="_blank" class="b-social-link w-inline-block">
 						<img src="{{ item.social_icon }}" loading="lazy" alt="" class="b-image b-image_social">
 					</a>
@@ -19,30 +19,30 @@
 				</div>
 			</div>
 			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16c1-29fd16ad" class="b-column-grid-box b-column-grid-box_pd_l_100">
-				<div class="h-wrap h-wrap_mg-bt_20">
-					<div class="b-text b-text_open_sans b-text_size_18">
+				<div class="h-wrap g-mg-bot_20">
+					<div class="b-text g-size_18 g-opensans g-bold">
 						КАРТА САЙТА
 					</div>
 				</div>
 				<div class="footer_nav">
 					{% for item in mainMenu.add_menu_footer %}
 					<a href="{{ item.link_menu_footer }}" class="b-footer-nav-link w-inline-block">
-						<div class="b-text b-text_size_14">
+						<div class="b-text">
 							{{ item.name_menu_footer }}
 						</div>
 					</a>
 					{% endfor %}
 				</div>
 			</div>
-			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16d5-29fd16ad" class="b-column-grid-box b-column-grid-box_pd_l_60">
-				<div class="h-wrap h-wrap_mg-bt_20">
-					<div class="b-text b-text_open_sans b-text_size_18">
+			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16d5-29fd16ad" class="b-column-grid-box">
+				<div class="h-wrap g-mg-bot_20">
+					<div class="b-text g-size_18 g-opensans g-bold">
 						РЕКВИЗИТЫ
 					</div>
 				</div>
 				<div class="h-wrap">
-					<div class="b-text b-text_size_14">
-						{{ siteSettings.requisites }}
+					<div class="b-text">
+						{{ siteSettings.requisites|raw }}
 					</div>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 					</div>
 				</div>
 				<div class="h-wrap">
-					<div class="b-text b-text_size_14">
+					<div class="b-text">
 						{{ siteSettings.adress }}
 					</div>
 				</div>
@@ -62,10 +62,10 @@
 				<div class="b-form b-form_footer w-form">
 					<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form" data-wf-page-id="665610e4d965136f2726384e" data-wf-element-id="1f8e5440-2759-e1e3-dda1-e6db29fd16e5">
 						<div class="h-wrap h-wrap_mg-bt_20">
-							<input class="b-input b-input_hero w-input" maxlength="256" name="e-mail-3" data-name="E Mail 3" placeholder="Ваш e-mail" type="email" id="e-mail-3" required="">
+							<input class="b-input w-input" maxlength="256" name="e-mail-3" data-name="E Mail 3" placeholder="Ваш e-mail" type="email" id="e-mail-3" required="">
 						</div>
 						<div class="h-wrap h-wrap_mob_mg-bt_20">
-							<input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ПОДПИСАТЬСЯ НА НОВОСТИ">
+							<input type="submit" data-wait="Please wait..." class="b-button w-button" value="ПОДПИСАТЬСЯ НА НОВОСТИ">
 						</div>
 					</form>
 					<div class="b-form__success-mes w-form-done">
@@ -86,7 +86,7 @@
 	</div>
 	<div class="footer_downline">
 		<div class="container">
-			<div class="b-text b-text_size_12">
+			<div class="b-text g-size_12">
 				{{ siteSettings.copirate }}
 			</div>
 		</div>

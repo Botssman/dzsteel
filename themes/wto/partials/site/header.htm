@@ -2,27 +2,27 @@
 	<div o_group="Хэдер" data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="b-menu w-nav">
 		<div class="container container_align_h_flex w-container">
 			<a href="/" aria-current="page" class="b-menu__logo-link w-nav-brand">
-				<img src="{{ siteSettings.logo|media }}" loading="lazy" alt="" class="b-menu__logo">
+				<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-menu__logo">
 			</a>
 			<div class="b-menu__button w-nav-button">
 				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_menu_burger">
 			</div>
 			<div class="b-button-box">
-				<a href="/catalog" class="b-button v-2 w-button">
-					Каталог
-				</a>
 				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cat_button">
+				<div>
+					Каталог
+				</div>
 			</div>
-			{% partial "site-elements/search-form" %}
+			{% partial "search-form" %}
 			<nav role="navigation" class="b-menu__nav w-nav-menu">
 				<a href="#" class="b-menu-close w-inline-block">
 					<img src="{{ 'assets/images/white_menu_close.svg'|theme }}" loading="lazy" o_image="Иконка закрыть меню" alt="" class="b-image b-image_menu_close">
 				</a>
 				<a aria-current="page" href="/" class="b-burger-logo-link w-inline-block">
-					<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-menu__logo mob_show">
+					<img src="{{ siteSettings.|media }}" loading="lazy" alt="" class="b-menu__logo mob_show">
 				</a>
 				<div class="b-menu-links">
-					{% for item in mainMenu.add_menu %}
+					{% for item in mainmenu.add_menu %}
 					<a href="{{ item.link_menu }}" class="b-menu__link w-nav-link">
 						{{ item.name_menu }}
 					</a>
@@ -33,7 +33,7 @@
 				<div class="h-wrap h-wrap_min_w_200">
 					<div class="h-wrap h-wrap_align_h_left">
 						<img src="{{ 'assets/images/svaz_icon.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_svaz">
-						<div class="b-text b_text_light_grey b-text_size_14 mob_hide">
+						<div class="b-text g-size_14">
 							НА СВЯЗИ  24 ЧАСА
 						</div>
 					</div>
@@ -44,10 +44,10 @@
 					</div>
 				</div>
 				<div class="h-wrap h-wrap_align_v_right">
-					<a href="tel:{{ siteSettings.phone }}" class="b-phonelink b-phonelink_no_wrap">
+					<a href="tel:{{ siteSettings.phone }}" class="b-phonelink">
 						{{ siteSettings.phone }}
 					</a>
-					<div class="b-phone-text">
+					<div data-w-id="ee733c9f-223a-6aff-9a10-d70353c9e335" class="b-phone-text">
 						<a href="#" class="b-link b-link_white">
 							заказать звонок
 						</a>
