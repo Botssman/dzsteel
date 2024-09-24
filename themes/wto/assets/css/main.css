@@ -2544,6 +2544,10 @@ body {
   font-size: .75em;
 }
 
+.b-text.g-size_14.no-wrap {
+  white-space: nowrap;
+}
+
 .b-slider {
   background-color: #0000;
   height: 100%;
