@@ -13,16 +13,16 @@
 					Каталог
 				</div>
 			</div>
-			{% partial "site-elements/search-form" %}
+			{% partial "search-form" %}
 			<nav role="navigation" class="b-menu__nav w-nav-menu">
 				<a href="#" class="b-menu-close w-inline-block">
 					<img src="{{ 'assets/images/white_menu_close.svg'|theme }}" loading="lazy" o_image="Иконка закрыть меню" alt="" class="b-image b-image_menu_close">
 				</a>
 				<a aria-current="page" href="/" class="b-burger-logo-link w-inline-block">
-					<img src="{{ siteSettings.logo|media }}" loading="lazy" alt="" class="b-menu__logo mob_show">
+					<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-menu__logo mob_show">
 				</a>
 				<div class="b-menu-links">
-					{% for item in mainmenu.add_menu %}
+					{% for item in mainMenu.add_menu %}
 					<a href="{{ item.link_menu }}" class="b-menu__link w-nav-link">
 						{{ item.name_menu }}
 					</a>

@@ -11,7 +11,7 @@
 					</div>
 				</div>
 				<div class="social_wrap">
-					{% for item in siteSettings.add_social %}
+					{% for item in sitSsettings.add_social %}
 					<a href="{{ item.social_link }}" target="_blank" class="b-social-link w-inline-block">
 						<img src="{{ item.social_icon }}" loading="lazy" alt="" class="b-image b-image_social">
 					</a>
@@ -42,8 +42,7 @@
 				</div>
 				<div class="h-wrap">
 					<div class="b-text">
-						ОГРН: 1235000105207
-						ИНН: 5032365652
+						{{ siteSettings.requisites|raw }}
 					</div>
 				</div>
 			</div>
