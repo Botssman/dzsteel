@@ -37,6 +37,10 @@ fields:
       label: Адрес
       type: text
       tab: Общие настройки
+    requisites:
+      label: Реквизиты
+      type: text
+      tab: Общие настрой
     copirate:
       label: Копирайт
       type: text

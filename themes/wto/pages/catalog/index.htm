@@ -77,9 +77,8 @@ layout="default"
                         {% endif %}
                     </div>
                     <div class="right-content right-content_cat">
-                        <div>
+                        {% partial 'site-elements/catalog-category' %}
                             <div class="b-category-grid">
-
                                 {% for category in categories %}
                                     <div class="b-category-box">
                                         <a href="{{ 'catalog/index' | page({category: category.slug}) }}" class="b-linkblock b-linkblock_cat w-inline-block">
@@ -96,7 +95,6 @@ layout="default"
                                         </a></div>
                                 {% endfor %}
                             </div>
-                        </div>
                         <div>
                             <div class="b-sort mob_hide">
                                 <div class="b-form__form b-form__form_cat_sort">
