@@ -3412,7 +3412,7 @@ body {
 .s-section.s-section_catalog {
   background-color: var(--light-bg);
   margin-top: 0;
-  padding-top: 100px;
+  padding-top: 12em;
 }
 
 .s-section.s-section_light-3 {
@@ -3491,12 +3491,8 @@ body {
   padding: 5px 15px 5px 5px;
 }
 
-.b-menu__logo-link.w--current {
+.b-menu__logo-link.w--current, .b-menu__logo {
   width: 24em;
-}
-
-.b-menu__logo {
-  width: 100%;
 }
 
 .b-menu__nav {
@@ -3831,6 +3827,7 @@ body {
   margin-right: 10px;
   padding: 1.3em 2em;
   font-size: 1.5em;
+  text-decoration: none;
   display: flex;
   position: relative;
 }
@@ -4311,8 +4308,8 @@ body {
 
 .b-catalog-grid {
   z-index: 1;
-  grid-column-gap: 4em;
-  grid-row-gap: 4em;
+  grid-column-gap: 3em;
+  grid-row-gap: 3em;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
@@ -4772,12 +4769,12 @@ body {
 }
 
 .b-category-grid {
-  grid-column-gap: 4em;
-  grid-row-gap: 4em;
+  grid-column-gap: 3em;
+  grid-row-gap: 3em;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
-  margin-bottom: 40px;
+  margin-bottom: 3em;
   padding-left: 0;
   display: grid;
 }
@@ -4846,7 +4843,7 @@ body {
 }
 
 .b-breadcrumbs-2 {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   padding-left: 0;
   font-size: 1.4em;
   display: flex;

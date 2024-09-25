@@ -22,3 +22,11 @@
         file_format: json
         blueprint_uuid: page_single-post
         update_existing: true
+-
+    name: archive-product
+    class: Tailor\Models\RecordImport
+    file: seeds/data/pages/archive-product.json
+    attributes:
+        file_format: json
+        blueprint_uuid: page_archive-product
+        update_existing: true

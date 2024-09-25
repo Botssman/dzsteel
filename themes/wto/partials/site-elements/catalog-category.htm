@@ -1,0 +1,13 @@
+<div class="b-category-grid">
+	{% for category in categories %}
+	<div id="w-node-_5c7ddbc7-fb77-0a55-7626-dad43a50e31a-3a50e31a" class="b-category-box">
+		<a href="{{ 'catalog/index' | page({category: category.slug}) }}" class="b-linkblock b-linkblock_cat w-inline-block">
+			<div class="h-wrap">
+				<div>
+					{{ category.name }}
+				</div>
+			</div>
+		</a>
+	</div>
+	{% endfor %}
+</div>
