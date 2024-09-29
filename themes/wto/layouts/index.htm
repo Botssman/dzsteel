@@ -5,7 +5,7 @@ description = "Главная"
 default = 0
 ==
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun Sep 29 2024 18:35:22 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f272637f9" data-wf-site="665610e4d965136f272637f5" lang="en">
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun Sep 29 2024 18:53:22 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f272637f9" data-wf-site="665610e4d965136f272637f5" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
@@ -23,7 +23,7 @@ default = 0
 		<meta name="description" content="{{ this.page.meta_description }}">{% partial "head" %}{% component "forms" %}
 		<link href="{{'assets/css/main.css'|theme}}" rel="stylesheet">{% styles %}</head>
 	<body wp_meta="Главная страница" class="body">{% partial "body" %}{% partial "site/header" %}
-		<div class="main">{% for block in pagedata.sections %}{% if block.hide_content == false %}{% partial 'blocks/' ~ str_slug(block.type) block=block %}{% endif %}{% endfor %}</div>{% partial "site/footer" %}{% partial "modal/modal-call" %}
+		<div class="main">{% for block in pagedata.sections %}{% if block.hide_content == false %}{% partial 'blocks/' ~ str_slug(block.type) block=block %}{% endif %}{% endfor %}</div>{% partial "site/footer" %}
 		<!-- FOOTER CODE -->
 		<script src="{{ ['@jquery'] | theme }}"></script>
 		<script id="main" src="{{ ['assets/js/main.js']|theme }}"></script>
