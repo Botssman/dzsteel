@@ -21,7 +21,7 @@ fields:
                     label: link_menu
                     type: text
     name:
-        label: name
+        label: 'name '
         type: text
     section_special_offer_title:
         label: Section_special_offer_title
