@@ -11,6 +11,7 @@ layout="default"
         </div>
         <div class="container">
         <div wp="product" class="h-wrap h-wrap_mg-bt_130">
+            {% partial 'product-elements/product' %}
             <div wp_if="simple_product" class="b-product">
                 {% set image = product.image ?? product.images.first %}
                 <div class="image_box">
