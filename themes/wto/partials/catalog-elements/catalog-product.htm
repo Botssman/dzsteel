@@ -1,6 +1,6 @@
 <div class="b-product-card">
 	{% set image = product.image | default(product.images.first) %}
-	<img src="{{ image.getThumb(311, 273, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" alt="" class="b-image b-image_cat_image">
+	<img src="{{ image.getThumb(311, 273, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" alt="" class="b-image b-image_cat_image" onerror="this.onerror=null; this.src='/themes/wto/assets/images/no-photo.png';">
 	<a href="{{ 'catalog/product' | page({category: product.category.slug, product: product.slug}) }}" class="b-product-link w-inline-block">
 		<div class="g-mg-bot_10">
 			<div class="b-text g-size_16 g-gray">
