@@ -1,8 +1,7 @@
 <div class="b-product g-mg-bot_60">
 	{% set image = product.image ?? product.images.first %}
 	<div class="image_box">
-		<img src="{{ image.getThumb(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" alt="" class="b-image b-image_product">
-		<img src="{{ 'assets/images/no-photo.png'|theme }}" loading="lazy" alt="" class="b-image b-image_product">
+		<img src="{{ image.getThumb(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" alt="" class="b-image b-image_product" onerror="this.onerror=null; this.src='/themes/wto/assets/images/no-photo.png';">
 	</div>
 	<div class="content-wrap">
 		<div class="info_box">
