@@ -4,7 +4,7 @@
 	<a href="{{ 'catalog/product' | page({category: product.category.slug, product: product.slug}) }}" class="b-product-link w-inline-block">
 		<div class="g-mg-bot_10">
 			<div class="b-text g-size_16 g-gray">
-				{{ {{ product.name }} }}
+				{{ product.name }}
 			</div>
 		</div>
 		<div class="g-size_14">
@@ -19,7 +19,7 @@
 			</div>
 			{% set unit = product.measure_unit | default(product.category.measure_unit) %}
 			<div id="w-node-_85e10a62-73f4-7245-b302-ccf3ea8d79c0-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
-				{{ {{ product.price | price }} ₽ }}
+				{{ product.price | price }} ₽
 			</div>
 			{% if unit is not empty %} / {{ unit.name }}{% endif %}{% else %}
 			<div class="b-text g-size_30 g-bronze g-bold">
