@@ -1,0 +1,51 @@
+						<div data-duration-in="300" data-duration-out="100" data-current="Tab 1" data-easing="ease" class="b-tabs b-tabs_inside w-tabs">
+							<div class="b-tabs__menu b-tabs__menu_inside w-tab-menu">
+								{% for item in block.add_category_prod %}
+								<a data-w-tab="Tab {{ loop.index }}" data-test="" class="b-tabs__link{% if loop.index == 1 %}{% else %} _{{ loop.index }}{% endif %} b-tabs__link_inside w-inline-block w-tab-link w--current">
+									<div class="text-block">
+										{{ item.name_category }}
+									</div>
+								</a>
+								{% endfor %}
+							</div>
+							<div class="b-tabs__content b-tabs__content_inside_hero w-tab-content">
+								{% for item in block.add_category_prod %}
+								<div data-w-tab="Tab {{ loop.index }}" class="b-tabs__pane b-tabs__pane_inside w-tab-pane {% if loop.index == 1 %}w--tab-active{% endif %}">
+									<img class="b-image b-image_tab_bg" src="{{ item.category_image|media }}" alt="" loading="lazy">
+									<div class="b-tab-info">
+										<div class="h-wrap g-mg-bot_40">
+											<a href="{{ item.category_link }}" class="b-link w-inline-block">
+												<div class="b-text g-size_22 g-opensans g-bold">
+													{{ item.name_category }}
+												</div>
+											</a>
+										</div>
+										<div>
+											{% for item in item.add_sub_category %}
+											<div class="h-wrap g-mg-bot_15">
+												<a href="{{ item.sub_category_link }}" class="b-text g-size_14 g-hover-link">
+													{{ item.name_sub_category }}
+												</a>
+											</div>
+											{% endfor %}
+										</div>
+									</div>
+									<div class="b-tab-manager">
+										<div class="h-wrap">
+											<div class="h-wrap g-mg-bot_30">
+												<div class="b-text g-size_22 g-opensans g-bold">
+													МЕНЕДЖЕР ВАЛЕРИЙ
+												</div>
+											</div>
+											<div class="h-wrap h-wrap_align_h_left">
+												<a data-w-id="625a6987-24bc-07d1-f17c-df1760ec8ba9" href="#" class="b-button v-14 w-button">
+													ПОМОЧЬ С ВЫБОРОМ
+												</a>
+											</div>
+										</div>
+										<img loading="lazy" src="{{ 'assets/images/director20(1).jpg'|theme }}" alt="" class="b-image b-image_tab_manager">
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
