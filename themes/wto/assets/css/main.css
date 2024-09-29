@@ -2063,11 +2063,11 @@ textarea.w-input, textarea.w-select {
   --transparent: transparent;
   --light-bg: #ebebf0;
   --dark-3: #191f24;
+  --peru: #dd783f;
   --dark-slate-gray: #4d565d;
   --dark-slate-gray-2: #243039;
   --dark-gray: #999;
   --medium-aquamarine: #5cc489;
-  --peru: #dd783f;
   --medium-turquoise: #4aaec2;
   --pale-violet-red: #d25f7c;
   --goldenrod: #e5b909;
@@ -2932,6 +2932,7 @@ body {
 
 .b-button {
   background-color: var(--bronze);
+  color: var(--white);
   text-align: center;
   border-radius: 5px;
   justify-content: center;
@@ -4334,6 +4335,7 @@ body {
   grid-column-gap: 2em;
   grid-row-gap: 2em;
   background-color: var(--white);
+  color: var(--peru);
   border-radius: 5px;
   flex-flow: row;
   grid-template-rows: auto;
@@ -4677,6 +4679,7 @@ body {
 }
 
 .b-product-link {
+  color: var(--peru);
   width: 100%;
   text-decoration: none;
 }
@@ -4779,8 +4782,8 @@ body {
 
 .no-results {
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 2em;
+  padding-bottom: 0;
 }
 
 .b-category-grid {
@@ -5420,6 +5423,12 @@ body {
   justify-content: flex-start;
   align-items: center;
   display: flex;
+}
+
+.no-results {
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 @media screen and (min-width: 1920px) {

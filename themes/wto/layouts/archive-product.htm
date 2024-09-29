@@ -5,7 +5,7 @@ description = "Категории товаров"
 default = 0
 ==
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun Sep 29 2024 14:49:12 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263848" data-wf-site="665610e4d965136f272637f5" lang="en">
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun Sep 29 2024 18:35:22 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263848" data-wf-site="665610e4d965136f272637f5" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
@@ -184,10 +184,7 @@ default = 0
 											<div>Ошибка! Что-то пошло не так.</div>
 										</div>
 									</div>
-									<div>{% partial "ajax/listing-catalog" %}
-										<div class="h-wrap g-mg-top_20"><a href="#" class="b-button w-button">ПОКАЗАТЬ ЕЩЕ</a></div>
-										<div class="no-results">Ничего не найдено</div>
-									</div>
+									<div>{% partial "ajax/listing-catalog" %}{% if products.hasMorePages %}{% partial "ajax/listing-catalog-count" %}{% endif %}</div>
 								</div>
 							</div>
 						</div>

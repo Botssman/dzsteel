@@ -38,24 +38,19 @@
 			{% endif %}
 		</div>
 	</div>
-	<div class="b-form-2 w-form">
-		<form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" wp="add_to_cart" class="b-product-form_box" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="f8138cbe-72ea-1ab4-75ca-bfe34ba3b10e">
+	<div id="w-node-_36e4f2e5-7674-8c3f-5a30-9862a2d1be43-4ba3b0eb">
+		{% if product.price is not empty and product.price > 0 %}
+		<button data-request="Cart::onAdd" data-request-data="product_id: {{ product.id }}" data-request-update="'catalog/mini-cart': '#mini-cart'" data-request-flash="" class="b-button card">
 			<div>
-				<input type="submit" data-wait="Please wait..." class="b-button v-7 w-button" value="Заказать">
+				В корзину
 			</div>
-			<div class="h-wrap">
-				<input type="submit" data-wait="Please wait..." class="b-button card w-button" value="В корзину">
-			</div>
-		</form>
-		<div class="success-message-2 w-form-done">
-			<div class="b-text b-text_grey b-text_size_14">
-				Товар успешно добавлен в корзину!
-			</div>
-		</div>
-		<div class="w-form-fail">
+		</button>
+		{% else %}
+		<button class="b-button v-7">
 			<div>
-				Oops! Something went wrong while submitting the form.
+				В корзину
 			</div>
-		</div>
+		</button>
+		{% endif %}
 	</div>
 </div>
