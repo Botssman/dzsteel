@@ -14,7 +14,10 @@
 				<div class="b-grid b-grid_col_2">
 					{% for property in product.property_values %}
 					<div class="h-wrap h-wrap_align_h_left">
-						<div class="h-wrap">
+						<div class="b-text g-black">
+							{{ property.property.name }}
+						</div>
+						<div class="b-sep">
 							<div class="b-text g-black">
 								{{ property.property.name }}
 							</div>
@@ -45,64 +48,33 @@
 			</div>
 		</div>
 		<div class="order_box">
-			<div class="h-wrap">
-				<div class="h-wrap">
-					<div class="h-wrap h-wrap_mg-bt_20">
-						<div class="h-wrap">
-							<div wp="product_price" class="b-text g-size_30 g-bronze g-bold">
-								от
-								<span>
-									47
-								</span>
-								₽/
-								<span>
-									кг
-								</span>
-							</div>
-						</div>
-					</div>
+			<div id="w-node-_1500e455-bc02-73a8-ea1e-dd9585044e28-27263834" class="g-flex_h g-mg-bot_20">
+				{% if product.price is not empty and product.price > 0 %}
+				<div id="w-node-_1500e455-bc02-73a8-ea1e-dd9585044e2a-27263834" class="b-text g-size_20 g-bronze g-bold">
+					от
 				</div>
+				{% set unit = product.measure_unit | default(product.category.measure_unit) %}
+				<div id="w-node-_1500e455-bc02-73a8-ea1e-dd9585044e2d-27263834" class="b-text g-size_22 g-bronze g-bold">
+					{{ product.price|price }}
+				</div>
+				<div id="w-node-_1500e455-bc02-73a8-ea1e-dd9585044e2f-27263834" class="b-text g-size_20 g-bronze g-bold">
+					₽
+				</div>
+				{% if unit is not empty %}
+				<div id="w-node-_1500e455-bc02-73a8-ea1e-dd9585044e32-27263834" class="b-text g-size_30 g-bronze g-bold">
+					/
+				</div>
+				<div class="b-text g-size_20 g-bronze g-bold">
+					{{ unit.name }}
+				</div>
+				{% endif %}{% else %}
+				<div class="b-text g-size_20 g-bronze g-bold">
+					Цена по запросу
+				</div>
+				{% endif %}
 			</div>
-			<div class="h-wrap">
-				<div class="b-form b-form_product w-form">
-					<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form" data-wf-page-id="665610e4d965136f27263834" data-wf-element-id="7e4c58e8-85fe-0462-2b03-15192ee746b7">
-						<div class="b-quantity b-quantity_style">
-							<div class="h-wrap h-wrap_mg-bt_15">
-								<div class="b-text b-text_grey">
-									Количество
-								</div>
-							</div>
-							<div class="h-wrap h-wrap_align_h_left">
-								<a wp="product_qty_minus" href="#" class="b-quantity__minus w-button">
-									-
-								</a>
-								<input class="b-quantity__field w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="1" wp="product_qty" type="number" id="name-2">
-								<a wp="product_qty_plus" href="#" class="b-quantity__pluse w-button">
-									+
-								</a>
-							</div>
-						</div>
-						<div class="h-wrap h-wrap_mg-bt_15">
-							<input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ДОБАВИТЬ В КОРЗИНУ">
-						</div>
-						<div class="h-wrap">
-							<input type="submit" data-wait="Please wait..." class="b-button v-8 w-button" value="КУПИТЬ В 1 КЛИК">
-						</div>
-					</form>
-					<div class="b-form__success-mes w-form-done">
-						<div>
-							Товар успешно добавлен
-							<br>
-							в корзину!
-							<br>
-						</div>
-					</div>
-					<div class="b-form__error-mes w-form-fail">
-						<div>
-							Ошибка! Что-то пошло не так.
-						</div>
-					</div>
-				</div>
+			<div id="product-cart">
+				{% partial "ajax/product-cart" %}
 			</div>
 		</div>
 	</div>
