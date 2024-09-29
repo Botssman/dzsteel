@@ -18,17 +18,17 @@
 				от
 			</div>
 			{% set unit = product.measure_unit | default(product.category.measure_unit) %}
-			<div id="w-node-_85e10a62-73f4-7245-b302-ccf3ea8d79c0-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
+			<div id="w-node-_85e10a62-73f4-7245-b302-ccf3ea8d79c0-4ba3b0eb" class="b-text g-size_22 g-bronze g-bold">
 				{{ product.price|price }}
 			</div>
-			<div id="w-node-af013d14-7599-16f2-6563-567aa4239070-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
+			<div id="w-node-af013d14-7599-16f2-6563-567aa4239070-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
 				₽
 			</div>
 			{% if unit is not empty %}
 			<div id="w-node-d93ddba9-eb32-88d7-eec4-ae780dfca171-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
 				/
 			</div>
-			<div class="g-flex_h">
+			<div class="b-text g-size_20 g-bronze g-bold">
 				{{ unit.name }}
 			</div>
 			{% endif %}{% else %}
