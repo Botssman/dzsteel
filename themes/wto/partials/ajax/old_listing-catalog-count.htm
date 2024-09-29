@@ -1,9 +1,9 @@
-{#{% set count = products.total %}#}
-{#{% if count > 0 %}#}
-{#    Найдено {{ count | plural(["предложение", "предложения", "предложений"]) }}#}
-{#{% else %}#}
-{#    Предложений не найдено#}
-{#{% endif %}#}
+{% set count = products.total %}
+{% if count > 0 %}
+   Найдено {{ count | plural(["предложение", "предложения", "предложений"]) }}
+{% else %}
+Предложений не найдено
+{% endif %}
 
 {% if products.hasMorePages %}
     <div class="h-wrap h-wrap_align_h_center">
