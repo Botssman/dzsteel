@@ -30,3 +30,11 @@
         file_format: json
         blueprint_uuid: page_archive-product
         update_existing: true
+-
+    name: single-product
+    class: Tailor\Models\RecordImport
+    file: seeds/data/pages/single-product.json
+    attributes:
+        file_format: json
+        blueprint_uuid: page_single-product
+        update_existing: true
