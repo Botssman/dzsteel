@@ -4,7 +4,7 @@
 	<a href="{{ 'catalog/product' | page({category: product.category.slug, product: product.slug}) }}" class="b-product-link w-inline-block">
 		<div class="g-mg-bot_10">
 			<div class="b-text g-size_16 g-gray">
-				{{ product.name }}
+				{{ {{ product.name }} }}
 			</div>
 		</div>
 		<div class="g-size_14">
@@ -14,15 +14,25 @@
 	<div>
 		<div id="w-node-d0990788-fc7a-349d-04af-bf8f9e1280b7-4ba3b0eb" class="g-flex_h">
 			{% if product.price is not empty and product.price > 0 %}
-			<div id="w-node-_72718b7d-c784-75d4-5f29-3816396569de-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
+			<div id="w-node-_72718b7d-c784-75d4-5f29-3816396569de-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
 				от
 			</div>
 			{% set unit = product.measure_unit | default(product.category.measure_unit) %}
 			<div id="w-node-_85e10a62-73f4-7245-b302-ccf3ea8d79c0-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
-				{{ product.price | price }} ₽
+				{{ product.price|price }}
 			</div>
-			{% if unit is not empty %} / {{ unit.name }}{% endif %}{% else %}
-			<div class="b-text g-size_30 g-bronze g-bold">
+			<div id="w-node-af013d14-7599-16f2-6563-567aa4239070-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
+				₽
+			</div>
+			{% if unit is not empty %}
+			<div id="w-node-d93ddba9-eb32-88d7-eec4-ae780dfca171-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
+				{{ {{ product.price | price }} ₽ }}
+			</div>
+			<div class="g-flex_h">
+				{{ unit.name }}
+			</div>
+			{% endif %}{% else %}
+			<div class="b-text g-size_20 g-bronze g-bold">
 				Цена по запросу
 			</div>
 			{% endif %}
