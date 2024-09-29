@@ -78,23 +78,6 @@ layout="default"
                     </div>
                     <div class="right-content right-content_cat">
                         {% partial 'site-elements/catalog-category' %}
-                            <div class="b-category-grid">
-                                {% for category in categories %}
-                                    <div class="b-category-box">
-                                        <a href="{{ 'catalog/index' | page({category: category.slug}) }}" class="b-linkblock b-linkblock_cat w-inline-block">
-                                            {# <div class="h-wrap h-wrap_align_h_center h-wrap_mg-bt_40">
-                                                {% set image = category.image ?? category.images.first %}
-                                                <img src="{{ image ? image.getThumb(100, 100, {extension: 'webp', 'quality':75}) : ('assets/images/cat_icon_3.svg'|theme) }}" loading="lazy" alt="{{ image.title | default(category.name) }}"
-                                                     class="b-image b-image_cat_icon">
-                                            </div> #}
-                                            <div class="h-wrap">
-                                                <div class="b-text b-text_open_sans b-text_size_18 b-text_center">
-                                                    {{ category.name }}
-                                                </div>
-                                            </div>
-                                        </a></div>
-                                {% endfor %}
-                            </div>
                         <div>
                             <div class="b-sort mob_hide">
                                 <div class="b-form__form b-form__form_cat_sort">
