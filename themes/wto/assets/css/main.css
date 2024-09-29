@@ -5426,6 +5426,11 @@ body {
   margin-bottom: 6em;
 }
 
+.b-sep {
+  margin-left: .5em;
+  margin-right: .5em;
+}
+
 @media screen and (min-width: 1920px) {
   .b-tabs__link-2.w--current {
     background-color: var(--bronze);
