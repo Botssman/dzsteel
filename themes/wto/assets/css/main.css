@@ -5401,6 +5401,16 @@ body {
   top: -3.5em;
 }
 
+.g-mg-top_20 {
+  margin-top: 2em;
+}
+
+.g-flex_h {
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
 @media screen and (min-width: 1920px) {
   .b-tabs__link-2.w--current {
     background-color: var(--bronze);

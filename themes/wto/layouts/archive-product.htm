@@ -5,7 +5,7 @@ description = "Категории товаров"
 default = 0
 ==
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun Sep 29 2024 07:56:02 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263848" data-wf-site="665610e4d965136f272637f5" lang="en">
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun Sep 29 2024 09:42:01 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263848" data-wf-site="665610e4d965136f272637f5" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
@@ -133,7 +133,7 @@ default = 0
 								</div>
 							</div>
 							<div class="right-content right-content_cat">
-								<div>{% partial "site-elements/catalog-category" %}</div>
+								<div>{% partial "catalog-elements/catalog-category" %}</div>
 								<div>
 									<div class="b-sort mob_hide"><a wp="reset_filter" href="#" class="b-sort-cancel w-inline-block"><div>Сбросить все</div><img src="{{ 'assets/images/grey20close.svg'|theme }}" loading="lazy" alt class="b-image b-image_sort_close"></a>
 										<div class="b-form w-form">
@@ -185,7 +185,7 @@ default = 0
 										</div>
 									</div>
 									<div>{% partial "ajax/listing-catalog" %}
-										<div class="h-wrap h-wrap_align_h_center"><a href="#" class="b-button w-button">ПОКАЗАТЬ ЕЩЕ</a></div>
+										<div class="h-wrap g-mg-top_20"><a href="#" class="b-button w-button">ПОКАЗАТЬ ЕЩЕ</a></div>
 										<div class="no-results">Ничего не найдено</div>
 									</div>
 								</div>
