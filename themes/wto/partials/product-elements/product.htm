@@ -1,0 +1,109 @@
+<div class="b-product g-mg-bot_60">
+	{% set image = product.image ?? product.images.first %}
+	<div class="image_box">
+		<img src="{{ image.getThumb(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" alt="" class="b-image b-image_product">
+	</div>
+	<div class="content-wrap">
+		<div class="info_box">
+			<div class="h-wrap g-mg-bot_30">
+				<div class="b-text g-size_30 g-black">
+					{{ product.name }}
+				</div>
+			</div>
+			<div class="h-wrap h-wrap_mg-bt_20">
+				<div class="b-grid b-grid_col_2">
+					{% for property in product.property_values %}
+					<div class="h-wrap h-wrap_align_h_left">
+						<div class="h-wrap">
+							<div class="b-text g-black">
+								{{ property.property.name }}
+							</div>
+						</div>
+						<div class="h-wrap">
+							<div class="b-text g-black">
+								{{ property.name }}
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="b-grid b-grid_col_2 g-hide">
+				<div class="h-wrap h-wrap_align_h_left">
+					<div class="h-wrap h-wrap_mg-bt_20 h-wrap_align_h_left">
+						<img src="{{ 'assets/images/gost.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_gost">
+						<div class="b-text b-text_grey">
+							ГОСТ
+						</div>
+					</div>
+					<div class="h-wrap h-wrap_mg-bt_20">
+						<div wp_post_term="pa_gost" class="b-text b-text_dark">
+							52544-2006
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="order_box">
+			<div class="h-wrap">
+				<div class="h-wrap">
+					<div class="h-wrap h-wrap_mg-bt_20">
+						<div class="h-wrap">
+							<div wp="product_price" class="b-text g-size_30 g-bronze g-bold">
+								от
+								<span>
+									47
+								</span>
+								₽/
+								<span>
+									кг
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="h-wrap">
+				<div class="b-form b-form_product w-form">
+					<form data-name="Форма" id="email-form" name="email-form" method="get" class="b-form__form" data-wf-page-id="665610e4d965136f27263834" data-wf-element-id="7e4c58e8-85fe-0462-2b03-15192ee746b7">
+						<div class="b-quantity b-quantity_style">
+							<div class="h-wrap h-wrap_mg-bt_15">
+								<div class="b-text b-text_grey">
+									Количество
+								</div>
+							</div>
+							<div class="h-wrap h-wrap_align_h_left">
+								<a wp="product_qty_minus" href="#" class="b-quantity__minus w-button">
+									-
+								</a>
+								<input class="b-quantity__field w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="1" wp="product_qty" type="number" id="name-2">
+								<a wp="product_qty_plus" href="#" class="b-quantity__pluse w-button">
+									+
+								</a>
+							</div>
+						</div>
+						<div class="h-wrap h-wrap_mg-bt_15">
+							<input type="submit" data-wait="Please wait..." class="b-button v-5 w-button" value="ДОБАВИТЬ В КОРЗИНУ">
+						</div>
+						<div class="h-wrap">
+							<input type="submit" data-wait="Please wait..." class="b-button v-8 w-button" value="КУПИТЬ В 1 КЛИК">
+						</div>
+					</form>
+					<div class="b-form__success-mes w-form-done">
+						<div>
+							Товар успешно добавлен
+							<br>
+							в корзину!
+							<br>
+						</div>
+					</div>
+					<div class="b-form__error-mes w-form-fail">
+						<div>
+							Ошибка! Что-то пошло не так.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
