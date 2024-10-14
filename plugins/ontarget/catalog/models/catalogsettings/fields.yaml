@@ -7,3 +7,22 @@ tabs:
             max: 1000
             tab: Листинг
             default: 12
+        import_description_strip_tags:
+            label: Удалять теги в описании
+            type: switch
+            tab: Импорт
+        import_description_replaces:
+            label: Заменять строки в описании
+            type: repeater
+            tab: Импорт
+            prompt: Добавить строку
+            form:
+                fields:
+                    search:
+                        label: Строка
+                        comment: Строка, которую нужно заменить
+                        span: auto
+                    replace:
+                        label: Заменить на
+                        comment: На что нужно заменить. Если оставить пустым, строка будет просто удалена из текста.
+                        span: auto

@@ -2,6 +2,7 @@
 
 use Exception;
 use October\Rain\Database\Builder;
+use OnTarget\Catalog\Models\CatalogSettings;
 use OnTarget\Catalog\Models\Category;
 use OnTarget\Catalog\Models\Product;
 use OnTarget\Catalog\Models\Property;
@@ -43,9 +44,15 @@ class ProductImportContainer
         $this->product->save();
 
         if (!empty($this->data['properties'])) {
-            $this->setProperties($this->extractProperties($this->data['properties']));
+
+            $propertiesAndDescription = explode('<br/><br/>', $this->data['properties']);
+
+            $this->setProperties($this->extractProperties($propertiesAndDescription[0]));
         }
 
+        if (!empty($propertiesAndDescription[1])) {
+            $this->product->description = $this->processDescription($propertiesAndDescription[1]);
+        }
 
         if (!empty($this->data['image'])) {
             $imagesList = explode(';', $this->data['image']);
@@ -88,7 +95,7 @@ class ProductImportContainer
     protected function extractProperties(string $data): array
     {
         $result = [];
-        $lines = explode("\n", $data);
+        $lines = explode("<br/>", $data);
 
         foreach ($lines as $line) {
             $parts = explode(": ", $line, 2);
@@ -112,6 +119,8 @@ class ProductImportContainer
         $propertyValuesIds = [];
 
         foreach ($properties as $key => $value) {
+            if (strlen($key) > 30 || strlen($value) > 30) continue;
+
             $propertySlug = Str::slug($key);
             $property = Property::query()
                 ->where('slug', $propertySlug)
@@ -171,6 +180,22 @@ class ProductImportContainer
     protected function makeVendorCode() : string
     {
         return hash('sha256', microtime(true));
+    }
+
+    public function processDescription(string $text)
+    {
+        if (CatalogSettings::instance()->import_description_strip_tags) {
+            $text = strip_tags($text);
+        }
+
+        $replaces = CatalogSettings::instance()->import_description_replaces;
+        if (!empty($replaces)) {
+            foreach ($replaces as $row) {
+                $text = str_replace($row['search'], $row['replace'] ?? '', $text);
+            }
+        }
+
+        return $text;
     }
 
 }

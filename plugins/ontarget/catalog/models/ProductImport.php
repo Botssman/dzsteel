@@ -3,9 +3,7 @@
 namespace OnTarget\Catalog\Models;
 
 use Backend\Models\ImportModel;
-use DOMDocument;
-use DOMXPath;
-use Event;
+use \Event;
 use Exception;
 use October\Rain\Database\Builder;
 use OnTarget\Catalog\Classes\QueryBuilders\ProductQueryBuilder;
