@@ -1,3 +1,6 @@
 <div id="listing" class="b-catalog-grid">
 	{% for product in products %}{% partial "catalog-elements/catalog-product" %}{% endfor %}
 </div>
+{% if results.hasPages %}
+    {{ results | raw }}
+{% endif %}
