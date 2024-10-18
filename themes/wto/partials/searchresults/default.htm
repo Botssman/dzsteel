@@ -9,7 +9,7 @@
     <div class="b-catalog-grid">
         {% for result in results %}
             {# Display all results #}
-            {% partial 'elements/product' product=result.model %}
+            {% partial 'catalog-elements/catalog-product' product=result.model %}
         {% else %}
             {# No results found #}
             {% partial __SELF__ ~ '::no-results.htm' %}
