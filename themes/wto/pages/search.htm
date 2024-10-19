@@ -7,9 +7,11 @@ resultsPerPage = 10
 showProviderBadge = 1
 noResultsMessage = "Предложений не найдено"
 ==
-<div class="g-mg-bot_30" style="padding:100px 0; background:#fff;">
+<div style="padding:100px 0; background:#fff;">
     <div class="container">
-        <h2>Результаты поиска по запросу "{{ searchResults.query }}"</h2>
+        <div  class="g-mg-bot_30">
+            <h2>Результаты поиска по запросу "{{ searchResults.query }}"</h2>
+        </div>
     </div>
 
     {% component 'searchResults' %}
