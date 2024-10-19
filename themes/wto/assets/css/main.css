@@ -4426,6 +4426,7 @@ body {
 
 .page-link {
   background-color: var(--transparent);
+  color: var(--dark);
   border: 1px #000;
   border-radius: 0;
   justify-content: center;
