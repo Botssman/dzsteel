@@ -2,3 +2,20 @@
     {{ results | raw }}
 {% endif %}
 
+{% if results.hasPages %}
+  <ul class="pagination">
+    {% if results.currentPage > 1 %}
+      <li><a href="?page={{ results.currentPage - 1 }}">Предыдущая</a></li>
+    {% endif %}
+
+    {% for i in 1..results.totalPages %}
+      <li class="{{ results.currentPage == i ? 'active' : '' }}">
+        <a href="?page={{ i }}">{{ i }}</a>
+      </li>
+    {% endfor %}
+
+    {% if results.currentPage < results.totalPages %}
+      <li><a href="?page={{ results.currentPage + 1 }}">Следующая</a></li>
+    {% endif %}
+  </ul>
+{% endif %}
