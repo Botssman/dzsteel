@@ -3319,12 +3319,12 @@ body {
   border-radius: 5px;
   width: 100%;
   max-width: 1400px;
-  padding: 80px;
+  padding: 3em;
   position: relative;
 }
 
 .b-modal__pop-up.v-2 {
-  max-width: 500px;
+  max-width: 40em;
 }
 
 .b-modal__close {
@@ -3332,10 +3332,10 @@ body {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: auto;
-  width: 30px;
-  height: 30px;
+  width: 3em;
+  height: 3em;
   position: absolute;
-  inset: 40px 40px auto auto;
+  inset: 2em 2em auto auto;
 }
 
 .header {
