@@ -39,3 +39,6 @@ v1.0.10:
 v1.0.11:
     - Making import_url column "text"
     - modify_import_url_column_in_categories_table.php
+v1.0.12:
+    - Media fields to product
+    - add_media_fields_to_products_table.php

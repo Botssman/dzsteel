@@ -58,6 +58,14 @@ return [
             'throw' => false,
         ],
 
+        'imported_images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/media/imported_images'),
+            'url' => '/storage/app/media/imported_images',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         'resources' => [
             'driver' => 'local',
             'root' => storage_path('app/resources'),

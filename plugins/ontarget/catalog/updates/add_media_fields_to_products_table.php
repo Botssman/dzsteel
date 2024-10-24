@@ -9,14 +9,16 @@ return new class extends Migration
     public function up()
     {
         Schema::table('ontarget_catalog_products', function(Blueprint $table){
-            $table->unsignedBigInteger('measure_unit_id')->nullable();
+            $table->string('media_image')->nullable();
+            $table->text('media_images')->nullable();
         });
     }
 
     public function down()
     {
         Schema::table('ontarget_catalog_products', function(Blueprint $table){
-            $table->dropColumn('measure_unit_id');
+            $table->dropColumn('media_image');
+            $table->dropColumn('media_images');
         });
     }
 };

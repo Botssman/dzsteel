@@ -56,18 +56,24 @@ class ProductImportContainer
 
         if (!empty($this->data['image'])) {
             $imagesList = explode(';', $this->data['image']);
-            $imageModel = $this->makeImage($imagesList[0]);
-            $this->product->image()->add($imageModel);
 
-            if (count($imagesList) > 1) {
-                array_shift($imagesList);
-                foreach ($imagesList as $image) {
-                    $imageModel = $this->makeImage($image);
-                    $this->product->images()->add($imageModel);
-                }
-            }
+            $imageUrl = $imagesList[0];
+            $imageUrlParts = explode('/', $imageUrl);
+            $fileName = end($imageUrlParts);
+
+            \Storage::disk('imported_images')->makeDirectory($this->category->slug);
+
+            \Storage::disk('imported_images')
+                ->put(
+                    $this->category->slug . '/' . $fileName,
+                    (new File)->fromUrl($imageUrl)->getContents()
+                );
+
+            $this->product->media_image = "imported_images/{$this->category->slug}/$fileName";
+
         }
 
+        $this->product->save();
         return $this->product;
     }
 

@@ -6,7 +6,7 @@ columns:
     id:
         label: ID
         searchable: true
-    image:
+    image_path:
         label: Изображение
         type: image
     name:
