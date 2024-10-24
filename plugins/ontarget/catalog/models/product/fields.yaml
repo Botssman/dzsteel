@@ -77,6 +77,22 @@ tabs:
             fileTypes: [ .png, .jpg, .jpeg, .webp ]
             tab: Медиа
             maxFiles: 25
+        media_image:
+            label: Основное изображение (media)
+            type: mediafinder
+            mode: image
+            tab: Медиа
+        media_images:
+            label: Дополнительные изображения (media)
+            type: repeater
+            prompt: Добавить изображение
+            form:
+                fields:
+                    image:
+                        label: Изображение
+                        type: mediafinder
+                        mode: image
+            tab: Медиа
         documents:
             label: Документы
             type: fileupload

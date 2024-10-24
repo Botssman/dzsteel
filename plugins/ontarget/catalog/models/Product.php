@@ -33,7 +33,8 @@ class Product extends Model
      */
     public $table = 'ontarget_catalog_products';
 
-    public $nullable = ['external_link'];
+    public $nullable = ['external_link', 'media_image', 'media_images'];
+    public $jsonable = ['media_images'];
 
     /**
      * Slugs for Sluggable trait
@@ -100,5 +101,14 @@ class Product extends Model
     public function getPreviewAttribute()
     {
         return $this->image ?? $this->images()->first();
+    }
+
+    public function getImagePathAttribute()
+    {
+        if (!empty($this->image)) {
+            return $this->image;
+        }
+
+        return $this->media_image;
     }
 }
