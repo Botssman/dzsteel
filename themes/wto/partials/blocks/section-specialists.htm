@@ -9,7 +9,7 @@
 				</div>
 				<div class="h-wrap h-wrap_align_h_left h-wrap_w_auto h-wrap_mob_align_v_left">
 					<div class="h-wrap h-wrap_w_auto h-wrap_mg_r_15">
-						<div class="b-text g-size_95 g-bold g-bronze">
+						<div class="b-text g-size_95 g-bold g-bronze mob_size">
 							{{ options.section_specialists_24 }}
 						</div>
 					</div>
@@ -24,7 +24,10 @@
 				<div class="b-grid b-grid_spec">
 					{% for item in options.section_specialists_slider %}
 					<div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b71-34573b60" class="b-grid-box b-grid-box_spec">
-						<img src="{{ item.image|media }}" loading="lazy" alt="" class="b-image b-image_spec">
+						<div class="h-wrap">
+							<img src="{{ item.image|media }}" loading="lazy" alt="" class="b-image b-image_spec">
+							<div class="b-grid-box_grad"></div>
+						</div>
 						<div class="b-grid-box__block">
 							<div class="h-wrap g-mg-bot_10">
 								<div class="b-text g-size_24">

@@ -5,7 +5,7 @@ description = "Single"
 default = 0
 ==
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sat Oct 19 2024 20:27:57 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263834" data-wf-site="665610e4d965136f272637f5" lang="en">
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue Oct 29 2024 18:28:16 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263834" data-wf-site="665610e4d965136f272637f5" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
@@ -279,7 +279,7 @@ default = 0
 						<div class="h-wrap g-mg-bot_10">
 							<div class="b-title">{{ options.section_quality_title }}</div>
 						</div>
-						<div class="h-wrap g-mg-bot_90">
+						<div class="h-wrap g-mg-bot_90 mob_mb_40">
 							<div class="b-text g-size_18">{{ options.section_quality_subtitle }}</div>
 						</div>
 						<div class="h-wrap g-mg-bot_90">
@@ -287,7 +287,7 @@ default = 0
 								<div class="b-grid-box"><img src="{{ item.icon|media }}" loading="lazy" alt class="b-image b-image_grid_icon">
 									<div class="h-wrap h-wrap_align_v_left">
 										<div class="h-wrap g-mg-bot_10">
-											<div class="b-text g-size_22 g-opensans g-bold">{{ item.title_advantages }}</div>
+											<div class="b-text g-size_22 g-opensans g-bold tb_size_18">{{ item.title_advantages }}</div>
 										</div>
 										<div class="h-wrap">
 											<div class="b-text">{{ item.text_advantages }}</div>
@@ -297,11 +297,11 @@ default = 0
 						</div>
 						<div class="h-wrap">
 							<div class="b-block">
-								<div class="b-grid maxw_300-3-col">
+								<div class="b-grid maxw_300-3-col mob_2-col">
 									<div class="b-grid__col">
 										<div class="h-wrap h-wrap_align_h_left h-wrap_mob_align_h_center"><img src="{{ options.icon_bonus|media }}" loading="lazy" alt class="b-image b-image_sec_form_icon">
 											<div class="h-wrap">
-												<div class="b-text g-size_18 g-dark g-bold">{{ options.text_bonus }}</div>
+												<div class="b-text g-size_18 g-dark g-bold tb_size_16">{{ options.text_bonus }}</div>
 											</div>
 										</div>
 									</div>
@@ -330,7 +330,7 @@ default = 0
 							</div>
 							<div class="h-wrap h-wrap_align_h_left h-wrap_w_auto h-wrap_mob_align_v_left">
 								<div class="h-wrap h-wrap_w_auto h-wrap_mg_r_15">
-									<div class="b-text g-size_95 g-bold g-bronze">{{ options.section_specialists_24 }}</div>
+									<div class="b-text g-size_95 g-bold g-bronze mob_size">{{ options.section_specialists_24 }}</div>
 								</div>
 								<div class="h-wrap">
 									<div class="b-text g-size_18 g-gray">{{ options.section_specialists_subtitle|raw }}</div>
@@ -339,7 +339,10 @@ default = 0
 						</div>
 						<div class="h-wrap">
 							<div class="b-grid b-grid_spec">{% for item in options.section_specialists_slider %}
-								<div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b71-34573b60" class="b-grid-box b-grid-box_spec"><img src="{{ item.image|media }}" loading="lazy" alt class="b-image b-image_spec">
+								<div id="w-node-_72b085c1-5dee-9878-22ae-a4a334573b71-34573b60" class="b-grid-box b-grid-box_spec">
+									<div class="h-wrap"><img src="{{ item.image|media }}" loading="lazy" alt class="b-image b-image_spec">
+										<div class="b-grid-box_grad"></div>
+									</div>
 									<div class="b-grid-box__block">
 										<div class="h-wrap g-mg-bot_10">
 											<div class="b-text g-size_24">{{ item.name|raw }}</div>
@@ -364,7 +367,7 @@ default = 0
 						<div class="h-wrap">
 							<div class="b-grid b-grid_2-col v-2">
 								<div class="b-grid__col">
-									<div class="h-wrap h-wrap_align_h_down g-mg-bot_40">
+									<div class="h-wrap h-wrap_align_h_down g-mg-bot_40 mob_grid">
 										<div class="h-wrap h-wrap_mob_align_h_center"><img src="{{ options.section_general_director_image|media }}" loading="lazy" alt class="b-image b-image_gen_photo"></div>
 										<div class="h-wrap h-wrap_w_auto h-wrap_mob_100">
 											<div class="b-gen-box">

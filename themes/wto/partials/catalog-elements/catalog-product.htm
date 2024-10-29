@@ -1,12 +1,7 @@
 <div class="b-product-card">
-    {% if product.image %}
-        {% set resize = product.image.getThumb(311, 273, {mode: 'crop', extension: 'webp', quality: 75}) %}
-    {% elseif product.media_image %}
-        {% set resize = product.media_image | media | resize(311, 273, {mode: 'crop', extension: 'webp', quality: 75}) %}
-    {% endif %}
-
-    <img src="{{ resize }}" loading="lazy" alt="" class="b-image b-image_cat_image" onerror="this.onerror=null; this.src='/themes/wto/assets/images/no-photo.png';">
-	<a href="{{ 'catalog/product' | page({category: product.category.slug, product: product.slug}) }}" class="b-product-link w-inline-block">
+	{% set image = product.image | default(product.images.first) %}
+	<img src="{{ image.getThumb(311, 273, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" id="w-node-f8138cbe-72ea-1ab4-75ca-bfe34ba3b0ed-4ba3b0eb" alt="" class="b-image b-image_cat_image" onerror="this.onerror=null; this.src='/themes/wto/assets/images/no-photo.png';">
+	<a id="w-node-f8138cbe-72ea-1ab4-75ca-bfe34ba3b0ec-4ba3b0eb" href="{{ 'catalog/product' | page({category: product.category.slug, product: product.slug}) }}" class="b-product-link w-inline-block">
 		<div class="g-mg-bot_10">
 			<div class="b-text g-size_16 g-gray">
 				{{ product.name }}
@@ -16,8 +11,8 @@
 			Подробнее
 		</div>
 	</a>
-	<div>
-		<div id="w-node-d0990788-fc7a-349d-04af-bf8f9e1280b7-4ba3b0eb" class="g-flex_h">
+	<div id="w-node-_7683d415-adba-5cb5-5552-6e4bc14c8301-4ba3b0eb">
+		<div id="w-node-d0990788-fc7a-349d-04af-bf8f9e1280b7-4ba3b0eb" class="g-flex_h is-card">
 			{% if product.price is not empty and product.price > 0 %}
 			<div id="w-node-_72718b7d-c784-75d4-5f29-3816396569de-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
 				от
@@ -26,12 +21,12 @@
 			<div id="w-node-_85e10a62-73f4-7245-b302-ccf3ea8d79c0-4ba3b0eb" class="b-text g-size_22 g-bronze g-bold">
 				{{ product.price|price }}
 			</div>
-			<div id="w-node-af013d14-7599-16f2-6563-567aa4239070-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
-				₽
-			</div>
-			{% if unit is not empty %}
 			<div id="w-node-d93ddba9-eb32-88d7-eec4-ae780dfca171-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
 				/
+			</div>
+			{% if unit is not empty %}
+			<div id="w-node-af013d14-7599-16f2-6563-567aa4239070-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
+				₽
 			</div>
 			<div class="b-text g-size_20 g-bronze g-bold">
 				{{ unit.name }}
@@ -43,7 +38,7 @@
 			{% endif %}
 		</div>
 	</div>
-	<div id="w-node-_36e4f2e5-7674-8c3f-5a30-9862a2d1be43-4ba3b0eb">
+	<div id="w-node-_36e4f2e5-7674-8c3f-5a30-9862a2d1be43-4ba3b0eb" class="b-product-card__btn-wrap">
 		{% if product.price is not empty and product.price > 0 %}
 		<button data-request="Cart::onAdd" data-request-data="product_id: {{ product.id }}" data-request-update="'catalog/mini-cart': '#mini-cart'" data-request-flash="" class="b-button card">
 			<div>
