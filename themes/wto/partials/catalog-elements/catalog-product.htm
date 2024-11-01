@@ -41,13 +41,13 @@
 	<div id="w-node-_36e4f2e5-7674-8c3f-5a30-9862a2d1be43-4ba3b0eb" class="b-product-card__btn-wrap">
 		{% if product.price is not empty and product.price > 0 %}
 		<button data-request="Cart::onAdd" data-request-data="product_id: {{ product.id }}" data-request-update="'catalog/mini-cart': '#mini-cart'" data-request-flash="" class="b-button card">
-			<div>
+			<div class="mob_size_16">
 				В корзину
 			</div>
 		</button>
 		{% else %}
 		<button data-w-id="2dda6d20-159e-196c-c423-8b9c099deb87" class="b-button v-7">
-			<div>
+			<div class="mob_size_16">
 				Заказать звонок
 			</div>
 		</button>

@@ -21,16 +21,7 @@ fields:
                     label: link_menu
                     type: text
     name:
-        label: name
-        type: text
-    section_special_offer_title:
-        label: Section_special_offer_title
-        type: text
-    section_special_offer_subtitle:
-        label: Section_special_offer_subtitle
-        type: text
-    section_special_offer_text_form:
-        label: Section_special_offer_text_form
+        label: 'name '
         type: text
     section_quality_title:
         label: Section_quality_Title

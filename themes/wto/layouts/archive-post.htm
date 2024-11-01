@@ -5,7 +5,7 @@ description = "Архив статей"
 default = 0
 ==
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Fri Nov 01 2024 02:23:34 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f2726384d" data-wf-site="665610e4d965136f272637f5" lang="en">
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Fri Nov 01 2024 03:24:48 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f2726384d" data-wf-site="665610e4d965136f272637f5" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
@@ -75,7 +75,7 @@ default = 0
 						</div>
 						<div class="h-wrap">
 							<div class="b-block">
-								<div class="b-grid maxw_300-3-col mob_2-col">
+								<div class="b-grid maxw_300-3-col mob_1-col">
 									<div class="b-grid__col">
 										<div class="h-wrap h-wrap_align_h_left h-wrap_mob_align_h_center"><img src="{{ options.icon_bonus|media }}" loading="lazy" alt class="b-image b-image_sec_form_icon">
 											<div class="h-wrap">
@@ -304,7 +304,7 @@ default = 0
 			<section class="s-section s-section_dark_spec">
 				<div>
 					<div id="specialist" class="container">
-						<div class="h-wrap h-wrap_align_h_flex h-wrap_mg-bt_50 h-wrap_mob_mg-bt_30">
+						<div class="h-wrap h-wrap_align_h_flex h-wrap_mg-bt_50 h-wrap_mob_mg-bt_30 flex">
 							<div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_mg-bt_0">
 								<div class="b-title">{{ options.section_specialists_title|raw }}</div>
 							</div>
@@ -313,7 +313,7 @@ default = 0
 									<div class="b-text g-size_95 g-bold g-bronze mob_size">{{ options.section_specialists_24 }}</div>
 								</div>
 								<div class="h-wrap">
-									<div class="b-text g-size_18 g-gray">{{ options.section_specialists_subtitle|raw }}</div>
+									<div class="b-text g-size_18 g-gray mob_size">{{ options.section_specialists_subtitle|raw }}</div>
 								</div>
 							</div>
 						</div>
@@ -325,10 +325,10 @@ default = 0
 									</div>
 									<div class="b-grid-box__block">
 										<div class="h-wrap g-mg-bot_10">
-											<div class="b-text g-size_24">{{ item.name|raw }}</div>
+											<div class="b-text g-size_24 mob">{{ item.name|raw }}</div>
 										</div>
-										<div class="h-wrap g-mg-bot_20">
-											<div class="b-text g-size_15">{{ item.job|raw }}</div>
+										<div class="h-wrap g-mg-bot_20 mob">
+											<div class="b-text g-size_15 mob">{{ item.job|raw }}</div>
 										</div>
 										<div class="h-wrap"><a data-w-id="72b085c1-5dee-9878-22ae-a4a334573b7a" href="#" class="b-button v-3 w-button">Связаться</a></div>
 									</div>
