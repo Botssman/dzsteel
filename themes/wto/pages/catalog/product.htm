@@ -10,7 +10,7 @@ layout="default"
             {% partial 'catalog/breadcrumbs' target=product.category %}
         </div>
         <div class="container">
-        <div wp="product" class="h-wrap h-wrap_mg-bt_130">
+        <div class="h-wrap">
             {% partial 'product-elements/product' %}
             {# <div wp_if="simple_product" class="b-product">
                 {% set image = product.image ?? product.images.first %}
@@ -119,10 +119,9 @@ layout="default"
         </div>
         </div>
     </div>
-</div>
 {# <div class="b-fav-button"><a wp="wish_add" href="#" class="b-button w-button">ДОБАВИТЬ В ЗАКЛАДКИ</a></div> #}
 </section>
-<section class="s-section s-section_light-3">
+{# <section class="s-section s-section_light-3">
     <div>
         <div display="block" o_group="Блок Категории товаров" class="container container_clip_content_2">
             <div class="h-wrap h-wrap_mg-bt_20 h-wrap_mob_70">
@@ -138,7 +137,7 @@ layout="default"
             </div>
         </div>
     </div>
-</section>
+</section> #}
 {# {% partial 'blocks/section-special-offer' %} #}
 {% partial 'blocks/section-quality' %}
 {% partial 'blocks/section-specialists' %}
@@ -149,4 +148,5 @@ layout="default"
 </section>
 {% partial 'blocks/section-general-director' %}
 {# {% partial 'blocks/section-departments' %} #}
+</div>
 </div>
