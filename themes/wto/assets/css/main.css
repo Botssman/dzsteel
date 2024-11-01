@@ -5451,7 +5451,6 @@ body {
 .wrap-img {
   background-image: linear-gradient(#49555f, #1d252b);
   border-radius: .5em;
-  width: 30em;
   overflow: hidden;
 }
 
