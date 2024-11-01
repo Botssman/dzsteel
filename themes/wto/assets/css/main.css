@@ -6983,7 +6983,7 @@ body {
     margin-bottom: 0;
   }
 
-  .mob_size_16 {
+  .mob_size_16, .mob_size_13 {
     font-size: 1.8em;
   }
 }
@@ -7393,8 +7393,8 @@ body {
   }
 
   .b-button.v-7 {
-    width: auto;
-    height: 5em;
+    width: 100%;
+    height: 3em;
     margin-left: auto;
     margin-right: auto;
     padding-left: 3em;
@@ -7436,6 +7436,7 @@ body {
 
   .b-button.card {
     width: auto;
+    height: 3em;
     margin-left: auto;
     margin-right: auto;
     padding-left: 2em;
@@ -7825,6 +7826,8 @@ body {
   }
 
   .b-product-card {
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
     padding-right: 0;
   }
 
@@ -8113,6 +8116,10 @@ body {
   .mob_show {
     margin-bottom: 2em;
     display: block;
+  }
+
+  .mob_size_13 {
+    font-size: 1.3em;
   }
 }
 
