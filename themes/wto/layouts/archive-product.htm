@@ -5,7 +5,7 @@ description = "Категории товаров"
 default = 0
 ==
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue Oct 29 2024 18:28:16 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263848" data-wf-site="665610e4d965136f272637f5" lang="en">
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Fri Nov 01 2024 02:23:34 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263848" data-wf-site="665610e4d965136f272637f5" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
@@ -22,7 +22,7 @@ default = 0
 		<!-- HEAD CODE -->
 		<meta name="description" content="{{ this.page.meta_description }}">{% partial "head" %}{% component "forms" %}
 		<link href="{{'assets/css/main.css'|theme}}" rel="stylesheet">{% styles %}</head>
-	<body>{% partial "body" %}{% partial "site/header" %}
+	<body class="body">{% partial "body" %}{% partial "site/header" %}
 		<div class="main">
 			<section class="s-section s-section_catalog">
 				<div class="container">{% partial "catalog/breadcrumbs" %}
