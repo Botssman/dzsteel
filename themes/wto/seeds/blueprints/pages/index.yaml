@@ -180,8 +180,8 @@ fields:
                         type: mediafinder
                         mode: image
                         maxItems: '1'
-                    section_general_director_title|raw:
-                        label: section_general_director_title|raw
+                    section_general_director_title:
+                        label: section_general_director_title
                         type: text
                     section_general_director_name|raw:
                         label: section_general_director_name|raw

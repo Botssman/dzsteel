@@ -4111,7 +4111,7 @@ body {
 .b-gen-box {
   border: 3px solid var(--bronze);
   border-radius: 5px;
-  width: auto;
+  width: 20em;
   margin-left: 4em;
   margin-right: 0;
   padding: 3em;
@@ -6598,7 +6598,7 @@ body {
     grid-row-gap: 16px;
     flex-flow: column;
     grid-template-rows: auto auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-auto-columns: 1fr;
     display: grid;
   }
@@ -6834,6 +6834,7 @@ body {
   }
 
   .b-gen-box {
+    width: auto;
     margin-left: 0;
   }
 
@@ -7057,6 +7058,10 @@ body {
   .h-wrap.h-wrap_align_h_down.h-wrap_mg-bt_40 {
     flex-direction: column;
     align-items: center;
+  }
+
+  .h-wrap.h-wrap_align_h_down.g-mg-bot_40.mob_grid {
+    grid-template-columns: 1fr;
   }
 
   .h-wrap.h-wrap_align_h_flex {
