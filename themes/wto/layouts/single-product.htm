@@ -5,7 +5,7 @@ description = "Single"
 default = 0
 ==
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Fri Nov 01 2024 03:56:14 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263834" data-wf-site="665610e4d965136f272637f5" lang="en">
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Fri Nov 01 2024 08:34:42 GMT+0000 (Coordinated Universal Time) --><html data-wf-page="665610e4d965136f27263834" data-wf-site="665610e4d965136f272637f5" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
@@ -24,7 +24,7 @@ default = 0
 		<link href="{{'assets/css/main.css'|theme}}" rel="stylesheet">{% styles %}</head>
 	<body class="body">{% partial "body" %}{% partial "site/header" %}
 		<div class="main">
-			<section class="s-section s-section_catalog">
+			<section class="s-section s-section_catalog v-2">
 				<div class="container">
 					<div class="b-breadcrumbs">{% partial "catalog/breadcrumbs" %}</div>
 					<div class="h-wrap">{% partial "product-elements/product" %}</div>
@@ -58,7 +58,7 @@ default = 0
 						</div>
 					</div>
 				</div>
-				<div class="b-fav-button"><a wp="wish_add" href="#" class="b-button w-button">ДОБАВИТЬ В ЗАКЛАДКИ</a></div>
+				<div class="b-fav-button"><a wp="wish_add" href="#" class="b-button g-hide w-button">ДОБАВИТЬ В ЗАКЛАДКИ</a></div>
 			</section>
 			<section class="s-section s-section_bronze">
 				<div><img src="{{ 'assets/images/vecteezy_gear-png-with-ai-generated_26771780-220120(1).png'|theme }}" loading="lazy" alt class="b-image b-image_metal_circle"><img src="{{ 'assets/images/bg-title.svg'|theme }}" loading="lazy" alt class="b-image b-image_bg_title">
@@ -155,7 +155,9 @@ default = 0
 							<div class="b-grid b-grid_2-col v-2">
 								<div class="b-grid__col">
 									<div class="h-wrap h-wrap_align_h_down g-mg-bot_40 mob_grid">
-										<div class="h-wrap h-wrap_mob_align_h_center"><img src="{{ options.section_general_director_image|media }}" loading="lazy" alt class="b-image b-image_gen_photo"></div>
+										<div class="h-wrap h-wrap_mob_align_h_center">
+											<div class="wrap-img"><img src="{{ options.section_general_director_image|media }}" loading="lazy" alt class="b-image b-image_gen_photo"></div>
+										</div>
 										<div class="h-wrap h-wrap_w_auto h-wrap_mob_100">
 											<div class="b-gen-box">
 												<div class="h-wrap h-wrap_mg-bt_10">
