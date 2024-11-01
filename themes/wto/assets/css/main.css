@@ -3679,7 +3679,7 @@ body {
   opacity: 1;
   width: 104em;
   position: absolute;
-  inset: -20px 0 auto auto;
+  inset: 4em 0 auto auto;
 }
 
 .b-image.b-image_grid_icon {
@@ -5451,7 +5451,6 @@ body {
 .wrap-img {
   background-image: linear-gradient(#49555f, #1d252b);
   border-radius: .5em;
-  width: 30em;
   overflow: hidden;
 }
 
@@ -6832,6 +6831,10 @@ body {
 
   .b-image.b-image_gen_photo {
     height: auto;
+  }
+
+  .b-button-box {
+    margin-right: auto;
   }
 
   .b-tab-manager {
