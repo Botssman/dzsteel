@@ -3898,6 +3898,10 @@ body {
   position: relative;
 }
 
+.b-cart-button.v-2 {
+  display: none;
+}
+
 .b-cart-count {
   z-index: 0;
   background-color: var(--bronze);
@@ -6189,6 +6193,11 @@ body {
     z-index: 0;
   }
 
+  .b-cart-button.v-2 {
+    margin-right: 1em;
+    display: block;
+  }
+
   .b-menu-box.mob_hide {
     display: none;
   }
@@ -7663,8 +7672,7 @@ body {
   .b-button-box {
     height: 40px;
     margin-right: auto;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0 1em;
   }
 
   .search {
@@ -7679,8 +7687,12 @@ body {
   }
 
   .b-cart-button {
-    width: 42px;
-    height: 42px;
+    width: 4em;
+    height: 4em;
+  }
+
+  .b-cart-button.v-2 {
+    margin-right: 1em;
   }
 
   .b-phonelink {
