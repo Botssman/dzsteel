@@ -3,12 +3,17 @@
 	<div class="image_box">
 		<img src="{{ image.getThumb(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) }}" loading="lazy" alt="" class="b-image b-image_product" onerror="this.onerror=null; this.src='/themes/wto/assets/images/no-photo.png';">
 	</div>
+	<div class="mob_show">
+		<div class="b-text g-size_30 g-black">
+			{{ product.name }}
+		</div>
+	</div>
 	<div class="content-wrap">
 		<div class="info_box">
-			<div class="h-wrap g-mg-bot_30">
-				<div class="b-text g-size_30 g-black">
+			<div class="h-wrap g-mg-bot_30 m-hide">
+				<h1 class="b-text g-size_30 g-black prod-title">
 					{{ product.name }}
-				</div>
+				</h1>
 			</div>
 			<div class="h-wrap h-wrap_mg-bt_20">
 				<div class="b-grid b-grid_col_2">
