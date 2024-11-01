@@ -11,7 +11,7 @@
 					</div>
 				</div>
 				<div class="social_wrap">
-					{% for item in sitesettings.add_social %}
+					{% for item in siteSettings.add_social %}
 					<a href="{{ item.social_link }}" target="_blank" class="b-social-link w-inline-block">
 						<img src="{{ item.social_icon }}" loading="lazy" alt="" class="b-image b-image_social">
 					</a>
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="footer_nav">
-					{% for item in mainmenu.add_menu_footer %}
+					{% for item in mainMenu.add_menu_footer %}
 					<a href="{{ item.link_menu_footer }}" class="b-footer-nav-link w-inline-block">
 						<div class="b-text">
 							{{ item.name_menu_footer }}
