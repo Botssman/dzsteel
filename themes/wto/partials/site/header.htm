@@ -54,8 +54,8 @@
 					</div>
 				</div>
 			</div>
-			<a href="/checkout/" class="b-cart-button v-2 w-inline-block">
-				{{ siteSettings.phone }}
+			<a href="{{ siteSettings.phone }}" class="b-cart-button v-2 w-inline-block">
+				<img src="{{ 'assets/images/phonecall3_83902.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_cart">
 			</a>
 			<div id="mini-cart">
 				{% partial "catalog/mini-cart" %}
