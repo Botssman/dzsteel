@@ -1,8 +1,8 @@
 <header class="header">
-	<div o_group="Хэдер" data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="b-menu w-nav">
+	<div data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="b-menu w-nav">
 		<div class="container container_align_h_flex w-container">
 			<a href="/" aria-current="page" class="b-menu__logo-link w-nav-brand">
-				<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-menu__logo">
+				<img src="{{ siteSettings.logo|media }}" loading="lazy" alt="" class="b-menu__logo">
 			</a>
 			<div class="b-menu__button w-nav-button">
 				<img src="{{ 'assets/images/burger_stal.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_menu_burger">
@@ -22,7 +22,7 @@
 					<img src="{{ siteSettings.logo }}" loading="lazy" alt="" class="b-menu__logo mob_show">
 				</a>
 				<div class="b-menu-links">
-					{% for item in mainmenu.add_menu %}
+					{% for item in mainMenu.add_menu %}
 					<a href="{{ item.link_menu }}" class="b-menu__link w-nav-link">
 						{{ item.name_menu }}
 					</a>
