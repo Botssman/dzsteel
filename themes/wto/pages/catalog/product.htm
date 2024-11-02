@@ -10,9 +10,9 @@ layout="default"
             {% partial 'catalog/breadcrumbs' target=product.category %}
         </div>
         <div class="container">
-        <div class="h-wrap">
+        <div wp="product" class="h-wrap">
             {% partial 'product-elements/product' %}
-            <div wp_if="simple_product" class="b-product">
+            {# <div wp_if="simple_product" class="b-product">
                 {% set image = product.image ?? product.images.first %}
                 {% if product.image %}
                     {% set resize = product.image.getThumb(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) %}
@@ -85,7 +85,7 @@ layout="default"
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> #}
         <div class="h-wrap">
             <div data-duration-in="300" data-duration-out="100" data-current="Tab 1" data-easing="ease" class="b-tabs b-tabs_product w-tabs">
                 <div class="b-tabs__menu-2 w-tab-menu"><a data-w-tab="Tab 1" class="b-tabs__link-2 w-inline-block w-tab-link w--current"><div>Описание</div></a><a data-w-tab="Tab 2" class="b-tabs__link-2 w-inline-block w-tab-link"><div>Доставка</div></a></div>
