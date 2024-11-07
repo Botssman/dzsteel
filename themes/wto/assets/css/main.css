@@ -3431,7 +3431,7 @@ body {
 }
 
 .s-section.s-section_bronze1 {
-  background-color: var(--bronze);
+  background-image: linear-gradient(165deg, #ebc4a2, #9b7f68 53%, #ebc4a2);
   padding-top: 12.5em;
   padding-bottom: 27.5em;
 }
@@ -3680,6 +3680,7 @@ body {
   z-index: 0;
   opacity: 1;
   width: 104em;
+  margin-right: 3em;
   position: absolute;
   inset: 4em 0 auto auto;
 }
@@ -5460,7 +5461,6 @@ body {
   border-radius: .5em;
   overflow: hidden;
 }
-
 
 @media screen and (max-width: 991px) {
   .body {
