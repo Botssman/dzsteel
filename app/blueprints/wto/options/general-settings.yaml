@@ -40,7 +40,7 @@ fields:
     requisites:
       label: Реквизиты
       type: text
-      tab: Общие настрой
+      tab: Общие настройки
     copirate:
       label: Копирайт
       type: text

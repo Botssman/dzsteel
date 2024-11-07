@@ -5462,6 +5462,10 @@ body {
   overflow: hidden;
 }
 
+.g-caps {
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 991px) {
   .body {
     font-size: 1.302vw;
