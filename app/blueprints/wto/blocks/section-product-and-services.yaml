@@ -44,38 +44,37 @@ fields:
                             sub_category_link:
                                 label: Ссылка подкатегории
                                 type: text
-    tab_productions:
-        label: Производство
-        type: section
-        tab: Вкладка категорий производство
-    title_productions:
-        label: Заголовок продукция
-        type: text
-        tab: Вкладка категорий производство
-    add_category_productions:
-        label: Добавить категорию
+    add_category_prod_serv:
+        label: Добавить услугу
         type: repeater
-        tab: Вкладка категорий производство
+        tab: Вкладка категорий продукции
         form:
             fields:
-                name_category_productions:
+                name_category_serv:
+                    label: Название услуги
+                    type: text
+                category_link_serv:
+                    label: Ссылка на услугу
+                    type: text
+                category_image_serv:
+                    label: Изображение
+                    type: mediafinder
+                    mode: image
+                    maxItems: '1'
+    add_category_prod_blag:
+        label: Добавить категорию
+        type: repeater
+        tab: Вкладка категорий продукции
+        form:
+            fields:
+                name_category_blag:
                     label: Название категории
                     type: text
-                category_link_productions:
+                category_link_blag:
                     label: Ссылка на категорию
                     type: text
-                category_image_productions:
+                category_image_blag:
                     label: Изображение категории
                     type: mediafinder
                     mode: image
                     maxItems: '1'
-                add_sub_category_productions:
-                    type: repeater
-                    form:
-                        fields:
-                            name_sub_category_productions:
-                                label: Название подкатегории
-                                type: text
-                            sub_category_link_productions:
-                                label: Ссылка подкатегории
-                                type: text
