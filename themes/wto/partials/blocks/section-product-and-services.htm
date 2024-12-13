@@ -20,7 +20,7 @@
 					</a>
 					<a data-w-tab="Tab 2" class="b-tabs__link w-inline-block w-tab-link">
 						<div class="b-tab-text">
-							МЕТАЛЛОПРОКАТ
+							Услуги
 						</div>
 					</a>
 					<a data-w-tab="Tab 3" class="b-tabs__link w-inline-block w-tab-link">
@@ -33,8 +33,12 @@
 					<div data-w-tab="Tab 1" class="b-tabs__pane w-tab-pane w--tab-active">
 						{% partial "site-elements/tab-prod" %}
 					</div>
-					<div data-w-tab="Tab 2" class="b-tabs__pane w-tab-pane"></div>
-					<div data-w-tab="Tab 3" class="b-tabs__pane w-tab-pane"></div>
+					<div data-w-tab="Tab 2" class="b-tabs__pane w-tab-pane">
+						{% partial "site-elements/tab-serv" %}
+					</div>
+					<div data-w-tab="Tab 3" class="b-tabs__pane w-tab-pane">
+						{% partial "site-elements/tab-blag" %}
+					</div>
 				</div>
 			</div>
 		</div>
