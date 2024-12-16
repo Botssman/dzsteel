@@ -3950,6 +3950,11 @@ body {
   margin-right: 0;
 }
 
+.b-phonelink.b-phonelink_footer {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .b-maillink {
   color: var(--menu-grey);
   font-size: .875em;
@@ -3958,6 +3963,10 @@ body {
 
 .b-maillink.b-maillink_header {
   margin-left: 40px;
+  font-size: 1.4em;
+}
+
+.b-maillink.b-maillink_footer {
   font-size: 1.4em;
 }
 
