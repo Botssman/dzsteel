@@ -93,3 +93,25 @@
 	</div>
 	{% partial "modal/modal-call" %}
 </footer>
+<script>
+export default {
+  mounted() {
+    const tabsLinks = document.querySelectorAll('.b-tabs__link');
+    const tabInfos = document.querySelectorAll('.b-tab-info');
+    
+    // Скрыть все вкладки по умолчанию
+    tabInfos.forEach(info => info.style.display = 'none');
+
+    tabsLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Скрываем все вкладки
+        tabInfos.forEach(info => info.style.display = 'none');
+        
+        // Показываем вкладку, соответствующую активной ссылке
+        const activeTabIndex = Array.from(tabsLinks).indexOf(link);
+        tabInfos[activeTabIndex].style.display = 'block';
+      });
+    });
+  }
+}
+</script>
