@@ -109,17 +109,14 @@ const tabsLinks = document.querySelectorAll('.b-tabs__link');
 
 // Добавим обработчик события на каждую ссылку
 tabsLinks.forEach(link => {
-  link.addEventListener('click', function(event) {
-    // Найдем связанный с этой ссылкой элемент .b-tab-info
-    const tabInfo = document.querySelector('.b-tab-info');
+  link.addEventListener('click', function() {
+    // Находим все элементы с классом .b-tab-info
+    const tabInfos = document.querySelectorAll('.b-tab-info');
 
-    // Скрываем все элементы .b-tab-info (если их несколько, цикл forEach нужно будет модифицировать)
-    document.querySelectorAll('.b-tab-info').forEach(info => {
-      info.style.display = 'none';
+    // Для каждого элемента с классом .b-tab-info меняем display на block
+    tabInfos.forEach(info => {
+      info.style.display = 'block';
     });
-
-    // Показываем нужный элемент
-    tabInfo.style.display = 'block';
   });
 });
 </script>
