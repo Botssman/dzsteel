@@ -105,20 +105,19 @@
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.b-tabs__link').forEach(link => {
-    link.addEventListener('click', handleTabClick);
+  document.querySelectorAll('.tab__link').forEach(link => {
+    link.addEventListener('click', showInfo);
   });
 
-  function handleTabClick(event) {
-    const target = event.target;
+  // Функция для отображения информации при клике на любую ссылку
+  function showInfo(event) {
+    const tabInfos = document.querySelectorAll('.tab-info');
     
-    if (target.classList.contains('b-tabs__link')) {
-      const tabInfos = document.querySelectorAll('.b-tab-info');
-      
-      tabInfos.forEach(info => info.style.display = 'none');
-      
-      target.closest('.b-tab').querySelector('.b-tab-info').style.display = 'block';
-    }
+    // Скрываем все блоки с информацией
+    tabInfos.forEach(info => info.style.display = 'none');
+    
+    // Показываем только информацию для текущего таба
+    event.target.closest('.container').querySelectorAll('.tab-info')[0].style.display = 'block';
   }
 });
 </script>
