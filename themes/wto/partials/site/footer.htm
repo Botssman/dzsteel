@@ -52,10 +52,20 @@
 						АДРЕС
 					</div>
 				</div>
-				<div class="h-wrap">
+				<div class="h-wrap g-mg-bot_10">
 					<div class="b-text">
 						{{ siteSettings.adress }}
 					</div>
+				</div>
+				<div class="h-wrap g-mg-bot_10">
+					<a href="tel:{{ siteSettings.phone }}" class="b-phonelink">
+						{{ siteSettings.phone }}
+					</a>
+				</div>
+				<div class="h-wrap">
+					<a href="mailto:{{ siteSettings.email }}" class="b-maillink b-maillink_header">
+						{{ siteSettings.email }}
+					</a>
 				</div>
 			</div>
 			<div id="w-node-_1f8e5440-2759-e1e3-dda1-e6db29fd16e3-29fd16ad" class="b-column-grid-box">
@@ -96,22 +106,28 @@
 <script>
 export default {
   mounted() {
+    // Получаем все вкладки
     const tabsLinks = document.querySelectorAll('.b-tabs__link');
     const tabInfos = document.querySelectorAll('.b-tab-info');
-    
-    // Скрыть все вкладки по умолчанию
-    tabInfos.forEach(info => info.style.display = 'none');
 
+    // Изначально скрываем все элементы с классом .b-tab-info
+    tabInfos.forEach(info => {
+      info.style.display = 'none';
+    });
+
+    // Добавляем обработчик событий на все вкладки
     tabsLinks.forEach(link => {
       link.addEventListener('click', () => {
-        // Скрываем все вкладки
-        tabInfos.forEach(info => info.style.display = 'none');
-        
-        // Показываем вкладку, соответствующую активной ссылке
-        const activeTabIndex = Array.from(tabsLinks).indexOf(link);
-        tabInfos[activeTabIndex].style.display = 'block';
+        // Находим соответствующий .b-tab-info для каждой вкладки
+        const index = Array.from(tabsLinks).indexOf(link); // Индекс текущей вкладки
+        tabInfos.forEach((info, i) => {
+          // Показываем или скрываем .b-tab-info в зависимости от того, совпадает ли индекс вкладки
+          if (i === index) {
+            info.style.display = info.style.display === 'none' ? 'block' : 'none'; // Переключаем видимость
+          }
+        });
       });
     });
   }
-}
+};
 </script>
