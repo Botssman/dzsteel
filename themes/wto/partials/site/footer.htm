@@ -104,20 +104,22 @@
 	{% partial "modal/modal-call" %}
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.tab__link').forEach(link => {
-    link.addEventListener('click', showInfo);
-  });
+// Найдем все ссылки с классом .b-tabs__link
+const tabsLinks = document.querySelectorAll('.b-tabs__link');
 
-  // Функция для отображения информации при клике на любую ссылку
-  function showInfo(event) {
-    const tabInfos = document.querySelectorAll('.tab-info');
-    
-    // Скрываем все блоки с информацией
-    tabInfos.forEach(info => info.style.display = 'none');
-    
-    // Показываем только информацию для текущего таба
-    event.target.closest('.container').querySelectorAll('.tab-info')[0].style.display = 'block';
-  }
+// Добавим обработчик события на каждую ссылку
+tabsLinks.forEach(link => {
+  link.addEventListener('click', function(event) {
+    // Найдем связанный с этой ссылкой элемент .b-tab-info
+    const tabInfo = document.querySelector('.b-tab-info');
+
+    // Скрываем все элементы .b-tab-info (если их несколько, цикл forEach нужно будет модифицировать)
+    document.querySelectorAll('.b-tab-info').forEach(info => {
+      info.style.display = 'none';
+    });
+
+    // Показываем нужный элемент
+    tabInfo.style.display = 'block';
+  });
 });
 </script>
