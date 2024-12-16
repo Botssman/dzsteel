@@ -294,54 +294,54 @@ pre.w-code-block code {
   display: contents;
 }
 
-.w-webflow-badge, .w-webflow-badge * {
-  z-index: auto;
-  visibility: visible;
-  box-sizing: border-box;
-  float: none;
-  clear: none;
-  box-shadow: none;
-  opacity: 1;
-  direction: ltr;
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  font-style: inherit;
-  font-variant: inherit;
-  text-align: inherit;
-  letter-spacing: inherit;
-  -webkit-text-decoration: inherit;
-  text-decoration: inherit;
-  text-indent: 0;
-  text-transform: inherit;
-  text-shadow: none;
-  font-smoothing: auto;
-  vertical-align: baseline;
-  cursor: inherit;
-  white-space: inherit;
-  word-break: normal;
-  word-spacing: normal;
-  word-wrap: normal;
-  background: none;
-  border: 0 #0000;
-  border-radius: 0;
-  width: auto;
-  min-width: 0;
-  max-width: none;
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  margin: 0;
-  padding: 0;
-  list-style-type: disc;
-  transition: none;
-  display: block;
-  position: static;
-  inset: auto;
-  overflow: visible;
-  transform: none;
+.w-webflow-badge, .w-webflow-badge > img {
+  box-sizing: unset;
+  width: unset;
+  height: unset;
+  max-height: unset;
+  max-width: unset;
+  min-height: unset;
+  min-width: unset;
+  margin: unset;
+  padding: unset;
+  float: unset;
+  clear: unset;
+  border: unset;
+  border-radius: unset;
+  background: unset;
+  background-image: unset;
+  background-position: unset;
+  background-size: unset;
+  background-repeat: unset;
+  background-origin: unset;
+  background-clip: unset;
+  background-attachment: unset;
+  background-color: unset;
+  box-shadow: unset;
+  transform: unset;
+  direction: unset;
+  font-family: unset;
+  font-weight: unset;
+  color: unset;
+  font-size: unset;
+  line-height: unset;
+  font-style: unset;
+  font-variant: unset;
+  text-align: unset;
+  letter-spacing: unset;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  text-indent: unset;
+  text-transform: unset;
+  list-style-type: unset;
+  text-shadow: unset;
+  vertical-align: unset;
+  cursor: unset;
+  white-space: unset;
+  word-break: unset;
+  word-spacing: unset;
+  word-wrap: unset;
+  transition: unset;
 }
 
 .w-webflow-badge {
@@ -349,9 +349,10 @@ pre.w-code-block code {
   cursor: pointer;
   box-shadow: 0 0 0 1px #0000001a, 0 1px 3px #0000001a;
   visibility: visible !important;
+  opacity: 1 !important;
   z-index: 2147483647 !important;
   color: #aaadb0 !important;
-  opacity: 1 !important;
+  overflow: unset !important;
   background-color: #fff !important;
   border-radius: 3px !important;
   width: auto !important;
@@ -364,12 +365,12 @@ pre.w-code-block code {
   display: inline-block !important;
   position: fixed !important;
   inset: auto 12px 12px auto !important;
-  overflow: visible !important;
   transform: none !important;
 }
 
 .w-webflow-badge > img {
-  visibility: visible !important;
+  position: unset;
+  visibility: unset !important;
   opacity: 1 !important;
   vertical-align: middle !important;
   display: inline-block !important;
@@ -3431,7 +3432,7 @@ body {
 }
 
 .s-section.s-section_bronze1 {
-  background-image: linear-gradient(165deg, #ebc4a2, #9b7f68 53%, #ebc4a2);
+  background-image: linear-gradient(144deg, #ebc4a2, #9b7f68 53%, #ebc4a2);
   padding-top: 12.5em;
   padding-bottom: 27.5em;
 }
@@ -3533,8 +3534,8 @@ body {
   border-radius: 5px;
   justify-content: flex-start;
   align-items: center;
-  width: 57em;
-  display: flex;
+  width: auto;
+  display: inline-flex;
 }
 
 .b-tabs__menu.b-tabs__menu_inside {
@@ -3977,6 +3978,7 @@ body {
   background-color: var(--dark);
   border-radius: 0 5px 0 0;
   padding: 6em 8em 8em 4.5em;
+  display: none;
   position: absolute;
   inset: auto auto 0% 0%;
 }
@@ -5466,6 +5468,20 @@ body {
   text-transform: uppercase;
 }
 
+@media screen and (min-width: 1920px) {
+  .b-tabs__link-2.w--current {
+    background-color: var(--bronze);
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-family: Open Sans Condenced, sans-serif;
+    font-size: 1.125em;
+    font-weight: 700;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .body {
     font-size: 1.302vw;
@@ -6795,6 +6811,10 @@ body {
   .s-section.s-section_dark {
     padding-top: 7em;
     padding-bottom: 7em;
+  }
+
+  .s-section.s-section_bronze1 {
+    padding-bottom: 2em;
   }
 
   .container {
@@ -8144,7 +8164,7 @@ body {
   }
 
   .wrap-img {
-    width: 200px;
+    width: 85%;
   }
 }
 
@@ -8168,7 +8188,7 @@ body {
 }
 
 @media screen and (max-width: 991px) {
-  #w-node-b59a1d41-d9ad-8657-8120-463b4c77d553-272637f9 {
+  #w-node-b59a1d41-d9ad-8657-8120-463b4c77d553-272637f9, #w-node-_573c0fa6-8bbc-7869-d42f-aaf60e0ad5af-272637f9, #w-node-_708339bc-2f20-9658-e2ca-bad0217ff3f3-272637f9 {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
 
