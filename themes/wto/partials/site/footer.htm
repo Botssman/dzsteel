@@ -109,7 +109,7 @@ export default {
     // Получаем все вкладки
     const tabsLinks = document.querySelectorAll('.b-tabs__link');
     const tabInfos = document.querySelectorAll('.b-tab-info');
-
+    
     // Изначально скрываем все элементы с классом .b-tab-info
     tabInfos.forEach(info => {
       info.style.display = 'none';
@@ -117,15 +117,29 @@ export default {
 
     // Добавляем обработчик событий на все вкладки
     tabsLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        // Находим соответствующий .b-tab-info для каждой вкладки
-        const index = Array.from(tabsLinks).indexOf(link); // Индекс текущей вкладки
+      link.addEventListener('click', (event) => {
+        // Предотвращаем стандартное поведение ссылок
+        event.preventDefault();
+
+        // Находим индекс текущей вкладки
+        const index = Array.from(tabsLinks).indexOf(link);
+
+        // Переключаем видимость соответствующего .b-tab-info
         tabInfos.forEach((info, i) => {
-          // Показываем или скрываем .b-tab-info в зависимости от того, совпадает ли индекс вкладки
           if (i === index) {
-            info.style.display = info.style.display === 'none' ? 'block' : 'none'; // Переключаем видимость
+            info.style.display = info.style.display === 'none' ? 'block' : 'none';
+          } else {
+            info.style.display = 'none';
           }
         });
+
+        // Для работы Webflow можно вручную переключить активную вкладку
+        tabsLinks.forEach(tab => {
+          tab.setAttribute('aria-selected', 'false');
+          tab.classList.remove('w--current');
+        });
+        link.setAttribute('aria-selected', 'true');
+        link.classList.add('w--current');
       });
     });
   }
