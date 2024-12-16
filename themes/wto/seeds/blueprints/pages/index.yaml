@@ -11,7 +11,7 @@ navigation:
     label: Главная
     parent: page_index
     icon: icon-file-text
-    order: '10'
+    order: 10
 fields:
     add_menu:
         label: add_menu
