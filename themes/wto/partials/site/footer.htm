@@ -104,19 +104,21 @@
 	{% partial "modal/modal-call" %}
 </footer>
 <script>
-function handleTabClick(event) {
-  const target = event.target;
-  
-  // Если клик произошел по элементу с классом .b-tabs__link
-  if (target.classList.contains('b-tabs__link')) {
-    // Получаем все элементы с классом .b-tab-info
-    const tabInfos = document.querySelectorAll('.b-tab-info');
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.b-tabs__link').forEach(link => {
+    link.addEventListener('click', handleTabClick);
+  });
+
+  function handleTabClick(event) {
+    const target = event.target;
     
-    // Скрываем все элементы с классом .b-tab-info
-    tabInfos.forEach(info => info.style.display = 'none');
-    
-    // Показываем только информацию для кликнутого таба
-    target.closest('.b-tab').querySelector('.b-tab-info').style.display = 'block';
+    if (target.classList.contains('b-tabs__link')) {
+      const tabInfos = document.querySelectorAll('.b-tab-info');
+      
+      tabInfos.forEach(info => info.style.display = 'none');
+      
+      target.closest('.b-tab').querySelector('.b-tab-info').style.display = 'block';
+    }
   }
-}
+});
 </script>
