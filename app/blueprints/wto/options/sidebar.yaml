@@ -21,7 +21,7 @@ fields:
                     label: Название категории
                     type: text
                 lists:
-                    label: Текст преимущества
+                    label: Добавить подкатегорию
                     type: repeater
                     titleFrom: Добавить подкатегорию
                     form:
