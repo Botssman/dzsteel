@@ -2836,6 +2836,7 @@ body {
 
 .b-dropdown__link.b-dropdown__link_side {
   color: var(--dark);
+  white-space: normal;
   margin-bottom: 1em;
   padding-top: 0;
   padding-bottom: 0;
