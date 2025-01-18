@@ -1,0 +1,41 @@
+uuid: sections-sidebar
+name: Сайдбар
+type: global
+handle: Options\Sidebar
+multisite: true
+
+primaryNavigation:
+    label: Настройки сайта
+    icon: icon-spinner
+    order: 499
+
+navigation:
+    label: Sidepar
+    parent: Options\Options
+    icon: icon-magic
+    order: 200
+
+fields:
+    sidebar:
+        type: repeater
+        label: Добавить категорию
+        titleFrom: Добавить категорию
+        form:
+            fields:
+                text_drop:
+                    label: Название категории
+                    type: text
+                lists:
+                    label: Текст преимущества
+                    type: repeater
+                    titleFrom: Добавить подкатегорию
+                    form:
+                        fields:
+                            text:
+                                label: Название подкатегории
+                                type: text
+                                span: left
+                            link:
+                                label: Ссылка подкатегории
+                                type: text
+                                span: right

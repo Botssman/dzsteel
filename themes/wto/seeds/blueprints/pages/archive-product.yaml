@@ -20,6 +20,25 @@ fields:
                 link_menu:
                     label: link_menu
                     type: text
+    sidebar:
+        label: sidebar
+        type: repeater
+        form:
+            fields:
+                text_drop:
+                    label: text_drop
+                    type: text
+                lists:
+                    label: lists
+                    type: repeater
+                    form:
+                        fields:
+                            text:
+                                label: Текст
+                                type: text
+                            link:
+                                label: Ссылка
+                                type: text
     name:
         label: 'name '
         type: text
