@@ -1,0 +1,30 @@
+<div class="left-content left-content_cat">
+	<div class="h-wrap pc_hide">
+		<a data-w-id="82b340cb-56a5-3046-b9bc-e93390e116b4" href="#" class="b-button v-12 w-button">
+			ВЫБРАТЬ КАТЕГОРИЮ
+		</a>
+	</div>
+	<div class="b-sidebar">
+		{% for item in sidebar.sidebar %}
+		<div data-hover="false" data-delay="0" data-w-id="dbd6f9dc-b012-8e02-426d-0164556e722a" class="b-dropdown b-dropdown_side w-dropdown">
+			<div class="b-dropdown__toggle b-dropdown__toggle_side w-dropdown-toggle">
+				<div class="b-dropdown__icon w-icon-dropdown-toggle"></div>
+				<div>
+					{{ sidebar.text_drop }}
+				</div>
+				<img src="{{ 'assets/images/arrow20up.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_side_arrow">
+				<img src="{{ 'assets/images/arrow20down.svg'|theme }}" loading="lazy" alt="" class="b-image b-image_side_arrow_down">
+			</div>
+			<nav class="b-dropdown__lists b-dropdown__lists_side w-dropdown-list">
+				<div class="b-dropdown__content b-dropdown__content_side">
+					{% for item in item.lists %}
+					<a href="{{ item.link }}" class="b-dropdown__link b-dropdown__link_side w-dropdown-link">
+						{{ item.text }}
+					</a>
+					{% endfor %}
+				</div>
+			</nav>
+		</div>
+		{% endfor %}
+	</div>
+</div>
