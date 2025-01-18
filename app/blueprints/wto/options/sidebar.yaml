@@ -4,13 +4,8 @@ type: global
 handle: Options\Sidebar
 multisite: true
 
-primaryNavigation:
-    label: Настройки сайта
-    icon: icon-spinner
-    order: 499
-
 navigation:
-    label: Sidepar
+    label: Sidebar
     parent: Options\Options
     icon: icon-magic
     order: 200
