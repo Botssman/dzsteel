@@ -3985,8 +3985,9 @@ body {
   z-index: 2;
   background-color: var(--dark);
   border-radius: 0 5px 0 0;
-  padding: 6em 8em 8em 4.5em;
-  display: none;
+  flex-flow: column;
+  padding: 2em;
+  display: flex;
   position: absolute;
   inset: auto auto 0% 0%;
 }
