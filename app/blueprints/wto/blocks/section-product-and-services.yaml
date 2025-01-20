@@ -26,9 +26,11 @@ fields:
                 name_category:
                     label: Название категории
                     type: text
+                    span: left
                 category_link:
                     label: Ссылка на категорию
                     type: text
+                    span: right
                 category_image:
                     label: Изображение категории
                     type: mediafinder
@@ -41,9 +43,11 @@ fields:
                             name_sub_category:
                                 label: Название подкатегории
                                 type: text
+                                span: left
                             sub_category_link:
                                 label: Ссылка подкатегории
                                 type: text
+                                span: right
     add_category_prod_serv:
         label: Добавить услугу
         type: repeater
@@ -53,9 +57,11 @@ fields:
                 name_category_serv:
                     label: Название услуги
                     type: text
+                    span: left
                 category_link_serv:
                     label: Ссылка на услугу
                     type: text
+                    span: right
                 category_image_serv:
                     label: Изображение
                     type: mediafinder
@@ -70,9 +76,11 @@ fields:
                 name_category_blag:
                     label: Название категории
                     type: text
+                    span: left
                 category_link_blag:
                     label: Ссылка на категорию
                     type: text
+                    span: right
                 category_image_blag:
                     label: Изображение категории
                     type: mediafinder
