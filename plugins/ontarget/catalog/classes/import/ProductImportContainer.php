@@ -56,21 +56,29 @@ class ProductImportContainer
 
         if (!empty($this->data['image'])) {
             $imagesList = explode(';', $this->data['image']);
-
             $imageUrl = $imagesList[0];
+
             $imageUrlParts = explode('/', $imageUrl);
             $fileName = end($imageUrlParts);
 
-            \Storage::disk('imported_images')->makeDirectory($this->category->slug);
+            $fileName = preg_replace('/[^a-zA-Z0-9\.\-_]/', '', $fileName);
 
-            \Storage::disk('imported_images')
-                ->put(
-                    $this->category->slug . '/' . $fileName,
-                    (new File)->fromUrl($imageUrl)->getContents()
-                );
+            $directory = $this->category->slug;
+            \Storage::disk('imported_images')->makeDirectory($directory);
 
-            $this->product->media_image = "imported_images/{$this->category->slug}/$fileName";
+            $filePath = $directory.'/'.$fileName;
 
+            if (!\Storage::disk('imported_images')->exists($filePath)) {
+                try {
+                    \Storage::disk('imported_images')
+                            ->put($filePath, file_get_contents($imageUrl));
+
+                } catch (\Exception $e) {
+                    \Log::error("Failed to download or save image: {$e->getMessage()}");
+                }
+            }
+
+            $this->product->media_image = "imported_images/{$filePath}";
         }
 
         $this->product->save();

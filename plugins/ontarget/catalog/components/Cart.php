@@ -32,8 +32,6 @@ class Cart extends ComponentBase
         $this->items = \Session::get('cart', []);
         $this->page['cart'] = $this->getCart();
 
-        trace_log($this->page->id);
-
         if ($this->page->id == 'catalog-product') {
             $this->page['product'] = \OnTarget\Catalog\Models\Product::query()
                 ->tap(fn() => new ActiveScope)
