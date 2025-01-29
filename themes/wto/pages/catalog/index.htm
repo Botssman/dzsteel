@@ -22,7 +22,7 @@ layout="default"
                 <form action="{{ '' | page }}" method="post" id="catalog-form"
                       class="b-catalog b-catalog_cat">
                         {% partial 'site/sidebar' %}
-                        {# {% if currentCategory %}
+                        {% if currentCategory %}
                             <div class="filters" style="display:flex;flex-direction:column; gap:30px; margin-top:30px;">
                                 <div>Уточните поиск при помощи фильтров</div>
                                 {% for property in currentCategory.properties().forFilters().get() %}
@@ -46,7 +46,7 @@ layout="default"
                                 </div>
 
                             </div>
-                        {% endif %} #}
+                        {% endif %}
                     <div class="right-content right-content_cat">
                         {% partial 'catalog-elements/catalog-category' %}
                         <div>
