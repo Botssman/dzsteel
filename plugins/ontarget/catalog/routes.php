@@ -10,9 +10,15 @@ use OnTarget\Catalog\Models\PropertyValue;
                                    ->havingRaw('COUNT(*) > 1')
                                    ->get();
 
-        $usedPropertyValueIds = \DB::table('ontarget_catalog_product_property_value')
-                                  ->pluck('property_value_id')
-                                  ->toArray();
+        $usedPropertyValueIds = [];
+
+        \DB::table('ontarget_catalog_product_property_value')
+          ->select('property_value_id')
+          ->chunkById(1000, function ($rows) use (&$usedPropertyValueIds) {
+              foreach ($rows as $row) {
+                  $usedPropertyValueIds[] = $row->property_value_id;
+              }
+          });
 
         foreach ($duplicates as $duplicate) {
             $idsToDelete = PropertyValue::query()
