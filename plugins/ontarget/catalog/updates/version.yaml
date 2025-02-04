@@ -44,4 +44,4 @@ v1.0.12:
     - add_media_fields_to_products_table.php
 v1.0.13:
     - Remove duplicates
-    - seed_remove_duplicate_property_values.php
+    - SeedRemoveDuplicatePropertyValues.php

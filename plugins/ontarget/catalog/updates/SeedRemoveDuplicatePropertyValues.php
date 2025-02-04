@@ -1,6 +1,7 @@
 <?php namespace OnTarget\Catalog\Updates;
 
 use Db;
+use Seeder;
 use OnTarget\Catalog\Models\PropertyValue;
 
 
@@ -9,7 +10,7 @@ use OnTarget\Catalog\Models\PropertyValue;
  *
  * @link https://docs.octobercms.com/3.x/extend/database/structure.html
  */
-class SeedRemoveDuplicatePropertyValues extends \Seeder
+class SeedRemoveDuplicatePropertyValues extends Seeder
 {
     public function run()
     {
