@@ -35,6 +35,7 @@ tabs:
                 form: $/ontarget/catalog/models/property/fields-values.yaml
                 view:
                     toolbarButtons: create|delete
+                    recordsPerPage: 30
                 customMessages:
                     buttonCreate: Создать значение
                     buttonDelete: Удалить
