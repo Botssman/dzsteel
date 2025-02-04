@@ -14,7 +14,8 @@ class SeedRemoveDuplicatePropertyValues extends Seeder
 {
     public function run()
     {
-        DB::transaction(function () {
+        try {
+            trace_log('Start seeding');
             $duplicates = PropertyValue::query()
                                        ->select('property_id', 'name', DB::raw('MIN(id) as min_id'))
                                        ->groupBy('property_id', 'name')
@@ -40,6 +41,8 @@ class SeedRemoveDuplicatePropertyValues extends Seeder
                                  ->delete();
                 }
             }
-        });
+        } catch (\Throwable $exception){
+            trace_log($exception);
+        }
     }
 }
