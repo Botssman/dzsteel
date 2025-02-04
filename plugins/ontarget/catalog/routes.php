@@ -5,12 +5,12 @@ use OnTarget\Catalog\Models\PropertyValue;
 \Route::get('xfjhg', function (){
     \DB::transaction(function () {
         $duplicates = PropertyValue::query()
-                                   ->select('property_id', 'name', DB::raw('MIN(id) as min_id'))
+                                   ->select('property_id', 'name', \DB::raw('MIN(id) as min_id'))
                                    ->groupBy('property_id', 'name')
                                    ->havingRaw('COUNT(*) > 1')
                                    ->get();
 
-        $usedPropertyValueIds = DB::table('ontarget_catalog_product_property_value')
+        $usedPropertyValueIds = \DB::table('ontarget_catalog_product_property_value')
                                   ->pluck('property_value_id')
                                   ->toArray();
 
