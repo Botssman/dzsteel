@@ -14,7 +14,7 @@ use OnTarget\Catalog\Models\PropertyValue;
 
         \DB::table('ontarget_catalog_product_property_value')
           ->select('property_value_id')
-          ->chunkById(1000, function ($rows) use (&$usedPropertyValueIds) {
+          ->chunk(1000, function ($rows) use (&$usedPropertyValueIds) {
               foreach ($rows as $row) {
                   $usedPropertyValueIds[] = $row->property_value_id;
               }
