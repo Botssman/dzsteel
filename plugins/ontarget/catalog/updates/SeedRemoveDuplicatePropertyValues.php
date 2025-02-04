@@ -16,42 +16,27 @@ class SeedRemoveDuplicatePropertyValues extends Seeder
     {
         try {
             \DB::transaction(function () {
+                // Шаг 1: Найти дубликаты
                 $duplicates = PropertyValue::query()
                                            ->select('property_id', 'name', \DB::raw('MIN(id) as min_id'))
                                            ->groupBy('property_id', 'name')
                                            ->havingRaw('COUNT(*) > 1')
                                            ->get();
 
-                $usedPropertyValueIds = [];
-
-                \DB::table('ontarget_catalog_product_property_value')
-                   ->select('property_value_id')
-                   ->orderBy('property_value_id')
-                   ->chunk(1000, function ($rows) use (&$usedPropertyValueIds) {
-                       foreach ($rows as $row) {
-                           $usedPropertyValueIds[] = $row->property_value_id;
-                       }
-                   });
-
+                // Шаг 2: Удалить дубликаты, которые не привязаны к товарам
                 foreach ($duplicates as $duplicate) {
-                    $idsToDelete = PropertyValue::query()
-                                                ->where('property_id', $duplicate->property_id)
-                                                ->where('name', $duplicate->name)
-                                                ->whereNotIn('id', $usedPropertyValueIds)
-                                                ->where('id', '!=', $duplicate->min_id)
-                                                ->pluck('id')
-                                                ->toArray();
-
-                    if (!empty($idsToDelete)) {
-                        foreach (array_chunk($idsToDelete, 1000) as $chunk) {
-                            PropertyValue::query()
-                                         ->whereIn('id', $chunk)
-                                         ->delete();
-                        }
-                    }
+                    PropertyValue::query()
+                                 ->where('property_id', $duplicate->property_id)
+                                 ->where('name', $duplicate->name)
+                                 ->whereNotIn('id', function ($query) {
+                                     $query->select('property_value_id')
+                                           ->from('ontarget_catalog_product_property_value');
+                                 })
+                                 ->where('id', '!=', $duplicate->min_id)
+                                 ->delete();
                 }
             });
-        } catch (\Throwable $exception){
+        } catch (\Throwable $exception) {
             trace_log($exception);
         }
     }
