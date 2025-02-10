@@ -2,10 +2,17 @@
 
 namespace OnTarget\Catalog\Classes\Jobs;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 use OnTarget\Catalog\Models\PropertyValue;
 
-class DeleteDuplicatesJob
+class DeleteDuplicatesJob implements ShouldQueue
 {
+    use Queueable;
+    use InteractsWithQueue;
+
+
     public function handle()
     {
         $original = PropertyValue::find($this->duplicate->original_id);
