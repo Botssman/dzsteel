@@ -42,6 +42,3 @@ v1.0.11:
 v1.0.12:
     - Media fields to product
     - add_media_fields_to_products_table.php
-v1.0.13:
-    - Remove duplicates
-    - SeedRemoveDuplicatePropertyValues.php
