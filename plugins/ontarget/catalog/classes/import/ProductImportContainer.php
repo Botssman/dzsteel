@@ -132,42 +132,31 @@ class ProductImportContainer
     {
         $propertyValuesIds = [];
 
-        foreach ($properties as $key => $value) {
-            if (strlen($key) > 30 || strlen($value) > 30) continue;
+        \DB::transaction(function () use ($properties, &$propertyValuesIds) {
+            foreach ($properties as $key => $value) {
+                if (empty($key) || empty($value) || strlen($key) > 30 || strlen($value) > 30) {
+                    continue;
+                }
 
-            $propertySlug = Str::slug($key);
-            $property = Property::query()
-                ->where('slug', $propertySlug)
-                ->first();
-
-            if (empty($property)) {
-                $property = new Property();
-                $property->name = $key;
-                $property->slug = $propertySlug;
-                $property->save();
-
-                $this->category->properties()->attach($property->id);
-            }
-
-            $propertyValueSlug = Str::slug($value);
-            $propertyValue = PropertyValue::query()
-                ->firstOrCreate(
-                    [
-                        'slug' => $propertyValueSlug,
-                        'property_id' => $property->id
-                    ],
-                    [
-                        'slug' => $propertyValueSlug,
-                        'name' => $value,
-                        'property_id' => $property->id
-                    ]
+                $slug = Str::slug($key);
+                $property = Property::query()->firstOrCreate(
+                    ['slug' => $slug],
+                    ['name' => $key, 'slug' => $slug]
                 );
 
-            $propertyValuesIds[] = $propertyValue->id;
+                $this->category->properties()->syncWithoutDetaching([$property->id]);
 
-        }
+                $valueSlug = Str::slug($value);
+                $propertyValue = PropertyValue::query()->firstOrCreate(
+                    ['slug' => $valueSlug, 'property_id' => $property->id],
+                    ['slug' => $valueSlug, 'name' => $value, 'property_id' => $property->id]
+                );
 
-        $this->product->property_values()->sync($propertyValuesIds);
+                $propertyValuesIds[] = $propertyValue->id;
+            }
+
+            $this->product->property_values()->sync($propertyValuesIds);
+        });
     }
 
     /**

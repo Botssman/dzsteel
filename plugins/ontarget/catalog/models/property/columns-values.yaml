@@ -12,3 +12,11 @@ columns:
     slug:
         label: Slug
         searchable: true
+    created_at:
+        label: Создано
+        type: datetime
+        format: d.m.Y H:i:s
+    updated_at:
+        label: Обновлено
+        type: datetime
+        format: d.m.Y H:i:s

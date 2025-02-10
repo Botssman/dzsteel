@@ -45,7 +45,7 @@ class PropertyValue extends Model
         'property' => Property::class
     ];
 
-    public $hasMany = [
+    public $belongsToMany = [
         'products' => [
             Product::class,
             'table' => 'ontarget_catalog_product_property_value'
