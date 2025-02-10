@@ -1,28 +1,11 @@
-<?php namespace OnTarget\Catalog\Console;
+<?php
 
-use Illuminate\Console\Command;
+namespace OnTarget\Catalog\Classes\Jobs;
+
 use OnTarget\Catalog\Models\PropertyValue;
 
-/**
- * ProcessDuplicatePropertyValues Command
- *
- * @link https://docs.octobercms.com/3.x/extend/console-commands.html
- */
-class ProcessDuplicatePropertyValues extends Command
+class DeleteDuplicatesJob
 {
-    /**
-     * @var string signature for the console command.
-     */
-    protected $signature = 'catalog:clear_duplicates';
-
-    /**
-     * @var string description is the console command description
-     */
-    protected $description = 'No description provided yet...';
-
-    /**
-     * handle executes the console command.
-     */
     public function handle()
     {
         $original = PropertyValue::find($this->duplicate->original_id);
