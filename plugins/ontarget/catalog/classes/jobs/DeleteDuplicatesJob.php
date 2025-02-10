@@ -20,7 +20,7 @@ class DeleteDuplicatesJob implements ShouldQueue
     {
         try {
             $original = PropertyValue::find($data['duplicate']['original_id']);
-
+            if (!$original) return;
             $duplicateValues = PropertyValue::where('slug', 'like', $original->slug . '%')
                                             ->where('id', '!=', $original->id)
                                             ->get();
