@@ -18,9 +18,7 @@ class DeleteDuplicatesJob implements ShouldQueue
 
     public function fire(Job $job, array $data)
     {
-        $this->duplicate = $data['duplicate'];
-
-        $original = PropertyValue::find($this->duplicate->original_id);
+        $original = PropertyValue::find($data['duplicate']['original_id']);
 
         $duplicateValues = PropertyValue::where('slug', 'like', $original->slug . '%')
                                         ->where('id', '!=', $original->id)
