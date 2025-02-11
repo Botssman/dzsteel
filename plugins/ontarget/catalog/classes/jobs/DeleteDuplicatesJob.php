@@ -9,6 +9,10 @@ use Illuminate\Queue\Jobs\Job;
 use OnTarget\Catalog\Models\PropertyValue;
 
 class DeleteDuplicatesJob {
+    public $timeout = 600;
+
+    public $tries = 5;
+
     public function fire(Job $job, array $data)
     {
         try {
@@ -36,6 +40,7 @@ class DeleteDuplicatesJob {
 
         } catch (\Throwable $exception) {
             trace_log($exception->getMessage());
+            throw $exception;
         }
     }
 }
