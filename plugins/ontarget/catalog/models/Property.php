@@ -72,6 +72,7 @@ class Property extends Model
      */
     public function scopeForFilters(Builder $query): Builder
     {
-        return $query->where('show_in_filters', true);
+        return $query->where('show_in_filters', true)
+            ->whereHas('values.products');
     }
 }
