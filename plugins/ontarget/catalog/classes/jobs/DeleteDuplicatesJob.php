@@ -31,7 +31,7 @@ class DeleteDuplicatesJob implements ShouldQueue
                 $duplicateValue->delete();
             }
         } catch (\Throwable $exception) {
-            trace_log($exception);
+            trace_log($exception->getMessage());
         }
     }
 }
