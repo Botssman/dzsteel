@@ -36,6 +36,7 @@ tabs:
                 view:
                     toolbarButtons: create|delete
                     recordsPerPage: 30
+                    showSearch: true
                 customMessages:
                     buttonCreate: Создать значение
                     buttonDelete: Удалить
