@@ -28,14 +28,15 @@ class DeleteDuplicatesJob {
 
             // Переносим связи с Product на оригинальную запись
             foreach ($duplicateValues as $duplicateValue) {
-                // Получаем все продукты, связанные с дубликатом
-                $products = $duplicateValue->products;
 
-                // Привязываем эти продукты к оригинальной записи
-                $original->products()->syncWithoutDetaching($products->pluck('id')->toArray());
+                \Queue::push(
+                    ProcessSingleDuplicateJob::class,
+                    [
+                        'duplicate_id' => $duplicateValue->id,
+                        'original_id' => $original->id
+                    ]
+                );
 
-                // Удаляем дубликат
-                $duplicateValue->delete();
             }
 
         } catch (\Throwable $exception) {
