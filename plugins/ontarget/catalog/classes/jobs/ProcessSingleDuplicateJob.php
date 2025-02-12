@@ -18,7 +18,9 @@ class ProcessSingleDuplicateJob {
         try {
 
             $original = PropertyValue::find($data['original_id']);
+            if (!$original) return;
             $duplicateValue = PropertyValue::find($data['duplicate_id']);
+            if (!$duplicateValue) return;
 
             // Получаем все продукты, связанные с дубликатом
             $products = $duplicateValue->products;
