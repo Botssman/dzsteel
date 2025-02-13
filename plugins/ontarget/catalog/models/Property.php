@@ -59,7 +59,10 @@ class Property extends Model
     ];
 
     public $hasMany = [
-        'values' => PropertyValue::class
+        'values' => [
+            PropertyValue::class,
+            'scope' => 'hasProducts'
+        ]
     ];
 
     public $attachOne = [

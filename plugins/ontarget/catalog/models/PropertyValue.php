@@ -1,6 +1,7 @@
 <?php namespace OnTarget\Catalog\Models;
 
 use Model;
+use October\Rain\Database\Builder;
 use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
@@ -51,4 +52,14 @@ class PropertyValue extends Model
             'table' => 'ontarget_catalog_product_property_value'
         ]
     ];
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeHasProducts(Builder $query): Builder
+    {
+        return $query->whereHas('products');
+
+    }
 }
