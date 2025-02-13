@@ -17,7 +17,7 @@ class PropertiesFilterHandler implements FilterHandler
     public function filter(Builder $query, \Closure $next): Builder
     {
         $properties = Property::query()
-            ->tap(fn() => new ActiveScope)
+            ->tap(new ActiveScope)
             ->whereIn('slug', array_keys((array)input()))
             ->get();
 

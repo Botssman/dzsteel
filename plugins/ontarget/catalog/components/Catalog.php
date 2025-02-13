@@ -150,7 +150,13 @@ class Catalog extends ComponentBase
 
     public function onCount()
     {
+        $count = $this->getCount();
+
         $this->setVars('count', $this->getCount());
+
+        return [
+            'count' => $count
+        ];
     }
 
 }
