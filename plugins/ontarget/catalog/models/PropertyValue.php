@@ -62,4 +62,16 @@ class PropertyValue extends Model
         return $query->whereHas('products');
 
     }
+
+    /**
+     * @param  Builder  $query
+     * @param  int  $categoryId
+     * @return Builder
+     */
+    public function scopeHasProductsInCategory(Builder $query, int $categoryId): Builder
+    {
+        return $query->whereHas('products.category', function (Builder $q) use ($categoryId){
+            return $q->where('category_id', $categoryId);
+        });
+    }
 }
