@@ -12,3 +12,7 @@ columns:
     slug:
         label: Slug
         searchable: true
+    values_count:
+        label: Кол-во значений
+        relation: values
+        relationCount: true
