@@ -12,6 +12,9 @@ columns:
     slug:
         label: Slug
         searchable: true
+    original_slug:
+        label: Slug (original)
+        searchable: true
     created_at:
         label: Создано
         type: datetime

@@ -23,7 +23,7 @@ class PropertyValue extends Model
     public $table = 'ontarget_catalog_property_values';
 
     public $fillable = [
-        'slug', 'name', 'property_id'
+        'slug', 'name', 'property_id', 'original_slug'
     ];
 
     /**
