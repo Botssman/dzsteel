@@ -15,7 +15,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::table('ontarget_catalog_properties', function(Blueprint $table){
+        Schema::table('ontarget_catalog_property_values', function(Blueprint $table){
             $table->dropColumn('original_slug');
         });
     }
