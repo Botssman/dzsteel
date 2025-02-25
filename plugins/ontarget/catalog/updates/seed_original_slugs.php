@@ -2,14 +2,18 @@
 
 use OnTarget\Catalog\Models\PropertyValue;
 use Seeder;
+use Str;
+
 class SeedUsersTable extends Seeder
 {
     public function run()
     {
-        PropertyValue::all()->each(function (PropertyValue $value){
-            $value->update([
-                'original_slug' => str_slug($value->name)
-            ]);
+        PropertyValue::chunk(200, function ($values) {
+            foreach ($values as $value) {
+                $value->update([
+                    'original_slug' => Str::slug($value->name)
+                ]);
+            }
         });
     }
 }
