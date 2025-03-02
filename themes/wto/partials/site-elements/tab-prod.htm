@@ -13,9 +13,9 @@
 								<div data-w-tab="Tab {{ loop.index }}" class="b-tabs__pane b-tabs__pane_inside w-tab-pane {% if loop.index == 1 %}w--tab-active{% endif %}">
 									<img class="b-image b-image_tab_bg" src="{{ item.category_image|media }}" alt="" loading="lazy">
 									<div class="b-tab-info">
-										<div class="h-wrap g-mg-bot_40">
-											<a href="{{ item.category_link }}" class="b-link w-inline-block">
-												<div class="b-text g-size_22 g-opensans g-bold">
+										<div class="h-wrap g-mg-bot_30 tb_mb_20">
+											<a href="{{ item.category_link }}" class="b-link v-2 w-inline-block">
+												<div class="b-text g-size_22 g-opensans g-bold g-black">
 													{{ item.name_category }}
 												</div>
 											</a>
@@ -23,7 +23,7 @@
 										<div>
 											{% for item in item.add_sub_category %}
 											<div class="h-wrap g-mg-bot_15">
-												<a href="{{ item.sub_category_link }}" class="b-text g-size_14 g-hover-link">
+												<a href="{{ item.sub_category_link }}" class="b-text g-hover-link g-black">
 													{{ item.name_sub_category }}
 												</a>
 											</div>
