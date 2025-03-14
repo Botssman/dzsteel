@@ -16,6 +16,11 @@
     background-color: transparent !important;
 }
 
+.filters-block__body {
+    max-height: 10rem;
+    overflow: auto;
+}
+
 .filters-row {
     display: flex;
     align-items: center;
