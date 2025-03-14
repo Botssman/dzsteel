@@ -40,19 +40,19 @@
 
 .filters-row label::before {
     content: "";
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333;
-    border-radius: 4px;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #cd7a48;
+    border-radius: 2px;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 1em;
     background-color: white;
     transition: all 0.3s;
 }
 
 .filters-row input[type="checkbox"]:checked + label::before {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #cd7a48;
+    border-color: #cd7a48;
     content: "✔";
     color: white;
     font-size: 16px;
