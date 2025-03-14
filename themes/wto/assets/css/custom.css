@@ -18,6 +18,7 @@
 
 .filters-block__body {
     max-height: 10rem;
+    margin-top: 1em;
     overflow: auto;
 }
 
@@ -28,7 +29,7 @@
 }
 
 .filters-row input[type="checkbox"] {
-    display: none; /* Скрываем оригинальный чекбокс */
+    display: none;
 }
 
 .filters-row label {
@@ -42,8 +43,8 @@
     content: "";
     width: 1.5em;
     height: 1.5em;
-    border: 2px solid #cd7a48;
-    border-radius: 2px;
+    border: 1px solid #cd7a48;
+    border-radius: 4px;
     display: inline-block;
     margin-right: 1em;
     background-color: white;
@@ -55,7 +56,8 @@
     border-color: #cd7a48;
     content: "✔";
     color: white;
-    font-size: 16px;
+    display: flex;
     text-align: center;
-    line-height: 18px;
+    justify-content: center;
+    align-items: center;
 }
