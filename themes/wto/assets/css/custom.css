@@ -22,6 +22,10 @@
     overflow: auto;
 }
 
+.filters-block__title {
+    font-weight: bold;
+    font-size: 1.6em;
+}
 .filters-row {
     display: flex;
     align-items: center;
