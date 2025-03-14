@@ -16,6 +16,11 @@
     background-color: transparent !important;
 }
 
+.b-button.is-filters {
+    width: 100%;
+    font-size: 1.4em;
+}
+
 .filters-block__body {
     max-height: 10rem;
     margin-top: 1em;
