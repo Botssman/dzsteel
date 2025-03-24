@@ -1,6 +1,18 @@
 <?php
 use OnTarget\Catalog\Models\PropertyValue;
 
+\Route::get('slugs', function (){
+    OnTarget\Catalog\Models\PropertyValue::whereNull('original_slug')
+                                         ->chunkById(200, function ($items) {
+                                             $items->each(function ($item) {
+                                                 $item->update(['original_slug' => Str::slug($item->name)]);
+                                             });
+
+                                             // Опционально: выводим прогресс
+                                             echo "Обработано {$items->count()} записей\n";
+                                         });
+});
+
 \Route::get('dup', function(){
 
     $duplicates = PropertyValue::query()
