@@ -45,3 +45,6 @@ v1.0.12:
 v1.0.13:
     - add_original_slug_to_property_values_table.php
     - seed_original_slugs.php
+v1.0.14:
+    - Indexes to property values
+    - add_indexes_to_property_values_table.php
