@@ -139,7 +139,7 @@ class ProductImportContainer
                 }
 
                 $slug = Str::slug($key);
-                $property = Property::query()->firstOrCreate(
+                $property = Property::firstOrCreate(
                     ['slug' => $slug],
                     ['name' => $key, 'slug' => $slug]
                 );
@@ -147,9 +147,16 @@ class ProductImportContainer
                 $this->category->properties()->syncWithoutDetaching([$property->id]);
 
                 $valueSlug = Str::slug($value);
-                $propertyValue = PropertyValue::query()->firstOrCreate(
-                    ['slug' => $valueSlug, 'property_id' => $property->id],
-                    ['slug' => $valueSlug, 'name' => $value, 'property_id' => $property->id]
+                $propertyValue = PropertyValue::firstOrCreate(
+                    [
+                        'property_id' => $property->id,
+                        'name' => $value
+                    ],
+                    [
+                        'slug' => $valueSlug,
+                        'name' => $value,
+                        'property_id' => $property->id
+                    ]
                 );
 
                 $propertyValuesIds[] = $propertyValue->id;
