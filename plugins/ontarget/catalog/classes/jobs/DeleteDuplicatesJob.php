@@ -20,12 +20,8 @@ class DeleteDuplicatesJob {
 
             // Находим все дубликаты для этого slug
             $duplicateValues = PropertyValue::where('slug', 'like', $original->slug . '-%')
-                                            ->where('id', '!=', $original->id)
-                                            ->get();
-
-            // Переносим связи с Product на оригинальную запись
-            foreach ($duplicateValues as $duplicateValue) {
-
+            ->where('id', '!=', $original->id)
+            ->chunkById(200, function ($duplicateValue) use ($original){
                 \Queue::push(
                     ProcessSingleDuplicateJob::class,
                     [
@@ -33,8 +29,8 @@ class DeleteDuplicatesJob {
                         'original_id' => $original->id
                     ]
                 );
+            });
 
-            }
 
         } catch (\Throwable $exception) {
             trace_log($exception->getMessage());
