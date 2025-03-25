@@ -2,9 +2,6 @@
 
 namespace OnTarget\Catalog\Classes\Jobs;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Jobs\Job;
 use OnTarget\Catalog\Models\PropertyValue;
 
@@ -22,7 +19,7 @@ class DeleteDuplicatesJob {
             if (!$original) return;
 
             // Находим все дубликаты для этого slug
-            $duplicateValues = PropertyValue::where('slug', 'like', $original->slug . '-%')
+            $duplicateValues = PropertyValue::where('slug', 'like', $original->original_slug . '-%')
                                             ->where('id', '!=', $original->id)
                                             ->get();
 
@@ -38,6 +35,7 @@ class DeleteDuplicatesJob {
                 );
 
             }
+
 
         } catch (\Throwable $exception) {
             trace_log($exception->getMessage());
