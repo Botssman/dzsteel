@@ -87,26 +87,43 @@ document.addEventListener('DOMContentLoaded', function() {
     diameterRows.forEach(row => diameterBlock.appendChild(row));
 });
 
-document.addEventListener('click', function(e) {
+// Функция для открытия/закрытия модального окна
+function handleModal() {
   const modal = document.querySelector('.b-modal.call');
-
-  // Открытие модалки (fade-in)
-  if (e.target.closest('.b-button.v-7')) {
-    e.preventDefault();
+  
+  // Делегирование событий для динамических элементов
+  document.addEventListener('click', function(e) {
+    // Открытие модалки при клике на кнопку (даже в динамически загруженных карточках)
+    if (e.target.closest('.b-button.v-7')) {
+      e.preventDefault();
+      
+      // Плавное появление
+      modal.style.display = 'flex';
+      setTimeout(() => {
+        modal.style.opacity = '1';
+        modal.style.visibility = 'visible';
+      }, 10);
+    }
     
-    // Включаем видимость и начинаем анимацию
-    modal.style.visibility = 'visible';
-    modal.style.opacity = '1';
-  }
-
-  // Закрытие модалки (fade-out)
-  if (e.target.closest('.close-modal') || e.target === modal) {
-    modal.style.opacity = '0';
-    
-    // После завершения анимации скрываем полностью
-    setTimeout(() => {
+    // Закрытие модалки
+    if (e.target.closest('.close-modal') || e.target === modal) {
+      // Плавное исчезновение
+      modal.style.opacity = '0';
       modal.style.visibility = 'hidden';
-    }, 300); // 300ms = время анимации
-  }
+      
+      // Полное скрытие после анимации
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300); // Должно совпадать с временем transition
+    }
+  });
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', handleModal);
+
+// Повторная инициализация после AJAX-загрузки
+$(document).ajaxComplete(function() {
+  handleModal();
 });
 </script>
