@@ -87,21 +87,26 @@ document.addEventListener('DOMContentLoaded', function() {
     diameterRows.forEach(row => diameterBlock.appendChild(row));
 });
 
-// Вешаем обработчик на документ (или ближайший статический контейнер)
 document.addEventListener('click', function(e) {
-  // Проверяем, был ли клик по кнопке с классом `b-button.v-7`
+  const modal = document.querySelector('.b-modal.call');
+
+  // Открытие модалки (fade-in)
   if (e.target.closest('.b-button.v-7')) {
     e.preventDefault();
     
-    // Находим модальное окно и открываем его
-    const modal = document.querySelector('.b-modal.call');
-    modal.style.display = 'flex'; // или modal.classList.add('active');
+    // Включаем видимость и начинаем анимацию
+    modal.style.visibility = 'visible';
+    modal.style.opacity = '1';
   }
 
-  // Закрытие модального окна (если нужно)
-  if (e.target.closest('.close-modal') || e.target.classList.contains('b-modal')) {
-    const modal = document.querySelector('.b-modal.call');
-    modal.style.display = 'none'; // или modal.classList.remove('active');
+  // Закрытие модалки (fade-out)
+  if (e.target.closest('.close-modal') || e.target === modal) {
+    modal.style.opacity = '0';
+    
+    // После завершения анимации скрываем полностью
+    setTimeout(() => {
+      modal.style.visibility = 'hidden';
+    }, 300); // 300ms = время анимации
   }
 });
 </script>
