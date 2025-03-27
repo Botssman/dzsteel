@@ -69,3 +69,21 @@ layout="default"
 {% partial 'blocks/section-general-director' %}
 {# {% partial 'blocks/section-departments' %} #}
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Находим блок с диаметрами
+    const diameterBlock = document.querySelector('.filters-block__body');
+    const diameterRows = Array.from(diameterBlock.querySelectorAll('.filters-row'));
+    
+    // Сортируем строки по числовому значению диаметра
+    diameterRows.sort((a, b) => {
+        const aValue = parseInt(a.querySelector('.filters-row__label').textContent);
+        const bValue = parseInt(b.querySelector('.filters-row__label').textContent);
+        return aValue - bValue;
+    });
+    
+    // Очищаем блок и добавляем отсортированные элементы
+    diameterBlock.innerHTML = '';
+    diameterRows.forEach(row => diameterBlock.appendChild(row));
+});
+</script>
