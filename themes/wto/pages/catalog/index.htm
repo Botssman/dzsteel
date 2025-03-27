@@ -87,27 +87,21 @@ document.addEventListener('DOMContentLoaded', function() {
     diameterRows.forEach(row => diameterBlock.appendChild(row));
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Находим кнопку и модальное окно
-  const openButton = document.querySelector('.b-button.v-7');
-  const modal = document.querySelector('.b-modal.call');
-  const closeButton = modal.querySelector('.close-modal');
+// Вешаем обработчик на документ (или ближайший статический контейнер)
+document.addEventListener('click', function(e) {
+  // Проверяем, был ли клик по кнопке с классом `b-button.v-7`
+  if (e.target.closest('.b-button.v-7')) {
+    e.preventDefault();
+    
+    // Находим модальное окно и открываем его
+    const modal = document.querySelector('.b-modal.call');
+    modal.style.display = 'flex'; // или modal.classList.add('active');
+  }
 
-  // Открываем модальное окно при клике на кнопку
-  openButton.addEventListener('click', function() {
-    modal.style.display = 'flex';
-  });
-
-  // Закрываем модальное окно при клике на кнопку закрытия
-  closeButton.addEventListener('click', function() {
-    modal.style.display = 'none';
-  });
-
-  // Закрываем модальное окно при клике вне его содержимого
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
+  // Закрытие модального окна (если нужно)
+  if (e.target.closest('.close-modal') || e.target.classList.contains('b-modal')) {
+    const modal = document.querySelector('.b-modal.call');
+    modal.style.display = 'none'; // или modal.classList.remove('active');
+  }
 });
 </script>
