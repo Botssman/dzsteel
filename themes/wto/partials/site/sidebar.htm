@@ -32,7 +32,7 @@
                                     <div class="filters-block" style="background:#fff; padding: 10px; border-radius:10px;">
                                         <div class="filters-block__title" style="font-weight: bold;">{{ property.name }}{{ property.unit ? ', ' ~ property.unit : ''}}</div>
                                         <div class="filters-block__body">
-                                            {% for value in property.values().hasProductsInCategory(currentCategory.id).get() %}
+                                            {% for value in property.values().hasProductsInCategory(currentCategory.id).orderBy('name').get() %}
                                                 <div class="filters-row" style="display:flex; align-items: center; gap:15px">
                                                     <input id="{{ property.slug }}-{{ value.id }}" name="{{ property.slug }}[]" value="{{ value.slug }}" type="checkbox">
                                                     <label for="{{ property.slug }}-{{ value.id }}" class="filters-row__label">
