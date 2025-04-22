@@ -10,6 +10,8 @@ class SearchService
 {
     private string $operator;
 
+    private int $productsLimit = 10;
+
     public function __construct()
     {
         $this->operator = env('DB_CONNECTION') == 'pgsql' ? 'ilike' : 'like';
@@ -38,8 +40,12 @@ class SearchService
                         ->orWhere('description', $this->operator, "%{$query}%")
                         ->orWhere('vendor_code', $this->operator, "%{$query}%");
                 })
-                    ->limit(10);
+                    ->orderBy('name');
             }])
-            ->get();
+            ->get()
+            ->map(function($category) {
+                $category->setRelation('products', $category->products->take($this->productsLimit));
+                return $category;
+            });
     }
 }
