@@ -11,7 +11,6 @@ return new class extends Migration
 
         Schema::table('ontarget_catalog_property_values', function(Blueprint $table){
             $table->dropIndex(['slug']);
-            $table->dropIndex(['name']);
             $table->index('slug');
             $table->index('name');
             $table->unique(['property_id', 'name']);
