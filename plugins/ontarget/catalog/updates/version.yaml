@@ -48,3 +48,6 @@ v1.0.13:
 v1.0.14:
     - Indexes to property values
     - add_indexes_to_property_values_table.php
+v1.0.15:
+    - Add indexes
+    - add_indexes.php
