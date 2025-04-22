@@ -10,18 +10,18 @@ return new class extends Migration
     {
 
         Schema::table('ontarget_catalog_property_values', function(Blueprint $table){
-            $table->index('slug');
-            $table->index('name');
-            $table->unique(['property_id', 'name']);
+            //$table->index('slug');
+            //$table->index('name');
+            //$table->unique(['property_id', 'name']);
         });
     }
 
     public function down()
     {
         Schema::table('ontarget_catalog_property_values', function(Blueprint $table){
-            $table->dropUnique(['property_id', 'name']);
-            $table->dropIndex(['slug']);
-            $table->dropIndex(['name']);
+            //$table->dropUnique(['property_id', 'name']);
+            //$table->dropIndex(['slug']);
+            //$table->dropIndex(['name']);
         });
     }
 };
