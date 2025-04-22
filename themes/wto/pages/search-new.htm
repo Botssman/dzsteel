@@ -1,0 +1,103 @@
+url="/search-new"
+layout="default"
+
+[SearchResults]
+==
+<style>
+    .search-results {
+        display: flex;
+        flex-direction: column;
+        gap:40px;
+    }
+
+    .search-category {
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+    }
+
+    .search-category-products {
+        display: flex;
+        flex-direction: column;
+        gap:5px;
+    }
+
+    .search-category-link {
+        font-weight: bold;
+        font-size: 18px;
+        color: #1d252b;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .search-category-link:hover {
+        color: #cd7a48;
+    }
+
+    .search-product {
+        border-radius:5px;
+        padding:10px;
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-product__title {
+        font-size: 14px;
+        color: #1d252b;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .search-product__title img {
+        border-radius: 5px;
+    }
+
+    .search-product__title:hover {
+        color: #cd7a48;
+    }
+</style>
+<div style="padding:100px 0; background:#ebebf0;">
+    <div class="container">
+        <div  class="g-mg-bot_30">
+            <h2>Результаты поиска по запросу "{{ input('query') }}"</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="search-results">
+            {% for category in results %}
+                <div class="search-category">
+                    <a class="search-category-link" href="{{'catalog/index' | page({category: category.slug})}}">
+                        <span>{{ category.name }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+                    </a>
+                    {% if category.products is not empty %}
+                        {% for product in category.products %}
+                            <div class="search-category-products">
+                                <div class="search-product">
+                                    <a href="{{ 'catalog/product' | page({category: category.slug, product: product.slug}) }}" class="search-product__title">
+                                        {% if product.media_image is not empty %}
+                                            <img src="{{ product.media_image | media | resize(75, 75, {mode: 'crop', extension:'webp', quality: 70}) }}" alt="">
+
+                                        {% else %}
+                                            <div style="background: #eee; height:75px; width:75px; border-radius:5px"></div>
+                                        {% endif %}
+
+                                        <span>
+                                                {{ product.name }}
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

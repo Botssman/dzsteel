@@ -8,6 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
+
         Schema::table('ontarget_catalog_property_values', function(Blueprint $table){
             $table->index('slug');
             $table->index('name');
