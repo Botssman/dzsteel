@@ -95,20 +95,37 @@ class SearchService
 
     private function quickSearchQuery(string $query): \Illuminate\Database\Eloquent\Collection|array
     {
-        return Product::query()
+        $categories = Category::query()
+            ->select([
+                'ontarget_catalog_categories.name',
+                'ontarget_catalog_categories.slug',
+            ])
+            ->where('name', $this->operator, "{$query}%")
+            ->orWhere('slug', $this->operator, "{$query}%")
+            ->limit(3)
+            ->orderBy('name')
+            ->get();
+
+
+        $products = Product::query()
             ->select([
                     'ontarget_catalog_products.name',
                     'ontarget_catalog_products.slug',
                     'ontarget_catalog_products.media_image',
                     'ontarget_catalog_products.category_id',
             ])
-            ->where('name', $this->operator, "%{$query}%")
-            ->orWhere('slug', $this->operator, "%{$query}%")
-            ->orWhere('vendor_code', $this->operator, "%{$query}%")
-            ->limit(5)
+            ->where('name', $this->operator, "{$query}%")
+            ->orWhere('slug', $this->operator, "{$query}%")
+            ->orWhere('vendor_code', $this->operator, "{$query}%")
+            ->limit(3)
             ->orderBy('name')
             ->with('category')
             ->get();
+
+        return [
+            'products' => $products,
+            'categories' => $categories,
+        ];
     }
 
     private function normalizeCursor(?string $cursor): ?string

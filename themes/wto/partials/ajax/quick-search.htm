@@ -1,9 +1,21 @@
-{% if quickSearchResults is not empty %}
+{% if quickSearchResults.products is not empty or quickSearchResults.categories is not empty %}
 <div class="quick-search-results" id="quickSearch">
-    {% for product in quickSearchResults %}
-    <a href="{{ 'catalog/product' | page({product: product.slug, category: product.category.slug }) }}" class="quick-search-product">
-        {{ product.name }}
-    </a>
-    {% endfor %}
+    {% if quickSearchResults.products is not empty %}
+        <div style="font-weight: bold; font-size:14px; padding: 5px;">Товары</div>
+        {% for product in quickSearchResults.products %}
+            <a href="{{ 'catalog/product' | page({product: product.slug, category: product.category.slug }) }}" class="quick-search-product">
+                {{ product.name }}
+            </a>
+        {% endfor %}
+    {% endif %}
+
+    {% if quickSearchResults.categories is not empty %}
+        <div style="font-weight: bold; font-size:14px; padding: 5px;">Категории</div>
+        {% for category in quickSearchResults.categories %}
+        <a href="{{ 'catalog/index' | page({category: category.slug }) }}" class="quick-search-product">
+            {{ category.name }}
+        </a>
+        {% endfor %}
+    {% endif %}
 </div>
 {% endif %}
