@@ -45,9 +45,9 @@ class SearchService
             })
             ->where(function ($queryBuilder) use ($query) {
                 $queryBuilder
-                    ->where('name', 'LIKE', "{$query}%")
-                    ->orWhere('slug', 'LIKE', "{$query}%")
-                    ->orWhere('vendor_code', 'LIKE', "{$query}%");
+                    ->where('name', $this->operator, "{$query}%")
+                    ->orWhere('slug', $this->operator, "{$query}%")
+                    ->orWhere('vendor_code', $this->operator, "{$query}%");
             });
 
         $cursor = $this->normalizeCursor(request()->input('cursor', $cursor));
@@ -65,18 +65,18 @@ class SearchService
         return Category::query()
             ->select('ontarget_catalog_categories.*')
             ->where(function($q) use ($query) {
-                $q->where('ontarget_catalog_categories.name', $this->operator, "%{$query}%");
+                $q->where('ontarget_catalog_categories.name', $this->operator, "{$query}%");
             })
             ->orWhereHas('products', function($q) use ($query) {
-                $q->where('ontarget_catalog_products.name', $this->operator, "%{$query}%")
-                    ->orWhere('ontarget_catalog_products.slug', $this->operator, "%{$query}%")
-                    ->orWhere('ontarget_catalog_products.vendor_code', $this->operator, "%{$query}%");
+                $q->where('ontarget_catalog_products.name', $this->operator, "{$query}%")
+                    ->orWhere('ontarget_catalog_products.slug', $this->operator, "{$query}%")
+                    ->orWhere('ontarget_catalog_products.vendor_code', $this->operator, "{$query}%");
             })
             ->with(['products' => function($q) use ($query) {
                 $q->where(function($q) use ($query) {
-                    $q->where('name', $this->operator, "%{$query}%")
-                        ->orWhere('slug', $this->operator, "%{$query}%")
-                        ->orWhere('vendor_code', $this->operator, "%{$query}%");
+                    $q->where('name', $this->operator, "{$query}%")
+                        ->orWhere('slug', $this->operator, "{$query}%")
+                        ->orWhere('vendor_code', $this->operator, "{$query}%");
                 })
                     ->orderBy('name');
             }])
