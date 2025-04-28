@@ -46,7 +46,7 @@ function onCatalogFormSubmit(event) {
 
     let payload = getFormPayload(document.querySelector(selectors.form));
 
-    oc.ajax('Catalog::onProductListingUpdate', {
+    oc.ajax('onProductListingUpdate', {
         data: payload,
         query: payload,
         update: {
@@ -58,7 +58,7 @@ function onCatalogFormSubmit(event) {
 function onLoadMore(event) {
     event.preventDefault();
 
-    oc.ajax('Catalog::onProductListingUpdate', {
+    oc.ajax('onProductListingUpdate', {
         data: {
             cursor: event.target.dataset.nextCursor
         },

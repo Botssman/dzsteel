@@ -4,6 +4,7 @@ namespace OnTarget\Search\Classes\Services;
 
 use Illuminate\Support\Collection;
 use \October\Rain\Support\Collection as RainLabCollection;
+use OnTarget\Catalog\Models\CatalogSettings;
 use OnTarget\Catalog\Models\Category;
 use OnTarget\Catalog\Models\Product;
 
@@ -34,7 +35,12 @@ class SearchService
             ->where('name', $this->operator, "%{$query}%")
             ->orWhere('slug', $this->operator, "%{$query}%")
             ->orWhere('vendor_code', $this->operator, "%{$query}%")
-            ->cursorPaginate(1);
+            ->cursorPaginate(
+                CatalogSettings::get('products_per_page', 10),
+                ['*'],
+                'cursor',
+                post('cursor')
+            );
     }
 
     private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection|array

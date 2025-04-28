@@ -1,6 +1,7 @@
+{% if products.hasMorePages() %}
 <div id="count" class="no-results">
 	<div class="h-wrap">
-		<a id="load-more-btn" data-next-cursor="{{ products.nextCursor.encode }}" data-attach-loading="" href="#" class="b-button w-button">
+		<a id="load-more-btn" data-next-cursor="{{ products.nextCursor().encode() }}" data-attach-loading="" href="#" class="b-button w-button">
 			ПОКАЗАТЬ ЕЩЕ
 		</a>
 	</div>
@@ -8,3 +9,4 @@
 		Ничего не найдено
 	</div>
 </div>
+{% endif %}

@@ -36,6 +36,16 @@ class SearchResults extends ComponentBase
 
     public function onRun()
     {
+        $this->setVars();
+    }
+
+    public function onProductListingUpdate()
+    {
+        $this->setVars();
+    }
+
+    public function setVars()
+    {
         $query = input('query');
 
         if (empty($query)) {
@@ -52,7 +62,5 @@ class SearchResults extends ComponentBase
         } else {
             $this->page['categories'] = $this->service->search($query);
         }
-
-
     }
 }
