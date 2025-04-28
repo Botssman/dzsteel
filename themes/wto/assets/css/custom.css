@@ -70,3 +70,60 @@
     justify-content: center;
     align-items: center;
 }
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+
+.search-category {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.search-category-products {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.search-category-link {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1d252b;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-category-link:hover {
+    color: #cd7a48;
+}
+
+.search-product {
+    border-radius:5px;
+    padding:10px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-product__title {
+    font-size: 14px;
+    color: #1d252b;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-product__title img {
+    border-radius: 5px;
+}
+
+.search-product__title:hover {
+    color: #cd7a48;
+}

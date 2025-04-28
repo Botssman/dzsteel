@@ -1,0 +1,21 @@
+url="/search/:category"
+layout="default"
+
+[SearchResults]
+==
+<div style="padding:100px 0; background:#ebebf0;">
+    <div class="container">
+        <div  class="g-mg-bot_30">
+            <h2>Результаты поиска по запросу "{{ input('query') }}" в категории {{ category.name }}</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <div class="b-catalog-grid" id="listing">
+                {% partial 'ajax/listing-catalog' %}
+            </div>
+            {% partial 'ajax/listing-catalog-count' %}
+        </div>
+    </div>
+</div>

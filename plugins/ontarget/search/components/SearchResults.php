@@ -1,6 +1,7 @@
 <?php namespace OnTarget\Search\Components;
 
 use Cms\Classes\ComponentBase;
+use OnTarget\Catalog\Models\Category;
 use OnTarget\Search\Classes\Services\SearchService;
 
 /**
@@ -41,6 +42,17 @@ class SearchResults extends ComponentBase
             return;
         }
 
-        $this->page['results'] = $this->service->search($query);
+        $category = Category::query()
+            ->where('slug', $this->param('category'))
+            ->first();
+
+        if ($category) {
+            $this->page['category'] = $category;
+            $this->page['products'] = $this->service->searchByCategory($query, $category->id);
+        } else {
+            $this->page['categories'] = $this->service->search($query);
+        }
+
+
     }
 }

@@ -1,0 +1,20 @@
+url="/search"
+layout="default"
+
+[SearchResults]
+==
+<div style="padding:100px 0; background:#ebebf0;">
+    <div class="container">
+        <div  class="g-mg-bot_30">
+            <h2>Результаты поиска по запросу "{{ input('query') }}"</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="search-results">
+            {% for category in categories %}
+                {% partial 'elements/search/category' category=category %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

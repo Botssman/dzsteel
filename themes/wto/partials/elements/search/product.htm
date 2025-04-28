@@ -1,0 +1,14 @@
+<div class="search-category-products">
+    <div class="search-product">
+        <a href="{{ 'catalog/product' | page({category: category.slug, product: product.slug}) }}" class="search-product__title">
+            {% if product.media_image is not empty %}
+            <img src="{{ product.media_image | media | resize(75, 75, {mode: 'crop', extension:'webp', quality: 70}) }}" alt="">
+
+            {% else %}
+            <div style="background: #eee; height:75px; width:75px; border-radius:5px"></div>
+            {% endif %}
+
+            <span> {{ product.name }} </span>
+        </a>
+    </div>
+</div>

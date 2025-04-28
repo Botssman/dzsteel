@@ -1,0 +1,11 @@
+<div class="search-category">
+    <a class="search-category-link" href="{{'search/category' | page({category: category.slug})}}?query={{input('query')}}">
+        <span>{{ category.name }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+    </a>
+    {% if category.products is not empty %}
+        {% for product in category.products %}
+            {% partial 'catalog-elements/catalog-product' product=product %}
+        {% endfor %}
+    {% endif %}
+</div>
