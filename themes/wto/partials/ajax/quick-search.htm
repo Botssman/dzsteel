@@ -1,10 +1,9 @@
 {% if quickSearchResults is not empty %}
-<div class="quick-search-results">
+<div class="quick-search-results" id="quickSearch">
     {% for product in quickSearchResults %}
     <a href="{{ 'catalog/product' | page({product: product.slug, category: product.category.slug }) }}" class="quick-search-product">
         {{ product.name }}
     </a>
     {% endfor %}
 </div>
-
 {% endif %}

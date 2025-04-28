@@ -18,13 +18,24 @@
     gap: 10px;
     padding:5px 10px;
     color:#1e2227;
-    font-size:14px;
+    font-size:12px;
     text-decoration: none;
 }
 .quick-search-results > a:hover {
     background: #eee;
 }
 </style>
+<script>
+    document.addEventListener('click', function(event) {
+        const quickSearchElement = document.getElementById('quickSearch');
+
+        if (!quickSearchElement) return;
+
+        if (!quickSearchElement.contains(event.target)) {
+            quickSearchElement.style.display = 'none';
+        }
+    });
+</script>
 <form action="{{ 'search/results' | page }}" class="search w-form" style="position:relative;">
 	<input class="search-input w-input"
            maxlength="256"

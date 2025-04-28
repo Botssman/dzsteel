@@ -12,7 +12,7 @@ class SearchService
 {
     private string $operator;
 
-    private int $productsLimit = 10;
+    private int $productsLimit = 1;
 
     public function __construct()
     {
@@ -28,20 +28,36 @@ class SearchService
         return $this->searchByCategoryQuery($query, $categoryId);
     }
 
-    private function searchByCategoryQuery(string $query, int|null $categoryId = null): \Illuminate\Contracts\Pagination\CursorPaginator
-    {
-        return Product::query()
-            ->select(['name', 'slug', 'media_image', 'category_id'])
-            ->where('category_id', $categoryId)
-            ->where('name', $this->operator, "%{$query}%")
-            ->orWhere('slug', $this->operator, "%{$query}%")
-            ->orWhere('vendor_code', $this->operator, "%{$query}%")
-            ->cursorPaginate(
-                CatalogSettings::get('products_per_page', 10),
-                ['*'],
-                'cursor',
-                post('cursor')
-            );
+    private function searchByCategoryQuery(
+        string $query,
+        ?int $categoryId = null,
+        int $perPage = null,
+        string $cursor = null
+    ): \Illuminate\Contracts\Pagination\CursorPaginator {
+
+        if (empty(trim($query))) {
+            throw new \InvalidArgumentException('Search query cannot be empty');
+        }
+
+        $builder = Product::query()
+            ->when($categoryId, function ($query) use ($categoryId) {
+                $query->where('category_id', $categoryId);
+            })
+            ->where(function ($queryBuilder) use ($query) {
+                $queryBuilder
+                    ->where('name', 'LIKE', "{$query}%")
+                    ->orWhere('slug', 'LIKE', "{$query}%")
+                    ->orWhere('vendor_code', 'LIKE', "{$query}%");
+            });
+
+        $cursor = $this->normalizeCursor(request()->input('cursor', $cursor));
+
+        return $builder->cursorPaginate(
+            $perPage ?? CatalogSettings::get('products_per_page', $this->productsLimit),
+            ['*'],
+            'cursor',
+            $cursor
+        );
     }
 
     private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection|array
@@ -93,5 +109,28 @@ class SearchService
             ->orderBy('name')
             ->with('category')
             ->get();
+    }
+
+    private function normalizeCursor(?string $cursor): ?string
+    {
+        if (empty($cursor)) {
+            return null;
+        }
+
+        try {
+            $decoded = base64_decode($cursor, true);
+            if ($decoded === false) {
+                return null;
+            }
+
+            $data = json_decode($decoded, true);
+            if (!isset($data['id'], $data['created_at'])) {
+                return null;
+            }
+
+            return $cursor;
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 }

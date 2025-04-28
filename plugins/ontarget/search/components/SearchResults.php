@@ -70,7 +70,6 @@ class SearchResults extends ComponentBase
 
         if (!empty($query)) {
             $this->page['quickSearchResults'] = $this->service->quickSearch($query);
-            trace_log($this->page['quickSearchResults']->toArray());
         } else {
             $this->page['quickSearchResults'] = null;
         }
