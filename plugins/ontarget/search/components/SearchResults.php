@@ -63,4 +63,17 @@ class SearchResults extends ComponentBase
             $this->page['categories'] = $this->service->search($query);
         }
     }
+
+    public function onQuickSearch()
+    {
+        $query = input('query');
+
+        if (!empty($query)) {
+            $this->page['quickSearchResults'] = $this->service->quickSearch($query);
+            trace_log($this->page['quickSearchResults']->toArray());
+        } else {
+            $this->page['quickSearchResults'] = null;
+        }
+
+    }
 }

@@ -1,4 +1,43 @@
-<form action="{{ 'search/results' | page }}" class="search w-form">
-	<input class="search-input w-input" maxlength="256" name="query" placeholder="Поиск …" type="search" id="search" required="">
+<style>
+.quick-search-results {
+    position: absolute;
+    width: 100%;
+    min-height:100px;
+    left:0;
+    top:100%;
+    z-index: 25;
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+}
+.quick-search-results > a {
+    background: #fff;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding:5px 10px;
+    color:#1e2227;
+    font-size:14px;
+    text-decoration: none;
+}
+.quick-search-results > a:hover {
+    background: #eee;
+}
+</style>
+<form action="{{ 'search/results' | page }}" class="search w-form" style="position:relative;">
+	<input class="search-input w-input"
+           maxlength="256"
+           name="query"
+           placeholder="Поиск …"
+           type="search"
+           id="search"
+           required=""
+           data-track-input
+           data-request="onQuickSearch"
+           data-request-update="{'ajax/quick-search': true}"
+    >
 	<input type="submit" class="search-button w-button" value="Search">
+
+    {% ajaxPartial 'ajax/quick-search' %}
 </form>

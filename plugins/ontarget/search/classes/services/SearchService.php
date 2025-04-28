@@ -31,6 +31,7 @@ class SearchService
     private function searchByCategoryQuery(string $query, int|null $categoryId = null): \Illuminate\Contracts\Pagination\CursorPaginator
     {
         return Product::query()
+            ->select(['name', 'slug', 'media_image', 'category_id'])
             ->where('category_id', $categoryId)
             ->where('name', $this->operator, "%{$query}%")
             ->orWhere('slug', $this->operator, "%{$query}%")
@@ -69,5 +70,28 @@ class SearchService
                 $category->setRelation('products', $category->products->take($this->productsLimit));
                 return $category;
             });
+    }
+
+    public function quickSearch(string $query): \Illuminate\Database\Eloquent\Collection|array
+    {
+        return $this->quickSearchQuery($query);
+    }
+
+    private function quickSearchQuery(string $query): \Illuminate\Database\Eloquent\Collection|array
+    {
+        return Product::query()
+            ->select([
+                    'ontarget_catalog_products.name',
+                    'ontarget_catalog_products.slug',
+                    'ontarget_catalog_products.media_image',
+                    'ontarget_catalog_products.category_id',
+            ])
+            ->where('name', $this->operator, "%{$query}%")
+            ->orWhere('slug', $this->operator, "%{$query}%")
+            ->orWhere('vendor_code', $this->operator, "%{$query}%")
+            ->limit(5)
+            ->orderBy('name')
+            ->with('category')
+            ->get();
     }
 }
