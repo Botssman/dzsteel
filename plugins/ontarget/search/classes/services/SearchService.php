@@ -12,7 +12,7 @@ class SearchService
 {
     private string $operator;
 
-    private int $productsLimit = 1;
+    private int $productsLimit = 10;
 
     public function __construct()
     {
