@@ -21,6 +21,7 @@ use System\Models\File;
  * @method static \Illuminate\Database\Eloquent\Builder|static query()
  *
  * @method Builder|static active()
+ * @method Builder|static search(string $term)
  *
  * @property int $id
  * @property bool $is_active
@@ -127,6 +128,16 @@ class Category extends Model
         return Attribute::make(
             get: fn () => optional($this->measure_unit)->name
         );
+    }
+
+
+    public function scopeSearch($query, string $term)
+    {
+        return $query->whereRaw("
+            to_tsvector('english', coalesce(name, '')) ||
+            to_tsvector('english', coalesce(slug, '')) ||
+            @@ plainto_tsquery('english', ?)
+        ", [$term]);
     }
 
 }

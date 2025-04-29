@@ -18,6 +18,7 @@ use System\Models\File;
  * @mixin Builder
  *
  * @method static ProductQueryBuilder|static query()
+ * @method Builder|static search(string $term)
  *
  * @property File $preview
  */
@@ -110,5 +111,15 @@ class Product extends Model
         }
 
         return $this->media_image;
+    }
+
+    public function scopeSearch($query, string $term)
+    {
+        return $query->whereRaw("
+            to_tsvector('english', coalesce(name, '')) ||
+            to_tsvector('english', coalesce(slug, '')) ||
+            to_tsvector('english', coalesce(vendor_code, ''))
+            @@ plainto_tsquery('english', ?)
+        ", [$term]);
     }
 }

@@ -12,11 +12,19 @@ class SearchService
 {
     private string $operator;
 
+    private int $categoryProductsLimit = 10;
     private int $productsLimit = 10;
+    private int $quickSearchProductsLimit = 10;
+    private int $quickSearchCategoriesLimit = 10;
 
     public function __construct()
     {
         $this->operator = env('DB_CONNECTION') == 'pgsql' ? 'ilike' : 'like';
+
+        $this->categoryProductsLimit = CatalogSettings::get('search_category_products_per_page', 10);
+        $this->productsLimit = CatalogSettings::get('search_products_per_page', 10);
+        $this->quickSearchCategoriesLimit = CatalogSettings::get('quick_search_categories_per_page', 10);
+        $this->quickSearchProductsLimit = CatalogSettings::get('quick_search_products_per_page', 10);
     }
     public function search(string $query): Collection|RainLabCollection
     {
@@ -53,7 +61,7 @@ class SearchService
         $cursor = $this->normalizeCursor(request()->input('cursor', $cursor));
 
         return $builder->cursorPaginate(
-            $perPage ?? CatalogSettings::get('products_per_page', $this->productsLimit),
+            $perPage ?? $this->productsLimit,
             ['*'],
             'cursor',
             $cursor
@@ -83,7 +91,7 @@ class SearchService
             ->limit(10)
             ->get()
             ->map(function($category) {
-                $category->setRelation('products', $category->products->take($this->productsLimit));
+                $category->setRelation('products', $category->products->take($this->categoryProductsLimit));
                 return $category;
             });
     }
@@ -96,28 +104,15 @@ class SearchService
     private function quickSearchQuery(string $query): \Illuminate\Database\Eloquent\Collection|array
     {
         $categories = Category::query()
-            ->select([
-                'ontarget_catalog_categories.name',
-                'ontarget_catalog_categories.slug',
-            ])
-            ->where('name', $this->operator, "%{$query}%")
-            ->orWhere('slug', $this->operator, "%{$query}%")
-            ->limit(3)
+            ->search($query)
+            ->limit($this->quickSearchCategoriesLimit)
             ->orderBy('name')
             ->get();
 
 
         $products = Product::query()
-            ->select([
-                    'ontarget_catalog_products.name',
-                    'ontarget_catalog_products.slug',
-                    'ontarget_catalog_products.media_image',
-                    'ontarget_catalog_products.category_id',
-            ])
-            ->where('name', $this->operator, "%{$query}%")
-            ->orWhere('slug', $this->operator, "%{$query}%")
-            ->orWhere('vendor_code', $this->operator, "%{$query}%")
-            ->limit(3)
+            ->search($query)
+            ->limit($this->quickSearchProductsLimit)
             ->orderBy('name')
             ->with('category')
             ->get();

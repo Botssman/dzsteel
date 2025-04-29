@@ -26,3 +26,35 @@ tabs:
                         label: Заменить на
                         comment: На что нужно заменить. Если оставить пустым, строка будет просто удалена из текста.
                         span: auto
+        search_category_products_per_page:
+            label: Кол-во товаров в превью категории на страницу
+            comment: Общая страница поиска
+            type: number
+            min: 1
+            max: 1000
+            tab: Поиск
+            default: 10
+        search_products_per_page:
+            label: Кол-во товаров на страницу
+            comment: Страница поиска по категории
+            type: number
+            min: 1
+            max: 1000
+            tab: Поиск
+            default: 10
+
+        quick_search_products_per_page:
+            label: Кол-во товаров в быстром поиске
+            type: number
+            min: 1
+            max: 1000
+            tab: Поиск
+            default: 10
+
+        quick_search_categories_per_page:
+            label: Кол-во категорий в быстром поиске
+            type: number
+            min: 1
+            max: 1000
+            tab: Поиск
+            default: 10

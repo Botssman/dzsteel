@@ -1,6 +1,7 @@
 <?php namespace OnTarget\Search;
 
 use Backend;
+use Db;
 use OnTarget\Search\Components\SearchForm;
 use OnTarget\Search\Components\SearchResults;
 use System\Classes\PluginBase;
@@ -38,7 +39,10 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        //
+        DB::statement("CREATE TEXT SEARCH CONFIGURATION russian (COPY = simple)");
+        DB::statement("ALTER TEXT SEARCH CONFIGURATION russian
+        ALTER MAPPING FOR hword, hword_part, word
+        WITH unaccent, russian_stem");
     }
 
     /**
