@@ -78,7 +78,6 @@ class SearchService
 
         $categories->each(function($category) use ($query) {
             $products = $category->products()
-                ->select(['id', 'category_id', 'name', 'slug', 'vendor_code', 'measure_unit_id'])
                 ->search($query)
                 ->selectRaw('DISTINCT ON (id) *')
                 ->with('measure_unit')
