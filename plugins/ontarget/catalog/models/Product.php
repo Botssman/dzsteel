@@ -37,10 +37,6 @@ class Product extends Model
     public $nullable = ['external_link', 'media_image', 'media_images'];
     public $jsonable = ['media_images'];
 
-    public $with = [
-        'measure_unit'
-    ];
-
     /**
      * Slugs for Sluggable trait
      * @var array|string[]
