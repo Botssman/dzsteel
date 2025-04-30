@@ -66,6 +66,7 @@ class SearchService
     private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection
     {
         $categories = Category::query()
+            ->select(['id', 'name', 'slug'])
             ->where(function($q) use ($query) {
                 $q->search($query);
             })
@@ -76,6 +77,7 @@ class SearchService
 
         $categories->each(function($category) use ($query) {
             $products = $category->products()
+                ->select(['id', 'name', 'slug', 'vendor_code'])
                 ->search($query)
                 ->selectRaw('DISTINCT ON (id) *')
                 ->orderBy('id')
