@@ -65,34 +65,27 @@ class SearchService
 
     private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection
     {
-        return Category::query()
+        $categories = Category::query()
             ->where(function($q) use ($query) {
                 $q->search($query);
             })
             ->orWhereHas('products', function($q) use ($query) {
                 $q->search($query);
             })
-            ->addSelect([
-                'products_limited' => Product::query()
-                    ->selectRaw('json_agg(ontarget_catalog_products.*)')
-                    ->from('ontarget_catalog_products')
-                    ->whereColumn('ontarget_catalog_products.category_id', 'ontarget_catalog_categories.id')
-                    ->where(function($q) use ($query) {
-                        $q->search($query);
-                    })
-                    ->limit($this->categoryProductsLimit)
-            ])
-            ->get()
-            ->map(function($category) {
-                $category->setRelation(
-                    'products',
-                    Product::hydrate(
-                        json_decode($category->products_limited, true) ?: []
-                    )
-                );
-                unset($category->products_limited);
-                return $category;
-            });
+            ->get();
+
+        $categories->each(function($category) use ($query) {
+            $products = $category->products()
+                ->search($query)
+                ->selectRaw('DISTINCT ON (id) *')
+                ->orderBy('id')
+                ->take($this->categoryProductsLimit)
+                ->get();
+
+            $category->setRelation('products', $products);
+        });
+
+        return $categories;
     }
 
     public function quickSearch(string $query): \Illuminate\Database\Eloquent\Collection|array
