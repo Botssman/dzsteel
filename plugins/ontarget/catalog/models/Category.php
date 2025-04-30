@@ -84,8 +84,8 @@ class Category extends Model
      * @var string[]
      */
     public $appends = [
-        'parent_path',
-        'measure_unit_name'
+        //'parent_path',
+        //'measure_unit_name'
     ];
 
     public $belongsToMany = [
