@@ -73,10 +73,7 @@ class SearchService
                 $q->search("query");
             })
             ->with(['products' => function($q) use ($query) {
-                $q->where(function($q) use ($query) {
-                    $q->search("query");
-                })
-                    ->orderBy('name');
+                $q->search("query");
             }])
             ->get()
             ->map(function($category) {
