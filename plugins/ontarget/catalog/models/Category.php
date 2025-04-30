@@ -134,9 +134,9 @@ class Category extends Model
     public function scopeSearch($query, string $term)
     {
         return $query->whereRaw("
-            to_tsvector('english', coalesce(name, '')) ||
-            to_tsvector('english', coalesce(slug, '')) ||
-            @@ plainto_tsquery('english', ?)
+            to_tsvector('russian', coalesce(name, '')) ||
+            to_tsvector('russian', coalesce(slug, '')) ||
+            @@ plainto_tsquery('russian', ?)
         ", [$term]);
     }
 

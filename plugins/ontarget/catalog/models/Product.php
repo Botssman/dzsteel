@@ -116,9 +116,9 @@ class Product extends Model
     public function scopeSearch($query, string $term)
     {
         return $query->whereRaw("
-            to_tsvector('english', coalesce(name, '')) ||
-            to_tsvector('english', coalesce(slug, '')) ||
-            to_tsvector('english', coalesce(vendor_code, ''))
+            to_tsvector('russian', coalesce(name, '')) ||
+            to_tsvector('russian', coalesce(slug, '')) ||
+            to_tsvector('russian', coalesce(vendor_code, ''))
             @@ plainto_tsquery('english', ?)
         ", [$term]);
     }
