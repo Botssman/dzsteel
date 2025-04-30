@@ -51,12 +51,7 @@ class SearchService
             ->when($categoryId, function ($query) use ($categoryId) {
                 $query->where('category_id', $categoryId);
             })
-            ->where(function ($queryBuilder) use ($query) {
-                $queryBuilder
-                    ->where('name', $this->operator, "%{$query}%")
-                    ->orWhere('slug', $this->operator, "%{$query}%")
-                    ->orWhere('vendor_code', $this->operator, "%{$query}%");
-            });
+            ->search($query);
 
         $cursor = $this->normalizeCursor(request()->input('cursor', $cursor));
 
@@ -71,20 +66,15 @@ class SearchService
     private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection|array
     {
         return Category::query()
-            ->select('ontarget_catalog_categories.*')
             ->where(function($q) use ($query) {
-                $q->where('ontarget_catalog_categories.name', $this->operator, "%{$query}%");
+                $q->search($query);
             })
             ->orWhereHas('products', function($q) use ($query) {
-                $q->where('ontarget_catalog_products.name', $this->operator, "%{$query}%")
-                    ->orWhere('ontarget_catalog_products.slug', $this->operator, "%{$query}%")
-                    ->orWhere('ontarget_catalog_products.vendor_code', $this->operator, "%{$query}%");
+                $q->search("query");
             })
             ->with(['products' => function($q) use ($query) {
                 $q->where(function($q) use ($query) {
-                    $q->where('name', $this->operator, "%{$query}%")
-                        ->orWhere('slug', $this->operator, "%{$query}%")
-                        ->orWhere('vendor_code', $this->operator, "%{$query}%");
+                    $q->search("query");
                 })
                     ->orderBy('name');
             }])
