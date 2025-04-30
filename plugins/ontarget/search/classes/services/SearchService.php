@@ -78,7 +78,6 @@ class SearchService
                 })
                     ->orderBy('name');
             }])
-            ->limit(10)
             ->get()
             ->map(function($category) {
                 $category->setRelation('products', $category->products->take($this->categoryProductsLimit));
