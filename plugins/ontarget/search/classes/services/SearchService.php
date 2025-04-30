@@ -63,23 +63,20 @@ class SearchService
         );
     }
 
-    private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection|array
+    private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection
     {
         return Category::query()
             ->where(function($q) use ($query) {
                 $q->search($query);
             })
             ->orWhereHas('products', function($q) use ($query) {
-                $q->search("query");
+                $q->search($query);
             })
             ->with(['products' => function($q) use ($query) {
-                $q->search("query");
+                $q->search($query)
+                ->limit($this->categoryProductsLimit);
             }])
-            ->get()
-            ->map(function($category) {
-                $category->setRelation('products', $category->products->take($this->categoryProductsLimit));
-                return $category;
-            });
+            ->get();
     }
 
     public function quickSearch(string $query): \Illuminate\Database\Eloquent\Collection|array
