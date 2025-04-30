@@ -2,6 +2,7 @@
 
 namespace OnTarget\Search\Classes\Services;
 
+use Cache;
 use Illuminate\Support\Collection;
 use \October\Rain\Support\Collection as RainLabCollection;
 use OnTarget\Catalog\Models\CatalogSettings;
@@ -65,28 +66,37 @@ class SearchService
 
     private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection
     {
-        $categories = Category::query()
-            ->select(['id', 'name', 'slug'])
-            ->where(function($q) use ($query) {
-                $q->search($query);
-            })
-            ->orWhereHas('products', function($q) use ($query) {
-                $q->search($query);
-            })
-            ->get();
+        $cacheKey = "search:categories:".md5($query).":limit:".$this->categoryProductsLimit;
+        $cacheDuration = now()->addHours(6);
 
-        $categories->each(function($category) use ($query) {
-            $products = $category->products()
-                ->search($query)
-                ->selectRaw('DISTINCT ON (id) *')
-                ->orderBy('id')
-                ->take($this->categoryProductsLimit)
+        return Cache::remember($cacheKey, $cacheDuration, function() use ($query) {
+            $categories = Category::query()
+                ->select(['id', 'name', 'slug'])
+                ->where(function($q) use ($query) {
+                    $q->search($query);
+                })
+                ->orWhereHas('products', function($q) use ($query) {
+                    $q->search($query);
+                })
                 ->get();
 
-            $category->setRelation('products', $products);
-        });
+            $categories->each(function($category) use ($query) {
+                $productsCacheKey = "search:category:{$category->id}:products:".md5($query).":limit:".$this->categoryProductsLimit;
 
-        return $categories;
+                $products = Cache::remember($productsCacheKey, now()->addHours(6), function() use ($category, $query) {
+                    return $category->products()
+                        ->search($query)
+                        ->selectRaw('DISTINCT ON (id) *')
+                        ->orderBy('id')
+                        ->take($this->categoryProductsLimit)
+                        ->get();
+                });
+
+                $category->setRelation('products', $products);
+            });
+
+            return $categories;
+        });
     }
 
     public function quickSearch(string $query): \Illuminate\Database\Eloquent\Collection|array
