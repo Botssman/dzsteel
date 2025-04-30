@@ -134,10 +134,11 @@ class Category extends Model
     public function scopeSearch($query, string $term)
     {
         return $query->whereRaw("
-            to_tsvector('russian', coalesce(name, '')) ||
-            to_tsvector('russian', coalesce(slug, '')) ||
-            @@ plainto_tsquery('russian', ?)
-        ", [$term]);
+        search_vector @@ websearch_to_tsquery('russian', ?)
+    ", [$term])
+            ->orderByRaw("
+        ts_rank(search_vector, websearch_to_tsquery('russian', ?)) DESC
+    ", [$term]);
     }
 
 }
