@@ -1,5 +1,5 @@
 <div class="b-product-card">
-    {% set resize = product.image.getThumb(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) %}{% elseif product.media_image %}{% set resize = product.media_image | media  | resize(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) %}
+    {% set resize = product.media_image | media  | resize(270, 250, {mode: 'crop', extension: 'webp', quality: 75}) %}
     <img src="{{ resize }}" loading="lazy" id="w-node-f8138cbe-72ea-1ab4-75ca-bfe34ba3b0ed-4ba3b0eb" alt="" class="b-image b-image_cat_image" onerror="this.onerror=null; this.src='/themes/wto/assets/images/no-photo.png';">
 	<a id="w-node-f8138cbe-72ea-1ab4-75ca-bfe34ba3b0ec-4ba3b0eb" href="{{ 'catalog/product' | page({category: product.category.slug, product: product.slug}) }}" class="b-product-link w-inline-block">
 		<div class="g-mg-bot_10">

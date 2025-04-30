@@ -47,6 +47,10 @@ class Category extends Model
      */
     public $table = 'ontarget_catalog_categories';
 
+    public $with = [
+        'measure_unit'
+    ];
+
     /**
      * Slugs for Sluggable trait
      * @var array|string[]
