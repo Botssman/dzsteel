@@ -119,7 +119,7 @@ class Product extends Model
             to_tsvector('russian', coalesce(name, '')) ||
             to_tsvector('russian', coalesce(slug, '')) ||
             to_tsvector('russian', coalesce(vendor_code, ''))
-            @@ plainto_tsquery('english', ?)
+            @@ plainto_tsquery('english', ?)::tsquery
         ", [$term]);
     }
 }
