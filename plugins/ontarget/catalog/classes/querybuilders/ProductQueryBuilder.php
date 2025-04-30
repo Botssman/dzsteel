@@ -30,11 +30,6 @@ class ProductQueryBuilder extends Builder
      */
     public function search(string $term): static
     {
-        return $this->whereRaw("
-        search_vector @@ websearch_to_tsquery('russian', ?)
-    ", [$term])
-            ->orderByRaw("
-        ts_rank(search_vector, websearch_to_tsquery('russian', ?)) DESC
-    ", [$term]);
+        return $this->whereRaw("search_vector @@ websearch_to_tsquery('russian', ?)", [$term]);
     }
 }
