@@ -113,13 +113,4 @@ class Product extends Model
         return $this->media_image;
     }
 
-    public function scopeSearch($query, string $term)
-    {
-        return $query->whereRaw("
-        search_vector @@ websearch_to_tsquery('russian', ?)
-    ", [$term])
-            ->orderByRaw("
-        ts_rank(search_vector, websearch_to_tsquery('russian', ?)) DESC
-    ", [$term]);
-    }
 }

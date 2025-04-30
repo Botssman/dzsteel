@@ -24,8 +24,17 @@ class ProductQueryBuilder extends Builder
         return static::orderBy(...Sort::from(input('sort', 'new'))->data());
     }
 
-    public function search()
+    /**
+     * @param string $term
+     * @return $this
+     */
+    public function search(string $term): static
     {
-
+        return $this->whereRaw("
+        search_vector @@ websearch_to_tsquery('russian', ?)
+    ", [$term])
+            ->orderByRaw("
+        ts_rank(search_vector, websearch_to_tsquery('russian', ?)) DESC
+    ", [$term]);
     }
 }
