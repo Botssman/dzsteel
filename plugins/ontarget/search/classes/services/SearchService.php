@@ -74,9 +74,9 @@ class SearchService
             })
             ->addSelect([
                 'products_limited' => Product::query()
-                    ->selectRaw('json_agg(products.*)')
-                    ->from('products')
-                    ->whereColumn('products.category_id', 'categories.id')
+                    ->selectRaw('json_agg(ontarget_catalog_products.*)')
+                    ->from('ontarget_catalog_products')
+                    ->whereColumn('ontarget_catalog_products.category_id', 'ontarget_catalog_categories.id')
                     ->where(function($q) use ($query) {
                         $q->search($query);
                     })
