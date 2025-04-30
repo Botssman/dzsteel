@@ -14,27 +14,17 @@
 	<div id="w-node-_7683d415-adba-5cb5-5552-6e4bc14c8301-4ba3b0eb">
 		<div id="w-node-d0990788-fc7a-349d-04af-bf8f9e1280b7-4ba3b0eb" class="g-flex_h is-card">
 			{% if product.price is not empty and product.price > 0 %}
-			<div id="w-node-_72718b7d-c784-75d4-5f29-3816396569de-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
-				от
-			</div>
-			{% set unit = product.measure_unit | default(product.category.measure_unit) %}
-			<div id="w-node-_85e10a62-73f4-7245-b302-ccf3ea8d79c0-4ba3b0eb" class="b-text g-size_22 g-bronze g-bold">
-				{{ product.price|price }}
-			</div>
-			<div id="w-node-d93ddba9-eb32-88d7-eec4-ae780dfca171-4ba3b0eb" class="b-text g-size_30 g-bronze g-bold">
-				/
-			</div>
-			{% if unit is not empty %}
-			<div id="w-node-af013d14-7599-16f2-6563-567aa4239070-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
-				₽
-			</div>
-			<div class="b-text g-size_20 g-bronze g-bold">
-				{{ unit.name }}
-			</div>
-			{% endif %}{% else %}
-			<div class="b-text g-size_20 g-bronze g-bold center">
-				Цена по запросу
-			</div>
+                <div id="w-node-_72718b7d-c784-75d4-5f29-3816396569de-4ba3b0eb" class="b-text g-size_20 g-bronze g-bold">
+                    от
+                </div>
+                <div id="w-node-_85e10a62-73f4-7245-b302-ccf3ea8d79c0-4ba3b0eb" class="b-text g-size_22 g-bronze g-bold">
+                    {{ product.price|price }}
+                </div>
+
+            {% else %}
+                <div class="b-text g-size_20 g-bronze g-bold center">
+                    Цена по запросу
+                </div>
 			{% endif %}
 		</div>
 	</div>
