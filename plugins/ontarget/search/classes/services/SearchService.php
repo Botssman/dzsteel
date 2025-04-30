@@ -72,11 +72,27 @@ class SearchService
             ->orWhereHas('products', function($q) use ($query) {
                 $q->search($query);
             })
-            ->with(['products' => function($q) use ($query) {
-                $q->search($query)
-                ->limit($this->categoryProductsLimit);
-            }])
-            ->get();
+            ->addSelect([
+                'products_limited' => Product::query()
+                    ->selectRaw('json_agg(products.*)')
+                    ->from('products')
+                    ->whereColumn('products.category_id', 'categories.id')
+                    ->where(function($q) use ($query) {
+                        $q->search($query);
+                    })
+                    ->limit($this->categoryProductsLimit)
+            ])
+            ->get()
+            ->map(function($category) {
+                $category->setRelation(
+                    'products',
+                    Product::hydrate(
+                        json_decode($category->products_limited, true) ?: []
+                    )
+                );
+                unset($category->products_limited);
+                return $category;
+            });
     }
 
     public function quickSearch(string $query): \Illuminate\Database\Eloquent\Collection|array
