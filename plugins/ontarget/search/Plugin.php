@@ -39,10 +39,10 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        DB::statement("CREATE TEXT SEARCH CONFIGURATION russian (COPY = simple)");
-        DB::statement("ALTER TEXT SEARCH CONFIGURATION russian
-        ALTER MAPPING FOR hword, hword_part, word
-        WITH unaccent, russian_stem");
+        //DB::statement("CREATE TEXT SEARCH CONFIGURATION russian (COPY = simple)");
+        //DB::statement("ALTER TEXT SEARCH CONFIGURATION russian
+        //ALTER MAPPING FOR hword, hword_part, word
+        //WITH unaccent, russian_stem");
     }
 
     /**
