@@ -32,9 +32,17 @@ class ProductQueryBuilder extends Builder
     {
         return $this
             ->selectRaw("ontarget_catalog_products.*,
-            ts_rank(search_vector, websearch_to_tsquery('russian', ?)) as relevance,
-            COALESCE(ontarget_catalog_products.rank, 0) as priority",
+            ts_rank(search_vector, websearch_to_tsquery('russian', ?)) as search_relevance,
+            COALESCE(ontarget_catalog_products.rank, 0) as search_priority",
                 [$term])
             ->whereRaw("search_vector @@ websearch_to_tsquery('russian', ?)", [$term])
-            ->orderByRaw('relevance * priority DESC, relevance DESC');    }
+            ->orderByRaw(
+                "(ts_rank(search_vector, websearch_to_tsquery('russian', ?)) * COALESCE(ontarget_catalog_products.rank, 0)) DESC",
+                [$term]
+            )
+            ->orderByRaw(
+                "ts_rank(search_vector, websearch_to_tsquery('russian', ?)) DESC",
+                [$term]
+            );
+    }
 }
