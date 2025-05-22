@@ -1,0 +1,17 @@
+{% if products.hasMorePages() %}
+    <div id="count" class="no-results">
+        <div class="h-wrap">
+            <a href="#" class="b-button w-button"
+               data-request="onAjax"
+               data-request-update="{ 'ajax/listing-catalog': '@#listing' }"
+               data-request-data="{ page: {{ products.currentPage + 1 }} }"
+               data-attach-loading
+            >
+                ПОКАЗАТЬ ЕЩЕ
+            </a>
+        </div>
+        <div class="g-size_24 g-hide">
+            Ничего не найдено
+        </div>
+    </div>
+{% endif %}

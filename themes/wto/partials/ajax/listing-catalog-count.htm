@@ -1,12 +1,7 @@
 {% if products.hasMorePages() %}
 <div id="count" class="no-results">
 	<div class="h-wrap">
-		<a href="#" class="b-button w-button"
-           data-request="onAjax"
-           data-request-update="{ 'ajax/listing-catalog': '@#listing' }"
-           data-request-data="{ page: {{ products.currentPage + 1 }} }"
-           data-attach-loading
-        >
+		<a id="load-more-btn" data-next-cursor="{{ products.nextCursor().encode() }}" data-attach-loading="" href="#" class="b-button w-button">
 			ПОКАЗАТЬ ЕЩЕ
 		</a>
 	</div>
