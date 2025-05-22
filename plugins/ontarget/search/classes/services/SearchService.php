@@ -86,10 +86,12 @@ class SearchService
                 $products = Cache::remember($productsCacheKey, now()->addHours(6), function() use ($category, $query) {
                     return $category->products()
                         ->selectRaw("DISTINCT ON (ontarget_catalog_products.id) ontarget_catalog_products.*,
-            ts_rank(search_vector, websearch_to_tsquery('russian', ?)) as search_relevance,
-            COALESCE(ontarget_catalog_products.rank, 0) as search_priority",
-                            [$query])
+        ts_rank(search_vector, websearch_to_tsquery('russian', ?)) as search_relevance,
+        COALESCE(ontarget_catalog_products.rank, 0) as search_priority",
+                            [$query]
+                        )
                         ->whereRaw("search_vector @@ websearch_to_tsquery('russian', ?)", [$query])
+                        ->orderBy('ontarget_catalog_products.id') // Должен быть ПЕРВЫМ для DISTINCT ON
                         ->orderByRaw(
                             "(ts_rank(search_vector, websearch_to_tsquery('russian', ?)) * COALESCE(ontarget_catalog_products.rank, 0)) DESC",
                             [$query]
