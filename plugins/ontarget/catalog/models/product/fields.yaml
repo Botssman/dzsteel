@@ -103,3 +103,11 @@ tabs:
         external_link:
             label: Ссылка импорта
             tab: Импорт
+        rank:
+            label: Приоритет в поиске
+            comment: Число от 0 до 100
+            type: number
+            min: 0
+            max: 100
+            default: 0
+            tab: Поиск

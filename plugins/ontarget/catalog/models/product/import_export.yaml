@@ -27,3 +27,5 @@ columns:
         label: Описание
     external_link:
         label: Внешняя ссылка
+    rank:
+        label: Приоритет

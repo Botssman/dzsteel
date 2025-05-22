@@ -26,3 +26,6 @@ columns:
         label: Обновлён
         type: datetime
         format: d.m.Y H:i:s
+    rank:
+        label: Приоритет
+        type: number

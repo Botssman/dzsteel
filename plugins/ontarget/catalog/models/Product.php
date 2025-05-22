@@ -54,6 +54,7 @@ class Product extends Model
         'vendor_code' => ['required'],
         'category_id' => ['required', 'integer'],
         'price' => ['required', 'integer'],
+        'rank' => ['sometimes', 'integer', 'min:0', 'max:100'],
     ];
 
     public $belongsTo = [

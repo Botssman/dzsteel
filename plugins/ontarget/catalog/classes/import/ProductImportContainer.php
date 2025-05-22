@@ -41,6 +41,7 @@ class ProductImportContainer
         $this->product->price = $this->data['price'];
         $this->product->external_link = $this->data['external_link'] ?? '';
         $this->product->vendor_code = $this->data['vendor_code'] ?? $this->makeVendorCode();
+        $this->product->rank = $this->data['rank'] ?? 0;
         $this->product->save();
 
         if (!empty($this->data['properties'])) {
