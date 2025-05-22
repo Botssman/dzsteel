@@ -32,7 +32,7 @@ class SearchService
         return $this->searchQuery($query);
     }
 
-    public function searchByCategory(string $query, int|null $categoryId = null): \Illuminate\Contracts\Pagination\CursorPaginator
+    public function searchByCategory(string $query, int|null $categoryId = null): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
         return $this->searchByCategoryQuery($query, $categoryId);
     }
@@ -42,7 +42,8 @@ class SearchService
         ?int $categoryId = null,
         int $perPage = null,
         string $cursor = null
-    ): \Illuminate\Contracts\Pagination\CursorPaginator {
+    ): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    {
 
         if (empty(trim($query))) {
             throw new \InvalidArgumentException('Search query cannot be empty');
@@ -56,12 +57,7 @@ class SearchService
 
         $cursor = $this->normalizeCursor(request()->input('cursor', $cursor));
 
-        return $builder->cursorPaginate(
-            $perPage ?? $this->productsLimit,
-            ['*'],
-            'cursor',
-            $cursor
-        );
+        return $builder->paginate($perPage ?? $this->productsLimit);
     }
 
     private function searchQuery(string $query): \Illuminate\Database\Eloquent\Collection
