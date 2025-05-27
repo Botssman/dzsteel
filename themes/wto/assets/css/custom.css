@@ -130,7 +130,7 @@
 
 
 .search-categories-results {
-    margin-top:30px;
+    margin:30px 0;
 
     display: flex;
     gap: 10px;
@@ -140,6 +140,8 @@
 .search-categories-results__item {
     display: inline-flex;
     height:24px;
+    color: #2b2f32;
+    text-decoration: none;
     padding:0 10px;
     align-items:center;
     justify-content: center;
@@ -147,7 +149,7 @@
     border-radius:20px;
     background:#fff;
 }
-.search-categories-results:hover {
+.search-categories-results__item:hover {
     background-color: #2b2f32;
     color: #fff;
 }
