@@ -10,6 +10,16 @@ layout="default"
     </div>
 
     <div class="container">
+        <div class="search-categories-results">
+            {% for category in categories %}
+                <a href="{{ 'catalog/index' | page({category: category.slug}) }}" class="search-categories-results__item">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
         <div class="search-results">
             {% for category in categories %}
                 {% partial 'elements/search/category' category=category %}
