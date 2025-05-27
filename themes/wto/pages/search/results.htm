@@ -2,17 +2,18 @@ url="/search"
 layout="default"
 
 ==
+{% set query = input('query') %}
 <div style="padding:100px 0; background:#ebebf0;">
     <div class="container">
         <div  class="g-mg-bot_30">
-            <h2>Результаты поиска по запросу "{{ input('query') }}"</h2>
+            <h2>Результаты поиска по запросу "{{ query }}"</h2>
         </div>
     </div>
 
     <div class="container">
         <div class="search-categories-results">
             {% for category in categories %}
-                <a href="{{ 'catalog/index' | page({category: category.slug}) }}" class="search-categories-results__item">
+                <a href="{{ 'catalog/index' | page({category: category.slug}) }}?search={{ query }}" class="search-categories-results__item">
                     {{ category.name }}
                 </a>
             {% endfor %}
