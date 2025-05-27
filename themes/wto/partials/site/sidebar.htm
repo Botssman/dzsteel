@@ -35,7 +35,7 @@
                                             {% set propertyValues = property.values().hasProductsInCategory(currentCategory.id).orderBy('name').get()  %}
                                             {% if propertyValues.count() > 7 %}
                                                 <label>
-                                                    <input type="text" name="filters-search" class="filters-search" data-filter-group="{{ property.slug }}">
+                                                    <input placeholder="Поиск..." type="text" name="filters-search" class="filter-search" data-filter-group="{{ property.slug }}">
                                                 </label>
                                             {% endif %}
                                             {% for value in propertyValues %}
