@@ -32,7 +32,13 @@
                                     <div class="filters-block" style="background:#fff; padding: 10px; border-radius:10px;">
                                         <div class="filters-block__title" style="font-weight: bold;">{{ property.name }}{{ property.unit ? ', ' ~ property.unit : ''}}</div>
                                         <div class="filters-block__body">
-                                            {% for value in property.values().hasProductsInCategory(currentCategory.id).orderBy('name').get() %}
+                                            {% set propertyValues = property.values().hasProductsInCategory(currentCategory.id).orderBy('name').get()  %}
+                                            {% if propertyValues.count() > 7 %}
+                                                <label>
+                                                    <input type="text" name="filters-search" class="filters-block-search">
+                                                </label>
+                                            {% endif %}
+                                            {% for value in propertyValues %}
                                                 <div class="filters-row" style="display:flex; align-items: center; gap:15px">
                                                     <input id="{{ property.slug }}-{{ value.id }}" name="{{ property.slug }}[]" value="{{ value.slug }}" type="checkbox">
                                                     <label for="{{ property.slug }}-{{ value.id }}" class="filters-row__label">

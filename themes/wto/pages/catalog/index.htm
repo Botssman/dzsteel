@@ -45,6 +45,15 @@ layout="default"
                                 </div>
                             </div>
                             <div>
+                                {% if input('search') %}
+                                    <div style="display:flex; justify-content: space-between; align-items: center">
+                                        <div style="margin:20px 0; font-size:16px; font-weight: bold;">
+                                            Результаты поиска по запросу "{{ input('search') }}"
+                                        </div>
+
+                                        <a href="{{ 'catalog/index' | page({category: currentCategory.slug}) }}">Сбросить</a>
+                                    </div>
+                                {% endif %}
                                 <div class="b-catalog-grid" id="listing">
                                     {% partial 'ajax/listing-catalog' %}
                                 </div>
@@ -74,14 +83,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Находим блок с диаметрами
     const diameterBlock = document.querySelector('.filters-block__body');
     const diameterRows = Array.from(diameterBlock.querySelectorAll('.filters-row'));
-    
+
     // Сортируем строки по числовому значению диаметра
     diameterRows.sort((a, b) => {
         const aValue = parseInt(a.querySelector('.filters-row__label').textContent);
         const bValue = parseInt(b.querySelector('.filters-row__label').textContent);
         return aValue - bValue;
     });
-    
+
     // Очищаем блок и добавляем отсортированные элементы
     diameterBlock.innerHTML = '';
     diameterRows.forEach(row => diameterBlock.appendChild(row));
@@ -90,13 +99,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // Функция для открытия/закрытия модального окна
 function handleModal() {
   const modal = document.querySelector('.b-modal.call');
-  
+
   // Делегирование событий для динамических элементов
   document.addEventListener('click', function(e) {
     // Открытие модалки при клике на кнопку (даже в динамически загруженных карточках)
     if (e.target.closest('.b-button.v-7')) {
       e.preventDefault();
-      
+
       // Плавное появление
       modal.style.display = 'flex';
       setTimeout(() => {
@@ -104,13 +113,13 @@ function handleModal() {
         modal.style.visibility = 'visible';
       }, 10);
     }
-    
+
     // Закрытие модалки
     if (e.target.closest('.close-modal') || e.target === modal) {
       // Плавное исчезновение
       modal.style.opacity = '0';
       modal.style.visibility = 'hidden';
-      
+
       // Полное скрытие после анимации
       setTimeout(() => {
         modal.style.display = 'none';
