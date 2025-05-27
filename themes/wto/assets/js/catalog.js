@@ -102,3 +102,28 @@ function getFormPayload($form) {
 
     return payload;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    document.querySelectorAll('.filter-search').forEach(searchInput => {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const filterGroup = this.dataset.filterGroup;
+
+            document.querySelectorAll(`input[name="${filterGroup}[]"]`).forEach(checkbox => {
+                const label = checkbox.nextElementSibling;
+                const row = checkbox.closest('.filters-row');
+                const value = checkbox.value.toLowerCase();
+                const text = label.textContent.toLowerCase();
+
+                if (value.includes(searchTerm)) {
+                    row.classList.remove('hidden');
+                } else if (text.includes(searchTerm)) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+        });
+    });
+});

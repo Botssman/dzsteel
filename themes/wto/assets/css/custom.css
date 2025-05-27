@@ -154,3 +154,33 @@
     color: #fff;
 }
 
+ .filter-search {
+     width: 100%;
+     padding: 10px 15px;
+     margin: 10px 0;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     font-size: 14px;
+     box-sizing: border-box;
+     transition: all 0.3s ease;
+     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+ }
+
+.filter-search:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+}
+
+.filter-search::placeholder {
+    color: #aaa;
+}
+
+.filters-row {
+    padding: 8px 5px;
+    transition: all 0.2s ease;
+}
+
+.filters-row.hidden {
+    display: none !important;
+}
