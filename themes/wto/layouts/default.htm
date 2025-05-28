@@ -56,7 +56,7 @@ handle = "Settings\Counters"
     {% styles %}
 
     {% for counter in counters.counters | filter(c => c.is_active) | filter(c => c.position=='head') %}
-        {{ counter.raw }}
+        {{ counter.code | raw }}
     {% endfor %}
 </head>
 <body class="body">
@@ -70,7 +70,7 @@ handle = "Settings\Counters"
     {% partial "modal/modal-call" %}
 
     {% for counter in counters.counters | filter(c => c.is_active) | filter(c => c.position=='body') %}
-        {{ counter.raw }}
+        {{ counter.code | raw }}
     {% endfor %}
 
     {% framework extras %}
