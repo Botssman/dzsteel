@@ -55,7 +55,7 @@ handle = "Settings\Counters"
 
     {% styles %}
 
-    {% for counter in counters | filter(c => c.is_active AND c.position=='head') %}
+    {% for counter in counters.counters | filter(c => c.is_active) | filter(c => c.position=='head') %}
         {{ counter.raw }}
     {% endfor %}
 </head>
@@ -69,7 +69,7 @@ handle = "Settings\Counters"
     {% partial "site/footer" %}
     {% partial "modal/modal-call" %}
 
-    {% for counter in counters | filter(c => c.is_active AND c.position=='body') %}
+    {% for counter in counters.counters | filter(c => c.is_active) | filter(c => c.position=='body') %}
         {{ counter.raw }}
     {% endfor %}
 
