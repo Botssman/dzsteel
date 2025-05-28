@@ -15,6 +15,9 @@ handle = "Options\MainMenu"
 
 [global sidebar]
 handle = "Options\Sidebar"
+
+[global counters]
+handle = "Settings\Counters"
 ==
 <!doctype html>
 <html lang="ru">
@@ -51,6 +54,10 @@ handle = "Options\Sidebar"
     <link href="{{ 'assets/css/custom.css'|theme }}" rel="stylesheet">
 
     {% styles %}
+
+    {% for counter in counters | filter(c => c.is_active AND c.position=='head') %}
+        {{ counter.raw }}
+    {% endfor %}
 </head>
 <body class="body">
     {% partial "site/header" %}
@@ -61,6 +68,11 @@ handle = "Options\Sidebar"
 
     {% partial "site/footer" %}
     {% partial "modal/modal-call" %}
+
+    {% for counter in counters | filter(c => c.is_active AND c.position=='body') %}
+        {{ counter.raw }}
+    {% endfor %}
+
     {% framework extras %}
 
     {% scripts %}
@@ -72,5 +84,7 @@ handle = "Options\Sidebar"
             src="{{ ['assets/js/front.js']|theme }}"></script>
 
     {% placeholder scripts %}
+
+
 </body>
 </html>

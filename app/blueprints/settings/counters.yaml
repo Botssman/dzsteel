@@ -1,0 +1,29 @@
+name: Counters
+handle: Settings\Counters
+type: global
+
+navigation:
+    label: Счётчики и виджеты
+    icon: ph ph-code
+    parent: Options\Options
+
+fields:
+    counters:
+        type: repeater
+        prompt: Добавить код
+        form:
+            fields:
+                is_active:
+                    label: Активен
+                    type: switch
+                    default: true
+                code:
+                    label: Код
+                    type: codeeditor
+                position:
+                    label: Позиция
+                    type: balloon-selector
+                    options:
+                        head: head
+                        body: body
+                    default: head
