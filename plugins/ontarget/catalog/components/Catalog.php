@@ -103,17 +103,12 @@ class Catalog extends ComponentBase
             ->sort();
     }
 
-    /**
-     * @return \Illuminate\Contracts\Pagination\CursorPaginator
-     */
-    public function getProducts(): \Illuminate\Contracts\Pagination\CursorPaginator
+
+    public function getProducts(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
         return $this->getProductsQuery()
-            ->cursorPaginate(
-                CatalogSettings::get('products_per_page'),
-                ['*'],
-                'cursor',
-                post('cursor')
+            ->paginate(
+                CatalogSettings::get('products_per_page')
             );
     }
 
