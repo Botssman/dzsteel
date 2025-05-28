@@ -7,6 +7,7 @@ use October\Rain\Database\Builder;
 use OnTarget\Catalog\Classes\Filters\Handlers\CategoriesFilterHandler;
 use OnTarget\Catalog\Classes\Filters\Handlers\PriceFilterHandler;
 use OnTarget\Catalog\Classes\Filters\Handlers\PropertiesFilterHandler;
+use OnTarget\classes\filters\handlers\SearchFilterHandler;
 
 class FilteringPipeline
 {
@@ -15,8 +16,9 @@ class FilteringPipeline
      */
     public static array $handlers = [
         CategoriesFilterHandler::class,
+        SearchFilterHandler::class,
         PriceFilterHandler::class,
-        PropertiesFilterHandler::class
+        PropertiesFilterHandler::class,
     ];
 
     /**
