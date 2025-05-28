@@ -1,6 +1,6 @@
 <?php
 
-namespace OnTarget\classes\filters\handlers;
+namespace OnTarget\Classes\Filters\Handlers;
 
 use Closure;
 use October\Rain\Database\Builder;
