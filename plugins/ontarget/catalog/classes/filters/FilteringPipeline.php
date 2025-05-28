@@ -7,7 +7,7 @@ use October\Rain\Database\Builder;
 use OnTarget\Catalog\Classes\Filters\Handlers\CategoriesFilterHandler;
 use OnTarget\Catalog\Classes\Filters\Handlers\PriceFilterHandler;
 use OnTarget\Catalog\Classes\Filters\Handlers\PropertiesFilterHandler;
-use OnTarget\Classes\Filters\Handlers\SearchFilterHandler;
+use OnTarget\Catalog\Classes\Filters\Handlers\SearchFilterHandler;
 
 class FilteringPipeline
 {
