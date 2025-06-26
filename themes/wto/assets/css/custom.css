@@ -205,3 +205,31 @@ b-product-card {
     height: auto;
     transition: transform 0.3s ease;
   }
+
+  .quick-search-results {
+    position: absolute;
+    width: 100%;
+    min-width: 20rem;
+    min-height:100px;
+    left:0;
+    top:100%;
+    z-index: 25;
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+}
+.quick-search-results > a {
+    background: #fff;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding:5px 10px;
+    color:#1e2227;
+    font-size:1.5rem;
+    text-decoration: none;
+}
+.quick-search-results > a:hover {
+    background: var(--bronze);
+    color: var(--white);
+}

@@ -1,30 +1,3 @@
-<style>
-.quick-search-results {
-    position: absolute;
-    width: 100%;
-    min-height:100px;
-    left:0;
-    top:100%;
-    z-index: 25;
-    background: #fff;
-
-    display: flex;
-    flex-direction: column;
-}
-.quick-search-results > a {
-    background: #fff;
-    display: flex;
-    width: 100%;
-    gap: 10px;
-    padding:5px 10px;
-    color:#1e2227;
-    font-size:12px;
-    text-decoration: none;
-}
-.quick-search-results > a:hover {
-    background: #eee;
-}
-</style>
 <script>
     document.addEventListener('click', function(event) {
         const quickSearchElement = document.getElementById('quickSearch');
