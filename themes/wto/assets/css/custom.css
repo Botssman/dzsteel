@@ -184,3 +184,24 @@
 .filters-row.hidden {
     display: none !important;
 }
+
+b-product-card {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  b-product-card:hover b-image.b-image_cat_image {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  b-image.b-image_cat_image {
+    display: block;
+    overflow: hidden;
+  }
+  
+  b-image.b-image_cat_image img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }

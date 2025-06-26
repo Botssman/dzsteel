@@ -4274,7 +4274,12 @@ body {
   font-family: Open Sans Condenced, sans-serif;
   font-size: 1.8em;
   font-weight: 700;
+  transition: all .35s;
   display: flex;
+}
+
+.b-linkblock.b-linkblock_cat:hover {
+  background-color: var(--bronze);
 }
 
 .b-linkblock.b-linkblock_service {
@@ -4992,7 +4997,14 @@ body {
   border-radius: 5px;
   padding: 1em;
   text-decoration: none;
+  transition: all .35s;
   display: inline-block;
+}
+
+.b-breadcrumbs-2 a:hover {
+  border-color: var(--transparent);
+  background-color: var(--bronze);
+  color: var(--white);
 }
 
 .b-product-form {
