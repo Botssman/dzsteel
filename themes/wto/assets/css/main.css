@@ -2046,12 +2046,76 @@ textarea.w-input, textarea.w-select {
   display: grid;
 }
 
-.w-code-component > * {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+@font-face {
+  font-family: Nevermindcompact;
+  src: url("../fonts/665610e4d965136f27263824_NeverMindCompact-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Nevermindcompact;
+  src: url("../fonts/665610e4d965136f27263829_NeverMindCompact-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Nevermindcompact;
+  src: url("../fonts/665610e4d965136f27263821_NeverMindCompact-Extrabold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Nevermindcompact;
+  src: url("../fonts/665610e4d965136f27263826_NeverMindCompact-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Nevermindcompact;
+  src: url("../fonts/665610e4d965136f27263823_NeverMindCompact-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Nevermindcompact;
+  src: url("../fonts/665610e4d965136f27263828_NeverMindCompact-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Open Sans Condenced;
+  src: url("../fonts/665610e4d965136f2726382c_OpenSans-CondLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Open Sans Condenced;
+  src: url("../fonts/665610e4d965136f2726382b_OpenSans-CondLightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Open Sans Condenced;
+  src: url("../fonts/665610e4d965136f2726382a_OpenSans-CondBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -3379,6 +3443,7 @@ body {
   min-height: auto;
   padding-top: 20em;
   padding-bottom: 10em;
+  overflow: hidden;
 }
 
 .s-section.s-section_dark {
@@ -3578,6 +3643,11 @@ body {
   font-family: Open Sans Condenced, sans-serif;
   font-size: 2em;
   font-weight: 700;
+  transition: all .35s;
+}
+
+.b-tabs__link:hover {
+  background-color: #ffffff0d;
 }
 
 .b-tabs__link.w--current {
@@ -3598,6 +3668,8 @@ body {
 }
 
 .b-tabs__link.b-tabs__link_inside:hover {
+  background-color: var(--transparent);
+  color: var(--bronze);
   text-decoration: underline;
 }
 
@@ -3851,8 +3923,14 @@ body {
   padding: 1.3em 2em;
   font-size: 1.5em;
   text-decoration: none;
+  transition: all .35s;
   display: flex;
   position: relative;
+}
+
+.b-button-box:hover {
+  background-color: var(--bronze);
+  border-color: #fff0;
 }
 
 .utility-page-wrap {
@@ -3989,6 +4067,11 @@ body {
 .b-maillink.b-maillink_header {
   margin-left: 40px;
   font-size: 1.4em;
+  text-decoration: underline;
+}
+
+.b-maillink.b-maillink_header:hover {
+  color: var(--bronze);
 }
 
 .b-maillink.b-maillink_footer {
@@ -4135,7 +4218,12 @@ body {
   align-items: stretch;
   width: 100%;
   padding: 3em;
+  transition: all .35s;
   display: flex;
+}
+
+.b-grid-box:hover {
+  transform: scale(1.03);
 }
 
 .b-grid-box.b-grid-box_spec {
@@ -4340,6 +4428,11 @@ body {
 .b-catalog {
   align-items: flex-start;
   display: flex;
+}
+
+.b-catalog.b-catalog_cat {
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .left-content {
@@ -5372,6 +5465,10 @@ body {
   font-size: 1.4em;
 }
 
+.g-size_14.hover:hover {
+  text-decoration: underline;
+}
+
 .g-hover-link {
   text-decoration: none;
 }
@@ -5507,6 +5604,11 @@ body {
 
 .g-caps {
   text-transform: uppercase;
+}
+
+.b-tabs_grad {
+  position: absolute;
+  inset: 0%;
 }
 
 @media screen and (min-width: 1920px) {
@@ -8324,69 +8426,6 @@ body {
   }
 }
 
-@font-face {
-  font-family: 'Nevermindcompact';
-  src: url('../fonts/NeverMindCompact-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Nevermindcompact';
-  src: url('../fonts/NeverMindCompact-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Nevermindcompact';
-  src: url('../fonts/NeverMindCompact-Extrabold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Nevermindcompact';
-  src: url('../fonts/NeverMindCompact-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Nevermindcompact';
-  src: url('../fonts/NeverMindCompact-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Nevermindcompact';
-  src: url('../fonts/NeverMindCompact-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Open Sans Condenced';
-  src: url('../fonts/OpenSans-CondLight.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Open Sans Condenced';
-  src: url('../fonts/OpenSans-CondLightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Open Sans Condenced';
-  src: url('../fonts/OpenSans-CondBold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 .alignleft {float:left; margin-right:10px;}
 .alignright {float:right; margin-left:10px;}
 .aligncenter {margin-left:auto; margin-right:auto; display:block}
