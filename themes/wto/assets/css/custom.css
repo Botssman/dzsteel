@@ -209,8 +209,10 @@ b-product-card {
   .quick-search-results {
     position: absolute;
     width: 100%;
-    min-width: 20rem;
+    min-width: 28rem;
     min-height:100px;
+    max-height: 80vh;
+    overflow: auto;
     left:0;
     top:100%;
     z-index: 25;
@@ -226,7 +228,7 @@ b-product-card {
     gap: 10px;
     padding:5px 10px;
     color:#1e2227;
-    font-size:1.5rem;
+    font-size:1rem;
     text-decoration: none;
 }
 .quick-search-results > a:hover {

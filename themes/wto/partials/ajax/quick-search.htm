@@ -1,7 +1,7 @@
 {% if quickSearchResults.products is not empty or quickSearchResults.categories is not empty %}
 <div class="quick-search-results" id="quickSearch">
     {% if quickSearchResults.categories is not empty %}
-        <div style="font-weight: bold; font-size:14px; padding: 5px;">Категории</div>
+        <div style="font-weight: bold; font-size:1.1rem; padding: 5px;">Категории</div>
         {% for category in quickSearchResults.categories %}
             <a href="{{ 'catalog/index' | page({category: category.slug }) }}" class="quick-search-product">
                 {{ category.name }}
