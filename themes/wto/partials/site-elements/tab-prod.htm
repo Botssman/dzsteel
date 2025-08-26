@@ -3,7 +3,7 @@
 								{% for item in block.add_category_prod %}
 								<a data-w-tab="Tab {{ loop.index }}" data-test="" class="b-tabs__link{% if loop.index == 1 %}{% else %} _{{ loop.index }}{% endif %} b-tabs__link_inside w-inline-block w-tab-link w--current">
 									<div class="text-block">
-										{{ item.name_category }}
+										{{ item.name_category|raw }}
 									</div>
 								</a>
 								{% endfor %}
@@ -16,7 +16,7 @@
 										<div class="h-wrap g-mg-bot_30 tb_mb_20">
 											<a href="{{ item.category_link }}" class="b-link v-2 w-inline-block">
 												<div class="b-text g-size_22 g-opensans g-bold g-black">
-													{{ item.name_category }}
+													{{ item.name_category|raw }}
 												</div>
 											</a>
 										</div>
@@ -24,7 +24,7 @@
 											{% for item in item.add_sub_category %}
 											<div class="h-wrap g-mg-bot_15">
 												<a href="{{ item.sub_category_link }}" class="b-text g-hover-link g-black">
-													{{ item.name_sub_category }}
+													{{ item.name_sub_category|raw }}
 												</a>
 											</div>
 											{% endfor %}
