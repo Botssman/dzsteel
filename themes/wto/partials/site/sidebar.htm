@@ -25,7 +25,9 @@
 		</div>
 		{% endfor %}
 	</div>
-	{% if currentCategory %}
+                    {% if currentCategory.children is not empty %}
+                    {% else %}
+	                    {% if currentCategory %}
                             <div class="filters" style="display:flex;flex-direction:column; gap:30px; margin-top:30px;">
                                 <div>Уточните поиск при помощи фильтров</div>
                                 {% for property in currentCategory.properties().forFilters().get() %}
@@ -56,4 +58,5 @@
 
                             </div>
                         {% endif %}
+                    {% endif %}
 </div>
