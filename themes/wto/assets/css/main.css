@@ -3264,6 +3264,7 @@ body {
   grid-template-columns: 1.05fr .95fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
+  gap: 1rem;
 }
 
 .b-columns.b-columns_clip_content {
