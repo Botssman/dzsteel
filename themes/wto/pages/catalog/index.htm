@@ -56,7 +56,7 @@ layout="default"
                                         <a href="{{ 'catalog/index' | page({category: currentCategory.slug}) }}">Сбросить</a>
                                     </div>
                                 {% endif %}
-                                {% if currentCategory and currentCategory.children is not empty %}
+                                {% if currentCategory and currentCategory.children is not empty and not hideChildren %}
                                 {# Показать дочерние категории #}
                             {% else %}
                                 <div>
