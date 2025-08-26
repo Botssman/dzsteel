@@ -3,7 +3,7 @@
 								{% for item in block.add_category_prod_serv %}
 								<a data-w-tab="Tab {{ loop.index }}" data-test="" class="b-tabs__link{% if loop.index == 1 %}{% else %} _{{ loop.index }}{% endif %} b-tabs__link_inside w-inline-block w-tab-link w--current">
 									<div class="text-block">
-										{{ item.name_category_serv }}
+										{{ item.name_category_serv|raw }}
 									</div>
 								</a>
 								{% endfor %}
