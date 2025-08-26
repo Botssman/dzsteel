@@ -1,11 +1,9 @@
-{% if category.children.isEmpty() %}
-    {# Это конечная категория - показываем товары #}
+{% if category.children is empty %}
+    {# Это последняя (конечная) категория - показываем товары #}
     {% for product in products %}
         {% partial "catalog-elements/catalog-product" %}
     {% endfor %}
 {% else %}
-    {# Это родительская категория - показываем подкатегории #}
-    {% for child in category.children %}
-        {% partial "catalog-elements/category-card" %}
-    {% endfor %}
+    {# Это не последняя категория - не показываем товары #}
+    <p>В этой категории нет товаров. Выберите подкатегорию.</p>
 {% endif %}
