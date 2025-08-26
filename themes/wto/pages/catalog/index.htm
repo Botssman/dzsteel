@@ -23,8 +23,10 @@ layout="default"
                       class="b-catalog b-catalog_cat">
                         {% partial 'site/sidebar' %}
                     <div class="right-content right-content_cat">
-                        {% partial 'catalog-elements/catalog-category' %}
                         <div>
+                            {% partial 'catalog-elements/catalog-category' %}
+                            {% if currentCategory.children is not empty %}
+                            {% else %}
                             <div class="b-sort mob_hide">
                                 <div class="b-form__form b-form__form_cat_sort">
                                     <form data-name="Форма" id="email-form" name="email-form" method="get" wp_filter_form="product" class="b-form__form b-form__form_cat_sort" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="aba434b8-d655-c427-8c7c-8d003fc2c5a8">
@@ -44,6 +46,7 @@ layout="default"
                                     </form>
                                 </div>
                             </div>
+                            {% endif %}
                             <div>
                                 {% if input('search') %}
                                     <div style="display:flex; justify-content: space-between; align-items: center">
