@@ -1,7 +1,7 @@
 <div class="left-content left-content_cat">
 	<div class="h-wrap pc_hide">
-		<a data-w-id="82b340cb-56a5-3046-b9bc-e93390e116b4" href="#" class="b-button v-12 w-button">
-			ВЫБРАТЬ КАТЕГОРИЮ
+		<a id="filter" data-w-id="82b340cb-56a5-3046-b9bc-e93390e116b4" href="#" class="b-button v-12 w-button">
+			Фильтры
 		</a>
 	</div>
 	<div class="b-sidebar">
@@ -28,7 +28,7 @@
                     {% if currentCategory.children is not empty %}
                     {% else %}
 	                    {% if currentCategory %}
-                            <div class="filters" style="display:flex;flex-direction:column; gap:30px; margin-top:30px;">
+                            <div class="filters">
                                 <div>Уточните поиск при помощи фильтров</div>
                                 {% for property in currentCategory.properties().forFilters().get() %}
                                     <div class="filters-block" style="background:#fff; padding: 10px; border-radius:10px;">
@@ -60,3 +60,41 @@
                         {% endif %}
                     {% endif %}
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Получаем элементы
+        const filterButton = document.getElementById('filter');
+        const filters = document.querySelector('.filters');
+        
+        // Проверяем, существуют ли элементы на странице
+        if (filterButton && filters) {
+            // Добавляем обработчик клика на кнопку
+            filterButton.addEventListener('click', function() {
+                // Переключаем класс active у фильтров
+                filters.classList.toggle('active');
+                
+                // Меняем текст кнопки в зависимости от состояния
+                if (filters.classList.contains('active')) {
+                    filterButton.textContent = 'Скрыть фильтры';
+                } else {
+                    filterButton.textContent = 'Показать фильтры';
+                }
+            });
+            
+            // Закрываем фильтры при клике вне области
+            document.addEventListener('click', function(event) {
+                if (!filters.contains(event.target) && 
+                    event.target !== filterButton && 
+                    filters.classList.contains('active')) {
+                    filters.classList.remove('active');
+                    filterButton.textContent = 'Показать фильтры';
+                }
+            });
+            
+            // Предотвращаем закрытие при клике внутри фильтров
+            filters.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+    });
+</script>
