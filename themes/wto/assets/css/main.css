@@ -6636,7 +6636,6 @@ body {
   .b-category-grid {
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 140px;
   }
 
   .b-category-grid.b-category-grid_block, .b-category-grid.b-category_serv-grid_block, .b-category-grid.b-category_blog-grid_block {
@@ -8144,7 +8143,6 @@ body {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-rows: auto;
-    margin-bottom: 100px;
   }
 
   .b-category-box {
