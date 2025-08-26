@@ -250,5 +250,7 @@ b-product-card {
     .filters {
         display: none;
     }
-
+    .mob_hide {
+        display: none!important;
+    }
     }
