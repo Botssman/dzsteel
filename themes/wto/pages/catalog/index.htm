@@ -60,10 +60,7 @@ layout="default"
                                 <div class="b-catalog-grid" id="listing">
                                     {% partial 'ajax/listing-catalog' %}
                                 </div>
-                                {% if currentCategory.children is not empty %}
-                                {% else %}
                                 {% partial 'ajax/listing-catalog-count-paginate' %}
-                                {% endif %}
                             </div>
                         </div>
                     </div>
