@@ -1,9 +1,19 @@
-{% if category.children is empty %}
-    {# Это последняя (конечная) категория - показываем товары #}
+{% if category.is_leaf %}
+    {# Проверка через свойство is_leaf (если оно есть в модели) #}
+    {% for product in products %}
+        {% partial "catalog-elements/catalog-product" %}
+    {% endfor %}
+{% elseif category.children.count() == 0 %}
+    {# Альтернативная проверка #}
     {% for product in products %}
         {% partial "catalog-elements/catalog-product" %}
     {% endfor %}
 {% else %}
-    {# Это не последняя категория - не показываем товары #}
-    <p>В этой категории нет товаров. Выберите подкатегорию.</p>
+    {# Показываем подкатегории вместо товаров #}
+    <div class="subcategories">
+        <h3>Подкатегории:</h3>
+        {% for child in category.children %}
+            <a href="{{ child.url }}">{{ child.name }}</a>
+        {% endfor %}
+    </div>
 {% endif %}
