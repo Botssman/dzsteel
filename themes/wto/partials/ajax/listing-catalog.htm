@@ -1,3 +1,6 @@
-
-	{% for product in products %}{% partial "catalog-elements/catalog-product" %}{% endfor %}
+{% if currentCategory.children is not empty %}
+# Значит категория не конечная
+{% else %}
+{% for product in products %}{% partial "catalog-elements/catalog-product" %}{% endfor %}
+{% endif %}
 
