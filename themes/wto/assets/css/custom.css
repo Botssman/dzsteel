@@ -247,4 +247,8 @@ b-product-card {
         width: 100%;
         position: relative;
       }
-}
+    .filters {
+        display: none;
+    }
+
+    }
