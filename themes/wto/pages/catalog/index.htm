@@ -54,6 +54,8 @@ layout="default"
                                         <a href="{{ 'catalog/index' | page({category: currentCategory.slug}) }}">Сбросить</a>
                                     </div>
                                 {% endif %}
+                                {% if currentCategory.children is not empty %}
+                                {% else %}
                                 <div>
                                     <div class="b-catalog-grid" id="listing">
                                         {% partial 'ajax/listing-catalog' %}
@@ -61,6 +63,7 @@ layout="default"
                                     {# {% partial 'ajax/listing-catalog' %} #}
                                     {% partial 'ajax/listing-catalog-count' %}
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
