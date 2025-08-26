@@ -7044,7 +7044,6 @@ body {
 
   .b-catalog.b-catalog_cat {
     position: relative;
-    top: -69px;
   }
 
   .left-content {
@@ -7991,10 +7990,6 @@ body {
   .b-catalog {
     position: relative;
     top: -72px;
-  }
-
-  .b-catalog.b-catalog_cat {
-    top: -80px;
   }
 
   .left-content {
