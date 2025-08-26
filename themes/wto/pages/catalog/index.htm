@@ -54,8 +54,12 @@ layout="default"
                                         <a href="{{ 'catalog/index' | page({category: currentCategory.slug}) }}">Сбросить</a>
                                     </div>
                                 {% endif %}
-                                <div class="b-catalog-grid" id="listing">
-                                    {% partial 'ajax/listing-catalog' %}
+                                <div>
+                                    <div class="b-catalog-grid" id="listing">
+                                        {% partial 'ajax/listing-catalog' %}
+                                    </div>
+                                    {# {% partial 'ajax/listing-catalog' %} #}
+                                    {% partial 'ajax/listing-catalog-count' %}
                                 </div>
                                 {% partial 'ajax/listing-catalog-count-paginate' %}
                             </div>
