@@ -144,3 +144,45 @@ $(document).ajaxComplete(function() {
   handleModal();
 });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterElement = document.querySelector('.h-wrap.pc_hide');
+        const currentUrl = window.location.href;
+        const baseCatalogUrl = 'https://dzsteel.ru/catalog';
+        
+        if (filterElement) {
+            // Проверяем, является ли URL точно базовым каталогом
+            if (currentUrl === baseCatalogUrl || 
+                currentUrl === baseCatalogUrl + '/' ||
+                currentUrl.startsWith(baseCatalogUrl + '?')) {
+                // Скрываем блок на главной странице каталога
+                filterElement.style.display = 'none';
+            } 
+            // Проверяем вложенность (наличие дополнительных сегментов после /catalog/)
+            else if (currentUrl.startsWith(baseCatalogUrl + '/') && 
+                     currentUrl !== baseCatalogUrl + '/') {
+                // Показываем блок на вложенных страницах
+                filterElement.style.display = 'block';
+            }
+        }
+    });
+    
+    // Обработка изменений URL при AJAX-навигации
+    window.addEventListener('popstate', function() {
+        const filterElement = document.querySelector('.h-wrap.pc_hide');
+        const currentUrl = window.location.href;
+        const baseCatalogUrl = 'https://dzsteel.ru/catalog';
+        
+        if (filterElement) {
+            if (currentUrl === baseCatalogUrl || 
+                currentUrl === baseCatalogUrl + '/' ||
+                currentUrl.startsWith(baseCatalogUrl + '?')) {
+                filterElement.style.display = 'none';
+            } 
+            else if (currentUrl.startsWith(baseCatalogUrl + '/') && 
+                     currentUrl !== baseCatalogUrl + '/') {
+                filterElement.style.display = 'block';
+            }
+        }
+    });
+    </script>
