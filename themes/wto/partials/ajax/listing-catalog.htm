@@ -1,3 +1,11 @@
-
-	{% for product in products %}{% partial "catalog-elements/catalog-product" %}{% endfor %}
-
+{% if category.children.isEmpty() %}
+    {# Это конечная категория - показываем товары #}
+    {% for product in products %}
+        {% partial "catalog-elements/catalog-product" %}
+    {% endfor %}
+{% else %}
+    {# Это родительская категория - показываем подкатегории #}
+    {% for child in category.children %}
+        {% partial "catalog-elements/category-card" %}
+    {% endfor %}
+{% endif %}
