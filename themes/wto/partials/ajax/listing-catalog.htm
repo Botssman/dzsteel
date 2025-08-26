@@ -1,24 +1,3 @@
-{# Проверяем, есть ли товары И это конечная категория #}
-{% if products|length > 0 and category.children is empty %}
-    <div class="products-list">
-        {% for product in products %}
-            {% partial "catalog-elements/catalog-product" %}
-        {% endfor %}
-    </div>
-{% elseif category.children is not empty %}
-    <div class="subcategories">
-        <h3>Выберите подкатегорию:</h3>
-        <div class="row">
-            {% for child in category.children %}
-                <div class="col-md-4">
-                    <a href="{{ child.url }}" class="category-card">
-                        <img src="{{ child.image }}" alt="{{ child.name }}">
-                        <h4>{{ child.name }}</h4>
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-{% else %}
-    <p>В этой категории пока нет товаров.</p>
-{% endif %}
+
+	{% for product in products %}{% partial "catalog-elements/catalog-product" %}{% endfor %}
+
