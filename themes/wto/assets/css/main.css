@@ -6509,7 +6509,6 @@ body {
 
   .right-content.right-content_cat {
     position: relative;
-    top: 42px;
   }
 
   .b-catalog-grid {
@@ -7998,7 +7997,7 @@ body {
   }
 
   .left-content.left-content_cat {
-    top: -14px;
+    top: 0;
   }
 
   .right-content {
