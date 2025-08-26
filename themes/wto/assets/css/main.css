@@ -3258,7 +3258,7 @@ body {
 }
 
 .b-columns.b-columns_grid {
-  grid-column-gap: 1 rem;
+  grid-column-gap: 1rem;
   grid-row-gap: 0px;
   grid-template-rows: auto;
   grid-template-columns: 1.05fr .95fr 1fr 1fr;
