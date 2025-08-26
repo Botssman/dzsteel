@@ -24,10 +24,10 @@ layout="default"
                         {% partial 'site/sidebar' %}
                     <div class="right-content right-content_cat">
                         {% partial 'catalog-elements/catalog-category' %}
-                        {% endif %}
-                        {% if currentCategory.children is not empty %}
-                        {% else %}
                         <div>
+                            {% endif %}
+                            {% if currentCategory.children is not empty %}
+                            {% else %}
                             <div class="b-sort mob_hide">
                                 <div class="b-form__form b-form__form_cat_sort">
                                     <form data-name="Форма" id="email-form" name="email-form" method="get" wp_filter_form="product" class="b-form__form b-form__form_cat_sort" data-wf-page-id="665610e4d965136f27263848" data-wf-element-id="aba434b8-d655-c427-8c7c-8d003fc2c5a8">
@@ -47,6 +47,7 @@ layout="default"
                                     </form>
                                 </div>
                             </div>
+                            {% endif %}
                             <div>
                                 {% if input('search') %}
                                     <div style="display:flex; justify-content: space-between; align-items: center">
@@ -56,6 +57,9 @@ layout="default"
 
                                         <a href="{{ 'catalog/index' | page({category: currentCategory.slug}) }}">Сбросить</a>
                                     </div>
+                                {% endif %}
+                                {% if currentCategory.children is not empty %}
+                                {% else %}
                                 <div>
                                     <div class="b-catalog-grid" id="listing">
                                         {% partial 'ajax/listing-catalog' %}
@@ -63,9 +67,9 @@ layout="default"
                                     {# {% partial 'ajax/listing-catalog' %} #}
                                     {% partial 'ajax/listing-catalog-count' %}
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
-                        {% endif %}
                     </div>
                 </form>
             </div>
