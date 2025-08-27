@@ -3138,10 +3138,6 @@ body {
   font-weight: 400;
 }
 
-.b-button.v-14 {
-  width: 230px;
-}
-
 .b-button.b-button_w_100 {
   max-width: none;
 }
@@ -3759,7 +3755,7 @@ body {
 .b-image.b-image_tab_manager {
   z-index: 1000;
   border: 3px solid var(--bronze);
-  border-radius: 120px;
+  border-radius: 100%;
   width: 21em;
   height: 21em;
   margin-left: 2em;
