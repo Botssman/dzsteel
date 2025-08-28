@@ -857,6 +857,10 @@ textarea.w-input, textarea.w-select {
 }
 
 @media screen and (max-width: 767px) {
+
+  .b-button {
+    font-size: 1.5em;
+  }
   .w-hidden-main, .w-hidden-medium {
     display: inherit !important;
   }
